@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="Portfolio de Nicolas Marie Angelique - Designer. Projets, À Propos et Contact.">
     
     <meta property="og:type" content="website">
@@ -21,8 +21,8 @@
     <style>
         :root {
             --bg-color: #ffffff;
-            --grid-color: #f5f5f575; 
-            --grid-angle: -5deg; /* Ajuste l'angle ici */
+            --grid-color: #fafafa; 
+            --grid-angle: -10deg;
             --text-color: #000000;
             --highlight-color: #888888;
             --blue-color: #388BFF;
@@ -30,26 +30,27 @@
             --menu-z: 1000;
         }
 
-        * {
+        /* Reset propre pour le défilement mobile */
+        html, body {
+            width: 100%;
+            height: 100%;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter Tight', sans-serif;
+            overflow-x: hidden;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             min-height: 100vh;
-            width: 100vw;
-            overflow-x: hidden;
-            overflow-y: auto;
             position: relative;
+            font-family: 'Inter Tight', sans-serif;
             -webkit-font-smoothing: antialiased;
+            /* Optimisation du scroll momentum sur mobile */
+            -webkit-overflow-scrolling: touch;
         }
 
         /* --- QUADRILLAGE INCLINÉ --- */
-        /* Placé tout au fond (z-index -2) */
         body::before {
             content: "";
             position: fixed;
@@ -65,20 +66,28 @@
             background-position: 0 0, 20px 20px;
             transform: rotate(var(--grid-angle));
             pointer-events: none;
+            /* Empêche le quadrillage de provoquer des saccades au scroll */
+            will-change: transform;
         }
 
-        /* --- STICKERS (Couche au-dessus du logo mais sous le menu) --- */
+        /* --- STICKERS --- */
         .stickers-container {
             position: fixed; 
             inset: 0; 
             pointer-events: none; 
-            z-index: 10; /* Assez haut pour être devant le logo */
+            z-index: 10; 
             overflow: hidden;
         }
         .sticker {
-            position: absolute; width: 100px; height: 100px; background-size: contain;
-            background-repeat: no-repeat; background-position: center; opacity: 0;
-            transform: scale(0.2); will-change: transform, opacity;
+            position: absolute; 
+            width: 100px; 
+            height: 100px; 
+            background-size: contain;
+            background-repeat: no-repeat; 
+            background-position: center; 
+            opacity: 0;
+            transform: scale(0.2); 
+            will-change: transform, opacity;
         }
         
         .sticker.pop-in { animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
@@ -103,62 +112,62 @@
 
         /* --- BOUTON MENU --- */
         .menu-btn {
-            position: fixed; top: 30px; right: 30px; z-index: calc(var(--menu-z) + 1); cursor: pointer;
-            width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
-            background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
-            border-radius: 50%; border: none; color: var(--text-color);
-            transition: transform 0.3s;
+            position: fixed; top: 20px; right: 20px; z-index: calc(var(--menu-z) + 1); cursor: pointer;
+            width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+            background-color: rgba(255, 255, 255, 0.6); backdrop-filter: blur(10px);
+            border-radius: 50%; border: 1px solid rgba(0,0,0,0.05); color: var(--text-color);
+            transition: transform 0.3s, background-color 0.3s;
+            /* Taille de cible tactile optimisée */
+            touch-action: manipulation;
         }
-        .menu-btn:hover { transform: scale(1.1); background-color: rgba(0,0,0,0.05); }
-        .menu-btn .material-symbols-outlined { font-size: 30px; }
+        .menu-btn:hover { background-color: rgba(255, 255, 255, 0.9); }
+        .menu-btn .material-symbols-outlined { font-size: 28px; }
 
         /* --- MENU CAPSULE --- */
         .nav-capsule {
-            position: fixed; top: 90px; right: 30px; width: 260px;
-            background-color: rgba(255, 255, 255, 0.3); backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 24px; padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); z-index: var(--menu-z);
+            position: fixed; top: 80px; right: 20px; width: 260px;
+            background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 24px; padding: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); z-index: var(--menu-z);
             opacity: 0; visibility: hidden; transform: translateY(-10px) scale(0.95);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .nav-capsule.active { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
-        .capsule-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .capsule-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
         .capsule-link {
             display: flex; justify-content: space-between; align-items: center; width: 100%;
-            text-decoration: none; color: var(--text-color); font-size: 1.1rem; font-weight: 500;
-            padding: 10px 15px; border-radius: 12px; transition: background 0.2s; cursor: pointer;
+            text-decoration: none; color: var(--text-color); font-size: 1.05rem; font-weight: 500;
+            padding: 12px 15px; border-radius: 12px; transition: background 0.2s; cursor: pointer;
             background: none; border: none; text-align: left;
         }
-        .capsule-link:hover { background-color: rgba(255,255,255,0.5); color: var(--blue-color); }
+        .capsule-link:hover { background-color: rgba(255, 255, 255, 0.5); color: var(--blue-color); }
         .chevron { font-size: 1.2rem; transition: transform 0.3s; }
         .project-trigger[aria-expanded="true"] .chevron { transform: rotate(180deg); }
-        .submenu { list-style: none; margin-left: 15px; max-height: 0; overflow: hidden; transition: max-height 0.4s; }
-        .submenu.open { max-height: 200px; margin-top: 5px; margin-bottom: 5px; }
-        .submenu li a { display: block; text-decoration: none; color: #666; font-size: 0.95rem; padding: 8px 15px; transition: color 0.2s; }
-        .submenu li a:hover { color: var(--blue-color); transform: translateX(5px); }
-        .submenu .all-projects { font-weight: 600; color: var(--text-color); font-size: 0.85rem; margin-top: 5px; text-transform: uppercase; }
+        .submenu { list-style: none; margin-left: 10px; max-height: 0; overflow: hidden; transition: max-height 0.4s; }
+        .submenu.open { max-height: 300px; margin-top: 5px; margin-bottom: 5px; }
+        .submenu li a { display: block; text-decoration: none; color: #666; font-size: 0.95rem; padding: 10px 15px; }
 
         /* --- HERO SECTION --- */
         .hero-section {
             width: 100%; 
-            height: 90vh; 
+            height: 100vh; 
             display: flex; flex-direction: column;
             justify-content: center; align-items: center; 
             position: relative; 
-            z-index: 1; /* Sous les stickers */
+            z-index: 1;
         }
         .logo-container { 
-            width: 80%; 
+            width: 85%; 
             max-width: 450px; 
             pointer-events: none; 
         }
         .logo-svg { width: 100%; height: auto; display: block; }
 
         @media (max-width: 600px) {
-            .nav-capsule { right: 20px; width: calc(100% - 40px); }
-            .menu-btn { top: 20px; right: 20px; }
-            .hero-section { height: 90vh; }
-            .logo-container { width: 75%; max-width: 350px; }
+            .nav-capsule { right: 10px; left: 10px; width: auto; }
+            .hero-section { height: 100vh; }
+            .logo-container { width: 80%; }
+            .menu-btn { top: 15px; right: 15px; }
         }
     </style>
 </head>
@@ -182,7 +191,7 @@
                     <li><a href="enjoytheride.html">Enjoy The Ride</a></li>
                     <li><a href="trinityringcartier.html">Cartier Trinity Ring</a></li>
                     <li><a href="cgivisual.html">CGI Visual</a></li>
-                    <li><a href="project.html" class="all-projects">Voir tout →</a></li>
+                    <li><a href="project.html" style="font-weight: 600; text-transform: uppercase; font-size: 0.8rem;">Voir tout →</a></li>
                 </ul>
             </li>
             <li><a href="about.html" class="capsule-link">À Propos</a></li>
@@ -192,6 +201,7 @@
 
     <header class="hero-section">
         <div class="logo-container">
+            <!-- SVG du logo original -->
             <svg class="logo-svg" viewBox="0 0 1286 641" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M144 0H1142V229H144V0Z" fill="#0045A6"/>
                 <path d="M288 208H998V431H288V208Z" fill="#0045A6"/>
@@ -222,7 +232,7 @@
     </header>
 
     <script>
-    // --- MENU ---
+    // --- GESTION DU MENU ---
     const menuBtn = document.getElementById('menuBtn');
     const navCapsule = document.getElementById('navCapsule');
     const menuIcon = document.getElementById('menuIcon');
@@ -236,11 +246,11 @@
         if (isMenuOpen) {
             navCapsule.classList.add('active');
             menuIcon.textContent = 'close';
-            menuBtn.style.backgroundColor = 'rgba(0,0,0,0.1)';
+            menuBtn.style.backgroundColor = 'rgba(0,0,0,0.05)';
         } else {
             navCapsule.classList.remove('active');
             menuIcon.textContent = 'menu';
-            menuBtn.style.backgroundColor = 'rgba(255,255,255,0.1)';
+            menuBtn.style.backgroundColor = 'rgba(255,255,255,0.6)';
             closeProjects();
         }
     }
@@ -273,8 +283,8 @@
         stickers: ["sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png", "sticker5.png"],
         maxStickers: 100, 
         displayTime: 60000, 
-        stickerSize: { min: 60, max: 200 }, 
-        randomPositionMargin: 60,
+        stickerSize: { min: 60, max: 180 }, 
+        randomPositionMargin: 40,
         animations: ["pop-in", "zoom-in", "spin-in"]
     };
 
