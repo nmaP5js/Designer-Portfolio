@@ -9,7 +9,7 @@
     <meta property="og:url" content="https://nicolasmarieangelique.fr/">
     <meta property="og:title" content="Nicolas Marie Angelique - Designer UI/UX & 3D">
     <meta property="og:description" content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
-    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/aperçu_img.png">
+    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/aperçu_img.png">
     
     <title>Nicolas Marie Angelique - Accueil</title>
     
@@ -21,6 +21,8 @@
     <style>
         :root {
             --bg-color: #ffffff;
+            --grid-color: #f5f5f575; 
+            --grid-angle: -5deg; /* Ajuste l'angle ici */
             --text-color: #000000;
             --highlight-color: #888888;
             --blue-color: #388BFF;
@@ -46,16 +48,39 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- STICKERS (Arrière plan) --- */
+        /* --- QUADRILLAGE INCLINÉ --- */
+        /* Placé tout au fond (z-index -2) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            z-index: -2; 
+            background-image: 
+                linear-gradient(45deg, var(--grid-color) 25%, transparent 25%, transparent 75%, var(--grid-color) 75%, var(--grid-color)), 
+                linear-gradient(45deg, var(--grid-color) 25%, transparent 25%, transparent 75%, var(--grid-color) 75%, var(--grid-color));
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            transform: rotate(var(--grid-angle));
+            pointer-events: none;
+        }
+
+        /* --- STICKERS (Couche au-dessus du logo mais sous le menu) --- */
         .stickers-container {
-            position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden;
+            position: fixed; 
+            inset: 0; 
+            pointer-events: none; 
+            z-index: 10; /* Assez haut pour être devant le logo */
+            overflow: hidden;
         }
         .sticker {
             position: absolute; width: 100px; height: 100px; background-size: contain;
             background-repeat: no-repeat; background-position: center; opacity: 0;
             transform: scale(0.2); will-change: transform, opacity;
         }
-        /* Animations identiques aux autres pages */
+        
         .sticker.pop-in { animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
         .sticker.zoom-in { animation: zoomIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
         .sticker.spin-in { animation: spinIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
@@ -118,126 +143,26 @@
             width: 100%; 
             height: 90vh; 
             display: flex; flex-direction: column;
-            justify-content: center; align-items: center; position: relative; z-index: 0;
+            justify-content: center; align-items: center; 
+            position: relative; 
+            z-index: 1; /* Sous les stickers */
         }
         .logo-container { 
             width: 80%; 
             max-width: 450px; 
             pointer-events: none; 
         }
-        .logo-svg { width: 100%; height: auto; }
+        .logo-svg { width: 100%; height: auto; display: block; }
 
-        /* --- TABLEAU LISTE PROJETS --- */
-        .project-list-section {
-            width: 100%;
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 0 40px 150px 40px;
-            position: relative;
-            z-index: 2;
+        @media (max-width: 600px) {
+            .nav-capsule { right: 20px; width: calc(100% - 40px); }
+            .menu-btn { top: 20px; right: 20px; }
+            .hero-section { height: 90vh; }
+            .logo-container { width: 75%; max-width: 350px; }
         }
-
-        .list-header {
-            display: grid;
-            grid-template-columns: 2fr 1.5fr 0.5fr; 
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--text-color);
-            margin-bottom: 0;
-        }
-
-        .col-header {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--highlight-color);
-            font-weight: 600;
-        }
-
-        .project-row {
-            display: grid;
-            grid-template-columns: 2fr 1.5fr 0.5fr;
-            padding: 35px 0;
-            border-bottom: 1px solid var(--line-color);
-            text-decoration: none;
-            color: var(--text-color);
-            transition: border-color 0.3s ease;
-            position: relative;
-            align-items: baseline;
-            cursor: pointer;
-        }
-
-        .project-row:hover {
-            border-bottom: 1px solid var(--blue-color);
-        }
-
-        .p-title {
-            font-size: 2.5rem;
-            font-weight: 500;
-            margin: 0;
-            line-height: 1;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .p-role {
-            font-size: 1.1rem;
-            color: var(--highlight-color);
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-
-        .p-year {
-            font-size: 1.1rem;
-            text-align: right;
-            font-feature-settings: "tnum" on, "lnum" on;
-        }
-
-        .project-row:hover .p-title { color: var(--blue-color); transform: translateX(10px); }
-        .project-row:hover .p-role { color: var(--text-color); }
-
-        /* --- PREVIEW FLOTTANTE --- */
-        .cursor-preview {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 300px;
-            height: 200px;
-            z-index: 500;
-            pointer-events: none;
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0.8);
-            transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-
-        .cursor-preview.active {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .cursor-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* --- RESPONSIVE MOBILE --- */
-    @media (max-width: 600px) {
-        .nav-capsule { right: 20px; width: calc(100% - 40px); }
-        .menu-btn { top: 20px; right: 20px; }
-        .hero-section { height: 90vh; }
-        .logo-container { width: 75%; max-width: 350px; }
-        .project-list-section { padding: 0 20px 100px 20px; }
-    }
     </style>
 </head>
 <body>
-
-    <div class="cursor-preview" id="cursorPreview">
-        <img src="" alt="Preview" id="previewImage">
-    </div>
 
     <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
 
@@ -295,65 +220,7 @@
             </svg>
         </div>
     </header>
-<!--
-    <section class="project-list-section">
-        
-        <div class="list-header">
-            <span class="col-header">Projet</span>
-            <span class="col-header">Expertise</span>
-            <span class="col-header" style="text-align: right;">Année</span>
-        </div>
 
-        <a href="imageia.html" class="project-row" data-image="./images/iapreview.webp">
-            <span class="p-title">Image Gen IA</span>
-            <span class="p-role">Expérience IA</span>
-            <span class="p-year">2024</span>
-        </a>
-
-        <a href="data_viz.html" class="project-row" data-image="./images/dataviz.webp">
-            <span class="p-title">DATA_VIZ</span>
-            <span class="p-role">Data Visualisation</span>
-            <span class="p-year">2024</span>
-        </a>
-
-        <a href="trinityringcartier.html" class="project-row" data-image="./gif/CleanShot May 5 2025 GIF from ezgif.gif">
-            <span class="p-title">Trinity Ring</span>
-            <span class="p-role">Publicité / 3D</span>
-            <span class="p-year">2024</span>
-        </a>
-
-        <a href="ptitchef.html" class="project-row" data-image="./images/miw.webp">
-            <span class="p-title">Made In Work</span>
-            <span class="p-role">Branding / Web</span>
-            <span class="p-year">2024</span>
-        </a>
-
-        <a href="budl.html" class="project-row" data-image="./images/budl1.webp">
-            <span class="p-title">BUDL</span>
-            <span class="p-role">Design de service</span>
-            <span class="p-year">2023</span>
-        </a>
-
-        <a href="enjoytheride.html" class="project-row" data-image="./gif/LOGOSPIN.gif">
-            <span class="p-title">Enjoy The Ride</span>
-            <span class="p-role">Branding / UI-UX</span>
-            <span class="p-year">2023</span>
-        </a>
-
-        <a href="cltwinter.html" class="project-row" data-image="./images/cal2022.webp">
-            <span class="p-title">CLT Winter Calendar</span>
-            <span class="p-role">Direction Artistique</span>
-            <span class="p-year">2023</span>
-        </a>
-
-        <a href="cgivisual.html" class="project-row" data-image="./images/nox1.webp">
-            <span class="p-title">CGI Visual</span>
-            <span class="p-role">Motion / 3D</span>
-            <span class="p-year">2023</span>
-        </a>
-
-    </section>
--->
     <script>
     // --- MENU ---
     const menuBtn = document.getElementById('menuBtn');
@@ -400,35 +267,7 @@
     projectBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleProjects(e); });
     document.addEventListener('click', (e) => { if (isMenuOpen && !navCapsule.contains(e.target)) toggleMenu(); });
 
-    // --- CURSOR PREVIEW LOGIC ---
-    const cursorPreview = document.getElementById('cursorPreview');
-    const previewImage = document.getElementById('previewImage');
-    const projectRows = document.querySelectorAll('.project-row');
-
-    // Suivi de la souris
-    document.addEventListener('mousemove', (e) => {
-        // Preview Image (avec un petit délai pour la fluidité)
-        // On centre l'image sur le curseur
-        cursorPreview.style.left = e.clientX + 'px';
-        cursorPreview.style.top = e.clientY + 'px';
-    });
-
-    // Affichage au survol des lignes
-    projectRows.forEach(row => {
-        row.addEventListener('mouseenter', () => {
-            const imgUrl = row.getAttribute('data-image');
-            if (imgUrl) {
-                previewImage.src = imgUrl;
-                cursorPreview.classList.add('active');
-            }
-        });
-
-        row.addEventListener('mouseleave', () => {
-            cursorPreview.classList.remove('active');
-        });
-    });
-
-    // --- STICKERS BACKGROUND (Restored complex logic) ---
+    // --- STICKERS BACKGROUND ---
     const stickerConfig = {
         basePath: "stickers/", 
         stickers: ["sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png", "sticker5.png"],
@@ -447,7 +286,6 @@
     }
 
     function getRandomPosition() {
-        // Utilisation de scrollWidth/Height pour couvrir toute la page même si on scroll
         const w = document.documentElement.scrollWidth;
         const h = document.documentElement.scrollHeight;
         const margin = stickerConfig.randomPositionMargin;
@@ -470,7 +308,6 @@
         sticker.className = `sticker ${animationClass}`;
         sticker.style.backgroundImage = `url('${stickerConfig.basePath + stickerConfig.stickers[randomStickerIndex]}')`;
         
-        // Position absolue tenant compte du scroll si clic manuel
         let posX = isRandom ? x : (x + window.pageXOffset);
         let posY = isRandom ? y : (y + window.pageYOffset);
 
@@ -512,13 +349,11 @@
     }
 
     document.addEventListener('click', (e) => {
-        // Empêche de créer des stickers si on clique sur un lien ou le menu
-        if (e.target.closest('button, a, .nav-capsule, .work-card, .project-row')) return;
+        if (e.target.closest('button, a, .nav-capsule')) return;
         createThreeStickers(e.clientX, e.clientY);
     });
 
     window.addEventListener('load', () => {
-        // Stickers initiaux aléatoires sur toute la hauteur
         for (let i = 0; i < 3; i++) {
             const p = getRandomPosition();
             createSticker(p.x, p.y, true, i * 200);
