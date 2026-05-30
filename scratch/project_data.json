@@ -1,0 +1,314 @@
+{
+  "imageia.html": {
+    "title": "Image Gen IA",
+    "subtitle": "AI Research / Exploration",
+    "tags": [
+      "AI Exploration",
+      "Texturing",
+      "Prompt Design"
+    ],
+    "description": "Une exploration visuelle générée par intelligence artificielle. Cette collection met en avant l'utilisation de prompts et une combinaison d'image pour créer des textures, des compositions et des éclairages photoréalistes.",
+    "meta": {
+      "Projet": "Recherche personnelle",
+      "Année": "2023",
+      "Outil": "Midjourney / Stable Diffusion",
+      "Rôle": "Prompt Engineer"
+    },
+    "images": [
+      {
+        "src": "images/ia1.webp",
+        "alt": "IA Art 1"
+      },
+      {
+        "src": "images/ia2.webp",
+        "alt": "IA Art 2"
+      },
+      {
+        "src": "images/ia3.webp",
+        "alt": "IA Art 3"
+      },
+      {
+        "src": "images/ia4.webp",
+        "alt": "IA Art 4"
+      }
+    ]
+  },
+  "data_viz.html": {
+    "title": "DATA_VIZ",
+    "subtitle": "Smartphone & fabrication",
+    "tags": [
+      "Environnement",
+      "Recherche Quant/Qual",
+      "Datavisualisation"
+    ],
+    "description": "Cette data visualisation permet de mettre en comparaison l'empreinte carbone d'un smartphone avec celle d'un jean, d'un repas avec du poulet et d'un vol Paris-Marseille en avion. Pour ce workshop nous nous sommes inspirés du comparateur de l'ademe.",
+    "meta": {
+      "Lieu": "Lycée Magendie, Bordeaux",
+      "Année": "2024",
+      "Durée": "1 semaine",
+      "Rôle": "Designer"
+    },
+    "images": [
+      {
+        "src": "./images/dataviz.webp",
+        "alt": "Vue d'ensemble de la Data Visualisation sur l'empreinte carbone"
+      },
+      {
+        "src": "./images/dataviz2.webp",
+        "alt": "Détail des comparaisons graphiques"
+      }
+    ]
+  },
+  "trinityringcartier.html": {
+    "title": "Trinity Ring",
+    "subtitle": "Publicité alternative pour Cartier",
+    "tags": [
+      "CGI Designer",
+      "Identité Visuelle",
+      "Animation 3D",
+      "Blender",
+      "Publicité"
+    ],
+    "description": "Ce projet personnel de création publicitaire alternative pour Cartier a été réalisé sur Blender. Il met en scène leur produit phare, la “Trinity Ring”, à travers une approche innovante et captivante.",
+    "meta": {
+      "Projet": "Personnel",
+      "Année": "2024",
+      "Durée": "1 mois",
+      "Rôle": "Designer 3D / Monteur"
+    },
+    "images": [
+      {
+        "src": "./gif/CleanShot May 5 2025 GIF from ezgif.gif",
+        "alt": "Animation 3D Trinity Ring"
+      },
+      {
+        "src": "./images/tr1.webp",
+        "alt": "Rendu 3D Trinity Ring détail"
+      },
+      {
+        "src": "./images/tr2.webp",
+        "alt": "Rendu 3D texture métallique"
+      },
+      {
+        "src": "./images/tr3.webp",
+        "alt": "Rendu 3D éclairage studio"
+      },
+      {
+        "src": "./images/tr4.webp",
+        "alt": "Rendu 3D composition"
+      },
+      {
+        "src": "./images/tr5.webp",
+        "alt": "Rendu 3D vue large"
+      },
+      {
+        "src": "./images/tr6.webp",
+        "alt": "Rendu 3D mise en scène"
+      }
+    ]
+  },
+  "ptitchef.html": {
+    "title": "Made In Work",
+    "subtitle": "Branding & Landing page",
+    "tags": [
+      "Design Graphique",
+      "Branding",
+      "Designer UI/UX"
+    ],
+    "description": "Développement de l’identité web et conception de la page de présentation de l’agence où j’ai effectué mon stage. Création d’une identité graphique cohérente, en harmonie avec l’univers de l’entreprise et déclinable sur l’ensemble des supports digitaux.",
+    "meta": {
+      "Client": "MADE IN WORK",
+      "Année": "2024",
+      "Durée": "3 mois",
+      "Rôle": "Graphiste / UI Designer"
+    },
+    "images": [
+      {
+        "src": "./images/miw.webp",
+        "alt": "Présentation du projet Made In Work"
+      },
+      {
+        "src": "./images/miw2.webp",
+        "alt": "Détails de l'identité graphique - Création de l'identité graphique"
+      },
+      {
+        "src": "./images/miw3.webp",
+        "alt": "Aperçu de la Landing page - Création de la landing page"
+      }
+    ]
+  },
+  "budl.html": {
+    "title": "BUDL",
+    "subtitle": "Bibliothèque universitaire des lettres",
+    "tags": [
+      "Design de service",
+      "Design d'espace",
+      "UX Research"
+    ],
+    "description": "Avec une équipe de cinq personnes, nous avons mené pendant 2 mois des recherches et développé des services au sein de la bibliothèque en mobilisant des outils et protocoles d’UX research. Nous avons ensuite présenté nos observations, pistes de réflexion et propositions de solutions au responsable et au représentant de la bibliothèque.\n\nL’objectif était de valoriser un espace public en identifiant des axes d’amélioration à travers des méthodes d’UX research et de collecte de données, afin de formuler une problématique pertinente et d’y apporter une réponse adaptée aux besoins observés.",
+    "meta": {
+      "Client": "Université de Bordeaux",
+      "Année": "2024",
+      "Durée": "2 mois",
+      "Rôle": "Designer de service"
+    },
+    "images": [
+      {
+        "src": "./images/budl1.webp",
+        "alt": "Vue intérieure de la Bibliothèque Universitaire des lettres"
+      },
+      {
+        "src": "./images/budl2.webp",
+        "alt": "Plan de restitution des recherches et propositions de design"
+      }
+    ]
+  },
+  "enjoytheride.html": {
+    "title": "Enjoy The Ride",
+    "subtitle": "Premier festival signé \"C'est La Teuf\"",
+    "tags": [
+      "UI/UX Design",
+      "Design Graphique",
+      "Animation",
+      "Game Design"
+    ],
+    "description": "« ENJOY THE RIDE » a marqué le lancement de son tout premier festival à l’autodrome du Musée National de l’Automobile à Mulhouse.\n\nJ'ai eu le rôle de designer graphique/UI-UX et de game designer au sein d’une équipe pluridisciplinaire afin de concevoir \"Enjoy the Ride\", un jeu pensé comme support promotionnel et appel à l’action pour le festival du même nom. En parallèle, j'ai conçu et animé le logo et autres assets du festival.",
+    "meta": {
+      "Client": "C'est La Teuf",
+      "Année": "2023",
+      "Durée": "4 mois",
+      "Rôle": "Designer Graphique, UI/UX & Game Designer"
+    },
+    "images": [
+      {
+        "src": "./gif/LOGOSPIN.webp",
+        "alt": "Animation du logo Enjoy The Ride"
+      },
+      {
+        "src": "./images/etr5.png",
+        "alt": "Vue d'ensemble du jeu"
+      },
+      {
+        "src": "./images/etr6.png",
+        "alt": "Détail design 3D"
+      },
+      {
+        "src": "./images/etr4.png",
+        "alt": "Eléments de décor"
+      },
+      {
+        "src": "./images/uietr.png",
+        "alt": "Interface Utilisateur"
+      },
+      {
+        "src": "./images/imgetr1.png",
+        "alt": "Gameplay course"
+      },
+      {
+        "src": "./images/etr7.png",
+        "alt": "Immersion jeu"
+      },
+      {
+        "src": "./images/imgetr2.png",
+        "alt": "Ecran de jeu"
+      },
+      {
+        "src": "./images/imgetr3.png",
+        "alt": "Ecran de fin"
+      }
+    ]
+  },
+  "cltwinter.html": {
+    "title": "CLT Winter Calendar",
+    "subtitle": "Campagne de communication",
+    "tags": [
+      "Designer 3D",
+      "Blender",
+      "Animation"
+    ],
+    "description": "Conception d’un calendrier de l’Avent promotionnel pour Instagram décliné en 24 stories vidéo dévoilant chaque jour un lot à gagner. Ce projet vise à engager la communauté à travers une expérience visuelle quotidienne de haute qualité.",
+    "meta": {
+      "Client": "C'est La Teuf",
+      "Année": "2022 & 2023",
+      "Durée": "1 mois",
+      "Rôle": "Designer 3D"
+    },
+    "images": [
+      {
+        "src": "./images/cal2022.webp",
+        "alt": "Visuel principal du CLT Winter Calendar"
+      }
+    ]
+  },
+  "cgivisual.html": {
+    "title": "CGI Visual",
+    "subtitle": "3D & Motion",
+    "tags": [
+      "Design 3D",
+      "Motion Design",
+      "Modélisation",
+      "Rendu"
+    ],
+    "description": "Exploration créative à travers la modélisation 3D et le motion design. Ces projets mettent en lumière la capacité à transformer des concepts abstraits en visuels tangibles et dynamiques, en jouant sur les textures, les lumières et les mouvements pour créer des compositions uniques.",
+    "meta": {
+      "Client": "Personnel / CLT",
+      "Année": "2023",
+      "Durée": "Continu",
+      "Rôle": "Designer 3D"
+    },
+    "images": [
+      {
+        "src": "images/nox2.webp",
+        "alt": "Rendu principal CGI"
+      },
+      {
+        "src": "images/cgi_2.webp",
+        "alt": "Plan large 3D"
+      },
+      {
+        "src": "images/cgi_3.webp",
+        "alt": "Détail texture 3D"
+      },
+      {
+        "src": "images/body3.webp",
+        "alt": "Étude d'éclairage 3D"
+      },
+      {
+        "src": "images/cltface.webp",
+        "alt": "Composition abstraite"
+      },
+      {
+        "src": "images/nox1.webp",
+        "alt": "Composition de lumières"
+      },
+      {
+        "src": "images/cgi_1.webp",
+        "alt": "Plan de mouvement"
+      },
+      {
+        "src": "images/body7.webp",
+        "alt": "Modèle abstrait 3D"
+      },
+      {
+        "src": "images/reebok.webp",
+        "alt": "Étude de chaussure Reebok 3D"
+      },
+      {
+        "src": "images/a3.webp",
+        "alt": "Rendu final"
+      },
+      {
+        "src": "images/filterbunny.webp",
+        "alt": "Abstrait 3D lapin"
+      },
+      {
+        "src": "images/bague.webp",
+        "alt": "Rendu bague Cartier 3D"
+      },
+      {
+        "src": "images/a1.webp",
+        "alt": "Plan de caméra 3D"
+      }
+    ]
+  }
+}

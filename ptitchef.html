@@ -1,773 +1,167 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projet Made In Work - Branding et création de Landing Page par Nicolas Marie Angelique.">
-    <title>Nicolas Marie Angelique - Made In Work</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
-    
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --highlight-color: #888888;
-            --blue-color: #388BFF;
-            --light-gray: #f8f8f8;
-            --menu-z: 1000;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Inter Tight', sans-serif;
-            height: 100vh;
-            width: 100vw;
-            position: relative;
-            overflow: hidden; /* Empêche le scroll global sur desktop */
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* --- BOUTON MENU --- */
-        .menu-btn {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            z-index: calc(var(--menu-z) + 1);
-            cursor: pointer;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.1); 
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 50%;
-            border: none;
-            color: var(--text-color);
-        }
-
-        .menu-btn:hover { transform: scale(1.1); background-color: rgba(0, 0, 0, 0.05); }
-        .menu-btn .material-symbols-outlined { font-size: 28px; }
-
-        /* --- MENU CAPSULE --- */
-        .nav-capsule {
-            position: fixed;
-            top: 90px;
-            right: 30px;
-            width: 260px;
-            background-color: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 24px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            z-index: var(--menu-z);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px) scale(0.95);
-            transform-origin: top right;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .nav-capsule.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0) scale(1);
-        }
-
-        .capsule-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .capsule-link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 1.1rem;
-            font-weight: 500;
-            padding: 10px 15px;
-            border-radius: 12px;
-            transition: background-color 0.2s ease, color 0.2s ease;
-            cursor: pointer;
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-family: 'Inter Tight', sans-serif;
-        }
-
-        .capsule-link:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-            color: var(--blue-color);
-        }
-
-        /* Sous-menu Projets */
-        .chevron {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .project-trigger[aria-expanded="true"] .chevron {
-            transform: rotate(180deg);
-        }
-
-        .submenu {
-            list-style: none;
-            margin-left: 15px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border-left: 2px solid rgba(0,0,0,0.05);
-        }
-
-        .submenu.open {
-            max-height: 200px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-
-        .submenu li a {
-            display: block;
-            text-decoration: none;
-            color: #666;
-            font-size: 0.95rem;
-            padding: 8px 15px;
-            transition: color 0.2s ease, transform 0.2s ease;
-        }
-
-        .submenu li a:hover {
-            color: var(--blue-color);
-            transform: translateX(5px);
-        }
-
-        .submenu .all-projects {
-            font-weight: 600;
-            color: var(--text-color);
-            font-size: 0.85rem;
-            margin-top: 5px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* --- LAYOUT PRINCIPAL (SPLIT SCREEN) --- */
-        .main-content {
-            width: 100%;
-            height: 100vh;
-            max-width: 100%;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr; 
-            height: 100%;
-            width: 100%;
-        }
-
-        /* --- COLONNE GAUCHE (Scrollable) --- */
-        .info-column {
-            position: relative;
-            height: 100vh;
-            overflow-y: auto;
-            padding: 120px 40px 40px 60px;
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        .info-column::-webkit-scrollbar { display: none; }
-
-        .project-title h1 {
-            font-size: 4.5rem;
-            font-weight: 600;
-            line-height: 0.95;
-            margin-bottom: 15px;
-            letter-spacing: -0.03em;
-        }
-
-        .project-subtitle {
-            font-size: 1.4rem;
-            color: var(--highlight-color);
-            font-weight: 400;
-        }
-
-        .project-description {
-            font-size: 1.15rem;
-            line-height: 1.6;
-            max-width: 500px;
-        }
-
-        /* Blocs Métadonnées */
-        .meta-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .meta-box {
-            background-color: var(--light-gray);
-            padding: 25px;
-            border-radius: 6px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .meta-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--highlight-color);
-            margin-bottom: 8px;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-        }
-
-        .meta-value {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--text-color);
-        }
-
-        .tags-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        
-        .tag-pill {
-            padding: 8px 18px;
-            border: 1px solid #e0e0e0;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            color: var(--highlight-color);
-            white-space: nowrap;
-        }
-
-        /* --- COLONNE DROITE (Scrollable) --- */
-        .visual-column {
-            height: 100vh;
-            overflow-y: auto;
-            padding: 120px 60px 40px 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 40px; 
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        .visual-column::-webkit-scrollbar { display: none; }
-
-        /* Images */
-        .main-image-container, .secondary-item {
-            background-color: var(--light-gray);
-            border-radius: 6px;
-            overflow: hidden;
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .main-image-container {
-            width: 100%;
-            height: auto; 
-            min-height: 500px;
-            display: flex;
-        }
-
-        .main-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
-            will-change: transform;
-            cursor: zoom-in; /* Ajout */
-        }
-        .main-image-container:hover .main-image { transform: scale(1.03); }
-
-        /* Grille secondaire */
-        .secondary-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .secondary-item {
-            aspect-ratio: 16/9;
-        }
-        
-        /* Caption */
-        .image-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 15px;
-            background: rgba(255,255,255,0.95);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-            z-index: 2;
-        }
-
-        .secondary-item:hover .image-caption {
-            transform: translateY(0);
-        }
-
-        .secondary-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
-            will-change: transform;
-            cursor: zoom-in; /* Ajout */
-        }
-        
-        .secondary-item:hover .secondary-image { transform: scale(1.05); }
-
-        /* --- INDEX DES PROJETS --- */
-        .project-index {
-            padding-top: 30px;
-            border-top: 1px solid var(--light-gray);
-            display: flex;
-            flex-direction: column;
-            gap: 15px; 
-        }
-
-        .project-index.mobile-only {
-            margin-top: 60px; 
-            border-top: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .index-label {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            color: var(--highlight-color);
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            margin-bottom: 5px;
-        }
-
-        .index-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .index-link {
-            font-size: 1rem;
-            text-decoration: none;
-            color: var(--highlight-color);
-            transition: color 0.2s ease;
-            display: block;
-            width: fit-content;
-        }
-
-        .index-link:hover { color: var(--text-color); }
-        .index-link.current-project { color: var(--text-color); font-weight: 600; }
-
-        .mobile-only { display: none; }
-        .desktop-only { display: flex; }
-        .next-project-area { display: none !important; }
-
-        /* --- LIGHTBOX (Style avec Navigation) --- */
-        .lightbox-overlay {
-            position: fixed;
-            inset: 0;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-            cursor: zoom-out;
-            backdrop-filter: blur(5px);
-        }
-
-        .lightbox-overlay.active { opacity: 1; visibility: visible; }
-
-        .lightbox-image {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            border-radius: 4px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            transform: scale(0.95);
-            transition: transform 0.3s ease, opacity 0.2s ease;
-        }
-
-        .lightbox-image.fade-out {
-            opacity: 0.5;
-            transform: scale(0.98);
-        }
-
-        .lightbox-overlay.active .lightbox-image { transform: scale(1); }
-
-        /* Navigation Lightbox */
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 2001;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-            backdrop-filter: blur(4px);
-        }
-
-        .lightbox-nav:hover {
-            background-color: rgba(255, 255, 255, 0.25);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .lightbox-nav.prev { left: 30px; }
-        .lightbox-nav.next { right: 30px; }
-        
-        .lightbox-nav .material-symbols-outlined { font-size: 32px; }
-
-        @media (max-width: 600px) {
-            .lightbox-nav { width: 40px; height: 40px; }
-            .lightbox-nav.prev { left: 10px; }
-            .lightbox-nav.next { right: 10px; }
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 1024px) {
-            body { overflow: auto; height: auto; }
-            .main-content { height: auto; padding: 100px 20px; }
-            .project-grid { grid-template-columns: 1fr; gap: 60px; display: block; height: auto; }
-            .info-column { height: auto; overflow: visible; padding: 0 0 40px 0; position: relative; top: 0; }
-            .visual-column { height: auto; overflow: visible; padding: 0; }
-            .project-title h1 { font-size: 3.5rem; }
-            .desktop-only { display: none; }
-            .mobile-only { display: flex; }
-        }
-
-        @media (max-width: 600px) {
-            .nav-capsule {
-                right: 20px;
-                width: calc(100% - 40px);
-            }
-            .main-content { padding: 100px 20px; max-width: 100%; }
-            .project-title h1 { font-size: 2.5rem; }
-            .project-subtitle { font-size: 1.2rem; }
-            .meta-grid { grid-template-columns: 1fr; }
-            .secondary-grid { grid-template-columns: 1fr; }
-            .menu-btn { top: 20px; right: 20px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Développement de l’identité web et conception de la page de présentation de l’agence où j’ai effectué mon stage. Création d’une identité graphique cohérente, en harmonie avec l’univers de l’entreprise et déclinable sur l’ensemble des supports digitaux.">
+  <title>Nicolas Marie Angelique - Made In Work</title>
+  <link rel="stylesheet" href="css/brutalist.css">
+  <link rel="stylesheet" href="css/common.css">
+  <script src="js/loader.js"></script>
+  <script src="js/cursor.js" defer></script>
 </head>
 <body>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">
-        <span class="material-symbols-outlined" id="menuIcon">menu</span>
-    </button>
+<div class="page">
 
-    <nav class="nav-capsule" id="navCapsule" aria-hidden="true">
-        <ul class="capsule-list">
-            <li><a href="index.html" class="capsule-link">Accueil</a></li>
-            
-            <li class="has-submenu">
-                <button class="capsule-link project-trigger" id="projectBtn" aria-expanded="false">
-                    Projets 
-                    <span class="material-symbols-outlined chevron">expand_more</span>
-                </button>
-                <ul class="submenu" id="projectSubmenu">
-                    <li><a href="enjoytheride.html">Enjoy The Ride</a></li>
-                    <li><a href="trinityringcartier.html">Cartier Trinity Ring</a></li>
-                    <li><a href="cgivisual.html">CGI Visual</a></li>
-                    <li><a href="project.html" class="all-projects">Voir tout →</a></li>
-                </ul>
-            </li>
-
-            <li><a href="about.html" class="capsule-link">À Propos</a></li>
-            <li><a href="contact.html" class="capsule-link">Contact</a></li>
-        </ul>
+  <!-- ── HEADER ─────────────────────────────────────── -->
+    <header class="site-header">
+    <nav class="nav-row">
+      <a href="index.html" class="nav-logo">nma</a>
+      <div class="nav-links">
+        <a href="index.html#projects" class="active">projets</a>
+        <a href="index.html#cv">expérience</a>
+        <a href="index.html#competences">compétences</a>
+        <a href="index.html#contact">contact</a>
+      </div>
     </nav>
+  </header>
 
-    <main class="main-content">
-        <article class="project-grid">
-            
-            <header class="info-column">
-                <div class="project-title">
-                    <h1>Made In Work </h1>
-                    <h2 class="project-subtitle">Branding & Landing page</h2>
-                </div>
+  <!-- ── MAIN GRID ──────────────────────────────────── -->
+  <main class="main-layout project-detail-layout">
 
-                <div class="project-description">
-                    <p>Développement de l’identité web et conception de la page de présentation de l’agence où j’ai effectué mon stage. Création d’une identité graphique cohérente, en harmonie avec l’univers de l’entreprise et déclinable sur l’ensemble des supports digitaux.</p>
-                </div>
+    <!-- Column 1: Left Pane -->
+        <aside class="pane pane-left">
+      <!-- Identité -->
+      <div id="top" style="margin-bottom: 24px;">
+        <p class="identity-name">Nicolas Marie Angélique</p>
+        <p>Designer UI/UX &amp; Stratégie de contenu</p>
+        <p>Montréal, QC</p>
+        <p>Disponible</p>
+      </div>
 
-                <div class="tags-container">
-                    <span class="tag-pill">Design Graphique</span>
-                    <span class="tag-pill">Branding</span>
-                    <span class="tag-pill">Designer UI/UX</span>
-                </div>
+      <div style="margin-bottom: 24px;">
+        <p>
+          Diplômé d'un <strong>Master Design Innovation, Interaction et Service</strong>
+          (Université Bordeaux Montaigne, 2026). Design d'interface, branding,
+          3D et audit éditorial.
+        </p>
+      </div>
 
-                <div class="meta-grid">
-                    <div class="meta-box">
-                        <span class="meta-label">Client</span>
-                        <span class="meta-value">MADE IN WORK</span>
-                    </div>
-                    <div class="meta-box">
-                        <span class="meta-label">Année</span>
-                        <span class="meta-value">2024</span>
-                    </div>
-                    <div class="meta-box">
-                        <span class="meta-label">Durée</span>
-                        <span class="meta-value">3 mois</span>
-                    </div>
-                    <div class="meta-box">
-                        <span class="meta-label">Rôle</span>
-                        <span class="meta-value">Graphiste / UI Designer</span>
-                    </div>
-                </div>
+      <!-- Contact -->
+      <div id="contact">
+        <span class="s-label">contact</span>
+        <div class="contact-grid">
+          <div>
+            <p><strong>Email</strong></p>
+            <p><a href="mailto:contact@nicolasmarieangelique.fr">contact@<br>nicolasmarieangelique.fr</a></p>
+          </div>
+          <div>
+            <p><strong>Localisation</strong></p>
+            <p>Montréal, QC</p>
+            <p>Disponible · Oct. 2026</p>
+          </div>
+        </div>
+        <div style="margin-top: 12px;">
+          <p><strong>Réseaux</strong></p>
+          <p><a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank" rel="noopener">LinkedIn</a></p>
+          <p><a href="https://dribbble.com/nicolasmarieangelique" target="_blank" rel="noopener">Dribbble</a></p>
+          <p><a href="https://github.com/nmaP5js" target="_blank" rel="noopener">GitHub</a></p>
+          <p><a href="https://www.instagram.com/nma_png/" target="_blank" rel="noopener">Instagram</a></p>
+        </div>
+      </div>
+    </aside>
 
-                <div class="project-index desktop-only">
-                    <span class="index-label">Tous les projets</span>
-                    <ul class="index-list">
-                        <li><a href="imageia.html" class="index-link">Image Gen IA</a></li>
-                        <li><a href="data_viz.html" class="index-link">DATA_VIZ</a></li>
-                        <li><a href="trinityringcartier.html" class="index-link">Trinity Ring</a></li>
-                        <li><a href="ptitchef.html" class="index-link current-project">Made In Work</a></li>
-                        <li><a href="budl.html" class="index-link">BUDL</a></li>
-                        <li><a href="enjoytheride.html" class="index-link">Enjoy The Ride</a></li>
-                        <li><a href="cltwinter.html" class="index-link">CLT Winter Calendar</a></li>
-                        <li><a href="cgivisual.html" class="index-link">CGI Visual</a></li>
-                    </ul>
-                </div>
-            </header>
+    <!-- Column 2: Project Details -->
+    <section class="pane pane-info">
+      <span class="s-label">projet</span>
+      
+      <div class="project-header-block">
+        <h1 class="project-title-large">Made In Work</h1>
+        <h2 class="project-subtitle-text">Branding & Landing page</h2>
+      </div>
 
-            <section class="visual-column">
-                
-                <figure class="main-image-container">
-                    <img src="./images/miw.webp" alt="Présentation du projet Made In Work" class="main-image" loading="eager">
-                </figure>
+      <div class="project-desc-block">
+        <p>Développement de l’identité web et conception de la page de présentation de l’agence où j’ai effectué mon stage. Création d’une identité graphique cohérente, en harmonie avec l’univers de l’entreprise et déclinable sur l’ensemble des supports digitaux.</p>
 
-                <div class="secondary-grid">
-                    <figure class="secondary-item">
-                        <img src="./images/miw2.webp" alt="Détails de l'identité graphique" class="secondary-image" loading="lazy">
-                        <figcaption class="image-caption">Création de l'identité graphique</figcaption>
-                    </figure>
-                    <figure class="secondary-item">
-                        <img src="./images/miw3.webp" alt="Aperçu de la Landing page" class="secondary-image" loading="lazy">
-                        <figcaption class="image-caption">Création de la landing page</figcaption>
-                    </figure>
-                </div>
-                
-                <div class="project-index mobile-only">
-                    <span class="index-label">Tous les projets</span>
-                    <ul class="index-list">
-                        <li><a href="imageia.html" class="index-link">Image Gen IA</a></li>
-                        <li><a href="data_viz.html" class="index-link">DATA_VIZ</a></li>
-                        <li><a href="trinityringcartier.html" class="index-link">Trinity Ring</a></li>
-                        <li><a href="ptitchef.html" class="index-link current-project">Made In Work</a></li>
-                        <li><a href="budl.html" class="index-link">BUDL</a></li>
-                        <li><a href="enjoytheride.html" class="index-link">Enjoy The Ride</a></li>
-                        <li><a href="cltwinter.html" class="index-link">CLT Winter Calendar</a></li>
-                        <li><a href="cgivisual.html" class="index-link">CGI Visual</a></li>
-                    </ul>
-                </div>
-            </section>
+      </div>
 
-        </article>
-    </main>
+      <div class="project-tags-block">
+        <span class="tag">Design Graphique</span>
+<span class="tag">Branding</span>
+<span class="tag">Designer UI/UX</span>
 
-    <div class="lightbox-overlay" id="lightbox" aria-hidden="true" role="dialog">
-        <button class="lightbox-nav prev" id="prevBtn" aria-label="Image précédente">
-            <span class="material-symbols-outlined">chevron_left</span>
-        </button>
-        
-        <img src="" alt="Zoom sur l'image" class="lightbox-image" id="lightboxImg">
-        
-        <button class="lightbox-nav next" id="nextBtn" aria-label="Image suivante">
-            <span class="material-symbols-outlined">chevron_right</span>
-        </button>
-    </div>
+      </div>
 
-    <script>
-    // --- GESTION DU MENU CAPSULE ---
-    const menuBtn = document.getElementById('menuBtn');
-    const navCapsule = document.getElementById('navCapsule');
-    const menuIcon = document.getElementById('menuIcon');
-    const projectBtn = document.getElementById('projectBtn');
-    const projectSubmenu = document.getElementById('projectSubmenu');
-    
-    let isMenuOpen = false;
+      <div class="meta-grid">
+                <div class="meta-box">
+          <span class="meta-label">Client</span>
+          <span class="meta-value">MADE IN WORK</span>
+        </div>
+        <div class="meta-box">
+          <span class="meta-label">Année</span>
+          <span class="meta-value">2024</span>
+        </div>
+        <div class="meta-box">
+          <span class="meta-label">Durée</span>
+          <span class="meta-value">3 mois</span>
+        </div>
+        <div class="meta-box">
+          <span class="meta-label">Rôle</span>
+          <span class="meta-value">Graphiste / UI Designer</span>
+        </div>
+      </div>
 
-    // 1. Ouvrir / Fermer le menu
-    function toggleMenu() {
-        isMenuOpen = !isMenuOpen;
-        menuBtn.setAttribute('aria-expanded', isMenuOpen);
-        navCapsule.setAttribute('aria-hidden', !isMenuOpen);
-        
-        if (isMenuOpen) {
-            navCapsule.classList.add('active');
-            menuIcon.textContent = 'close';
-            menuBtn.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'; 
-        } else {
-            navCapsule.classList.remove('active');
-            menuIcon.textContent = 'menu';
-            menuBtn.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-            closeProjects(); 
-        }
-    }
+      <hr class="pane-sep">
 
-    // 2. Accordéon Projets
-    function toggleProjects(e) {
-        e.preventDefault(); 
-        const isExpanded = projectBtn.getAttribute('aria-expanded') === 'true';
-        
-        if (!isExpanded) {
-            projectSubmenu.classList.add('open');
-            projectBtn.setAttribute('aria-expanded', 'true');
-            projectBtn.style.color = 'var(--blue-color)';
-        } else {
-            closeProjects();
-        }
-    }
+      <div class="project-index">
+        <span class="index-label">Tous les projets</span>
+        <ul class="index-list">
+          <li><a href="imageia.html" class="index-link">Image Gen IA</a></li>
+          <li><a href="data_viz.html" class="index-link">DATA_VIZ</a></li>
+          <li><a href="trinityringcartier.html" class="index-link">Trinity Ring</a></li>
+          <li><a href="ptitchef.html" class="index-link current-project">Made In Work</a></li>
+          <li><a href="budl.html" class="index-link">BUDL</a></li>
+          <li><a href="enjoytheride.html" class="index-link">Enjoy The Ride</a></li>
+          <li><a href="cltwinter.html" class="index-link">CLT Winter Calendar</a></li>
+          <li><a href="cgivisual.html" class="index-link">CGI Visual</a></li>
+        </ul>
+      </div>
+    </section>
 
-    function closeProjects() {
-        projectSubmenu.classList.remove('open');
-        projectBtn.setAttribute('aria-expanded', 'false');
-        projectBtn.style.color = ''; 
-    }
+    <!-- Column 3+4: Visuals -->
+    <section class="pane pane-visuals">
+      <span class="s-label">visuels</span>
+            <figure class="main-image-container">
+        <img src="./images/miw.webp" alt="Présentation du projet Made In Work" class="main-image" loading="eager">
+      </figure>
+      <div class="secondary-grid">
+      <figure class="secondary-item">
+        <img src="./images/miw2.webp" alt="Détails de l'identité graphique" class="secondary-image" loading="lazy">
+        <figcaption class="image-caption">Création de l'identité graphique</figcaption>
+      </figure>
+      <figure class="secondary-item">
+        <img src="./images/miw3.webp" alt="Aperçu de la Landing page" class="secondary-image" loading="lazy">
+        <figcaption class="image-caption">Création de la landing page</figcaption>
+      </figure>
+      </div>
+    </section>
 
-    // Listeners
-    menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu();
-    });
+  </main>
 
-    projectBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleProjects(e);
-    });
+</div>
 
-    document.addEventListener('click', (e) => {
-        if (isMenuOpen && !navCapsule.contains(e.target) && !menuBtn.contains(e.target)) {
-            toggleMenu();
-        }
-    });
+<!-- Lightbox Modal -->
+<div class="lightbox-overlay" id="lightbox" aria-hidden="true" role="dialog">
+  <button class="lightbox-nav prev" id="prevBtn" aria-label="Image précédente">
+    <span class="material-symbols-outlined">chevron_left</span>
+  </button>
+  <img src="" alt="Zoom sur l'image" class="lightbox-image" id="lightboxImg">
+  <button class="lightbox-nav next" id="nextBtn" aria-label="Image suivante">
+    <span class="material-symbols-outlined">chevron_right</span>
+  </button>
+</div>
 
-    // --- LIGHTBOX AVEC NAVIGATION ---
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const zoomableImages = document.querySelectorAll('.main-image, .secondary-image');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    
-    // Création d'un tableau à partir de la NodeList
-    const imagesArray = Array.from(zoomableImages);
-    let currentIndex = 0;
-
-    // Ouvrir la lightbox
-    function openLightbox(index) {
-        currentIndex = index;
-        updateLightboxImage();
-        lightbox.classList.add('active');
-        lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden'; 
-    }
-
-    // Mise à jour de l'image
-    function updateLightboxImage() {
-        const img = imagesArray[currentIndex];
-        
-        lightboxImg.classList.add('fade-out');
-        setTimeout(() => {
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
-            lightboxImg.classList.remove('fade-out');
-        }, 150);
-    }
-
-    // Événements sur les images
-    zoomableImages.forEach((img, index) => {
-        img.addEventListener('click', (e) => {
-            e.stopPropagation();
-            openLightbox(index);
-        });
-    });
-
-    // Bouton Suivant
-    function showNext(e) {
-        if(e) e.stopPropagation();
-        currentIndex = (currentIndex + 1) % imagesArray.length;
-        updateLightboxImage();
-    }
-
-    // Bouton Précédent
-    function showPrev(e) {
-        if(e) e.stopPropagation();
-        currentIndex = (currentIndex - 1 + imagesArray.length) % imagesArray.length;
-        updateLightboxImage();
-    }
-
-    nextBtn.addEventListener('click', showNext);
-    prevBtn.addEventListener('click', showPrev);
-
-    // Fermeture
-    function closeLightbox() {
-        lightbox.classList.remove('active');
-        lightbox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = ''; 
-    }
-
-    lightbox.addEventListener('click', (e) => {
-        if(e.target === lightbox) {
-            closeLightbox();
-        }
-    });
-
-    // Navigation Clavier
-    document.addEventListener('keydown', (e) => {
-        if (lightbox.classList.contains('active')) {
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowRight') showNext();
-            if (e.key === 'ArrowLeft') showPrev();
-        } else {
-            if (e.key === 'Escape' && isMenuOpen) toggleMenu();
-        }
-    });
-    </script>
+<script src="js/lightbox.js"></script>
 </body>
 </html>

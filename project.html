@@ -1,385 +1,82 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projets et réalisations de Nicolas Marie Angelique - Designer UI/UX, 3D et Graphique.">
-    
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nicolasmarieangelique.fr/">
-    <meta property="og:title" content="Nicolas Marie Angelique - Designer UI/UX & 3D">
-    <meta property="og:description" content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
-    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/aperçu_img.png"> 
-    
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://nicolasmarieangelique.fr/">
-    <meta property="twitter:title" content="Nicolas Marie Angelique - Designer UI/UX">
-    <meta property="twitter:description" content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
-    <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/aperçu_img.png">
-   
-    <title>Nicolas Marie Angelique - Projets</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --highlight-color: #888888;
-            --blue-color: #388BFF;
-            --menu-z: 1000;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Inter Tight', sans-serif;
-            min-height: 100vh;
-            width: 100vw;
-            position: relative;
-            overflow-x: hidden;
-            cursor: pointer;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* --- BOUTON MENU --- */
-        .menu-btn {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            z-index: calc(var(--menu-z) + 1);
-            cursor: pointer;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.1); 
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 50%;
-            border: none;
-            color: var(--text-color);
-        }
-
-        .menu-btn:hover { transform: scale(1.1); background-color: rgba(0, 0, 0, 0.05); }
-        .menu-btn .material-symbols-outlined { font-size: 30px; }
-
-        /* --- MENU CAPSULE (NOUVEAU MENU) --- */
-        .nav-capsule {
-            position: fixed;
-            top: 90px;
-            right: 30px;
-            width: 260px;
-            
-            /* Effet Verre Dépoli */
-            background-color: rgba(255, 255, 255, 0.3); /* Transparence élevée */
-            backdrop-filter: blur(25px); /* Flou puissant */
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.6); /* Bordure subtile */
-            
-            border-radius: 24px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            z-index: var(--menu-z);
-            
-            /* Animation d'entrée */
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px) scale(0.95);
-            transform-origin: top right;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .nav-capsule.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0) scale(1);
-        }
-
-        .capsule-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        /* Liens principaux du menu */
-        .capsule-link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 1.1rem;
-            font-weight: 500;
-            padding: 10px 15px;
-            border-radius: 12px;
-            transition: background-color 0.2s ease, color 0.2s ease;
-            cursor: pointer;
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-family: 'Inter Tight', sans-serif; /* Assure la police sur le bouton */
-        }
-
-        .capsule-link:hover {
-            background-color: rgba(255, 255, 255, 0.5); /* Feedback blanc semi-op */
-            color: var(--blue-color);
-        }
-
-        /* Gestion du sous-menu Projets */
-        .chevron {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .project-trigger[aria-expanded="true"] .chevron {
-            transform: rotate(180deg);
-        }
-
-        .submenu {
-            list-style: none;
-            margin-left: 15px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border-left: 2px solid rgba(0,0,0,0.05);
-        }
-
-        .submenu.open {
-            max-height: 200px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-
-        .submenu li a {
-            display: block;
-            text-decoration: none;
-            color: #666;
-            font-size: 0.95rem;
-            padding: 8px 15px;
-            transition: color 0.2s ease, transform 0.2s ease;
-        }
-
-        .submenu li a:hover {
-            color: var(--blue-color);
-            transform: translateX(5px);
-        }
-
-        .submenu .all-projects {
-            font-weight: 600;
-            color: var(--text-color);
-            font-size: 0.85rem;
-            margin-top: 5px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* --- LAYOUT PRINCIPAL --- */
-        .main-content {
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Colonne Gauche */
-        .projects-column {
-            width: 50%;
-            padding: 120px 60px;
-            z-index: 2; 
-        }
-
-        .simple-list {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-        }
-
-        .simple-item {
-            text-decoration: none;
-            display: block;
-            transition: opacity 0.4s ease;
-            cursor: pointer;
-        }
-
-        .item-title {
-            font-size: 4rem; 
-            font-weight: 600;
-            margin: 0;
-            color: var(--text-color);
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            transition: color 0.3s ease;
-        }
-
-        .item-meta {
-            font-size: 1rem;
-            color: var(--highlight-color);
-            margin: 10px 0 0 0;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Interactions Liste */
-        .simple-item:hover .item-title { color: var(--blue-color); }
-        
-        /* RÈGLE RESTAURÉE POUR DESKTOP UNIQUEMENT */
-        .simple-list:hover .simple-item:not(:hover) { opacity: 0.3; }
-
-
-        /* Colonne Droite : Preview Fixe */
-        .preview-column {
-            width: 50%;
-            height: 100vh;
-            position: fixed;
-            right: 0;
-            top: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 60px;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .preview-image-container {
-            width: 100%;
-            height: 80%;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0;
-            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transform: scale(0.95);
-            /* Optimisation GPU */
-            will-change: transform, opacity; 
-        }
-
-        .preview-image-container.active {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* --- STICKERS --- */
-        .stickers-container {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-        
-        .sticker {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0;
-            transform: scale(0.2) rotate(0deg);
-            will-change: transform, opacity;
-        }
-        
-        /* Animations Stickers */
-        .sticker.pop-in { animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        .sticker.zoom-in { animation: zoomIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
-        .sticker.spin-in { animation: spinIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-        
-        @keyframes popIn { 
-            0% { opacity: 0; transform: scale(0.2) rotate(0deg); } 
-            50% { opacity: 0.8; transform: scale(1.2) rotate(15deg); } 
-            100% { opacity: 1; transform: scale(1) rotate(0deg); } 
-        }
-        @keyframes zoomIn { 
-            0% { opacity: 0; transform: scale(0.1) rotate(-20deg); } 
-            60% { opacity: 0.8; transform: scale(1.3) rotate(10deg); } 
-            100% { opacity: 1; transform: scale(1) rotate(0deg); } 
-        }
-        @keyframes spinIn { 
-            0% { opacity: 0; transform: scale(0.2) rotate(-120deg); } 
-            70% { opacity: 0.7; transform: scale(1.1) rotate(20deg); } 
-            100% { opacity: 1; transform: scale(1) rotate(0deg); } 
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 900px) {
-            
-            /* RÈGLE AJOUTÉE : Annule l'effet de dimming sur mobile/tablette */
-            .simple-list:hover .simple-item:not(:hover) { 
-                opacity: 1; 
-            }
-
-            .projects-column { width: 100%; padding: 100px 40px; }
-            .preview-column { display: none; }
-            .item-title { font-size: 3rem; }
-        }
-
-        @media (max-width: 600px) {
-            .nav-capsule {
-                right: 20px;
-                width: calc(100% - 40px);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .projects-column { padding: 80px 20px; }
-            .item-title { font-size: 2.2rem; }
-            .menu-btn { top: 20px; right: 20px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projets et réalisations de Nicolas Marie Angelique - Designer UI/UX, 3D et Graphique.">
+  <title>Nicolas Marie Angelique - Projets</title>
+  <link rel="stylesheet" href="css/brutalist.css">
+  <link rel="stylesheet" href="css/common.css">
+  <script src="js/loader.js"></script>
+  <script src="js/cursor.js" defer></script>
 </head>
 <body>
 
-    <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
+<div class="page">
 
-    <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">
-        <span class="material-symbols-outlined" id="menuIcon">menu</span>
-    </button>
-
-    <nav class="nav-capsule" id="navCapsule" aria-hidden="true">
-        <ul class="capsule-list">
-            <li><a href="index.html" class="capsule-link">Accueil</a></li>
-            
-            <li class="has-submenu">
-                <button class="capsule-link project-trigger" id="projectBtn" aria-expanded="false">
-                    Projets 
-                    <span class="material-symbols-outlined chevron">expand_more</span>
-                </button>
-                <ul class="submenu" id="projectSubmenu">
-                    <li><a href="enjoytheride.html">Enjoy The Ride</a></li>
-                    <li><a href="trinityringcartier.html">Cartier Trinity Ring</a></li>
-                    <li><a href="cgivisual.html">CGI Visual</a></li>
-                    <li><a href="project.html" class="all-projects">Voir tout →</a></li>
-                </ul>
-            </li>
-
-            <li><a href="about.html" class="capsule-link">À Propos</a></li>
-            <li><a href="contact.html" class="capsule-link">Contact</a></li>
-        </ul>
+  <!-- ── HEADER ─────────────────────────────────────── -->
+    <header class="site-header">
+    <nav class="nav-row">
+      <a href="index.html" class="nav-logo">nma</a>
+      <div class="nav-links">
+        <a href="index.html#projects" class="active">projets</a>
+        <a href="index.html#cv">expérience</a>
+        <a href="index.html#competences">compétences</a>
+        <a href="index.html#contact">contact</a>
+      </div>
     </nav>
+  </header>
 
-    <main class="main-content">
-        
-        <section class="projects-column">
-            <div class="simple-list">
-                
-                <a href="imageia.html" class="simple-item" data-preview="images/ia3.webp">
+  <!-- ── MAIN GRID ──────────────────────────────────── -->
+  <main class="main-layout project-index-layout">
+
+    <!-- Column 1: Left Pane -->
+        <aside class="pane pane-left">
+      <!-- Identité -->
+      <div id="top" style="margin-bottom: 24px;">
+        <p class="identity-name">Nicolas Marie Angélique</p>
+        <p>Designer UI/UX &amp; Stratégie de contenu</p>
+        <p>Montréal, QC</p>
+        <p>Disponible</p>
+      </div>
+
+      <div style="margin-bottom: 24px;">
+        <p>
+          Diplômé d'un <strong>Master Design Innovation, Interaction et Service</strong>
+          (Université Bordeaux Montaigne, 2026). Design d'interface, branding,
+          3D et audit éditorial.
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div id="contact">
+        <span class="s-label">contact</span>
+        <div class="contact-grid">
+          <div>
+            <p><strong>Email</strong></p>
+            <p><a href="mailto:contact@nicolasmarieangelique.fr">contact@<br>nicolasmarieangelique.fr</a></p>
+          </div>
+          <div>
+            <p><strong>Localisation</strong></p>
+            <p>Montréal, QC</p>
+            <p>Disponible · Oct. 2026</p>
+          </div>
+        </div>
+        <div style="margin-top: 12px;">
+          <p><strong>Réseaux</strong></p>
+          <p><a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank" rel="noopener">LinkedIn</a></p>
+          <p><a href="https://dribbble.com/nicolasmarieangelique" target="_blank" rel="noopener">Dribbble</a></p>
+          <p><a href="https://github.com/nmaP5js" target="_blank" rel="noopener">GitHub</a></p>
+          <p><a href="https://www.instagram.com/nma_png/" target="_blank" rel="noopener">Instagram</a></p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Column 2+3: Projects List -->
+    <section class="pane pane-projects-list">
+      <span class="s-label">projets</span>
+      <div class="simple-list">
+        <a href="imageia.html" class="simple-item" data-preview="images/ia3.webp">
                     <h2 class="item-title">Image Gen IA</h2>
                     <p class="item-meta">Experience IA - 2024</p>
                 </a>
@@ -404,7 +101,7 @@
                     <p class="item-meta">Design d'espace - 2023</p>
                 </a>
 
-                <a href="enjoytheride.html" class="simple-item" data-preview="gif/LOGOSPIN.gif">
+                <a href="enjoytheride.html" class="simple-item" data-preview="gif/LOGOSPIN.webp">
                     <h2 class="item-title">Enjoy The Ride</h2>
                     <p class="item-meta">Designer Graphique - 2023</p>
                 </a>
@@ -418,211 +115,46 @@
                     <h2 class="item-title">CGI Visual</h2>
                     <p class="item-meta">Design 3D - 2023</p>
                 </a>
-            
-            </div>
-        </section>
+      </div>
+    </section>
 
-        <aside class="preview-column">
-            <div class="preview-image-container" id="previewContainer"></div>
-        </aside>
+    <!-- Column 4: Preview Column -->
+    <aside class="pane preview-column" style="border-right: none; padding-right: 0;">
+      <span class="s-label">preview</span>
+      <div class="preview-image-container" id="previewContainer" style="height: 70%; margin-top: 15px;"></div>
+    </aside>
 
-    </main>
+  </main>
 
-    <script>
-    // --- 1. GESTION DU MENU CAPSULE ---
-    const menuBtn = document.getElementById('menuBtn');
-    const navCapsule = document.getElementById('navCapsule');
-    const menuIcon = document.getElementById('menuIcon');
-    const projectBtn = document.getElementById('projectBtn');
-    const projectSubmenu = document.getElementById('projectSubmenu');
-    
-    let isMenuOpen = false;
+</div>
 
-    // 1. Ouvrir / Fermer la capsule principale
-    function toggleMenu() {
-        isMenuOpen = !isMenuOpen;
-        menuBtn.setAttribute('aria-expanded', isMenuOpen);
-        navCapsule.setAttribute('aria-hidden', !isMenuOpen);
-        
-        if (isMenuOpen) {
-            navCapsule.classList.add('active');
-            menuIcon.textContent = 'close';
-            menuBtn.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'; 
-        } else {
-            navCapsule.classList.remove('active');
-            menuIcon.textContent = 'menu';
-            menuBtn.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-            closeProjects(); // Referme les projets quand on ferme le menu
-        }
+<script>
+  // Simple-item hover preview script
+  const previewContainer = document.getElementById('previewContainer');
+  const projectItems = document.querySelectorAll('.simple-item');
+
+  // Preload images to avoid flickering
+  projectItems.forEach(item => {
+    const src = item.getAttribute('data-preview');
+    if (src) {
+      const img = new Image();
+      img.src = src;
     }
+  });
 
-    // 2. Ouvrir / Fermer la liste des projets (Accordéon)
-    function toggleProjects(e) {
-        e.preventDefault(); 
-        const isExpanded = projectBtn.getAttribute('aria-expanded') === 'true';
-        
-        if (!isExpanded) {
-            projectSubmenu.classList.add('open');
-            projectBtn.setAttribute('aria-expanded', 'true');
-            projectBtn.style.color = 'var(--blue-color)';
-        } else {
-            closeProjects();
-        }
-    }
-
-    function closeProjects() {
-        projectSubmenu.classList.remove('open');
-        projectBtn.setAttribute('aria-expanded', 'false');
-        projectBtn.style.color = ''; 
-    }
-
-    // Listeners
-    menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu();
+  projectItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      const imagePath = item.getAttribute('data-preview');
+      if (imagePath) {
+        previewContainer.style.backgroundImage = `url('${imagePath}')`;
+        previewContainer.classList.add('active');
+      }
     });
 
-    projectBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleProjects(e);
+    item.addEventListener('mouseleave', () => {
+      previewContainer.classList.remove('active');
     });
-
-    document.addEventListener('click', (e) => {
-        // Ferme le menu si clic à l'extérieur
-        if (isMenuOpen && !navCapsule.contains(e.target) && !menuBtn.contains(e.target)) {
-            toggleMenu();
-        }
-    });
-
-    // --- 2. GESTION DE LA PREVIEW FIXE + PRÉCHARGEMENT ---
-    const previewContainer = document.getElementById('previewContainer');
-    const projectItems = document.querySelectorAll('.simple-item');
-
-    // Préchargement des images pour éviter le clignotement au survol
-    const preloadImages = () => {
-        projectItems.forEach(item => {
-            const src = item.getAttribute('data-preview');
-            if (src) {
-                const img = new Image();
-                img.src = src;
-            }
-        });
-    };
-    // Lancer le préchargement dès que possible
-    preloadImages();
-
-    projectItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            const imagePath = item.getAttribute('data-preview');
-            if (imagePath) {
-                previewContainer.style.backgroundImage = `url('${imagePath}')`;
-                previewContainer.classList.add('active');
-            }
-        });
-
-        item.addEventListener('mouseleave', () => {
-            previewContainer.classList.remove('active');
-        });
-    });
-
-
-    // --- 3. GESTION DES STICKERS ---
-    const stickerConfig = {
-        basePath: "stickers/", 
-        stickers: ["sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png", "sticker5.png"],
-        maxStickers: 100, 
-        displayTime: 60000, 
-        stickerSize: { min: 60, max: 200 }, 
-        randomPositionMargin: 60,
-        animations: ["pop-in", "zoom-in", "spin-in"]
-    };
-
-    let activeStickers = [];
-
-    function getRandomNumber(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    function getRandomPosition() {
-        const pageWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth);
-        const pageHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-        const margin = stickerConfig.randomPositionMargin;
-        return {
-            x: getRandomNumber(margin, pageWidth - margin),
-            y: getRandomNumber(margin, pageHeight - margin)
-        };
-    }
-
-    function createSticker(x, y, isRandom = false, delay = 0) {
-        if (activeStickers.length >= stickerConfig.maxStickers) {
-            const oldest = activeStickers.shift();
-            if (oldest) oldest.remove();
-        }
-        
-        const sticker = document.createElement('div');
-        const stickerIndex = getRandomNumber(0, stickerConfig.stickers.length - 1);
-        const animationClass = stickerConfig.animations[getRandomNumber(0, stickerConfig.animations.length - 1)];
-        
-        sticker.className = `sticker ${animationClass}`;
-        sticker.style.backgroundImage = `url('${stickerConfig.basePath + stickerConfig.stickers[stickerIndex]}')`;
-        
-        let posX = isRandom ? x : (x + (window.scrollX || window.pageXOffset));
-        let posY = isRandom ? y : (y + (window.scrollY || window.pageYOffset));
-        
-        sticker.style.left = `${posX}px`;
-        sticker.style.top = `${posY}px`;
-        
-        const size = getRandomNumber(stickerConfig.stickerSize.min, stickerConfig.stickerSize.max);
-        sticker.style.width = `${size}px`;
-        sticker.style.height = `${size}px`;
-        sticker.style.transform = `scale(0.2) rotate(${getRandomNumber(-30, 30)}deg)`;
-        
-        // Délai d'animation géré par CSS/Timeout pour l'effet
-        if (delay > 0) {
-            sticker.style.animationDelay = `${delay}ms`;
-        }
-        
-        document.getElementById('stickersContainer').appendChild(sticker);
-        activeStickers.push(sticker);
-        
-        // Auto-destruction
-        const displayTime = isRandom ? stickerConfig.displayTime + getRandomNumber(-1000, 1000) : stickerConfig.displayTime;
-        setTimeout(() => {
-            if (sticker.parentNode) {
-                sticker.style.opacity = '0';
-                sticker.style.transform = 'scale(0.2)';
-                setTimeout(() => {
-                    sticker.remove();
-                    activeStickers = activeStickers.filter(s => s !== sticker);
-                }, 500);
-            }
-        }, displayTime + delay);
-    }
-
-    function createThreeStickers(clickX, clickY) {
-        createSticker(clickX, clickY);
-        const p1 = getRandomPosition();
-        const p2 = getRandomPosition();
-        createSticker(p1.x, p1.y, true, 150); 
-        createSticker(p2.x, p2.y, true, 300); 
-    }
-
-    document.addEventListener('click', function(e) {
-        // Adaptation : Ne pas créer de sticker si on clique sur le menu capsule ou le bouton
-        if (e.target.closest('.menu-btn') || 
-            e.target.closest('.nav-capsule') || 
-            e.target.closest('.simple-item')) {
-            return;
-        }
-        createThreeStickers(e.clientX, e.clientY);
-    });
-
-    window.addEventListener('load', () => {
-        for (let i = 0; i < 3; i++) {
-            const p = getRandomPosition();
-            createSticker(p.x, p.y, true, i * 200);
-        }
-    });
-    </script>
+  });
+</script>
 </body>
 </html>

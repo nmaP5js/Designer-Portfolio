@@ -1,0 +1,354 @@
+/* =========================================================
+   PORTFOLIO — Nicolas Marie Angélique
+   Mobile-first · 3-pane desktop layout · Taille unique 14px
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@100..900&display=swap');
+
+/* ---------------------------------------------------------
+   TOKENS
+   --------------------------------------------------------- */
+:root {
+  --fs:       14px;
+  --lh:       1.55;
+  --black:    #0a0a0a;
+  --white:    #ffffff;
+  --dim:      #0a0a0a;       /* tous les textes en noir */
+  --blue:     #0000ee;       /* bleu brutaliste classique */
+  --font:     'Google Sans Flex', Helvetica, Arial, sans-serif;
+  --pad:      20px;
+  --gap-entry: 10px;
+  --gap-section: 28px;
+}
+
+/* ---------------------------------------------------------
+   RESET
+   --------------------------------------------------------- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: var(--fs); }
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: var(--lh);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--blue); text-decoration: underline; }
+a:hover { text-decoration: underline; }
+ul { list-style: none; }
+strong { font-weight: 600; }
+
+/* ---------------------------------------------------------
+   PAGE WRAPPER — mobile
+   --------------------------------------------------------- */
+.page {
+  padding: 0 var(--pad) 48px;
+}
+
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
+.site-header {
+  padding: 18px 0;
+  margin-bottom: 36px;
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  z-index: 100;
+}
+
+.nav-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.nav-logo { font-weight: 600; color: var(--black); text-decoration: none; }
+.nav-logo:hover { text-decoration: underline; color: var(--black); }
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-left: auto;
+}
+
+.nav-links a { color: var(--black); text-decoration: none; }
+.nav-links a:hover { text-decoration: underline; }
+.nav-links a.active { color: var(--blue); text-decoration: underline; }
+
+/* ---------------------------------------------------------
+   MAIN LAYOUT — mobile : empilé
+   --------------------------------------------------------- */
+.main-layout {
+  display: block;
+}
+
+.pane {
+  margin-bottom: var(--gap-section);
+}
+
+/* ---------------------------------------------------------
+   SECTION LABEL
+   --------------------------------------------------------- */
+.s-label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #888888;
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* ---------------------------------------------------------
+   IDENTITY
+   --------------------------------------------------------- */
+.identity-name {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* ---------------------------------------------------------
+   CV ENTRIES
+   --------------------------------------------------------- */
+.cv-entry {
+  margin-bottom: var(--gap-entry);
+  padding-bottom: var(--gap-entry);
+}
+
+.cv-entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2px 12px;
+}
+
+.cv-entry-role { font-weight: 600; }
+.cv-entry-meta { 
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.8rem; 
+  font-weight: 500;
+  color: #666; 
+  letter-spacing: 0.03em;
+}
+
+.cv-entry-co {
+  margin-top: 1px;
+  margin-bottom: 4px;
+}
+
+.cv-entry-desc {
+  color: var(--black);
+  margin-top: 3px;
+}
+
+/* Tag contrat */
+.tag {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 1px 5px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-style: normal;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  border-radius: 3px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+/* ---------------------------------------------------------
+   SKILLS
+   --------------------------------------------------------- */
+.skill-block {
+  margin-bottom: 14px;
+}
+
+.skill-block-title {
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+/* 2 colonnes sur mobile pour les compétences */
+.skills-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+}
+
+/* ---------------------------------------------------------
+   SEPARATEUR LÉGER entre sections d'un même panneau
+   --------------------------------------------------------- */
+.pane-sep {
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+/* ---------------------------------------------------------
+   CONTACT
+   --------------------------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 24px;
+}
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+.site-footer {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  color: var(--black);
+}
+
+/* =========================================================
+   DESKTOP ≥ 860px — 3 PANES · PLEIN LARGEUR · NO SCROLL
+   ========================================================= */
+@media (min-width: 860px) {
+
+  :root { --pad: 40px; }
+
+  /* Bloque le scroll page */
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* Page = flex colonne, pleine hauteur */
+  .page {
+    max-width: none;
+    width: 100%;
+    height: 100vh;
+    padding: 0 var(--pad);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .site-header {
+    flex-shrink: 0;
+    position: relative;  /* pas sticky sur desktop (page fixed) */
+    top: auto;
+    margin-bottom: 0;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  /* Main layout = 4 colonnes, remplit la hauteur restante */
+  .main-layout {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr 1fr 1.2fr;
+    column-gap: 0;
+    overflow: hidden;
+  }
+
+  /* Chaque panneau scrolle indépendamment (scrollbar masquée) */
+  .pane {
+    overflow-y: auto;
+    min-height: 0;
+    margin-bottom: 0;
+    padding: 24px 24px 20px 24px;
+    scrollbar-width: none;
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  
+  .pane:first-child {
+    padding-left: 0;
+  }
+
+  .pane:last-child {
+    padding-right: 0;
+    border-right: none;
+  }
+  
+  .pane::-webkit-scrollbar { display: none; }
+
+  /* Descriptions affichées sur desktop */
+  .cv-entry-desc { display: block; }
+
+  /* Compétences : 1 col dans le panneau droit */
+  .skills-2col {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contact : 1 col dans le panneau gauche */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* Footer collé en bas */
+  .site-footer {
+    flex-shrink: 0;
+    margin-top: 0;
+    padding: 14px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* =========================================================
+   TABLET 560–859px — 2 colonnes pour contact/skills
+   ========================================================= */
+@media (min-width: 560px) and (max-width: 859px) {
+  :root { --pad: 28px; }
+}
+
+/* =========================================================
+   AWWWARDS-STYLE ANIMATED UNDERLINES
+   ========================================================= */
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+.nav-row a, 
+.site-footer a, 
+.contact-grid a,
+aside a,
+.cv-entry-role a {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-row a::after, 
+.site-footer a::after,
+.contact-grid a::after,
+aside a::after,
+.cv-entry-role a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-row a:hover::after, 
+.site-footer a:hover::after,
+.contact-grid a:hover::after,
+aside a:hover::after,
+.cv-entry-role a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
