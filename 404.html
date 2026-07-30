@@ -117,12 +117,69 @@
         .back-button:hover {
             background-color: var(--text-color);
             color: var(--bg-color);
-            transform: translateY(-2px);
+        /* --- BARRE DE NAVIGATION CENTRÉE EN HAUT --- */
+        .top-nav {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 9999px;
+            padding: 6px 10px;
+            width: max-content;
+            max-width: calc(100vw - 20px);
         }
 
+        .top-nav-list {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .top-nav-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #111827;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 8px 18px;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .top-nav-link:hover, .top-nav-link.active {
+            background-color: rgba(56, 139, 255, 0.1);
+            color: var(--blue-color);
+        }
+
+        .top-nav-link:active {
+            transform: scale(0.96);
+        }
+
+        @media (max-width: 600px) {
+            .top-nav { top: 14px; padding: 4px 6px; }
+            .top-nav-list { gap: 2px; }
+            .top-nav-link { padding: 6px 10px; font-size: 0.82rem; }
+        }
     </style>
 </head>
 <body>
+
+    <nav class="top-nav" aria-label="Navigation principale">
+        <ul class="top-nav-list">
+            <li><a href="index.html" class="top-nav-link">Accueil</a></li>
+            <li><a href="project.html" class="top-nav-link">Projets</a></li>
+            <li><a href="about.html" class="top-nav-link">À Propos</a></li>
+            <li><a href="contact.html" class="top-nav-link">Contact</a></li>
+        </ul>
+    </nav>
 
     <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
     <main class="error-content">
@@ -197,9 +254,8 @@
             createSticker(p2.x, p2.y, true, 300); 
         }
 
-        // Interactions
         document.addEventListener('click', (e) => {
-            if (e.target.closest('.menu-btn, .menu-overlay, .back-button')) return;
+            if (e.target.closest('.top-nav, .back-button')) return;
             createThreeStickers(e.clientX, e.clientY);
         });
 

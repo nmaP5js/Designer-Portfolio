@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="CLT Winter Calendar - Campagne de communication et calendrier de l'Avent 3D réalisé par Nicolas Marie Angelique.">
+    <link rel="icon" type="image/png" href="stickers/sticker1.png">
+    <link rel="shortcut icon" type="image/png" href="stickers/sticker1.png">
     <title>Nicolas Marie Angelique - CLT Winter Calendar</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
     
     <style>
         :root {
@@ -31,10 +33,10 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: 'Inter Tight', sans-serif;
-            height: 100vh;
+            min-height: 100vh;
             width: 100vw;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -173,386 +175,884 @@
             letter-spacing: 0.5px;
         }
 
-        /* --- LAYOUT PRINCIPAL --- */
+        /* --- LAYOUT PROJET CENTRÉ & HAUT DE GAMME --- */
         .main-content {
             width: 100%;
-            height: 100vh;
-            max-width: 100%;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr; 
-            height: 100%;
-            width: 100%;
-        }
-
-        /* --- COLONNE GAUCHE (Scrollable) --- */
-        .info-column {
-            position: relative;
-            height: 100vh;
-            overflow-y: auto;
-            padding: 120px 40px 40px 60px;
+            padding: 0 0 100px 0;
             display: flex;
             flex-direction: column;
-            gap: 40px;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+            align-items: center;
         }
-        .info-column::-webkit-scrollbar { display: none; }
 
-        .project-title h1 {
-            font-size: 4.5rem;
+        .project-header-centered {
+            width: 95%;
+            max-width: 850px;
+            margin: 0 auto 40px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .header-titles {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-titles h1 {
+            font-size: 4.2rem;
             font-weight: 600;
             line-height: 0.95;
-            margin-bottom: 15px;
             letter-spacing: -0.03em;
+            color: #000000;
+            margin-bottom: 10px;
+            text-align: center;
         }
 
-        .project-subtitle {
-            font-size: 1.4rem;
-            color: var(--highlight-color);
+        .header-titles h2 {
+            font-size: 1.35rem;
             font-weight: 400;
-            line-height: 1.3;
+            color: var(--highlight-color);
+            text-align: center;
         }
 
-        .project-description {
+        .project-description-centered {
             font-size: 1.15rem;
             line-height: 1.6;
-            max-width: 500px;
+            max-width: 720px;
             color: var(--text-color);
+            margin: 0 auto;
+            text-align: left;
         }
 
-        /* Blocs Métadonnées */
-        .meta-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .meta-box {
-            background-color: var(--light-gray);
-            padding: 20px 25px;
-            border-radius: 6px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .meta-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--highlight-color);
-            margin-bottom: 6px;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-        }
-
-        .meta-value {
-            font-size: 1.05rem;
-            font-weight: 500;
-            color: var(--text-color);
-        }
-
-        .tags-container {
+        .tags-container-centered {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 10px;
+            margin-top: 5px;
         }
-        
+
         .tag-pill {
-            padding: 8px 18px;
-            border: 1px solid #e0e0e0;
+            padding: 6px 16px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
             border-radius: 50px;
-            font-size: 0.9rem;
-            color: var(--highlight-color);
+            font-size: 0.85rem;
+            color: #555555;
+            background: rgba(0, 0, 0, 0.02);
             white-space: nowrap;
         }
 
-        /* --- COLONNE DROITE (Scrollable) --- */
-        .visual-column {
-            height: 100vh;
-            overflow-y: auto;
-            padding: 120px 60px 40px 40px;
+        .meta-bar-centered {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            padding: 16px 28px;
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 16px;
+            margin-top: 10px;
+        }
+
+        .meta-item {
             display: flex;
             flex-direction: column;
-            gap: 40px; 
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+            align-items: center;
+            gap: 3px;
         }
-        .visual-column::-webkit-scrollbar { display: none; }
 
-        /* Images */
-        .main-image-container {
-            width: 100%;
-            height: auto; 
-            border-radius: 6px;
-            overflow: hidden;
-            background-color: var(--light-gray);
+        .meta-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #888888;
+            font-weight: 600;
+        }
+
+        .meta-value {
+            font-size: 0.98rem;
+            font-weight: 500;
+            color: #111111;
+        }
+
+        .meta-divider {
+            width: 1px;
+            height: 24px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .video-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            background: #09090b;
+            color: #ffffff;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .video-cta-btn:hover {
+            background: #27272a;
+            transform: translateY(-2px);
+        }
+
+        /* Galerie d'images centrée */
+        .project-visuals-centered {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
         }
 
-        .main-image {
+        .visual-main-item {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #f3f4f6;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .visual-main-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+        }
+
+        .visual-main-item img, .visual-grid-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .visual-main-item:hover img, .visual-grid-item:hover img {
+            transform: scale(1.02);
+        }
+
+        .visual-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .visual-grid-item {
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #f3f4f6;
+            cursor: pointer;
+            aspect-ratio: 16 / 10;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .visual-grid-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.09);
+        }
+
+        @media (max-width: 768px) {
+            .header-titles h1 { font-size: 2.2rem !important; }
+            .meta-bar-centered { gap: 14px; padding: 12px 18px; }
+            .meta-divider { display: none; }
+            .meta-item { width: 45%; }
+            .visual-grid-2col { grid-template-columns: 1fr; }
+        }
+
+        /* --- HIGH-END LIGHTBOX MODAL --- */
+        .modal {
+            position: fixed; inset: 0;
+            background: rgba(5, 5, 8, 0.92);
+            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            z-index: 2000; opacity: 0; pointer-events: none;
+            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modal.active { opacity: 1; pointer-events: auto; }
+        
+        .modal-content {
+            position: relative; width: 100%; height: 100%;
+            display: flex; justify-content: center; align-items: center;
+            padding: 80px 40px 100px 40px;
+            user-select: none;
+        }
+        
+        .modal-image-wrapper {
+            position: relative;
+            max-width: 90vw;
+            max-height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: visible;
+            border-radius: 12px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 75vh;
+            object-fit: contain;
+            display: block;
+            border-radius: 12px;
+            transition: opacity 0.25s ease;
+            cursor: zoom-in;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .modal-image.zoomed {
+            cursor: grab;
+        }
+        .modal-image.zoomed.panning {
+            cursor: grabbing;
+            transition: none;
+        }
+
+        /* Toolbar & navigation */
+        .lightbox-toolbar {
+            position: absolute;
+            top: 24px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 2010;
+        }
+
+        .lightbox-btn {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lightbox-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.06);
+        }
+
+        .lightbox-btn:active {
+            transform: scale(0.95);
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            top: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            padding: 8px 22px;
+            border-radius: 9999px;
+            z-index: 2010;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .counter-curr { font-weight: 700; color: #ffffff; }
+        .counter-slash { opacity: 0.4; font-weight: 300; margin: 0 2px; }
+        .counter-total { opacity: 0.6; font-weight: 500; }
+
+        /* Bande de miniatures */
+        .lightbox-thumbnails {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2010;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 6px 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .thumb-item {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .thumb-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
-            transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
-            will-change: transform;
         }
-        .main-image-container:hover .main-image { transform: scale(1.03); }
 
-        /* --- NAVIGATION INTERNE PROJET (Sidebar) --- */
-        .project-index {
-            padding-top: 30px;
-            border-top: 1px solid var(--light-gray);
+        .thumb-item:hover, .thumb-item.active {
+            opacity: 1;
+            border-color: #388bff;
+            transform: scale(1.08);
+        }
+
+        /* --- SHADCN/UI TABS STYLE : TOUS LES PROJETS --- */
+        .projects-subnav-container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 95px auto 12px auto;
             display: flex;
             flex-direction: column;
-            gap: 15px; 
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-align: center;
         }
 
-        .project-index.mobile-only {
-            margin-top: 60px; 
-            border-top: 1px solid rgba(0,0,0,0.1);
+        .subnav-title {
+            font-size: 0.75rem;
+            text-transform: none;
+            letter-spacing: 0.02em;
+            color: #999999;
+            font-weight: 500;
         }
 
-        .index-label {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            color: var(--highlight-color);
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            margin-bottom: 5px;
+        /* Tabs list — fond gris pâle, bordure arrondie */
+        .subnav-list {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2px;
+            padding: 4px;
+            background-color: #f4f4f5;
+            border-radius: 10px;
+            border: none;
         }
 
-        .index-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .index-link {
-            font-size: 1rem;
+        /* Chaque onglet */
+        .subnav-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 500;
+            line-height: 1;
             text-decoration: none;
-            color: var(--highlight-color);
-            transition: color 0.2s ease;
-            display: block;
-            width: fit-content;
+            color: #71717a;
+            white-space: nowrap;
+            padding: 7px 14px;
+            border-radius: 7px;
+            border: none;
+            background: transparent;
+            transition: color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
         }
 
-        .index-link:hover { color: var(--text-color); }
-        .index-link.current-project { color: var(--text-color); font-weight: 600; }
+        .subnav-item:hover {
+            color: #18181b;
+            background-color: rgba(255,255,255,0.6);
+        }
 
-        /* Gestion affichage Mobile/PC */
-        .mobile-only { display: none; }
-        .desktop-only { display: flex; }
-        .next-project-area { display: none !important; }
+        /* Onglet actif — fond blanc + ombre légère */
+        .subnav-item.active {
+            color: #18181b;
+            font-weight: 500;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.06);
+        }
+
+        @media (max-width: 1024px) {
+            .projects-subnav-container {
+                width: 100%;
+                padding: 0 20px;
+            }
+            .subnav-list {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                justify-content: flex-start;
+                width: 100%;
+            }
+            .subnav-list::-webkit-scrollbar { display: none; }
+            .subnav-item { flex-shrink: 0; }
+        }
+
+        @media (max-width: 600px) {
+            .projects-subnav-container {
+                margin: 75px auto 15px auto;
+                gap: 8px;
+                width: 100%;
+                padding: 0 16px;
+            }
+            .subnav-list {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                justify-content: flex-start;
+                width: 100%;
+            }
+            .subnav-list::-webkit-scrollbar { display: none; }
+            .subnav-item { font-size: 0.82rem; padding: 6px 12px; flex-shrink: 0; }
+        }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
-            body { overflow: auto; height: auto; }
-            .main-content { height: auto; padding: 100px 20px; }
-            .project-grid { grid-template-columns: 1fr; gap: 60px; display: block; height: auto; }
-            .info-column { height: auto; overflow: visible; padding: 0 0 40px 0; position: relative; top: 0; }
-            .visual-column { height: auto; overflow: visible; padding: 0; }
-            .project-title h1 { font-size: 3.5rem; }
+            body { overflow-x: hidden; overflow-y: auto; height: auto; width: 100%; }
             .desktop-only { display: none; }
             .mobile-only { display: flex; }
         }
 
+        /* --- BARRE DE NAVIGATION CENTRÉE EN HAUT --- */
+        .top-nav {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 9999px;
+            padding: 6px 10px;
+            width: max-content;
+            max-width: calc(100vw - 20px);
+        }
+
+        .top-nav-list {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .top-nav-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #111827;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 8px 18px;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .top-nav-link:hover, .top-nav-link.active {
+            background-color: rgba(56, 139, 255, 0.1);
+            color: var(--blue-color);
+        }
+
+        .top-nav-link:active {
+            transform: scale(0.96);
+        }
+
         @media (max-width: 600px) {
-            .nav-capsule {
-                right: 20px;
-                width: calc(100% - 40px);
-            }
-            .main-content { padding: 80px 20px; }
-            .project-title h1 { font-size: 2.5rem; }
-            .project-subtitle { font-size: 1.2rem; }
-            .meta-grid { grid-template-columns: 1fr; }
-            .menu-btn { top: 20px; right: 20px; }
+            .top-nav { top: 14px; padding: 4px 6px; }
+            .top-nav-list { gap: 2px; }
+            .top-nav-link { padding: 6px 10px; font-size: 0.82rem; }
+            .modal-content { padding: 60px 10px 90px 10px; }
+            .lightbox-toolbar { top: 14px; right: 14px; gap: 6px; }
+            .lightbox-btn { width: 38px; height: 38px; }
+            .lightbox-btn .material-symbols-outlined { font-size: 18px !important; }
+            .lightbox-counter { top: 18px; padding: 5px 14px; font-size: 0.78rem; }
+            .lightbox-thumbnails { bottom: 14px; padding: 4px 8px; gap: 6px; }
+            .thumb-item { width: 38px; height: 38px; }
         }
     </style>
 </head>
 <body>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">
-        <span class="material-symbols-outlined" id="menuIcon">menu</span>
-    </button>
-
-    <nav class="nav-capsule" id="navCapsule" aria-hidden="true">
-        <ul class="capsule-list">
-            <li><a href="index.html" class="capsule-link">Accueil</a></li>
-            
-            <li class="has-submenu">
-                <button class="capsule-link project-trigger" id="projectBtn" aria-expanded="false">
-                    Projets 
-                    <span class="material-symbols-outlined chevron">expand_more</span>
-                </button>
-                <ul class="submenu" id="projectSubmenu">
-                    <li><a href="enjoytheride.html">Enjoy The Ride</a></li>
-                    <li><a href="trinityringcartier.html">Cartier Trinity Ring</a></li>
-                    <li><a href="cgivisual.html">CGI Visual</a></li>
-                    <li><a href="project.html" class="all-projects">Voir tout →</a></li>
-                </ul>
-            </li>
-
-            <li><a href="about.html" class="capsule-link">À Propos</a></li>
-            <li><a href="contact.html" class="capsule-link">Contact</a></li>
+    <nav class="top-nav" aria-label="Navigation principale">
+        <ul class="top-nav-list">
+            <li><a href="index.html" class="top-nav-link">Accueil</a></li>
+            <li><a href="project.html" class="top-nav-link active">Projets</a></li>
+            <li><a href="about.html" class="top-nav-link">À Propos</a></li>
+            <li><a href="contact.html" class="top-nav-link">Contact</a></li>
         </ul>
     </nav>
 
+    <nav class="projects-subnav-container" aria-label="Tous les projets">
+        <span class="subnav-title">Tous les projets</span>
+        <div class="subnav-list">
+            <a href="imageia.html" class="subnav-item">Image Gen IA</a>
+            <a href="data_viz.html" class="subnav-item">DATA_VIZ</a>
+            <a href="trinityringcartier.html" class="subnav-item">Trinity Ring</a>
+            <a href="ptitchef.html" class="subnav-item">Made In Work</a>
+            <a href="budl.html" class="subnav-item">BUDL</a>
+            <a href="enjoytheride.html" class="subnav-item">Enjoy The Ride</a>
+            <a href="cltwinter.html" class="subnav-item active">CLT Winter Calendar</a>
+            <a href="cgivisual.html" class="subnav-item">CGI Visual</a>
+        </div>
+    </nav>
+
     <main class="main-content">
-        <article class="project-grid">
-            
-            <header class="info-column">
-                <div class="project-title">
-                    <h1>CLT Winter Calendar</h1>
-                    <h2 class="project-subtitle">Campagne de communication</h2>
-                </div>
+        <header class="project-header-centered">
+            <div class="header-titles">
+                <h1>CLT Winter Calendar</h1>
+                <h2>Campagne de communication</h2>
+            </div>
 
-                <div class="project-description">
-                    <p>Conception d’un calendrier de l’Avent promotionnel pour Instagram décliné en 24 stories vidéo dévoilant chaque jour un lot à gagner. Ce projet vise à engager la communauté à travers une expérience visuelle quotidienne de haute qualité.</p>
-                </div>
+            <p class="project-description-centered">Conception d’un calendrier de l’Avent promotionnel pour Instagram décliné en 24 stories vidéo dévoilant chaque jour un lot à gagner. Ce projet vise à engager la communauté à travers une expérience visuelle quotidienne de haute qualité.</p>
 
-                <div class="tags-container">
-                    <span class="tag-pill">Designer 3D</span>
-                    <span class="tag-pill">Blender</span>
-                    <span class="tag-pill">Animation</span>
-                </div>
+            <div class="tags-container-centered">
+                <span class="tag-pill">Designer 3D</span>
+                <span class="tag-pill">Blender</span>
+                <span class="tag-pill">Animation</span>
+            </div>
 
-                <div class="meta-grid">
-                    <div class="meta-box">
-                        <span class="meta-label">Client</span>
-                        <span class="meta-value">C'est La Teuf</span>
-                    </div>
-                    <div class="meta-box">
-                        <span class="meta-label">Année</span>
-                        <span class="meta-value">2022 & 2023</span>
-                    </div>
-                    <div class="meta-box">
-                        <span class="meta-label">Durée</span>
-                        <span class="meta-value">1 mois</span>
-                    </div>
-                    <div class="meta-box">
-                        <span class="meta-label">Rôle</span>
-                        <span class="meta-value">Designer 3D</span>
-                    </div>
+            <div class="meta-bar-centered">
+                <div class="meta-item">
+                    <span class="meta-label">Lieu / Projet</span>
+                    <span class="meta-value">C'est La Teuf</span>
                 </div>
-
-                <div class="project-index desktop-only">
-                    <span class="index-label">Tous les projets</span>
-                    <ul class="index-list">
-                        <li><a href="imageia.html" class="index-link">Image Gen IA</a></li>
-                        <li><a href="data_viz.html" class="index-link">DATA_VIZ</a></li>
-                        <li><a href="trinityringcartier.html" class="index-link">Trinity Ring</a></li>
-                        <li><a href="ptitchef.html" class="index-link">Made In Work</a></li>
-                        <li><a href="budl.html" class="index-link">BUDL</a></li>
-                        <li><a href="enjoytheride.html" class="index-link">Enjoy The Ride</a></li>
-                        <li><a href="cltwinter.html" class="index-link current-project">CLT Winter Calendar</a></li>
-                        <li><a href="cgivisual.html" class="index-link">CGI Visual</a></li>
-                    </ul>
+                <div class="meta-divider"></div>
+                <div class="meta-item">
+                    <span class="meta-label">Année</span>
+                    <span class="meta-value">2022 &amp; 2023</span>
                 </div>
-            </header>
-
-            <section class="visual-column">
-                
-                <figure class="main-image-container">
-                    <img src="./images/cal2022.webp" alt="Visuel principal du CLT Winter Calendar" class="main-image" loading="eager">
-                </figure>
-                
-                <div class="project-index mobile-only">
-                    <span class="index-label">Tous les projets</span>
-                    <ul class="index-list">
-                        <li><a href="imageia.html" class="index-link">Image Gen IA</a></li>
-                        <li><a href="data_viz.html" class="index-link">DATA_VIZ</a></li>
-                        <li><a href="trinityringcartier.html" class="index-link">Trinity Ring</a></li>
-                        <li><a href="ptitchef.html" class="index-link">Made In Work</a></li>
-                        <li><a href="budl.html" class="index-link">BUDL</a></li>
-                        <li><a href="enjoytheride.html" class="index-link">Enjoy The Ride</a></li>
-                        <li><a href="cltwinter.html" class="index-link current-project">CLT Winter Calendar</a></li>
-                        <li><a href="cgivisual.html" class="index-link">CGI Visual</a></li>
-                    </ul>
+                <div class="meta-divider"></div>
+                <div class="meta-item">
+                    <span class="meta-label">Durée</span>
+                    <span class="meta-value">1 mois</span>
                 </div>
-            </section>
+                <div class="meta-divider"></div>
+                <div class="meta-item">
+                    <span class="meta-label">Rôle</span>
+                    <span class="meta-value">Designer 3D</span>
+                </div>
+            </div>
+        </header>
 
-        </article>
+        <section class="project-visuals-centered">
+            <figure class="visual-main-item">
+                <img src="./images/cal2022.webp" alt="Visuel principal du CLT Winter Calendar" class="main-image" loading="eager">
+            </figure>
+        </section>
     </main>
 
+    <div class="modal" id="imageModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="lightbox-counter" id="imageCounter">1 / 1</div>
+        
+        <div class="lightbox-toolbar">
+            <button class="lightbox-btn" id="zoomToggleBtn" title="Agrandir / Réduire (Clic)">
+                <span class="material-symbols-outlined" id="zoomIcon">zoom_in</span>
+            </button>
+            <button class="lightbox-btn" id="modalClose" title="Fermer (Échap)">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+
+        <div class="modal-content">
+            <div class="modal-image-wrapper">
+                <img src="" alt="" class="modal-image" id="modalImage">
+            </div>
+        </div>
+
+        <div class="lightbox-thumbnails" id="lightboxThumbnails"></div>
+    </div>
+
     <script>
-    // --- GESTION DU MENU CAPSULE ---
-    const menuBtn = document.getElementById('menuBtn');
-    const navCapsule = document.getElementById('navCapsule');
-    const menuIcon = document.getElementById('menuIcon');
-    const projectBtn = document.getElementById('projectBtn');
-    const projectSubmenu = document.getElementById('projectSubmenu');
-    
-    let isMenuOpen = false;
+        // --- DATA IMAGES & GALERIE ---
+        const galleryImages = [
+            { src: 'images/cal2022.webp', alt: 'Visuel principal du CLT Winter Calendar' }
+        ];
 
-    // 1. Ouvrir / Fermer le menu
-    function toggleMenu() {
-        isMenuOpen = !isMenuOpen;
-        menuBtn.setAttribute('aria-expanded', isMenuOpen);
-        navCapsule.setAttribute('aria-hidden', !isMenuOpen);
-        
-        if (isMenuOpen) {
-            navCapsule.classList.add('active');
-            menuIcon.textContent = 'close';
-            menuBtn.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'; 
-        } else {
-            navCapsule.classList.remove('active');
-            menuIcon.textContent = 'menu';
-            menuBtn.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-            closeProjects(); 
+        // --- PAN STATE ---
+        let isPanning = false;
+        let hasDragged = false;
+        let panStartX = 0, panStartY = 0;
+        let currentPanX = 0, currentPanY = 0;
+
+        function generateGallery() {
+            const container = document.getElementById('galleryContainer');
+            if (!container) return;
+            const fragment = document.createDocumentFragment();
+            galleryImages.forEach((image, index) => {
+                const item = document.createElement('div');
+                item.className = 'bento-item';
+                item.dataset.index = index;
+                item.setAttribute('role', 'button');
+                item.setAttribute('tabindex', '0');
+                item.setAttribute('aria-label', `Voir ${image.alt}`);
+                const img = document.createElement('img');
+                img.src = image.src;
+                img.alt = image.alt;
+                img.className = 'bento-image';
+                img.loading = "lazy"; 
+                item.appendChild(img);
+                fragment.appendChild(item);
+            });
+            container.appendChild(fragment);
         }
-    }
 
-    // 2. Accordéon Projets
-    function toggleProjects(e) {
-        e.preventDefault(); 
-        const isExpanded = projectBtn.getAttribute('aria-expanded') === 'true';
-        
-        if (!isExpanded) {
-            projectSubmenu.classList.add('open');
-            projectBtn.setAttribute('aria-expanded', 'true');
-            projectBtn.style.color = 'var(--blue-color)';
-        } else {
-            closeProjects();
+        function generateThumbnails() {
+            const thumbsContainer = document.getElementById('lightboxThumbnails');
+            thumbsContainer.innerHTML = '';
+            galleryImages.forEach((image, index) => {
+                const thumb = document.createElement('div');
+                thumb.className = `thumb-item ${index === currentIndex ? 'active' : ''}`;
+                thumb.dataset.index = index;
+                const img = document.createElement('img');
+                img.src = image.src;
+                img.alt = image.alt;
+                thumb.appendChild(img);
+                thumb.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    goToImage(index);
+                });
+                thumbsContainer.appendChild(thumb);
+            });
         }
-    }
 
-    function closeProjects() {
-        projectSubmenu.classList.remove('open');
-        projectBtn.setAttribute('aria-expanded', 'false');
-        projectBtn.style.color = ''; 
-    }
+        let currentIndex = 0;
+        let isZoomed = false;
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const counter = document.getElementById('imageCounter');
+        const zoomIcon = document.getElementById('zoomIcon');
 
-    // Listeners
-    menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu();
-    });
-
-    projectBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleProjects(e);
-    });
-
-    document.addEventListener('click', (e) => {
-        if (isMenuOpen && !navCapsule.contains(e.target) && !menuBtn.contains(e.target)) {
-            toggleMenu();
+        function updateCounter() { 
+            const curr = String(currentIndex + 1).padStart(2, '0');
+            const total = String(galleryImages.length).padStart(2, '0');
+            counter.innerHTML = `<span class="counter-curr">${curr}</span><span class="counter-slash">/</span><span class="counter-total">${total}</span>`; 
+            const thumbs = document.querySelectorAll('.thumb-item');
+            thumbs.forEach((t, i) => {
+                t.classList.toggle('active', i === currentIndex);
+            });
         }
-    });
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && isMenuOpen) toggleMenu();
-    });
+        function applyTransform() {
+            if (isZoomed) {
+                modalImg.style.transform = `scale(1.8) translate(${currentPanX / 1.8}px, ${currentPanY / 1.8}px)`;
+            } else {
+                modalImg.style.transform = '';
+            }
+        }
+
+        function resetPan() {
+            currentPanX = 0;
+            currentPanY = 0;
+        }
+
+        function toggleZoom() {
+            isZoomed = !isZoomed;
+            resetPan();
+            modalImg.classList.toggle('zoomed', isZoomed);
+            applyTransform();
+            zoomIcon.textContent = isZoomed ? 'zoom_out' : 'zoom_in';
+        }
+
+        function resetZoom() {
+            isZoomed = false;
+            resetPan();
+            modalImg.classList.remove('zoomed');
+            modalImg.style.transform = '';
+            if (zoomIcon) zoomIcon.textContent = 'zoom_in';
+        }
+
+        function openModal(index) {
+            currentIndex = index;
+            resetZoom();
+            const image = galleryImages[index];
+            modalImg.style.opacity = '0';
+            modalImg.src = image.src;
+            modalImg.alt = image.alt;
+            modalImg.onload = () => { modalImg.style.opacity = '1'; };
+            generateThumbnails();
+            updateCounter();
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            resetZoom();
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            modalImg.src = '';
+        }
+
+        function goToImage(index) {
+            resetZoom();
+            currentIndex = index;
+            modalImg.style.opacity = '0';
+            setTimeout(() => {
+                modalImg.src = galleryImages[currentIndex].src;
+                modalImg.alt = galleryImages[currentIndex].alt;
+                modalImg.style.opacity = '1';
+            }, 120);
+            updateCounter();
+        }
+
+        function navigate(direction) {
+            const nextIndex = (currentIndex + direction + galleryImages.length) % galleryImages.length;
+            goToImage(nextIndex);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            generateGallery();
+            const galleryContainer = document.getElementById('galleryContainer');
+            if (galleryContainer) {
+                galleryContainer.addEventListener('click', (e) => {
+                    const item = e.target.closest('.bento-item');
+                    if (item) openModal(parseInt(item.dataset.index));
+                });
+
+                galleryContainer.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        const item = e.target.closest('.bento-item');
+                        if (item) openModal(parseInt(item.dataset.index));
+                    }
+                });
+            }
+
+            const mainImages = document.querySelectorAll('.main-image-container, .main-image');
+            mainImages.forEach((imgEl) => {
+                imgEl.addEventListener('click', () => openModal(0));
+            });
+
+            document.getElementById('modalClose').addEventListener('click', closeModal);
+            document.getElementById('zoomToggleBtn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleZoom();
+            });
+
+            // Mouse drag for panning when zoomed
+            modalImg.addEventListener('mousedown', (e) => {
+                if (!isZoomed) return;
+                isPanning = true;
+                hasDragged = false;
+                panStartX = e.clientX - currentPanX;
+                panStartY = e.clientY - currentPanY;
+                modalImg.classList.add('panning');
+                e.preventDefault();
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isPanning || !isZoomed) return;
+                const newX = e.clientX - panStartX;
+                const newY = e.clientY - panStartY;
+                if (Math.abs(newX - currentPanX) > 2 || Math.abs(newY - currentPanY) > 2) hasDragged = true;
+                currentPanX = newX;
+                currentPanY = newY;
+                applyTransform();
+            });
+
+            window.addEventListener('mouseup', () => {
+                if (isPanning) {
+                    isPanning = false;
+                    modalImg.classList.remove('panning');
+                }
+            });
+
+            modalImg.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (hasDragged) { hasDragged = false; return; }
+                toggleZoom();
+            });
+
+            // Support du Scroll Horizontal / Molette de Souris
+            let isWheeling = false;
+            modal.addEventListener('wheel', (e) => {
+                if (!modal.classList.contains('active') || isZoomed) return;
+                e.preventDefault();
+                if (isWheeling) return;
+
+                const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+                if (Math.abs(delta) > 20) {
+                    isWheeling = true;
+                    if (delta > 0) navigate(1);
+                    else navigate(-1);
+                    setTimeout(() => { isWheeling = false; }, 350);
+                }
+            }, { passive: false });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal || e.target.classList.contains('modal-content') || e.target.classList.contains('modal-image-wrapper')) closeModal();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (modal.classList.contains('active')) {
+                    if (e.key === 'Escape') closeModal();
+                    if (e.key === 'ArrowLeft') navigate(-1);
+                    if (e.key === 'ArrowRight') navigate(1);
+                }
+            });
+
+            // Support du balayage tactile (Swipe mobile / Pan quand zoomé)
+            let touchStartX = 0, touchStartY = 0;
+            let touchEndX = 0;
+            let isTouchPanning = false;
+            let touchPanStartX = 0, touchPanStartY = 0;
+
+            modal.addEventListener('touchstart', (e) => {
+                if (isZoomed) {
+                    isTouchPanning = true;
+                    touchPanStartX = e.changedTouches[0].clientX - currentPanX;
+                    touchPanStartY = e.changedTouches[0].clientY - currentPanY;
+                } else {
+                    isTouchPanning = false;
+                    touchStartX = e.changedTouches[0].screenX;
+                    touchStartY = e.changedTouches[0].screenY;
+                }
+            }, { passive: true });
+
+            modal.addEventListener('touchmove', (e) => {
+                if (!isZoomed || !isTouchPanning) return;
+                currentPanX = e.changedTouches[0].clientX - touchPanStartX;
+                currentPanY = e.changedTouches[0].clientY - touchPanStartY;
+                applyTransform();
+            }, { passive: true });
+
+            modal.addEventListener('touchend', (e) => {
+                if (isZoomed) {
+                    isTouchPanning = false;
+                } else {
+                    touchEndX = e.changedTouches[0].screenX;
+                    const diff = touchEndX - touchStartX;
+                    if (Math.abs(diff) > 40) {
+                        if (diff < 0) navigate(1);
+                        else navigate(-1);
+                    }
+                }
+            }, { passive: true });
+        });
     </script>
 </body>
 </html>

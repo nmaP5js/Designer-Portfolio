@@ -11,6 +11,9 @@
     <meta property="og:description" content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
     <meta property="og:image" content="https://nicolasmarieangelique.fr/images/aperçu_img.png">
     
+    <link rel="icon" type="image/png" href="stickers/sticker1.png">
+    <link rel="shortcut icon" type="image/png" href="stickers/sticker1.png">
+    
     <title>Nicolas Marie Angelique - Accueil</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,8 +24,6 @@
     <style>
         :root {
             --bg-color: #ffffff;
-            --grid-color: #fafafa; 
-            --grid-angle: -5deg; /* Ajuste l'angle ici */
             --text-color: #000000;
             --highlight-color: #888888;
             --blue-color: #388BFF;
@@ -46,25 +47,6 @@
             overflow-y: auto;
             position: relative;
             -webkit-font-smoothing: antialiased;
-        }
-
-        /* --- QUADRILLAGE INCLINÉ --- */
-        /* Placé tout au fond (z-index -2) */
-        body::before {
-            content: "";
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            z-index: -2; 
-            background-image: 
-                linear-gradient(45deg, var(--grid-color) 25%, transparent 25%, transparent 75%, var(--grid-color) 75%, var(--grid-color)), 
-                linear-gradient(45deg, var(--grid-color) 25%, transparent 25%, transparent 75%, var(--grid-color) 75%, var(--grid-color));
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-            transform: rotate(var(--grid-angle));
-            pointer-events: none;
         }
 
         /* --- STICKERS (Couche au-dessus du logo mais sous le menu) --- */
@@ -101,64 +83,90 @@
             100% { opacity: 1; transform: scale(1) rotate(0deg); } 
         }
 
-        /* --- BOUTON MENU --- */
-        .menu-btn {
-            position: fixed; top: 30px; right: 30px; z-index: calc(var(--menu-z) + 1); cursor: pointer;
-            width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
-            background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
-            border-radius: 50%; border: none; color: var(--text-color);
-            transition: transform 0.3s;
+        /* --- BARRE DE NAVIGATION CENTRÉE EN HAUT --- */
+        .top-nav {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 9999px;
+            padding: 6px 10px;
+            width: max-content;
+            max-width: calc(100vw - 20px);
         }
-        .menu-btn:hover { transform: scale(1.1); background-color: rgba(0,0,0,0.05); }
-        .menu-btn .material-symbols-outlined { font-size: 30px; }
 
-        /* --- MENU CAPSULE --- */
-        .nav-capsule {
-            position: fixed; top: 90px; right: 30px; width: 260px;
-            background-color: rgba(255, 255, 255, 0.3); backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 24px; padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); z-index: var(--menu-z);
-            opacity: 0; visibility: hidden; transform: translateY(-10px) scale(0.95);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        .top-nav-list {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
-        .nav-capsule.active { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
-        .capsule-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-        .capsule-link {
-            display: flex; justify-content: space-between; align-items: center; width: 100%;
-            text-decoration: none; color: var(--text-color); font-size: 1.1rem; font-weight: 500;
-            padding: 10px 15px; border-radius: 12px; transition: background 0.2s; cursor: pointer;
-            background: none; border: none; text-align: left;
+
+        .top-nav-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #111827;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 8px 18px;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
         }
-        .capsule-link:hover { background-color: rgba(255,255,255,0.5); color: var(--blue-color); }
-        .chevron { font-size: 1.2rem; transition: transform 0.3s; }
-        .project-trigger[aria-expanded="true"] .chevron { transform: rotate(180deg); }
-        .submenu { list-style: none; margin-left: 15px; max-height: 0; overflow: hidden; transition: max-height 0.4s; }
-        .submenu.open { max-height: 200px; margin-top: 5px; margin-bottom: 5px; }
-        .submenu li a { display: block; text-decoration: none; color: #666; font-size: 0.95rem; padding: 8px 15px; transition: color 0.2s; }
-        .submenu li a:hover { color: var(--blue-color); transform: translateX(5px); }
-        .submenu .all-projects { font-weight: 600; color: var(--text-color); font-size: 0.85rem; margin-top: 5px; text-transform: uppercase; }
+
+        .top-nav-link:hover, .top-nav-link.active {
+            background-color: rgba(56, 139, 255, 0.1);
+            color: var(--blue-color);
+        }
+
+        .top-nav-link:active {
+            transform: scale(0.96);
+        }
+
+        @media (max-width: 600px) {
+            .top-nav { top: 14px; padding: 4px 6px; }
+            .top-nav-list { gap: 2px; }
+            .top-nav-link { padding: 6px 10px; font-size: 0.82rem; }
+        }
 
         /* --- HERO SECTION --- */
         .hero-section {
             width: 100%; 
-            height: 90vh; 
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
             position: relative; 
             z-index: 1; /* Sous les stickers */
         }
         .logo-container { 
             width: 80%; 
-            max-width: 450px; 
+            max-width: 420px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
             pointer-events: none; 
         }
-        .logo-svg { width: 100%; height: auto; display: block; }
+        .logo-img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            object-fit: contain; 
+        }
 
         @media (max-width: 600px) {
-            .nav-capsule { right: 20px; width: calc(100% - 40px); }
-            .menu-btn { top: 20px; right: 20px; }
-            .hero-section { height: 90vh; }
-            .logo-container { width: 75%; max-width: 350px; }
+            .top-nav { top: 16px; padding: 4px 6px; }
+            .top-nav-link { padding: 6px 12px; font-size: 0.85rem; }
+            .hero-section { min-height: 100vh; }
+            .logo-container { width: 80%; max-width: 290px; }
         }
     </style>
 </head>
@@ -166,114 +174,29 @@
 
     <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">
-        <span class="material-symbols-outlined" id="menuIcon">menu</span>
-    </button>
-
-    <nav class="nav-capsule" id="navCapsule" aria-hidden="true">
-        <ul class="capsule-list">
-            <li><a href="index.html" class="capsule-link">Accueil</a></li>
-            <li class="has-submenu">
-                <button class="capsule-link project-trigger" id="projectBtn" aria-expanded="false">
-                    Projets 
-                    <span class="material-symbols-outlined chevron">expand_more</span>
-                </button>
-                <ul class="submenu" id="projectSubmenu">
-                    <li><a href="enjoytheride.html">Enjoy The Ride</a></li>
-                    <li><a href="trinityringcartier.html">Cartier Trinity Ring</a></li>
-                    <li><a href="cgivisual.html">CGI Visual</a></li>
-                    <li><a href="project.html" class="all-projects">Voir tout →</a></li>
-                </ul>
-            </li>
-            <li><a href="about.html" class="capsule-link">À Propos</a></li>
-            <li><a href="contact.html" class="capsule-link">Contact</a></li>
+    <nav class="top-nav" aria-label="Navigation principale">
+        <ul class="top-nav-list">
+            <li><a href="index.html" class="top-nav-link active">Accueil</a></li>
+            <li><a href="project.html" class="top-nav-link">Projets</a></li>
+            <li><a href="about.html" class="top-nav-link">À Propos</a></li>
+            <li><a href="contact.html" class="top-nav-link">Contact</a></li>
         </ul>
     </nav>
 
     <header class="hero-section">
         <div class="logo-container">
-            <svg class="logo-svg" viewBox="0 0 1286 641" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M144 0H1142V229H144V0Z" fill="#0045A6"/>
-                <path d="M288 208H998V431H288V208Z" fill="#0045A6"/>
-                <path d="M0 403H1286V641H0V403Z" fill="#0045A6"/>
-                <path d="M322.08 21.75V208H295.83L201.455 71.5H199.58V208H171.455V21.75H197.455L292.205 158.5H293.955V21.75H322.08Z" fill="#3C8DFF"/>
-                <path d="M364.97 21.75V208H336.845V21.75H364.97Z" fill="#3C8DFF"/>
-                <path d="M457.485 210.5C441.485 210.5 427.152 206.667 414.485 199C401.818 191.333 391.86 180.375 384.61 166.125C377.36 151.792 373.735 134.75 373.735 115C373.735 95.0833 377.36 78 384.61 63.75C391.943 49.4167 401.902 38.4167 414.485 30.75C427.152 23.0833 441.485 19.25 457.485 19.25C467.318 19.25 476.527 20.6667 485.11 23.5C493.777 26.3333 501.527 30.4583 508.36 35.875C515.193 41.2917 520.818 47.9167 525.235 55.75C529.735 63.5833 532.735 72.4583 534.235 82.375H505.985C504.902 76.2917 502.86 70.9583 499.86 66.375C496.943 61.7083 493.318 57.7917 488.985 54.625C484.735 51.375 479.943 48.9583 474.61 47.375C469.36 45.7083 463.777 44.875 457.86 44.875C447.193 44.875 437.568 47.5833 428.985 53C420.485 58.3333 413.777 66.25 408.86 76.75C404.027 87.1667 401.61 99.9167 401.61 115C401.61 130.167 404.068 142.958 408.985 153.375C413.902 163.708 420.61 171.542 429.11 176.875C437.61 182.208 447.152 184.875 457.735 184.875C463.652 184.875 469.235 184.083 474.485 182.5C479.735 180.917 484.527 178.542 488.86 175.375C493.193 172.208 496.818 168.375 499.735 163.875C502.735 159.292 504.818 154 505.985 148H534.235C532.818 157.25 529.943 165.708 525.61 173.375C521.277 180.958 515.735 187.542 508.985 193.125C502.235 198.625 494.527 202.917 485.86 206C477.193 209 467.735 210.5 457.485 210.5Z" fill="#3C8DFF"/>
-                <path d="M619.875 210.5C603.875 210.5 589.542 206.667 576.875 199C564.208 191.333 554.208 180.375 546.875 166.125C539.542 151.792 535.875 134.75 535.875 115C535.875 95.0833 539.542 78 546.875 63.75C554.208 49.4167 564.208 38.4167 576.875 30.75C589.542 23.0833 603.875 19.25 619.875 19.25C636.042 19.25 650.417 23.0833 663 30.75C675.583 38.4167 685.5 49.4167 692.75 63.75C700.083 78 703.75 95.0833 703.75 115C703.75 134.833 700.083 151.875 692.75 166.125C685.5 180.375 675.583 191.333 663 199C650.417 206.667 636.042 210.5 619.875 210.5ZM619.875 184.875C630.625 184.875 640.208 182.208 648.625 176.875C657.042 171.542 663.667 163.667 668.5 153.25C673.417 142.833 675.875 130.083 675.875 115C675.875 99.8333 673.417 87.0417 668.5 76.625C663.667 66.125 657.042 58.2083 648.625 52.875C640.208 47.5417 630.625 44.875 619.875 44.875C609.208 44.875 599.625 47.5417 591.125 52.875C582.708 58.2083 576.042 66.125 571.125 76.625C566.208 87.0417 563.75 99.8333 563.75 115C563.75 130.083 566.208 142.833 571.125 153.25C576.042 163.667 582.708 171.542 591.125 176.875C599.625 182.208 609.208 184.875 619.875 184.875Z" fill="#3C8DFF"/>
-                <path d="M712.515 208V21.75H740.64V183.875H825.015V208H712.515Z" fill="#3C8DFF"/>
-                <path d="M856.03 208H826.155L893.155 21.75H925.655L992.53 208H962.78L910.03 55.625H908.53L856.03 208ZM861.03 135.125H957.655V158.625H861.03V135.125Z" fill="#3C8DFF"/>
-                <path d="M1053.92 211C1040 211 1027.92 208.833 1017.67 204.5C1007.5 200.083 999.545 193.792 993.795 185.625C988.045 177.458 984.837 167.75 984.17 156.5H1012.42C1013 163.25 1015.17 168.875 1018.92 173.375C1022.75 177.792 1027.71 181.083 1033.8 183.25C1039.88 185.417 1046.55 186.5 1053.8 186.5C1061.71 186.5 1068.8 185.25 1075.05 182.75C1081.3 180.25 1086.17 176.75 1089.67 172.25C1093.25 167.667 1095.05 162.333 1095.05 156.25C1095.05 150.75 1093.46 146.25 1090.3 142.75C1087.21 139.25 1083 136.375 1077.67 134.125C1072.34 131.792 1066.34 129.75 1059.67 128L1037.8 122C1022.8 118 1010.96 112.042 1002.3 104.125C993.628 96.125 989.295 85.6667 989.295 72.75C989.295 62 992.17 52.625 997.92 44.625C1003.75 36.625 1011.63 30.4167 1021.55 26C1031.55 21.5 1042.75 19.25 1055.17 19.25C1067.84 19.25 1078.96 21.5 1088.55 26C1098.21 30.4167 1105.84 36.5 1111.42 44.25C1117.09 51.9167 1120.05 60.7083 1120.3 70.625H1093.05C1092.05 62.0417 1088.05 55.375 1081.05 50.625C1074.13 45.875 1065.3 43.5 1054.55 43.5C1047.05 43.5 1040.46 44.7083 1034.8 47.125C1029.21 49.4583 1024.88 52.7083 1021.8 56.875C1018.8 61.0417 1017.3 65.8333 1017.3 71.25C1017.3 77.0833 1019.09 81.8333 1022.67 85.5C1026.34 89.1667 1030.75 92.0833 1035.92 94.25C1041.17 96.3333 1046.21 98.0417 1051.05 99.375L1069.17 104.25C1075.09 105.75 1081.17 107.75 1087.42 110.25C1093.67 112.75 1099.46 116.042 1104.8 120.125C1110.21 124.125 1114.55 129.125 1117.8 135.125C1121.13 141.042 1122.8 148.208 1122.8 156.625C1122.8 167.042 1120.09 176.375 1114.67 184.625C1109.25 192.792 1101.42 199.25 1091.17 204C1080.92 208.667 1068.5 211 1053.92 211Z" fill="#3C8DFF"/>
-                <path d="M317.095 225.75H351.345L410.595 370.5H412.72L472.095 225.75H506.845V412H479.345V277.25H477.595L422.47 411.75H400.22L345.72 277.125H343.97V412H317.095V225.75Z" fill="#3C8DFF"/>
-                <path d="M537.36 412H507.485L574.485 225.75H606.985L673.86 412H644.11L591.36 259.625H589.86L537.36 412ZM542.36 339.125H638.985V362.625H542.36V339.125Z" fill="#3C8DFF"/>
-                <path d="M674.375 412V225.75H740.875C755.292 225.75 767.25 228.25 776.75 233.25C786.25 238.167 793.375 245.042 798.125 253.875C802.875 262.625 805.25 272.75 805.25 284.25C805.25 295.583 802.875 305.583 798.125 314.25C793.375 322.917 786.208 329.625 776.625 334.375C767.125 339.125 755.125 341.5 740.625 341.5H690.5V317.5H738C747.25 317.5 754.708 316.167 760.375 313.5C766.125 310.833 770.292 307.042 772.875 302.125C775.542 297.208 776.875 291.25 776.875 284.25C776.875 277.167 775.542 271.083 772.875 266C770.208 260.833 766 256.875 760.25 254.125C754.583 251.292 747.125 249.875 737.875 249.875H702.5V412H674.375ZM780.375 412L735.25 327.875H766.375L812.375 412H780.375Z" fill="#3C8DFF"/>
-                <path d="M841.64 225.75V412H813.515V225.75H841.64Z" fill="#3C8DFF"/>
-                <path d="M856.405 412V225.75H973.28V249.875H884.53V306H967.03V330H884.53V387.875H974.155V412H856.405Z" fill="#3C8DFF"/>
-                <path d="M49.315 616H19.44L86.44 429.75H118.94L185.815 616H156.065L103.315 463.625H101.815L49.315 616ZM54.315 543.125H150.94V566.625H54.315V543.125Z" fill="#3C8DFF"/>
-                <path d="M336.955 429.75V616H310.705L216.33 479.5H214.455V616H186.33V429.75H212.33L307.08 566.5H308.83V429.75H336.955Z" fill="#3C8DFF"/>
-                <path d="M430.47 618.5C413.637 618.5 398.845 614.625 386.095 606.875C373.428 599.125 363.512 588.125 356.345 573.875C349.262 559.542 345.72 542.583 345.72 523C345.72 503.167 349.303 486.125 356.47 471.875C363.72 457.542 373.637 446.542 386.22 438.875C398.803 431.125 413.137 427.25 429.22 427.25C439.22 427.25 448.553 428.75 457.22 431.75C465.97 434.667 473.72 438.875 480.47 444.375C487.303 449.875 492.928 456.375 497.345 463.875C501.845 471.292 504.887 479.542 506.47 488.625H477.72C475.97 483.042 473.637 478.083 470.72 473.75C467.803 469.333 464.303 465.583 460.22 462.5C456.137 459.333 451.512 456.958 446.345 455.375C441.262 453.708 435.595 452.875 429.345 452.875C418.845 452.875 409.387 455.583 400.97 461C392.553 466.333 385.887 474.208 380.97 484.625C376.053 495.042 373.595 507.792 373.595 522.875C373.595 537.958 376.053 550.708 380.97 561.125C385.887 571.542 392.637 579.458 401.22 584.875C409.803 590.208 419.553 592.875 430.47 592.875C440.553 592.875 449.345 590.833 456.845 586.75C464.345 582.583 470.178 576.75 474.345 569.25C478.512 561.75 480.595 552.875 480.595 542.625L487.97 544H434.72V520.75H507.97V542C507.97 557.667 504.637 571.208 497.97 582.625C491.387 594.042 482.22 602.875 470.47 609.125C458.803 615.375 445.47 618.5 430.47 618.5Z" fill="#3C8DFF"/>
-                <path d="M517.36 616V429.75H634.235V453.875H545.485V510H627.985V534H545.485V591.875H635.11V616H517.36Z" fill="#3C8DFF"/>
-                <path d="M645.5 616V429.75H673.625V591.875H758V616H645.5Z" fill="#3C8DFF"/>
-                <path d="M792.015 429.75V616H763.89V429.75H792.015Z" fill="#3C8DFF"/>
-                <path d="M875.405 555.625H903.03L922.53 581L931.53 592.25L962.53 632.75H933.78L913.155 605.75L906.03 595.875L875.405 555.625ZM884.78 618.5C868.78 618.5 854.447 614.667 841.78 607C829.113 599.333 819.113 588.375 811.78 574.125C804.447 559.792 800.78 542.75 800.78 523C800.78 503.083 804.447 486 811.78 471.75C819.113 457.417 829.113 446.417 841.78 438.75C854.447 431.083 868.78 427.25 884.78 427.25C900.947 427.25 915.322 431.083 927.905 438.75C940.488 446.417 950.405 457.417 957.655 471.75C964.988 486 968.655 503.083 968.655 523C968.655 542.833 964.988 559.875 957.655 574.125C950.405 588.375 940.488 599.333 927.905 607C915.322 614.667 900.947 618.5 884.78 618.5ZM884.78 592.875C895.53 592.875 905.113 590.208 913.53 584.875C921.947 579.542 928.572 571.667 933.405 561.25C938.322 550.833 940.78 538.083 940.78 523C940.78 507.833 938.322 495.042 933.405 484.625C928.572 474.125 921.947 466.208 913.53 460.875C905.113 455.542 895.53 452.875 884.78 452.875C874.113 452.875 864.53 455.542 856.03 460.875C847.613 466.208 840.947 474.125 836.03 484.625C831.113 495.042 828.655 507.833 828.655 523C828.655 538.083 831.113 550.833 836.03 561.25C840.947 571.667 847.613 579.542 856.03 584.875C864.53 590.208 874.113 592.875 884.78 592.875Z" fill="#3C8DFF"/>
-                <path d="M1097.29 429.75H1125.42V552.25C1125.42 565.25 1122.34 576.792 1116.17 586.875C1110.09 596.875 1101.5 604.75 1090.42 610.5C1079.34 616.167 1066.34 619 1051.42 619C1036.59 619 1023.59 616.167 1012.42 610.5C1001.34 604.75 992.712 596.875 986.545 586.875C980.462 576.792 977.42 565.25 977.42 552.25V429.75H1005.54V550C1005.54 558.417 1007.38 565.917 1011.04 572.5C1014.79 579 1020.09 584.125 1026.92 587.875C1033.84 591.625 1042 593.5 1051.42 593.5C1060.92 593.5 1069.09 591.625 1075.92 587.875C1082.75 584.125 1088 579 1091.67 572.5C1095.42 565.917 1097.29 558.417 1097.29 550V429.75Z" fill="#3C8DFF"/>
-                <path d="M1140.06 616V429.75H1256.94V453.875H1168.19V510H1250.69V534H1168.19V591.875H1257.81V616H1140.06Z" fill="#3C8DFF"/>
-            </svg>
+            <img src="images/logo.svg" alt="Nicolas Marie Angelique" class="logo-img">
         </div>
     </header>
 
     <script>
-    // --- MENU ---
-    const menuBtn = document.getElementById('menuBtn');
-    const navCapsule = document.getElementById('navCapsule');
-    const menuIcon = document.getElementById('menuIcon');
-    const projectBtn = document.getElementById('projectBtn');
-    const projectSubmenu = document.getElementById('projectSubmenu');
-    let isMenuOpen = false;
-
-    function toggleMenu() {
-        isMenuOpen = !isMenuOpen;
-        menuBtn.setAttribute('aria-expanded', isMenuOpen);
-        if (isMenuOpen) {
-            navCapsule.classList.add('active');
-            menuIcon.textContent = 'close';
-            menuBtn.style.backgroundColor = 'rgba(0,0,0,0.1)';
-        } else {
-            navCapsule.classList.remove('active');
-            menuIcon.textContent = 'menu';
-            menuBtn.style.backgroundColor = 'rgba(255,255,255,0.1)';
-            closeProjects();
-        }
-    }
-
-    function toggleProjects(e) {
-        e.preventDefault(); 
-        const isExpanded = projectBtn.getAttribute('aria-expanded') === 'true';
-        if (!isExpanded) {
-            projectSubmenu.classList.add('open');
-            projectBtn.setAttribute('aria-expanded', 'true');
-            projectBtn.style.color = 'var(--blue-color)';
-        } else {
-            closeProjects();
-        }
-    }
-
-    function closeProjects() {
-        projectSubmenu.classList.remove('open');
-        projectBtn.setAttribute('aria-expanded', 'false');
-        projectBtn.style.color = ''; 
-    }
-
-    menuBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
-    projectBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleProjects(e); });
-    document.addEventListener('click', (e) => { if (isMenuOpen && !navCapsule.contains(e.target)) toggleMenu(); });
-
     // --- STICKERS BACKGROUND ---
     const stickerConfig = {
         basePath: "stickers/", 
         stickers: ["sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png", "sticker5.png"],
         maxStickers: 100, 
         displayTime: 60000, 
-        stickerSize: { min: 60, max: 200 }, 
+        stickerSize: { min: 90, max: 270 }, 
         randomPositionMargin: 60,
         animations: ["pop-in", "zoom-in", "spin-in"]
     };
@@ -296,6 +219,7 @@
     }
 
     function createSticker(x, y, isRandom = false, delay = 0) {
+        if (!stickersContainer) return;
         if (activeStickers.length >= stickerConfig.maxStickers) {
             const oldestSticker = activeStickers.shift();
             if (oldestSticker) oldestSticker.remove();
@@ -349,7 +273,7 @@
     }
 
     document.addEventListener('click', (e) => {
-        if (e.target.closest('button, a, .nav-capsule')) return;
+        if (e.target.closest('button, a, .top-nav')) return;
         createThreeStickers(e.clientX, e.clientY);
     });
 

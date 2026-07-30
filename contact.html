@@ -15,6 +15,8 @@
     <meta property="twitter:description" content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
     <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/aperçu_img.png">
 
+    <link rel="icon" type="image/png" href="stickers/sticker1.png">
+    <link rel="shortcut icon" type="image/png" href="stickers/sticker1.png">
     <title>Nicolas Marie Angélique - Contact</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -244,9 +246,9 @@
         }
 
         .quote-block h1 {
-            font-size: 3.5vw; 
+            font-size: clamp(1.85rem, 3.2vw, 3.2rem); 
             font-weight: 600;
-            line-height: 1.1;
+            line-height: 1.15;
             margin-bottom: 0;
             color: var(--text-color);
             letter-spacing: -0.03em;
@@ -315,7 +317,7 @@
 
         .label-field {
             font-size: 0.85rem;
-            text-transform: uppercase;
+            text-transform: none;
             color: var(--highlight-color);
             margin-bottom: 5px;
             font-weight: 600;
@@ -327,42 +329,75 @@
             min-height: 100px;
         }
 
-        /* Bouton d'envoi */
-        .submit-btn {
-            background: transparent;
-            border: 1px solid var(--text-color);
-            color: var(--text-color);
-            padding: 15px 40px;
-            font-size: 1rem;
+        .direct-email-link {
+            font-size: 2rem;
             font-weight: 600;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: fit-content;
-            margin-top: 10px;
-            font-family: 'Inter Tight', sans-serif;
-        }
-
-        .submit-btn:hover {
-            background-color: var(--text-color);
-            color: var(--bg-color);
-        }
-
-        /* Style simple pour les liens réseaux sociaux en bas */
-        .social-links-row {
-            margin-top: 60px;
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .mini-link {
-            font-size: 0.9rem;
-            color: var(--highlight-color);
+            color: var(--text-color);
             text-decoration: none;
-            transition: color 0.3s;
+            display: inline-block;
+            margin-top: 12px;
+            word-break: break-all;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
-        .mini-link:hover { color: var(--blue-color); }
+
+        .direct-email-link:hover {
+            color: var(--blue-color);
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 600px) {
+            .direct-email-link { font-size: 1.35rem; }
+        }
+
+        /* --- BOUTONS CTA STYLE SHADCN/UI --- */
+        .social-links-row {
+            margin-top: 36px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .shadcn-btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background-color: #ffffff;
+            border: 1px solid #e4e4e7;
+            color: #18181b;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .shadcn-btn-outline:hover {
+            background-color: #f4f4f5;
+            border-color: #d4d4d8;
+            color: #09090b;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        .shadcn-btn-outline:active {
+            transform: scale(0.98);
+        }
+
+        .shadcn-icon {
+            font-size: 15px !important;
+            opacity: 0.6;
+            transition: transform 0.15s ease, opacity 0.15s ease;
+        }
+
+        .shadcn-btn-outline:hover .shadcn-icon {
+            opacity: 1;
+            transform: translate(2px, -2px);
+        }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
@@ -386,12 +421,56 @@
             }
         }
         
+        /* --- BARRE DE NAVIGATION CENTRÉE EN HAUT --- */
+        .top-nav {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 9999px;
+            padding: 6px 10px;
+            width: max-content;
+            max-width: calc(100vw - 20px);
+        }
+
+        .top-nav-list {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .top-nav-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #111827;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 8px 18px;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .top-nav-link:hover, .top-nav-link.active {
+            background-color: rgba(56, 139, 255, 0.1);
+            color: var(--blue-color);
+        }
+
+        .top-nav-link:active {
+            transform: scale(0.96);
+        }
+
         @media (max-width: 600px) {
-            .nav-capsule {
-                right: 20px;
-                width: calc(100% - 40px);
-            }
-            .menu-btn { top: 20px; right: 20px; }
+            .top-nav { top: 14px; padding: 4px 6px; }
+            .top-nav-list { gap: 2px; }
+            .top-nav-link { padding: 6px 10px; font-size: 0.82rem; }
         }
     </style>
 </head>
@@ -399,143 +478,59 @@
 
     <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">
-        <span class="material-symbols-outlined" id="menuIcon">menu</span>
-    </button>
-
-    <nav class="nav-capsule" id="navCapsule" aria-hidden="true">
-        <ul class="capsule-list">
-            <li><a href="index.html" class="capsule-link">Accueil</a></li>
-            
-            <li class="has-submenu">
-                <button class="capsule-link project-trigger" id="projectBtn" aria-expanded="false">
-                    Projets 
-                    <span class="material-symbols-outlined chevron">expand_more</span>
-                </button>
-                <ul class="submenu" id="projectSubmenu">
-                    <li><a href="enjoytheride.html">Enjoy The Ride</a></li>
-                    <li><a href="trinityringcartier.html">Cartier Trinity Ring</a></li>
-                    <li><a href="cgivisual.html">CGI Visual</a></li>
-                    <li><a href="project.html" class="all-projects">Voir tout →</a></li>
-                </ul>
-            </li>
-
-            <li><a href="about.html" class="capsule-link">À Propos</a></li>
-            <li><a href="contact.html" class="capsule-link">Contact</a></li>
+    <nav class="top-nav" aria-label="Navigation principale">
+        <ul class="top-nav-list">
+            <li><a href="index.html" class="top-nav-link">Accueil</a></li>
+            <li><a href="project.html" class="top-nav-link">Projets</a></li>
+            <li><a href="about.html" class="top-nav-link">À Propos</a></li>
+            <li><a href="contact.html" class="top-nav-link active">Contact</a></li>
         </ul>
     </nav>
 
     <main class="container">
         
-        <section class="left-panel">
+        <section class="left-panel" style="max-width: 900px; width: 100%;">
             <div class="quote-block">
                 <h1>
-                    Mon parcours vous intéresse ? <br>
-                    <span style="color: var(--blue-color);"> Contactez-moi directement ici. </span>
+                    Mon parcours vous intéresse&nbsp;? <br>
+                    <span style="color: var(--blue-color);">Contactez-moi directement&nbsp;ici.</span>
                 </h1>
             </div>
 
-            <div class="footer-info">
+            <div class="direct-contact-block" style="margin-top: 40px;">
+                <span class="label-field">Email direct</span>
+                <a href="mailto:nmafreelance@gmail.com" class="direct-email-link">nmafreelance@gmail.com</a>
+            </div>
+            
+            <div class="social-links-row" style="margin-top: 32px;">
+                <a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank" rel="noopener noreferrer" class="shadcn-btn-outline">
+                    <span>LinkedIn</span>
+                    <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
+                </a>
+                <a href="https://github.com/nmaP5js?tab=overview&from=2025-12-01&to=2025-12-31" target="_blank" rel="noopener noreferrer" class="shadcn-btn-outline">
+                    <span>GitHub</span>
+                    <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
+                </a>
+                <a href="https://dribbble.com/nicolasmarieangelique" target="_blank" rel="noopener noreferrer" class="shadcn-btn-outline">
+                    <span>Dribbble</span>
+                    <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
+                </a>
+                <a href="https://www.instagram.com/nma_png/" target="_blank" rel="noopener noreferrer" class="shadcn-btn-outline">
+                    <span>Instagram</span>
+                    <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
+                </a>
+            </div>
+
+            <div class="footer-info" style="margin-top: 50px;">
                 <span>Nicolas Marie Angélique</span>
                 <span class="footer-role">Designer</span>
+                <a href="legals.html" style="font-size: 0.8rem; color: var(--highlight-color); text-decoration: none; margin-top: 15px; display: block;">Mentions Légales</a>
             </div>
-        </section>
-
-        <section class="right-panel">
-            <form action="https://formspree.io/f/mwpjwweq" method="POST" class="contact-form">
-                
-                <div class="form-group">
-                    <label for="name" class="label-field">Nom</label>
-                    <input type="text" id="name" name="name" class="form-input" placeholder="Votre nom" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email" class="label-field">Email</label>
-                    <input type="email" id="email" name="email" class="form-input" placeholder="Votre email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="message" class="label-field">Message</label>
-                    <textarea id="message" name="message" class="form-textarea" placeholder="Parlez-moi de votre projet..." required></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Envoyer le message</button>
-                <p style="font-size: 0.8rem; color: var(--highlight-color); margin-bottom: 15px;">
-                    En envoyant ce message, vous acceptez que vos données soient utilisées pour vous recontacter. 
-                    <a href="legals.html" style="color: var(--text-color); text-decoration: underline;">En savoir plus</a>.
-                </p>
-
-            </form>
-            
-            <div class="social-links-row">
-                <a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank" rel="noopener noreferrer" class="mini-link">LinkedIn</a>
-                <a href="https://github.com/nmaP5js?tab=overview&from=2025-12-01&to=2025-12-31" target="_blank" rel="noopener noreferrer" class="mini-link">GitHub</a>
-                <a href="https://dribbble.com/nicolasmarieangelique" target="_blank" rel="noopener noreferrer" class="mini-link">Dribbble</a>
-                <a href="https://www.instagram.com/nma_png/" target="_blank" rel="noopener noreferrer" class="mini-link">Instagram</a>
-            </div>
-            <a href="legals.html" style="font-size: 0.8rem; color: var(--highlight-color); text-decoration: none; margin-top: 40px; display: block;">Mentions Légales</a>
         </section>
 
     </main>
 
     <script>
-        // --- GESTION DU MENU CAPSULE ---
-        const menuBtn = document.getElementById('menuBtn');
-        const navCapsule = document.getElementById('navCapsule');
-        const menuIcon = document.getElementById('menuIcon');
-        const projectBtn = document.getElementById('projectBtn');
-        const projectSubmenu = document.getElementById('projectSubmenu');
-        
-        let isMenuOpen = false;
-
-        // 1. Ouvrir / Fermer le menu
-        function toggleMenu() {
-            isMenuOpen = !isMenuOpen;
-            menuBtn.setAttribute('aria-expanded', isMenuOpen);
-            navCapsule.setAttribute('aria-hidden', !isMenuOpen);
-            
-            if (isMenuOpen) {
-                navCapsule.classList.add('active');
-                menuIcon.textContent = 'close';
-                menuBtn.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'; 
-            } else {
-                navCapsule.classList.remove('active');
-                menuIcon.textContent = 'menu';
-                menuBtn.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                closeProjects(); 
-            }
-        }
-
-        // 2. Accordéon Projets
-        function toggleProjects(e) {
-            e.preventDefault(); 
-            const isExpanded = projectBtn.getAttribute('aria-expanded') === 'true';
-            
-            if (!isExpanded) {
-                projectSubmenu.classList.add('open');
-                projectBtn.setAttribute('aria-expanded', 'true');
-                projectBtn.style.color = 'var(--blue-color)';
-            } else {
-                closeProjects();
-            }
-        }
-
-        function closeProjects() {
-            projectSubmenu.classList.remove('open');
-            projectBtn.setAttribute('aria-expanded', 'false');
-            projectBtn.style.color = ''; 
-        }
-
-        // Listeners Menu
-        menuBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
-        projectBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleProjects(e); });
-        
-        document.addEventListener('click', (e) => {
-            if (isMenuOpen && !navCapsule.contains(e.target) && !menuBtn.contains(e.target)) {
-                toggleMenu();
-            }
-        });
-
         // --- STICKERS ---
         const stickerConfig = {
             basePath: "stickers/", 
@@ -564,6 +559,9 @@
         }
 
         function createSticker(x, y, isRandom = false, delay = 0) {
+            const container = document.getElementById('stickersContainer');
+            if (!container) return;
+
             if (activeStickers.length >= stickerConfig.maxStickers) {
                 const oldest = activeStickers.shift();
                 if (oldest && oldest.parentNode) {
@@ -588,10 +586,7 @@
             sticker.style.height = `${size}px`;
             sticker.style.transform = `scale(0.2) rotate(${getRandomNumber(-30, 30)}deg)`;
             
-            setTimeout(() => { 
-            }, delay);
-
-            document.getElementById('stickersContainer').appendChild(sticker);
+            container.appendChild(sticker);
             activeStickers.push(sticker);
             
             const displayTime = isRandom ? stickerConfig.displayTime + getRandomNumber(-1000, 1000) : stickerConfig.displayTime;
@@ -619,8 +614,7 @@
         }
 
         document.addEventListener('click', function(e) {
-            // IMPORTANT : Empêcher les stickers de se créer quand on clique dans le formulaire ou le nouveau menu
-            if (e.target.closest('button, a, input, textarea, .nav-capsule')) return;
+            if (e.target.closest('input, textarea, button, a, .top-nav')) return;
             createThreeStickers(e.clientX, e.clientY);
         });
 

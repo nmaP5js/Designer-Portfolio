@@ -17,6 +17,8 @@
     <meta property="twitter:description" content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
     <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/aperçu_img.png">
    
+    <link rel="icon" type="image/png" href="stickers/sticker1.png">
+    <link rel="shortcut icon" type="image/png" href="stickers/sticker1.png">
     <title>Nicolas Marie Angelique - Projets</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -231,8 +233,8 @@
             color: var(--highlight-color);
             margin: 10px 0 0 0;
             font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            text-transform: none;
+            letter-spacing: 0.02em;
         }
 
         /* Interactions Liste */
@@ -319,28 +321,70 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
-            
             /* RÈGLE AJOUTÉE : Annule l'effet de dimming sur mobile/tablette */
             .simple-list:hover .simple-item:not(:hover) { 
                 opacity: 1; 
             }
 
-            .projects-column { width: 100%; padding: 100px 40px; }
+            .projects-column { width: 100%; padding: 100px 30px 60px 30px; }
             .preview-column { display: none; }
-            .item-title { font-size: 3rem; }
+            .item-title { font-size: 2.5rem; }
+        }
+
+        /* --- BARRE DE NAVIGATION CENTRÉE EN HAUT --- */
+        .top-nav {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 9999px;
+            padding: 6px 10px;
+            width: max-content;
+            max-width: calc(100vw - 20px);
+        }
+
+        .top-nav-list {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .top-nav-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #111827;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 8px 18px;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .top-nav-link:hover, .top-nav-link.active {
+            background-color: rgba(56, 139, 255, 0.1);
+            color: var(--blue-color);
+        }
+
+        .top-nav-link:active {
+            transform: scale(0.96);
         }
 
         @media (max-width: 600px) {
-            .nav-capsule {
-                right: 20px;
-                width: calc(100% - 40px);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .projects-column { padding: 80px 20px; }
-            .item-title { font-size: 2.2rem; }
-            .menu-btn { top: 20px; right: 20px; }
+            .top-nav { top: 14px; padding: 4px 6px; }
+            .top-nav-list { gap: 2px; }
+            .top-nav-link { padding: 6px 10px; font-size: 0.82rem; }
+            .projects-column { padding: 85px 20px 40px 20px; }
+            .simple-list { gap: 32px; }
+            .item-title { font-size: 1.8rem; }
+            .item-meta { font-size: 0.8rem; margin-top: 4px; }
         }
     </style>
 </head>
@@ -348,29 +392,12 @@
 
     <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">
-        <span class="material-symbols-outlined" id="menuIcon">menu</span>
-    </button>
-
-    <nav class="nav-capsule" id="navCapsule" aria-hidden="true">
-        <ul class="capsule-list">
-            <li><a href="index.html" class="capsule-link">Accueil</a></li>
-            
-            <li class="has-submenu">
-                <button class="capsule-link project-trigger" id="projectBtn" aria-expanded="false">
-                    Projets 
-                    <span class="material-symbols-outlined chevron">expand_more</span>
-                </button>
-                <ul class="submenu" id="projectSubmenu">
-                    <li><a href="enjoytheride.html">Enjoy The Ride</a></li>
-                    <li><a href="trinityringcartier.html">Cartier Trinity Ring</a></li>
-                    <li><a href="cgivisual.html">CGI Visual</a></li>
-                    <li><a href="project.html" class="all-projects">Voir tout →</a></li>
-                </ul>
-            </li>
-
-            <li><a href="about.html" class="capsule-link">À Propos</a></li>
-            <li><a href="contact.html" class="capsule-link">Contact</a></li>
+    <nav class="top-nav" aria-label="Navigation principale">
+        <ul class="top-nav-list">
+            <li><a href="index.html" class="top-nav-link">Accueil</a></li>
+            <li><a href="project.html" class="top-nav-link active">Projets</a></li>
+            <li><a href="about.html" class="top-nav-link">À Propos</a></li>
+            <li><a href="contact.html" class="top-nav-link">Contact</a></li>
         </ul>
     </nav>
 
@@ -429,71 +456,6 @@
     </main>
 
     <script>
-    // --- 1. GESTION DU MENU CAPSULE ---
-    const menuBtn = document.getElementById('menuBtn');
-    const navCapsule = document.getElementById('navCapsule');
-    const menuIcon = document.getElementById('menuIcon');
-    const projectBtn = document.getElementById('projectBtn');
-    const projectSubmenu = document.getElementById('projectSubmenu');
-    
-    let isMenuOpen = false;
-
-    // 1. Ouvrir / Fermer la capsule principale
-    function toggleMenu() {
-        isMenuOpen = !isMenuOpen;
-        menuBtn.setAttribute('aria-expanded', isMenuOpen);
-        navCapsule.setAttribute('aria-hidden', !isMenuOpen);
-        
-        if (isMenuOpen) {
-            navCapsule.classList.add('active');
-            menuIcon.textContent = 'close';
-            menuBtn.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'; 
-        } else {
-            navCapsule.classList.remove('active');
-            menuIcon.textContent = 'menu';
-            menuBtn.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-            closeProjects(); // Referme les projets quand on ferme le menu
-        }
-    }
-
-    // 2. Ouvrir / Fermer la liste des projets (Accordéon)
-    function toggleProjects(e) {
-        e.preventDefault(); 
-        const isExpanded = projectBtn.getAttribute('aria-expanded') === 'true';
-        
-        if (!isExpanded) {
-            projectSubmenu.classList.add('open');
-            projectBtn.setAttribute('aria-expanded', 'true');
-            projectBtn.style.color = 'var(--blue-color)';
-        } else {
-            closeProjects();
-        }
-    }
-
-    function closeProjects() {
-        projectSubmenu.classList.remove('open');
-        projectBtn.setAttribute('aria-expanded', 'false');
-        projectBtn.style.color = ''; 
-    }
-
-    // Listeners
-    menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu();
-    });
-
-    projectBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleProjects(e);
-    });
-
-    document.addEventListener('click', (e) => {
-        // Ferme le menu si clic à l'extérieur
-        if (isMenuOpen && !navCapsule.contains(e.target) && !menuBtn.contains(e.target)) {
-            toggleMenu();
-        }
-    });
-
     // --- 2. GESTION DE LA PREVIEW FIXE + PRÉCHARGEMENT ---
     const previewContainer = document.getElementById('previewContainer');
     const projectItems = document.querySelectorAll('.simple-item');
@@ -554,6 +516,9 @@
     }
 
     function createSticker(x, y, isRandom = false, delay = 0) {
+        const container = document.getElementById('stickersContainer');
+        if (!container) return;
+
         if (activeStickers.length >= stickerConfig.maxStickers) {
             const oldest = activeStickers.shift();
             if (oldest) oldest.remove();
@@ -577,15 +542,13 @@
         sticker.style.height = `${size}px`;
         sticker.style.transform = `scale(0.2) rotate(${getRandomNumber(-30, 30)}deg)`;
         
-        // Délai d'animation géré par CSS/Timeout pour l'effet
         if (delay > 0) {
             sticker.style.animationDelay = `${delay}ms`;
         }
         
-        document.getElementById('stickersContainer').appendChild(sticker);
+        container.appendChild(sticker);
         activeStickers.push(sticker);
         
-        // Auto-destruction
         const displayTime = isRandom ? stickerConfig.displayTime + getRandomNumber(-1000, 1000) : stickerConfig.displayTime;
         setTimeout(() => {
             if (sticker.parentNode) {
@@ -608,9 +571,7 @@
     }
 
     document.addEventListener('click', function(e) {
-        // Adaptation : Ne pas créer de sticker si on clique sur le menu capsule ou le bouton
-        if (e.target.closest('.menu-btn') || 
-            e.target.closest('.nav-capsule') || 
+        if (e.target.closest('.top-nav') || 
             e.target.closest('.simple-item')) {
             return;
         }
