@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio CGI Visual de Nicolas Marie Angelique. Exploration créative en modélisation 3D et motion design.">
+    <meta name="description"
+        content="Portfolio CGI Visual de Nicolas Marie Angelique. Exploration créative en modélisation 3D et motion design.">
     <link rel="icon" type="image/png" href="stickers/sticker1.png">
     <link rel="shortcut icon" type="image/png" href="stickers/sticker1.png">
     <title>Nicolas Marie Angelique - CGI Visual</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --highlight-color: #888888;
-            --blue-color: #388BFF;
-            --grid-gap: 15px;
-            --modal-bg: rgba(10, 10, 10, 0.95); 
-            --modal-text: #ffffff;
-            --menu-z: 1000;
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet">
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    <!-- Design System CSS Centralisé -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             background-color: var(--bg-color);
@@ -50,7 +51,7 @@
             align-items: center;
             justify-content: center;
             transition: transform 0.3s ease, background-color 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.1); 
+            background-color: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-radius: 50%;
@@ -58,8 +59,14 @@
             color: var(--text-color);
         }
 
-        .menu-btn:hover { transform: scale(1.1); background-color: rgba(0, 0, 0, 0.05); }
-        .menu-btn .material-symbols-outlined { font-size: 30px; }
+        .menu-btn:hover {
+            transform: scale(1.1);
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .menu-btn .material-symbols-outlined {
+            font-size: 30px;
+        }
 
         /* --- MENU CAPSULE (NOUVEAU STYLE) --- */
         .nav-capsule {
@@ -67,18 +74,18 @@
             top: 90px;
             right: 30px;
             width: 260px;
-            
+
             /* Effet Verre Dépoli */
             background-color: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.6);
-            
+
             border-radius: 24px;
             padding: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             z-index: var(--menu-z);
-            
+
             /* Animation d'entrée */
             opacity: 0;
             visibility: hidden;
@@ -140,7 +147,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border-left: 2px solid rgba(0,0,0,0.05);
+            border-left: 2px solid rgba(0, 0, 0, 0.05);
         }
 
         .submenu.open {
@@ -185,58 +192,96 @@
             gap: 20px;
         }
 
-        .header-titles { text-align: center; display: flex; flex-direction: column; align-items: center; }
-        .header-titles h1 { font-size: 4.2rem; font-weight: 600; line-height: 0.95; letter-spacing: -0.03em; color: #000000; margin-bottom: 10px; text-align: center; }
-        .header-titles h2 { font-size: 1.35rem; font-weight: 400; color: var(--highlight-color); margin-top: 5px; text-align: center; }
-        .header-description-centered { font-size: 1.15rem; line-height: 1.6; max-width: 720px; color: var(--text-color); margin: 0 auto; text-align: left; }
+        .header-description-centered {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            max-width: 720px;
+            color: var(--text-color);
+            margin: 0 auto;
+            text-align: left;
+        }
 
         /* --- BENTO GRID --- */
         .main-content {
-            width: 100%; padding: 0 0 100px 0;
-            display: flex; justify-content: center; flex-direction: column; align-items: center;
+            width: 100%;
+            padding: 0 0 100px 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
 
         .bento-grid {
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 16px; 
-            width: 90%; 
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            width: 90%;
             max-width: 1300px;
         }
 
         .bento-item {
-            position: relative; 
-            overflow: hidden; 
-            border-radius: 8px; 
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
             cursor: pointer;
             aspect-ratio: 3 / 4;
             background-color: #f0f0f0;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             will-change: transform;
         }
-        .bento-item:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.1); z-index: 2; }
 
-        .bento-image { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; will-change: transform; }
-        .bento-item:hover .bento-image { transform: scale(1.05); }
+        .bento-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+
+        .bento-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+            will-change: transform;
+        }
+
+        .bento-item:hover .bento-image {
+            transform: scale(1.05);
+        }
 
         /* --- HIGH-END LIGHTBOX MODAL --- */
         .modal {
-            position: fixed; inset: 0;
+            position: fixed;
+            inset: 0;
             background: rgba(5, 5, 8, 0.92);
-            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            z-index: 2000; opacity: 0; pointer-events: none;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
             transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .modal.active { opacity: 1; pointer-events: auto; }
-        
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
         .modal-content {
-            position: relative; width: 100%; height: 100%;
-            display: flex; justify-content: center; align-items: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 80px 40px 100px 40px;
             user-select: none;
         }
-        
+
         .modal-image-wrapper {
             position: relative;
             max-width: 90vw;
@@ -265,6 +310,7 @@
         .modal-image.zoomed {
             cursor: grab;
         }
+
         .modal-image.zoomed.panning {
             cursor: grabbing;
             transition: none;
@@ -328,9 +374,21 @@
             gap: 4px;
         }
 
-        .counter-curr { font-weight: 700; color: #ffffff; }
-        .counter-slash { opacity: 0.4; font-weight: 300; margin: 0 2px; }
-        .counter-total { opacity: 0.6; font-weight: 500; }
+        .counter-curr {
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .counter-slash {
+            opacity: 0.4;
+            font-weight: 300;
+            margin: 0 2px;
+        }
+
+        .counter-total {
+            opacity: 0.6;
+            font-weight: 500;
+        }
 
         /* Bande de miniatures */
         .lightbox-thumbnails {
@@ -366,115 +424,26 @@
             object-fit: cover;
         }
 
-        .thumb-item:hover, .thumb-item.active {
+        .thumb-item:hover,
+        .thumb-item.active {
             opacity: 1;
             border-color: #388bff;
             transform: scale(1.08);
         }
 
-        /* --- SHADCN/UI TABS STYLE : TOUS LES PROJETS --- */
-        .projects-subnav-container {
-            width: 95%;
-            max-width: 1200px;
-            margin: 95px auto 12px auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-align: center;
-        }
-
-        .subnav-title {
-            font-size: 0.75rem;
-            text-transform: none;
-            letter-spacing: 0.02em;
-            color: #999999;
-            font-weight: 500;
-        }
-
-        /* Tabs list — fond gris pâle, bordure arrondie */
-        .subnav-list {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2px;
-            padding: 4px;
-            background-color: #f4f4f5;
-            border-radius: 10px;
-            border: none;
-        }
-
-        /* Chaque onglet */
-        .subnav-item {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.875rem;
-            font-weight: 500;
-            line-height: 1;
-            text-decoration: none;
-            color: #71717a;
-            white-space: nowrap;
-            padding: 7px 14px;
-            border-radius: 7px;
-            border: none;
-            background: transparent;
-            transition: color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
-        }
-
-        .subnav-item:hover {
-            color: #18181b;
-            background-color: rgba(255,255,255,0.6);
-        }
-
-        /* Onglet actif — fond blanc + ombre légère */
-        .subnav-item.active {
-            color: #18181b;
-            font-weight: 500;
-            background-color: #ffffff;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.06);
-        }
-
         @media (max-width: 1024px) {
-            .project-header { grid-template-columns: 1fr; gap: 20px; }
-            .header-titles h1 { font-size: 3.5rem; }
-            .bento-grid { grid-template-columns: repeat(2, 1fr); }
-            /* Subnav : une seule ligne scrollable */
-            .projects-subnav-container {
-                width: 100%;
-                padding: 0 20px;
+            .project-header {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
-            .subnav-list {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                justify-content: flex-start;
-                width: 100%;
-            }
-            .subnav-list::-webkit-scrollbar { display: none; }
-            .subnav-item { flex-shrink: 0; }
-        }
 
-        @media (max-width: 600px) {
-            .projects-subnav-container {
-                margin: 75px auto 15px auto;
-                gap: 8px;
-                width: 100%;
-                padding: 0 16px;
+            .header-titles h1 {
+                font-size: 3.5rem;
             }
-            .subnav-list {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                justify-content: flex-start;
-                width: 100%;
+
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .subnav-list::-webkit-scrollbar { display: none; }
-            .subnav-item { font-size: 0.82rem; padding: 6px 12px; flex-shrink: 0; }
         }
 
         /* --- BARRE DE NAVIGATION CENTRÉE EN HAUT --- */
@@ -514,7 +483,8 @@
             white-space: nowrap;
         }
 
-        .top-nav-link:hover, .top-nav-link.active {
+        .top-nav-link:hover,
+        .top-nav-link.active {
             background-color: rgba(56, 139, 255, 0.1);
             color: var(--blue-color);
         }
@@ -524,62 +494,135 @@
         }
 
         @media (max-width: 600px) {
-            .top-nav { top: 14px; padding: 4px 6px; }
-            .top-nav-list { gap: 2px; }
-            .top-nav-link { padding: 6px 10px; font-size: 0.82rem; }
-            .project-header { padding: 20px 0 30px 0; width: 92%; }
-            .header-titles h1 { font-size: 1.85rem; }
-            .bento-grid { grid-template-columns: repeat(2, 1fr); width: 92%; gap: 10px; }
-            .modal-content { padding: 60px 10px 90px 10px; }
-            .lightbox-toolbar { top: 14px; right: 14px; gap: 6px; }
-            .lightbox-btn { width: 38px; height: 38px; }
-            .lightbox-btn .material-symbols-outlined { font-size: 18px !important; }
-            .lightbox-counter { top: 18px; padding: 5px 14px; font-size: 0.78rem; }
-            .lightbox-thumbnails { bottom: 14px; padding: 4px 8px; gap: 6px; }
-            .thumb-item { width: 38px; height: 38px; }
+            .top-nav {
+                top: 14px;
+                padding: 4px 6px;
+            }
+
+            .top-nav-list {
+                gap: 2px;
+            }
+
+            .top-nav-link {
+                padding: 6px 10px;
+                font-size: 0.82rem;
+            }
+
+            .project-header {
+                padding: 20px 0 30px 0;
+                width: 92%;
+            }
+
+            .header-titles h1 {
+                font-size: 1.85rem;
+            }
+
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+                width: 92%;
+                gap: 10px;
+            }
+
+            .modal-content {
+                padding: 60px 10px 90px 10px;
+            }
+
+            .lightbox-toolbar {
+                top: 14px;
+                right: 14px;
+                gap: 6px;
+            }
+
+            .lightbox-btn {
+                width: 38px;
+                height: 38px;
+            }
+
+            .lightbox-btn .material-symbols-outlined {
+                font-size: 18px !important;
+            }
+
+            .lightbox-counter {
+                top: 18px;
+                padding: 5px 14px;
+                font-size: 0.78rem;
+            }
+
+            .lightbox-thumbnails {
+                bottom: 14px;
+                padding: 4px 8px;
+                gap: 6px;
+            }
+
+            .thumb-item {
+                width: 38px;
+                height: 38px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <nav class="top-nav" aria-label="Navigation principale">
-        <ul class="top-nav-list">
-            <li><a href="index.html" class="top-nav-link">Accueil</a></li>
-            <li><a href="project.html" class="top-nav-link active">Projets</a></li>
-            <li><a href="about.html" class="top-nav-link">À Propos</a></li>
-            <li><a href="contact.html" class="top-nav-link">Contact</a></li>
-        </ul>
-    </nav>
+    <nav class="top-nav" aria-label="Navigation principale"></nav>
 
-    <nav class="projects-subnav-container" aria-label="Tous les projets">
-        <span class="subnav-title">Tous les projets</span>
-        <div class="subnav-list">
-            <a href="imageia.html" class="subnav-item">Image Gen IA</a>
-            <a href="data_viz.html" class="subnav-item">DATA_VIZ</a>
-            <a href="trinityringcartier.html" class="subnav-item">Trinity Ring</a>
-            <a href="ptitchef.html" class="subnav-item">Made In Work</a>
-            <a href="budl.html" class="subnav-item">BUDL</a>
-            <a href="enjoytheride.html" class="subnav-item">Enjoy The Ride</a>
-            <a href="cltwinter.html" class="subnav-item">CLT Winter Calendar</a>
-            <a href="cgivisual.html" class="subnav-item active">CGI Visual</a>
-        </div>
-    </nav>
-
-    <header class="project-header-centered">
-        <div class="header-titles">
-            <h1>CGI Visual</h1>
-            <h2>3D &amp; Motion</h2>
-        </div>
-        <p class="header-description-centered">Exploration créative à travers la modélisation 3D et le motion design. Ces projets mettent en lumière la capacité à transformer des concepts abstraits en visuels tangibles et dynamiques, en jouant sur les textures, les lumières et les mouvements pour créer des compositions uniques.</p>
-    </header>
+    <nav class="projects-subnav-container" aria-label="Tous les projets"></nav>
 
     <main class="main-content">
-        <div class="bento-grid" id="galleryContainer"></div>
+        <div class="project-grid-2col">
+            <!-- Colonne Gauche -->
+            <div class="left-col">
+                <div class="header-titles">
+                    <h1>CGI Visual</h1>
+                    <h2>3D & Motion Design</h2>
+                </div>
+
+                <p class="project-description">
+                    <strong>Exploration créative</strong> à travers la modélisation 3D et le motion design.<br><br>
+                    Ces projets mettent en lumière la capacité à transformer des concepts abstraits en visuels tangibles et dynamiques, en jouant sur les textures complexes, les lumières studio et les mouvements fluides pour créer des compositions uniques.
+                </p>
+            </div>
+
+            <!-- Colonne Droite -->
+            <aside class="right-col">
+                <div class="meta-card">
+                    <h3 class="meta-card-title">Informations du projet</h3>
+
+                    <div class="meta-list">
+                        <div class="meta-list-item">
+                            <span class="meta-label">Type</span>
+                            <span class="meta-value">3D & Motion Design</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Outils</span>
+                            <span class="meta-value">Blender, Octane, Cinema 4D</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Technique</span>
+                            <span class="meta-value">Shading, Eclairage & Motion</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Focus</span>
+                            <span class="meta-value">Textures, Rendu & Compositions</span>
+                        </div>
+                    </div>
+
+                    <div class="tags-container">
+                        <span class="tag-pill">CGI</span>
+                        <span class="tag-pill">3D Render</span>
+                        <span class="tag-pill">Motion Design</span>
+                        <span class="tag-pill">Textures</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <div class="bento-grid" id="galleryContainer" style="margin-top: 50px;"></div>
     </main>
 
     <div class="modal" id="imageModal" role="dialog" aria-modal="true" aria-hidden="true">
         <div class="lightbox-counter" id="imageCounter">1 / 4</div>
-        
+
         <div class="lightbox-toolbar">
             <button class="lightbox-btn" id="zoomToggleBtn" title="Agrandir / Réduire (Clic)">
                 <span class="material-symbols-outlined" id="zoomIcon">zoom_in</span>
@@ -601,20 +644,20 @@
     <script>
         // --- DATA IMAGES & GALERIE ---
         const galleryImages = [
-            { src: 'images/nox2.webp', alt: 'CGI Main Render' },      
-            { src: 'images/cgi_2.webp', alt: 'CGI Wide Shot' },        
-            { src: 'images/cgi_3.webp', alt: 'CGI Detail Texture' }, 
+            { src: 'images/nox2.webp', alt: 'CGI Main Render' },
+            { src: 'images/cgi_2.webp', alt: 'CGI Wide Shot' },
+            { src: 'images/cgi_3.webp', alt: 'CGI Detail Texture' },
             { src: 'images/body3.webp', alt: 'CGI Detail Light' },
             { src: 'images/cltface.webp', alt: 'CGI Abstract' },
-            { src: 'images/nox1.webp', alt: 'CGI Composition' },      
+            { src: 'images/nox1.webp', alt: 'CGI Composition' },
             { src: 'images/cgi_1.webp', alt: 'CGI Motion Frame' },
             { src: 'images/body7.webp', alt: 'CGI Abstract 2' },
-            { src: 'images/reebok.webp', alt: 'CGI Light Study' },   
+            { src: 'images/reebok.webp', alt: 'CGI Light Study' },
             { src: 'images/a3.webp', alt: 'CGI Final' },
             { src: 'images/filterbunny.webp', alt: 'CGI Abstract' },
-            { src: 'images/bague.webp', alt: 'CGI Main Render' },      
+            { src: 'images/bague.webp', alt: 'CGI Main Render' },
             { src: 'images/a1.webp', alt: 'CGI Wide Shot' },
-            { src: 'images/nox1.webp', alt: 'CGI Composition' }, 
+            { src: 'images/nox1.webp', alt: 'CGI Composition' },
         ];
 
         // --- PAN STATE ---
@@ -637,7 +680,7 @@
                 img.src = image.src;
                 img.alt = image.alt;
                 img.className = 'bento-image';
-                img.loading = "lazy"; 
+                img.loading = "lazy";
                 item.appendChild(img);
                 fragment.appendChild(item);
             });
@@ -670,10 +713,10 @@
         const counter = document.getElementById('imageCounter');
         const zoomIcon = document.getElementById('zoomIcon');
 
-        function updateCounter() { 
+        function updateCounter() {
             const curr = String(currentIndex + 1).padStart(2, '0');
             const total = String(galleryImages.length).padStart(2, '0');
-            counter.innerHTML = `<span class="counter-curr">${curr}</span><span class="counter-slash">/</span><span class="counter-total">${total}</span>`; 
+            counter.innerHTML = `<span class="counter-curr">${curr}</span><span class="counter-slash">/</span><span class="counter-total">${total}</span>`;
             const thumbs = document.querySelectorAll('.thumb-item');
             thumbs.forEach((t, i) => {
                 t.classList.toggle('active', i === currentIndex);
@@ -752,7 +795,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             generateGallery();
             const galleryContainer = document.getElementById('galleryContainer');
-            
+
             galleryContainer.addEventListener('click', (e) => {
                 const item = e.target.closest('.bento-item');
                 if (item) openModal(parseInt(item.dataset.index));
@@ -872,5 +915,7 @@
             }, { passive: true });
         });
     </script>
+    <script src="js/nav.js" defer></script>
 </body>
+
 </html>

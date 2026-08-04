@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Dynamic Gallery - Outil de collage et moodboard interactif d'art dynamique en Vanilla JS.">
+    <link rel="icon" type="image/png" href="stickers/sticker1.png">
+    <link rel="shortcut icon" type="image/png" href="stickers/sticker1.png">
+    <title>Nicolas Marie Angelique - Dynamic Gallery</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet">
+
+    <!-- Design System CSS Centralisé -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <style>
+        .modes-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .mode-badge {
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mode-name {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #111111;
+        }
+
+        .mode-desc {
+            font-size: 0.82rem;
+            color: #666666;
+        }
+
+        .btn-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 850px) {
+            .modes-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="top-nav" aria-label="Navigation principale"></nav>
+
+    <nav class="projects-subnav-container" aria-label="Tous les projets"></nav>
+
+    <main class="main-content">
+        <div class="project-grid-2col">
+
+            <!-- Colonne Gauche -->
+            <div class="left-col">
+                <div class="header-titles">
+                    <h1>Dynamic Gallery</h1>
+                    <h2>Collage d'art dynamique & lookboard interactif</h2>
+                </div>
+
+                <figure class="visual-main-item"
+                    style="width: 100%; border-radius: 16px; overflow: hidden; background: #000000; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 24px;">
+                    <video autoplay loop muted playsinline controls
+                        style="width: 100%; height: auto; display: block; border-radius: 16px;">
+                        <source src="./images/dynamic_gallery_demo.mp4" type="video/mp4">
+                        Votre navigateur ne prend pas en charge la lecture vidéo HTML5.
+                    </video>
+                </figure>
+
+                <p class="project-description">
+                    <strong>Dynamic Gallery</strong> est un outil web interactif de création de moodboards et de
+                    collages d'art animés. Conçu en Vanilla JS sans aucune dépendance lourde, il anime vos images
+                    glissées-déposées selon 11 formules de mouvement 2D et 3D.<br><br>
+                    Les images sont sauvegardées localement dans votre navigateur via IndexedDB sous forme
+                    de Blobs binaires pour conserver vos compositions même après fermeture de la page, avec option
+                    d'export haute résolution 2x (.png).
+                </p>
+
+                <div class="modes-list">
+                    <div class="mode-badge">
+                        <span class="mode-name">3D Drift & Vortex</span>
+                        <span class="mode-desc">Flottaisons et spirales cosmiques en profondeur Z</span>
+                    </div>
+                    <div class="mode-badge">
+                        <span class="mode-name">3D & 2D Orbit</span>
+                        <span class="mode-desc">Carrousels circulaires en trajectoires 3D/2D</span>
+                    </div>
+                    <div class="mode-badge">
+                        <span class="mode-name">Cinematic & Pendulum</span>
+                        <span class="mode-desc">Balancements harmoniques et balayages vidéo</span>
+                    </div>
+                    <div class="mode-badge">
+                        <span class="mode-name">Assemble & Grid Flow</span>
+                        <span class="mode-desc">Transitions dynamiques entre chaos et grille</span>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <a href="https://nmap5js.github.io/dynamic-gallery/" target="_blank" rel="noopener noreferrer"
+                        class="cta-button">
+                        <span>Tester la démo en ligne</span>
+                        <span class="material-symbols-outlined cta-icon">arrow_forward</span>
+                    </a>
+                    <a href="https://github.com/nmaP5js/dynamic-gallery" target="_blank" rel="noopener noreferrer"
+                        class="cta-button secondary">
+                        <span>Code source GitHub</span>
+                        <span class="material-symbols-outlined cta-icon">code</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Colonne Droite -->
+            <aside class="right-col">
+                <div class="meta-card">
+                    <h3 class="meta-card-title">Spécifications Techniques</h3>
+
+                    <div class="meta-list">
+                        <div class="meta-list-item">
+                            <span class="meta-label">Type</span>
+                            <span class="meta-value">Art Tool & Lookbook</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Technologies</span>
+                            <span class="meta-value">Vanilla JS (ES6+), CSS3 3D, HTML5</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Persistance</span>
+                            <span class="meta-value">IndexedDB Store (Blobs locaux)</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Modes de mouvement</span>
+                            <span class="meta-value">11 Formules 2D / 3D Mathématiques</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Export</span>
+                            <span class="meta-value">PNG 2x Haute Définition</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Licence</span>
+                            <span class="meta-value">MIT Open Source</span>
+                        </div>
+                    </div>
+
+                    <div class="tags-container">
+                        <span class="tag-pill">Vanilla JS</span>
+                        <span class="tag-pill">IndexedDB</span>
+                        <span class="tag-pill">3D Canvas</span>
+                        <span class="tag-pill">Glassmorphism</span>
+                        <span class="tag-pill">Drag & Drop</span>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <script src="js/nav.js" defer></script>
+</body>
+
+</html>

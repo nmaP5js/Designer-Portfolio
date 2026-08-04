@@ -1,56 +1,42 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projets et réalisations de Nicolas Marie Angelique - Designer UI/UX, 3D et Graphique.">
-    
+    <meta name="description"
+        content="Projets et réalisations de Nicolas Marie Angelique - Designer UI/UX, 3D et Graphique.">
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nicolasmarieangelique.fr/">
     <meta property="og:title" content="Nicolas Marie Angelique - Designer UI/UX & 3D">
     <meta property="og:description" content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
-    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/aperçu_img.png"> 
-    
+    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/aperçu_img.png">
+
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://nicolasmarieangelique.fr/">
     <meta property="twitter:title" content="Nicolas Marie Angelique - Designer UI/UX">
-    <meta property="twitter:description" content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
+    <meta property="twitter:description"
+        content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
     <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/aperçu_img.png">
-   
+
     <link rel="icon" type="image/png" href="stickers/sticker1.png">
     <link rel="shortcut icon" type="image/png" href="stickers/sticker1.png">
     <title>Nicolas Marie Angelique - Projets</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- Design System CSS Centralisé -->
+    <link rel="stylesheet" href="css/main.css">
+
     <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --highlight-color: #888888;
-            --blue-color: #388BFF;
-            --menu-z: 1000;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Inter Tight', sans-serif;
-            min-height: 100vh;
-            width: 100vw;
-            position: relative;
-            overflow-x: hidden;
             cursor: pointer;
-            -webkit-font-smoothing: antialiased;
         }
 
         /* --- BOUTON MENU --- */
@@ -66,7 +52,7 @@
             align-items: center;
             justify-content: center;
             transition: transform 0.3s ease, background-color 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.1); 
+            background-color: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-radius: 50%;
@@ -74,8 +60,14 @@
             color: var(--text-color);
         }
 
-        .menu-btn:hover { transform: scale(1.1); background-color: rgba(0, 0, 0, 0.05); }
-        .menu-btn .material-symbols-outlined { font-size: 30px; }
+        .menu-btn:hover {
+            transform: scale(1.1);
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .menu-btn .material-symbols-outlined {
+            font-size: 30px;
+        }
 
         /* --- MENU CAPSULE (NOUVEAU MENU) --- */
         .nav-capsule {
@@ -83,18 +75,21 @@
             top: 90px;
             right: 30px;
             width: 260px;
-            
+
             /* Effet Verre Dépoli */
-            background-color: rgba(255, 255, 255, 0.3); /* Transparence élevée */
-            backdrop-filter: blur(25px); /* Flou puissant */
+            background-color: rgba(255, 255, 255, 0.3);
+            /* Transparence élevée */
+            backdrop-filter: blur(25px);
+            /* Flou puissant */
             -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.6); /* Bordure subtile */
-            
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            /* Bordure subtile */
+
             border-radius: 24px;
             padding: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             z-index: var(--menu-z);
-            
+
             /* Animation d'entrée */
             opacity: 0;
             visibility: hidden;
@@ -133,11 +128,13 @@
             border: none;
             width: 100%;
             text-align: left;
-            font-family: 'Inter Tight', sans-serif; /* Assure la police sur le bouton */
+            font-family: 'Inter Tight', sans-serif;
+            /* Assure la police sur le bouton */
         }
 
         .capsule-link:hover {
-            background-color: rgba(255, 255, 255, 0.5); /* Feedback blanc semi-op */
+            background-color: rgba(255, 255, 255, 0.5);
+            /* Feedback blanc semi-op */
             color: var(--blue-color);
         }
 
@@ -157,7 +154,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border-left: 2px solid rgba(0,0,0,0.05);
+            border-left: 2px solid rgba(0, 0, 0, 0.05);
         }
 
         .submenu.open {
@@ -194,37 +191,52 @@
             width: 100%;
             min-height: 100vh;
             display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 0;
             position: relative;
             z-index: 1;
+            text-align: left;
         }
 
         /* Colonne Gauche */
         .projects-column {
             width: 50%;
-            padding: 120px 60px;
-            z-index: 2; 
+            padding: 120px 60px 120px 80px;
+            z-index: 2;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .simple-list {
             display: flex;
             flex-direction: column;
             gap: 50px;
+            width: 100%;
+            text-align: left;
+            align-items: flex-start;
         }
 
         .simple-item {
             text-decoration: none;
             display: block;
+            width: 100%;
+            text-align: left;
             transition: opacity 0.4s ease;
             cursor: pointer;
         }
 
         .item-title {
-            font-size: 4rem; 
+            font-size: 4rem;
             font-weight: 600;
             margin: 0;
             color: var(--text-color);
             line-height: 1.1;
             letter-spacing: -0.03em;
+            text-align: left;
             transition: color 0.3s ease;
         }
 
@@ -235,13 +247,18 @@
             font-weight: 400;
             text-transform: none;
             letter-spacing: 0.02em;
+            text-align: left;
         }
 
         /* Interactions Liste */
-        .simple-item:hover .item-title { color: var(--blue-color); }
-        
+        .simple-item:hover .item-title {
+            color: var(--blue-color);
+        }
+
         /* RÈGLE RESTAURÉE POUR DESKTOP UNIQUEMENT */
-        .simple-list:hover .simple-item:not(:hover) { opacity: 0.3; }
+        .simple-list:hover .simple-item:not(:hover) {
+            opacity: 0.3;
+        }
 
 
         /* Colonne Droite : Preview Fixe */
@@ -269,7 +286,7 @@
             transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             transform: scale(0.95);
             /* Optimisation GPU */
-            will-change: transform, opacity; 
+            will-change: transform, opacity;
         }
 
         .preview-image-container.active {
@@ -285,7 +302,7 @@
             z-index: 0;
             overflow: hidden;
         }
-        
+
         .sticker {
             position: absolute;
             width: 100px;
@@ -297,38 +314,91 @@
             transform: scale(0.2) rotate(0deg);
             will-change: transform, opacity;
         }
-        
+
         /* Animations Stickers */
-        .sticker.pop-in { animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        .sticker.zoom-in { animation: zoomIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
-        .sticker.spin-in { animation: spinIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-        
-        @keyframes popIn { 
-            0% { opacity: 0; transform: scale(0.2) rotate(0deg); } 
-            50% { opacity: 0.8; transform: scale(1.2) rotate(15deg); } 
-            100% { opacity: 1; transform: scale(1) rotate(0deg); } 
+        .sticker.pop-in {
+            animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
-        @keyframes zoomIn { 
-            0% { opacity: 0; transform: scale(0.1) rotate(-20deg); } 
-            60% { opacity: 0.8; transform: scale(1.3) rotate(10deg); } 
-            100% { opacity: 1; transform: scale(1) rotate(0deg); } 
+
+        .sticker.zoom-in {
+            animation: zoomIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
-        @keyframes spinIn { 
-            0% { opacity: 0; transform: scale(0.2) rotate(-120deg); } 
-            70% { opacity: 0.7; transform: scale(1.1) rotate(20deg); } 
-            100% { opacity: 1; transform: scale(1) rotate(0deg); } 
+
+        .sticker.spin-in {
+            animation: spinIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.2) rotate(0deg);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.2) rotate(15deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.1) rotate(-20deg);
+            }
+
+            60% {
+                opacity: 0.8;
+                transform: scale(1.3) rotate(10deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        @keyframes spinIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.2) rotate(-120deg);
+            }
+
+            70% {
+                opacity: 0.7;
+                transform: scale(1.1) rotate(20deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
         }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
+
             /* RÈGLE AJOUTÉE : Annule l'effet de dimming sur mobile/tablette */
-            .simple-list:hover .simple-item:not(:hover) { 
-                opacity: 1; 
+            .simple-list:hover .simple-item:not(:hover) {
+                opacity: 1;
             }
 
-            .projects-column { width: 100%; padding: 100px 30px 60px 30px; }
-            .preview-column { display: none; }
-            .item-title { font-size: 2.5rem; }
+            .projects-column {
+                width: 100%;
+                padding: 100px 30px 60px 30px;
+            }
+
+            .preview-column {
+                display: none;
+            }
+
+            .item-title {
+                font-size: 2.5rem;
+            }
         }
 
         /* --- BARRE DE NAVIGATION CENTRÉE EN HAUT --- */
@@ -368,7 +438,8 @@
             white-space: nowrap;
         }
 
-        .top-nav-link:hover, .top-nav-link.active {
+        .top-nav-link:hover,
+        .top-nav-link.active {
             background-color: rgba(56, 139, 255, 0.1);
             color: var(--blue-color);
         }
@@ -378,34 +449,66 @@
         }
 
         @media (max-width: 600px) {
-            .top-nav { top: 14px; padding: 4px 6px; }
-            .top-nav-list { gap: 2px; }
-            .top-nav-link { padding: 6px 10px; font-size: 0.82rem; }
-            .projects-column { padding: 85px 20px 40px 20px; }
-            .simple-list { gap: 32px; }
-            .item-title { font-size: 1.8rem; }
-            .item-meta { font-size: 0.8rem; margin-top: 4px; }
+            .top-nav {
+                top: 14px;
+                padding: 4px 6px;
+            }
+
+            .top-nav-list {
+                gap: 2px;
+            }
+
+            .top-nav-link {
+                padding: 6px 10px;
+                font-size: 0.82rem;
+            }
+
+            .projects-column {
+                padding: 85px 20px 40px 20px;
+            }
+
+            .simple-list {
+                gap: 32px;
+            }
+
+            .item-title {
+                font-size: 1.8rem;
+            }
+
+            .item-meta {
+                font-size: 0.8rem;
+                margin-top: 4px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
 
-    <nav class="top-nav" aria-label="Navigation principale">
-        <ul class="top-nav-list">
-            <li><a href="index.html" class="top-nav-link">Accueil</a></li>
-            <li><a href="project.html" class="top-nav-link active">Projets</a></li>
-            <li><a href="about.html" class="top-nav-link">À Propos</a></li>
-            <li><a href="contact.html" class="top-nav-link">Contact</a></li>
-        </ul>
-    </nav>
+    <nav class="top-nav" aria-label="Navigation principale"></nav>
 
     <main class="main-content">
-        
+
         <section class="projects-column">
             <div class="simple-list">
-                
+
+                <a href="dynamic_gallery.html" class="simple-item" data-preview="images/dynamic_gallery1.png">
+                    <h2 class="item-title">Dynamic Gallery</h2>
+                    <p class="item-meta">Collage Art Interactif (Vanilla JS) - 2026</p>
+                </a>
+
+                <a href="rex_system.html" class="simple-item" data-preview="images/rex_system1.png">
+                    <h2 class="item-title">REX_System</h2>
+                    <p class="item-meta">Visionneuse Média Portable - 2026</p>
+                </a>
+
+                <a href="portfolio.html" class="simple-item" data-preview="images/aperçu_img.png">
+                    <h2 class="item-title">Conception Portfolio Web</h2>
+                    <p class="item-meta">Conception Web - 2025</p>
+                </a>
+
                 <a href="imageia.html" class="simple-item" data-preview="images/ia3.webp">
                     <h2 class="item-title">Image Gen IA</h2>
                     <p class="item-meta">Experience IA - 2024</p>
@@ -445,7 +548,7 @@
                     <h2 class="item-title">CGI Visual</h2>
                     <p class="item-meta">Design 3D - 2023</p>
                 </a>
-            
+
             </div>
         </section>
 
@@ -456,134 +559,136 @@
     </main>
 
     <script>
-    // --- 2. GESTION DE LA PREVIEW FIXE + PRÉCHARGEMENT ---
-    const previewContainer = document.getElementById('previewContainer');
-    const projectItems = document.querySelectorAll('.simple-item');
+        // --- 2. GESTION DE LA PREVIEW FIXE + PRÉCHARGEMENT ---
+        const previewContainer = document.getElementById('previewContainer');
+        const projectItems = document.querySelectorAll('.simple-item');
 
-    // Préchargement des images pour éviter le clignotement au survol
-    const preloadImages = () => {
-        projectItems.forEach(item => {
-            const src = item.getAttribute('data-preview');
-            if (src) {
-                const img = new Image();
-                img.src = src;
-            }
-        });
-    };
-    // Lancer le préchargement dès que possible
-    preloadImages();
-
-    projectItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            const imagePath = item.getAttribute('data-preview');
-            if (imagePath) {
-                previewContainer.style.backgroundImage = `url('${imagePath}')`;
-                previewContainer.classList.add('active');
-            }
-        });
-
-        item.addEventListener('mouseleave', () => {
-            previewContainer.classList.remove('active');
-        });
-    });
-
-
-    // --- 3. GESTION DES STICKERS ---
-    const stickerConfig = {
-        basePath: "stickers/", 
-        stickers: ["sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png", "sticker5.png"],
-        maxStickers: 100, 
-        displayTime: 60000, 
-        stickerSize: { min: 60, max: 200 }, 
-        randomPositionMargin: 60,
-        animations: ["pop-in", "zoom-in", "spin-in"]
-    };
-
-    let activeStickers = [];
-
-    function getRandomNumber(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    function getRandomPosition() {
-        const pageWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth);
-        const pageHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-        const margin = stickerConfig.randomPositionMargin;
-        return {
-            x: getRandomNumber(margin, pageWidth - margin),
-            y: getRandomNumber(margin, pageHeight - margin)
+        // Préchargement des images pour éviter le clignotement au survol
+        const preloadImages = () => {
+            projectItems.forEach(item => {
+                const src = item.getAttribute('data-preview');
+                if (src) {
+                    const img = new Image();
+                    img.src = src;
+                }
+            });
         };
-    }
+        // Lancer le préchargement dès que possible
+        preloadImages();
 
-    function createSticker(x, y, isRandom = false, delay = 0) {
-        const container = document.getElementById('stickersContainer');
-        if (!container) return;
+        projectItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const imagePath = item.getAttribute('data-preview');
+                if (imagePath) {
+                    previewContainer.style.backgroundImage = `url('${imagePath}')`;
+                    previewContainer.classList.add('active');
+                }
+            });
 
-        if (activeStickers.length >= stickerConfig.maxStickers) {
-            const oldest = activeStickers.shift();
-            if (oldest) oldest.remove();
+            item.addEventListener('mouseleave', () => {
+                previewContainer.classList.remove('active');
+            });
+        });
+
+
+        // --- 3. GESTION DES STICKERS ---
+        const stickerConfig = {
+            basePath: "stickers/",
+            stickers: ["sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png", "sticker5.png"],
+            maxStickers: 100,
+            displayTime: 60000,
+            stickerSize: { min: 60, max: 200 },
+            randomPositionMargin: 60,
+            animations: ["pop-in", "zoom-in", "spin-in"]
+        };
+
+        let activeStickers = [];
+
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-        
-        const sticker = document.createElement('div');
-        const stickerIndex = getRandomNumber(0, stickerConfig.stickers.length - 1);
-        const animationClass = stickerConfig.animations[getRandomNumber(0, stickerConfig.animations.length - 1)];
-        
-        sticker.className = `sticker ${animationClass}`;
-        sticker.style.backgroundImage = `url('${stickerConfig.basePath + stickerConfig.stickers[stickerIndex]}')`;
-        
-        let posX = isRandom ? x : (x + (window.scrollX || window.pageXOffset));
-        let posY = isRandom ? y : (y + (window.scrollY || window.pageYOffset));
-        
-        sticker.style.left = `${posX}px`;
-        sticker.style.top = `${posY}px`;
-        
-        const size = getRandomNumber(stickerConfig.stickerSize.min, stickerConfig.stickerSize.max);
-        sticker.style.width = `${size}px`;
-        sticker.style.height = `${size}px`;
-        sticker.style.transform = `scale(0.2) rotate(${getRandomNumber(-30, 30)}deg)`;
-        
-        if (delay > 0) {
-            sticker.style.animationDelay = `${delay}ms`;
+
+        function getRandomPosition() {
+            const pageWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth);
+            const pageHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+            const margin = stickerConfig.randomPositionMargin;
+            return {
+                x: getRandomNumber(margin, pageWidth - margin),
+                y: getRandomNumber(margin, pageHeight - margin)
+            };
         }
-        
-        container.appendChild(sticker);
-        activeStickers.push(sticker);
-        
-        const displayTime = isRandom ? stickerConfig.displayTime + getRandomNumber(-1000, 1000) : stickerConfig.displayTime;
-        setTimeout(() => {
-            if (sticker.parentNode) {
-                sticker.style.opacity = '0';
-                sticker.style.transform = 'scale(0.2)';
-                setTimeout(() => {
-                    sticker.remove();
-                    activeStickers = activeStickers.filter(s => s !== sticker);
-                }, 500);
+
+        function createSticker(x, y, isRandom = false, delay = 0) {
+            const container = document.getElementById('stickersContainer');
+            if (!container) return;
+
+            if (activeStickers.length >= stickerConfig.maxStickers) {
+                const oldest = activeStickers.shift();
+                if (oldest) oldest.remove();
             }
-        }, displayTime + delay);
-    }
 
-    function createThreeStickers(clickX, clickY) {
-        createSticker(clickX, clickY);
-        const p1 = getRandomPosition();
-        const p2 = getRandomPosition();
-        createSticker(p1.x, p1.y, true, 150); 
-        createSticker(p2.x, p2.y, true, 300); 
-    }
+            const sticker = document.createElement('div');
+            const stickerIndex = getRandomNumber(0, stickerConfig.stickers.length - 1);
+            const animationClass = stickerConfig.animations[getRandomNumber(0, stickerConfig.animations.length - 1)];
 
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.top-nav') || 
-            e.target.closest('.simple-item')) {
-            return;
+            sticker.className = `sticker ${animationClass}`;
+            sticker.style.backgroundImage = `url('${stickerConfig.basePath + stickerConfig.stickers[stickerIndex]}')`;
+
+            let posX = isRandom ? x : (x + (window.scrollX || window.pageXOffset));
+            let posY = isRandom ? y : (y + (window.scrollY || window.pageYOffset));
+
+            sticker.style.left = `${posX}px`;
+            sticker.style.top = `${posY}px`;
+
+            const size = getRandomNumber(stickerConfig.stickerSize.min, stickerConfig.stickerSize.max);
+            sticker.style.width = `${size}px`;
+            sticker.style.height = `${size}px`;
+            sticker.style.transform = `scale(0.2) rotate(${getRandomNumber(-30, 30)}deg)`;
+
+            if (delay > 0) {
+                sticker.style.animationDelay = `${delay}ms`;
+            }
+
+            container.appendChild(sticker);
+            activeStickers.push(sticker);
+
+            const displayTime = isRandom ? stickerConfig.displayTime + getRandomNumber(-1000, 1000) : stickerConfig.displayTime;
+            setTimeout(() => {
+                if (sticker.parentNode) {
+                    sticker.style.opacity = '0';
+                    sticker.style.transform = 'scale(0.2)';
+                    setTimeout(() => {
+                        sticker.remove();
+                        activeStickers = activeStickers.filter(s => s !== sticker);
+                    }, 500);
+                }
+            }, displayTime + delay);
         }
-        createThreeStickers(e.clientX, e.clientY);
-    });
 
-    window.addEventListener('load', () => {
-        for (let i = 0; i < 3; i++) {
-            const p = getRandomPosition();
-            createSticker(p.x, p.y, true, i * 200);
+        function createThreeStickers(clickX, clickY) {
+            createSticker(clickX, clickY);
+            const p1 = getRandomPosition();
+            const p2 = getRandomPosition();
+            createSticker(p1.x, p1.y, true, 150);
+            createSticker(p2.x, p2.y, true, 300);
         }
-    });
+
+        document.addEventListener('click', function (e) {
+            if (e.target.closest('.top-nav') ||
+                e.target.closest('.simple-item')) {
+                return;
+            }
+            createThreeStickers(e.clientX, e.clientY);
+        });
+
+        window.addEventListener('load', () => {
+            for (let i = 0; i < 3; i++) {
+                const p = getRandomPosition();
+                createSticker(p.x, p.y, true, i * 200);
+            }
+        });
     </script>
+    <script src="js/nav.js" defer></script>
 </body>
+
 </html>

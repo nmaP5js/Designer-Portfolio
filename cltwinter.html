@@ -13,21 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
     
+    <!-- Design System CSS Centralisé -->
+    <link rel="stylesheet" href="css/main.css">
+    
     <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --highlight-color: #888888;
-            --blue-color: #388BFF;
-            --light-gray: #f8f8f8; 
-            --menu-z: 1000;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
         body {
             background-color: var(--bg-color);
@@ -195,29 +184,7 @@
             gap: 20px;
         }
 
-        .header-titles {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
 
-        .header-titles h1 {
-            font-size: 4.2rem;
-            font-weight: 600;
-            line-height: 0.95;
-            letter-spacing: -0.03em;
-            color: #000000;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .header-titles h2 {
-            font-size: 1.35rem;
-            font-weight: 400;
-            color: var(--highlight-color);
-            text-align: center;
-        }
 
         .project-description-centered {
             font-size: 1.15rem;
@@ -528,106 +495,6 @@
         }
 
         /* --- SHADCN/UI TABS STYLE : TOUS LES PROJETS --- */
-        .projects-subnav-container {
-            width: 95%;
-            max-width: 1200px;
-            margin: 95px auto 12px auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-align: center;
-        }
-
-        .subnav-title {
-            font-size: 0.75rem;
-            text-transform: none;
-            letter-spacing: 0.02em;
-            color: #999999;
-            font-weight: 500;
-        }
-
-        /* Tabs list — fond gris pâle, bordure arrondie */
-        .subnav-list {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2px;
-            padding: 4px;
-            background-color: #f4f4f5;
-            border-radius: 10px;
-            border: none;
-        }
-
-        /* Chaque onglet */
-        .subnav-item {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.875rem;
-            font-weight: 500;
-            line-height: 1;
-            text-decoration: none;
-            color: #71717a;
-            white-space: nowrap;
-            padding: 7px 14px;
-            border-radius: 7px;
-            border: none;
-            background: transparent;
-            transition: color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
-        }
-
-        .subnav-item:hover {
-            color: #18181b;
-            background-color: rgba(255,255,255,0.6);
-        }
-
-        /* Onglet actif — fond blanc + ombre légère */
-        .subnav-item.active {
-            color: #18181b;
-            font-weight: 500;
-            background-color: #ffffff;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.06);
-        }
-
-        @media (max-width: 1024px) {
-            .projects-subnav-container {
-                width: 100%;
-                padding: 0 20px;
-            }
-            .subnav-list {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                justify-content: flex-start;
-                width: 100%;
-            }
-            .subnav-list::-webkit-scrollbar { display: none; }
-            .subnav-item { flex-shrink: 0; }
-        }
-
-        @media (max-width: 600px) {
-            .projects-subnav-container {
-                margin: 75px auto 15px auto;
-                gap: 8px;
-                width: 100%;
-                padding: 0 16px;
-            }
-            .subnav-list {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                justify-content: flex-start;
-                width: 100%;
-            }
-            .subnav-list::-webkit-scrollbar { display: none; }
-            .subnav-item { font-size: 0.82rem; padding: 6px 12px; flex-shrink: 0; }
-        }
-
         /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
             body { overflow-x: hidden; overflow-y: auto; height: auto; width: 100%; }
@@ -697,72 +564,61 @@
 </head>
 <body>
 
-    <nav class="top-nav" aria-label="Navigation principale">
-        <ul class="top-nav-list">
-            <li><a href="index.html" class="top-nav-link">Accueil</a></li>
-            <li><a href="project.html" class="top-nav-link active">Projets</a></li>
-            <li><a href="about.html" class="top-nav-link">À Propos</a></li>
-            <li><a href="contact.html" class="top-nav-link">Contact</a></li>
-        </ul>
-    </nav>
+    <nav class="top-nav" aria-label="Navigation principale"></nav>
 
-    <nav class="projects-subnav-container" aria-label="Tous les projets">
-        <span class="subnav-title">Tous les projets</span>
-        <div class="subnav-list">
-            <a href="imageia.html" class="subnav-item">Image Gen IA</a>
-            <a href="data_viz.html" class="subnav-item">DATA_VIZ</a>
-            <a href="trinityringcartier.html" class="subnav-item">Trinity Ring</a>
-            <a href="ptitchef.html" class="subnav-item">Made In Work</a>
-            <a href="budl.html" class="subnav-item">BUDL</a>
-            <a href="enjoytheride.html" class="subnav-item">Enjoy The Ride</a>
-            <a href="cltwinter.html" class="subnav-item active">CLT Winter Calendar</a>
-            <a href="cgivisual.html" class="subnav-item">CGI Visual</a>
-        </div>
-    </nav>
+    <nav class="projects-subnav-container" aria-label="Tous les projets"></nav>
 
     <main class="main-content">
-        <header class="project-header-centered">
-            <div class="header-titles">
-                <h1>CLT Winter Calendar</h1>
-                <h2>Campagne de communication</h2>
+        <div class="project-grid-2col">
+            <!-- Colonne Gauche -->
+            <div class="left-col">
+                <div class="header-titles">
+                    <h1>CLT Winter Calendar</h1>
+                    <h2>Campagne de communication</h2>
+                </div>
+
+                <figure class="visual-main-item" style="margin-bottom: 24px;">
+                    <img src="./images/cal2022.webp" alt="Visuel principal du CLT Winter Calendar" class="main-image" loading="eager">
+                </figure>
+
+                <p class="project-description">
+                    <strong>Conception d’un calendrier de l’Avent promotionnel</strong> pour Instagram décliné en 24 stories vidéo dévoilant chaque jour un lot à gagner.<br><br>
+                    Ce projet vise à engager la communauté à travers une expérience visuelle quotidienne de haute qualité associant modélisation 3D, animation et direction artistique événementielle.
+                </p>
             </div>
 
-            <p class="project-description-centered">Conception d’un calendrier de l’Avent promotionnel pour Instagram décliné en 24 stories vidéo dévoilant chaque jour un lot à gagner. Ce projet vise à engager la communauté à travers une expérience visuelle quotidienne de haute qualité.</p>
+            <!-- Colonne Droite -->
+            <aside class="right-col">
+                <div class="meta-card">
+                    <h3 class="meta-card-title">Informations du projet</h3>
 
-            <div class="tags-container-centered">
-                <span class="tag-pill">Designer 3D</span>
-                <span class="tag-pill">Blender</span>
-                <span class="tag-pill">Animation</span>
-            </div>
+                    <div class="meta-list">
+                        <div class="meta-list-item">
+                            <span class="meta-label">Lieu / Projet</span>
+                            <span class="meta-value">C'est La Teuf</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Année</span>
+                            <span class="meta-value">2022 & 2023</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Durée</span>
+                            <span class="meta-value">1 mois</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Rôle</span>
+                            <span class="meta-value">Designer 3D</span>
+                        </div>
+                    </div>
 
-            <div class="meta-bar-centered">
-                <div class="meta-item">
-                    <span class="meta-label">Lieu / Projet</span>
-                    <span class="meta-value">C'est La Teuf</span>
+                    <div class="tags-container">
+                        <span class="tag-pill">Designer 3D</span>
+                        <span class="tag-pill">Blender</span>
+                        <span class="tag-pill">Animation</span>
+                    </div>
                 </div>
-                <div class="meta-divider"></div>
-                <div class="meta-item">
-                    <span class="meta-label">Année</span>
-                    <span class="meta-value">2022 &amp; 2023</span>
-                </div>
-                <div class="meta-divider"></div>
-                <div class="meta-item">
-                    <span class="meta-label">Durée</span>
-                    <span class="meta-value">1 mois</span>
-                </div>
-                <div class="meta-divider"></div>
-                <div class="meta-item">
-                    <span class="meta-label">Rôle</span>
-                    <span class="meta-value">Designer 3D</span>
-                </div>
-            </div>
-        </header>
-
-        <section class="project-visuals-centered">
-            <figure class="visual-main-item">
-                <img src="./images/cal2022.webp" alt="Visuel principal du CLT Winter Calendar" class="main-image" loading="eager">
-            </figure>
-        </section>
+            </aside>
+        </div>
     </main>
 
     <div class="modal" id="imageModal" role="dialog" aria-modal="true" aria-hidden="true">
@@ -1054,5 +910,6 @@
             }, { passive: true });
         });
     </script>
+    <script src="js/nav.js" defer></script>
 </body>
 </html>
