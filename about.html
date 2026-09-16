@@ -19,7 +19,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
     
     <!-- Design System CSS Centralisé -->
     <link rel="stylesheet" href="css/main.css">
@@ -45,7 +45,7 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Inter Tight', sans-serif;
+            font-family: 'Faculty Glyphic', sans-serif;
             min-height: 100vh;
             width: 100vw;
             overflow-x: hidden;
@@ -183,9 +183,10 @@
             font-size: 0.875rem;
             font-weight: 500;
             padding: 10px 20px;
-            border-radius: 8px;
+            border: none;
+            border-radius: 0;
             text-decoration: none;
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            box-shadow: none;
             transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
             margin-top: 24px;
             text-transform: none;
@@ -195,8 +196,8 @@
         .cta-button:hover {
             background-color: #27272a;
             color: #ffffff;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
+            transform: none;
+            box-shadow: none;
         }
 
         .cta-button:active {
@@ -389,13 +390,6 @@
                                 travers des prototypes interactifs et tests utilisateurs.</p>
                         </li>
                         <li class="grid-list-item">
-                            <span class="item-header">UI-UX Designer / Graphiste • Made In Work (Stage)</span>
-                            <span class="item-sub">Avril 2024 - Juillet 2024</span>
-                            <p class="item-desc">Refonte graphique et amélioration de l'UX/UI du site , création
-                                d'éléments graphiques pour les réseaux sociaux et collaboration avec les équipes
-                                marketing et développement.</p>
-                        </li>
-                        <li class="grid-list-item">
                             <span class="item-header">Designer 3D • CLT</span>
                             <span class="item-sub">Décembre 2023</span>
                             <p class="item-desc">Réalisation d'une vidéo événementielle incluant la conception,
@@ -474,94 +468,142 @@
     </main>
 
     <script>
-        const CONFIG = {
-            stickers: {
-                basePath: "stickers/",
-                files: ["sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png", "sticker5.png"],
-                maxCount: 60,
-                displayTime: 60000,
-                size: { min: 60, max: 180 },
-                margin: 60,
-                animations: ["pop-in", "zoom-in", "spin-in"]
-            }
+        // --- STICKERS FLOWER GARDEN SYSTEM ---
+        const stickerConfig = {
+            basePath: "stickers/",
+            stickers: ["Flower1.png", "Flower2.png", "Flower3.png", "Flower4.png"],
+            maxStickers: 160,
+            displayTime: 65000,
+            stickerSize: { min: 38, max: 88 },
+            animations: ["pop-in", "zoom-in", "spin-in"]
         };
 
         const stickersContainer = document.getElementById('stickersContainer');
         let activeStickers = [];
 
-        function getRandom(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
+        function getRandomNumber(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 
-        function removeSticker(sticker) {
-            if (!sticker.parentNode) return;
-            sticker.style.opacity = 0;
-            sticker.style.transform = 'scale(0.2)';
-            setTimeout(() => {
-                if (sticker.parentNode) {
-                    sticker.parentNode.removeChild(sticker);
-                    activeStickers = activeStickers.filter(s => s !== sticker);
-                }
-            }, 500);
-        }
-
-        function createSticker(x, y, isRandom = false, delay = 0) {
+        function createSticker(x, y, delay = 0, customSize = null) {
             if (!stickersContainer) return;
-            if (activeStickers.length >= CONFIG.stickers.maxCount) {
+            if (activeStickers.length >= stickerConfig.maxStickers) {
                 const oldest = activeStickers.shift();
-                if (oldest) removeSticker(oldest);
+                if (oldest) oldest.remove();
             }
 
             const sticker = document.createElement('div');
-            sticker.className = `sticker ${CONFIG.stickers.animations[getRandom(0, CONFIG.stickers.animations.length - 1)]}`;
-            const file = CONFIG.stickers.files[getRandom(0, CONFIG.stickers.files.length - 1)];
-            sticker.style.backgroundImage = `url('${CONFIG.stickers.basePath + file}')`;
+            const anim = stickerConfig.animations[getRandomNumber(0, stickerConfig.animations.length - 1)];
+            const idx = getRandomNumber(0, stickerConfig.stickers.length - 1);
 
-            const scrollX = window.scrollX || window.pageXOffset;
-            const scrollY = window.scrollY || window.pageYOffset;
-            const posX = isRandom ? x : (x + scrollX);
-            const posY = isRandom ? y : (y + scrollY);
+            sticker.className = `sticker ${anim}`;
+            sticker.style.backgroundImage = `url('${stickerConfig.basePath + stickerConfig.stickers[idx]}')`;
 
-            sticker.style.left = `${posX}px`;
-            sticker.style.top = `${posY}px`;
+            const size = customSize || getRandomNumber(stickerConfig.stickerSize.min, stickerConfig.stickerSize.max);
 
-            const size = getRandom(CONFIG.stickers.size.min, CONFIG.stickers.size.max);
+            const clampedX = Math.max(8, Math.min(x - size / 2, window.innerWidth - size - 8));
+            const clampedY = Math.max(8, Math.min(y - size / 2, window.innerHeight - size - 8));
+
+            sticker.style.left = `${clampedX}px`;
+            sticker.style.top = `${clampedY}px`;
             sticker.style.width = `${size}px`;
             sticker.style.height = `${size}px`;
-            sticker.style.transform = `scale(0.2) rotate(${getRandom(-30, 30)}deg)`;
+            sticker.style.transform = `scale(0.2) rotate(${getRandomNumber(-35, 35)}deg)`;
             sticker.style.animationDelay = `${delay}ms`;
 
             stickersContainer.appendChild(sticker);
             activeStickers.push(sticker);
 
-            const lifeTime = isRandom ? CONFIG.stickers.displayTime + getRandom(-2000, 2000) : CONFIG.stickers.displayTime;
+            const lifeTime = stickerConfig.displayTime + getRandomNumber(-1500, 1500);
             setTimeout(() => {
-                removeSticker(sticker);
+                if (sticker.parentNode) {
+                    sticker.style.opacity = '0';
+                    sticker.style.transform = 'scale(0.2)';
+                    setTimeout(() => {
+                        sticker.remove();
+                        const index = activeStickers.indexOf(sticker);
+                        if (index > -1) activeStickers.splice(index, 1);
+                    }, 500);
+                }
             }, lifeTime + delay);
         }
 
-        function spawnRandomSticker(delay = 0) {
-            const w = document.documentElement.scrollWidth;
-            const h = document.documentElement.scrollHeight;
-            const m = CONFIG.stickers.margin;
-            const x = getRandom(m, w - m);
-            const y = getRandom(m, h - m);
-            createSticker(x, y, true, delay);
+        // Fait éclore un massif floral
+        function spawnBouquet(cx, cy, count = 6, radius = 70, baseDelay = 0) {
+            for (let i = 0; i < count; i++) {
+                let x, y, size;
+                if (i === 0) {
+                    x = cx + (Math.random() - 0.5) * 14;
+                    y = cy + (Math.random() - 0.5) * 14;
+                    size = getRandomNumber(55, 88);
+                } else {
+                    const angle = (i / (count - 1)) * Math.PI * 2 + (Math.random() - 0.5) * 0.7;
+                    const dist = (0.28 + Math.pow(Math.random(), 0.8) * 0.72) * radius;
+                    x = cx + Math.cos(angle) * dist;
+                    y = cy + Math.sin(angle) * dist;
+                    size = getRandomNumber(38, 75);
+                }
+                createSticker(x, y, baseDelay + i * 45, size);
+            }
+        }
+
+        function getRandomScatterPosition() {
+            const margin = 40;
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            let x, y, attempts = 0;
+            do {
+                x = getRandomNumber(margin, w - margin);
+                y = getRandomNumber(margin, h - margin);
+                attempts++;
+                const inCenter = (x > w * 0.35 && x < w * 0.65 && y > h * 0.35 && y < h * 0.65);
+                if (!inCenter || attempts > 10) break;
+            } while (true);
+            return { x, y };
+        }
+
+        function initGarden() {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const isMobile = w < 600;
+
+            const beds = isMobile ? [
+                { x: w * 0.18, y: h * 0.22, count: 5, r: 42 },
+                { x: w * 0.82, y: h * 0.22, count: 5, r: 42 },
+                { x: w * 0.22, y: h * 0.80, count: 5, r: 42 },
+                { x: w * 0.78, y: h * 0.78, count: 5, r: 42 }
+            ] : [
+                { x: w * 0.16, y: h * 0.24, count: 6, r: 70 },
+                { x: w * 0.84, y: h * 0.22, count: 6, r: 70 },
+                { x: w * 0.14, y: h * 0.76, count: 6, r: 70 },
+                { x: w * 0.84, y: h * 0.78, count: 6, r: 70 },
+                { x: w * 0.50, y: h * 0.88, count: 5, r: 60 }
+            ];
+
+            let delay = 0;
+            beds.forEach((bed) => {
+                const jitterX = (Math.random() - 0.5) * (w * 0.07);
+                const jitterY = (Math.random() - 0.5) * (h * 0.05);
+                spawnBouquet(bed.x + jitterX, bed.y + jitterY, bed.count, bed.r, delay);
+                delay += 180;
+            });
+
+            const scatterCount = isMobile ? 6 : 14;
+            for (let i = 0; i < scatterCount; i++) {
+                const pos = getRandomScatterPosition();
+                createSticker(pos.x, pos.y, delay + i * 65);
+            }
         }
 
         document.addEventListener('click', (e) => {
             if (e.target.closest('a, button, .top-nav')) return;
-
-            createSticker(e.clientX, e.clientY);
-            spawnRandomSticker(150);
-            spawnRandomSticker(300);
-        });
-
-        window.addEventListener('load', () => {
-            for (let i = 0; i < 3; i++) {
-                spawnRandomSticker(i * 200);
+            spawnBouquet(e.clientX, e.clientY, getRandomNumber(4, 6), 55, 0);
+            const extraCount = getRandomNumber(1, 2);
+            for (let i = 0; i < extraCount; i++) {
+                const pos = getRandomScatterPosition();
+                createSticker(pos.x, pos.y, 100 + i * 80);
             }
         });
+
+        window.addEventListener('load', initGarden);
     </script>
     <script src="js/nav.js" defer></script>
 </body>

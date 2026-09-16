@@ -10,7 +10,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
     
     <!-- Design System CSS Centralisé -->
@@ -21,7 +21,7 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Inter Tight', sans-serif;
+            font-family: 'Faculty Glyphic', sans-serif;
             min-height: 100vh;
             width: 100vw;
             position: relative;
@@ -103,7 +103,7 @@
             border: none;
             width: 100%;
             text-align: left;
-            font-family: 'Inter Tight', sans-serif;
+            font-family: 'Faculty Glyphic', sans-serif;
         }
 
         .capsule-link:hover {
@@ -155,8 +155,8 @@
             color: var(--text-color);
             font-size: 0.85rem;
             margin-top: 5px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            text-transform: none;
+            letter-spacing: normal;
         }
 
         /* --- LAYOUT PROJET CENTRÉ & HAUT DE GAMME --- */
@@ -199,12 +199,12 @@
         }
 
         .tag-pill {
-            padding: 6px 16px;
-            border: 1px solid rgba(0, 0, 0, 0.12);
-            border-radius: 50px;
+            padding: 5px 12px;
+            border: none;
+            border-radius: 0;
             font-size: 0.85rem;
             color: #555555;
-            background: rgba(0, 0, 0, 0.02);
+            background: rgba(0, 0, 0, 0.04);
             white-space: nowrap;
         }
 
@@ -229,11 +229,11 @@
         }
 
         .meta-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
+            font-size: 0.78rem;
+            text-transform: none;
+            letter-spacing: 0.01em;
             color: #888888;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .meta-value {
@@ -255,17 +255,17 @@
             padding: 10px 22px;
             background: #09090b;
             color: #ffffff;
-            border-radius: 9999px;
+            border-radius: 0;
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            box-shadow: none;
         }
 
         .video-cta-btn:hover {
             background: #27272a;
-            transform: translateY(-2px);
+            transform: none;
         }
 
         /* Galerie d'images centrée */
@@ -281,58 +281,76 @@
 
         .visual-main-item {
             width: 100%;
-            border-radius: 12px;
+            border-radius: 0;
             overflow: hidden;
             background-color: #f3f4f6;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: none;
         }
 
         .visual-main-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+            transform: none;
+            box-shadow: none;
         }
 
-        .visual-main-item img, .visual-grid-item img {
+        .visual-main-item img {
             width: 100%;
             height: auto;
             display: block;
             object-fit: cover;
-            transition: transform 0.4s ease;
         }
 
         .visual-main-item:hover img, .visual-grid-item:hover img {
-            transform: scale(1.02);
+            transform: none;
         }
 
+        .visual-grid-3col,
         .visual-grid-2col {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             width: 100%;
         }
 
         .visual-grid-item {
-            border-radius: 10px;
+            border-radius: 0;
             overflow: hidden;
-            background-color: #f3f4f6;
+            background-color: #0d0d0f;
             cursor: pointer;
-            aspect-ratio: 16 / 10;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 9 / 16;
+            box-shadow: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .visual-grid-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.09);
+            transform: none;
+            box-shadow: none;
         }
 
-        @media (max-width: 768px) {
+        .visual-grid-item img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        @media (max-width: 900px) {
+            .visual-grid-3col,
+            .visual-grid-2col {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
             .header-titles h1 { font-size: 2.2rem !important; }
             .meta-bar-centered { gap: 14px; padding: 12px 18px; }
             .meta-divider { display: none; }
             .meta-item { width: 45%; }
+            .visual-grid-3col,
             .visual-grid-2col { grid-template-columns: 1fr; }
         }
 
@@ -362,8 +380,8 @@
             justify-content: center;
             align-items: center;
             overflow: visible;
-            border-radius: 12px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+            border-radius: 0;
+            box-shadow: none;
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -372,7 +390,7 @@
             max-height: 75vh;
             object-fit: contain;
             display: block;
-            border-radius: 12px;
+            border-radius: 0;
             transition: opacity 0.25s ease;
             cursor: zoom-in;
             user-select: none;
@@ -469,7 +487,7 @@
         .thumb-item {
             width: 48px;
             height: 48px;
-            border-radius: 8px;
+            border-radius: 0;
             overflow: hidden;
             cursor: pointer;
             opacity: 0.5;
@@ -624,8 +642,7 @@
         </div>
 
         <section class="project-visuals-centered" style="margin-top: 40px;">
-
-            <div class="visual-grid-2col">
+            <div class="visual-grid-3col">
                 <figure class="visual-grid-item">
                     <img src="./images/tr1.webp" alt="Rendu 3D Trinity Ring détail" class="secondary-image" loading="lazy">
                 </figure>

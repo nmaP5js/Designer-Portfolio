@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Erreur 404 - Page introuvable. Retournez à l'accueil du portfolio de Nicolas Marie Angelique.">
+    <meta name="description"
+        content="Erreur 404 - Page introuvable. Retournez à l'accueil du portfolio de Nicolas Marie Angelique.">
     <title>Page introuvable (404) - Nicolas Marie Angelique</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    
+    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
     <style>
         :root {
             --bg-color: #ffffff;
@@ -24,7 +27,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter Tight', sans-serif;
+            font-family: 'Faculty Glyphic', sans-serif;
         }
 
         body {
@@ -49,7 +52,7 @@
             z-index: 0;
             overflow: hidden;
         }
-        
+
         .sticker {
             position: absolute;
             width: 100px;
@@ -61,14 +64,69 @@
             transform: scale(0.2) rotate(0deg);
             will-change: transform, opacity;
         }
-        
-        .sticker.pop-in { animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        .sticker.zoom-in { animation: zoomIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
-        .sticker.spin-in { animation: spinIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-        
-        @keyframes popIn { 0% { opacity: 0; transform: scale(0.2); } 50% { opacity: 0.8; transform: scale(1.2); } 100% { opacity: 1; transform: scale(1); } }
-        @keyframes zoomIn { 0% { opacity: 0; transform: scale(0.1); } 60% { opacity: 0.8; transform: scale(1.3); } 100% { opacity: 1; transform: scale(1); } }
-        @keyframes spinIn { 0% { opacity: 0; transform: scale(0.2) rotate(-120deg); } 70% { opacity: 0.7; transform: scale(1.1); } 100% { opacity: 1; transform: scale(1); } }
+
+        .sticker.pop-in {
+            animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .sticker.zoom-in {
+            animation: zoomIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .sticker.spin-in {
+            animation: spinIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.2);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.2);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.1);
+            }
+
+            60% {
+                opacity: 0.8;
+                transform: scale(1.3);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes spinIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.2) rotate(-120deg);
+            }
+
+            70% {
+                opacity: 0.7;
+                transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
         /* --- CONTENU 404 --- */
         .error-content {
@@ -79,11 +137,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            pointer-events: none; /* Laisse passer les clics pour les stickers */
+            pointer-events: none;
+            /* Laisse passer les clics pour les stickers */
         }
 
         .error-title {
-            font-size: clamp(8rem, 20vw, 20rem); /* Taille énorme adaptative */
+            font-size: clamp(8rem, 20vw, 20rem);
+            /* Taille énorme adaptative */
             font-weight: 800;
             line-height: 0.8;
             margin: 0;
@@ -100,7 +160,8 @@
         }
 
         .back-button {
-            pointer-events: auto; /* Réactive le clic sur le bouton */
+            pointer-events: auto;
+            /* Réactive le clic sur le bouton */
             display: inline-block;
             padding: 15px 40px;
             border: 1px solid var(--text-color);
@@ -117,69 +178,74 @@
         .back-button:hover {
             background-color: var(--text-color);
             color: var(--bg-color);
+        }
+
         /* --- BARRE DE NAVIGATION CENTRÉE EN HAUT --- */
         .top-nav {
-            position: fixed;
-            top: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            border-radius: 9999px;
-            padding: 6px 10px;
-            width: max-content;
-            max-width: calc(100vw - 20px);
-        }
+                position: fixed;
+                top: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1000;
+                background-color: rgba(255, 255, 255, 0.75);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.8);
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+                border-radius: 9999px;
+                padding: 6px 10px;
+                width: max-content;
+                max-width: calc(100vw - 20px);
+            }
 
-        .top-nav-list {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
+            .top-nav-list {
+                list-style: none;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
 
-        .top-nav-link {
-            display: inline-block;
-            text-decoration: none;
-            color: #111827;
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding: 8px 18px;
-            border-radius: 9999px;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
+            .top-nav-link {
+                display: inline-block;
+                text-decoration: none;
+                color: #111827;
+                font-size: 0.95rem;
+                font-weight: 500;
+                padding: 8px 18px;
+                border-radius: 9999px;
+                transition: all 0.2s ease;
+                white-space: nowrap;
+            }
 
-        .top-nav-link:hover, .top-nav-link.active {
-            background-color: rgba(56, 139, 255, 0.1);
-            color: var(--blue-color);
-        }
+            .top-nav-link:hover,
+            .top-nav-link.active {
+                background-color: rgba(56, 139, 255, 0.1);
+                color: var(--blue-color);
+            }
 
-        .top-nav-link:active {
-            transform: scale(0.96);
-        }
+            .top-nav-link:active {
+                transform: scale(0.96);
+            }
 
-        @media (max-width: 600px) {
-            .top-nav { top: 14px; padding: 4px 6px; }
-            .top-nav-list { gap: 2px; }
-            .top-nav-link { padding: 6px 10px; font-size: 0.82rem; }
-        }
+            @media (max-width: 600px) {
+                .top-nav {
+                    top: 14px;
+                    padding: 4px 6px;
+                }
+
+                .top-nav-list {
+                    gap: 2px;
+                }
+
+                .top-nav-link {
+                    padding: 6px 10px;
+                    font-size: 0.82rem;
+                }
+            }
     </style>
 </head>
-<body>
 
-    <nav class="top-nav" aria-label="Navigation principale">
-        <ul class="top-nav-list">
-            <li><a href="index.html" class="top-nav-link">Accueil</a></li>
-            <li><a href="project.html" class="top-nav-link">Projets</a></li>
-            <li><a href="about.html" class="top-nav-link">À Propos</a></li>
-            <li><a href="contact.html" class="top-nav-link">Contact</a></li>
-        </ul>
-    </nav>
+<body>
 
     <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
     <main class="error-content">
@@ -189,83 +255,143 @@
     </main>
 
     <script>
-        // --- STICKERS (Même script que l'accueil pour la cohérence) ---
+        // --- STICKERS FLOWER GARDEN SYSTEM ---
         const stickerConfig = {
-            basePath: "stickers/", 
-            stickers: ["sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png", "sticker5.png"],
-            maxStickers: 60, // Un peu moins pour ne pas surcharger
-            displayTime: 60000,
-            stickerSize: { min: 60, max: 200 }, 
-            randomPositionMargin: 60,
+            basePath: "stickers/",
+            stickers: ["Flower1.png", "Flower2.png", "Flower3.png", "Flower4.png"],
+            maxStickers: 160,
+            displayTime: 65000,
+            stickerSize: { min: 38, max: 88 },
             animations: ["pop-in", "zoom-in", "spin-in"]
         };
 
+        const stickersContainer = document.getElementById('stickersContainer');
         let activeStickers = [];
 
         function getRandomNumber(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 
-        function getRandomPosition() {
-            const margin = stickerConfig.randomPositionMargin;
-            return {
-                x: getRandomNumber(margin, window.innerWidth - margin),
-                y: getRandomNumber(margin, window.innerHeight - margin)
-            };
-        }
-
-        function createSticker(x, y, isRandom = false, delay = 0) {
+        function createSticker(x, y, delay = 0, customSize = null) {
+            if (!stickersContainer) return;
             if (activeStickers.length >= stickerConfig.maxStickers) {
                 const oldest = activeStickers.shift();
                 if (oldest) oldest.remove();
             }
-            
+
             const sticker = document.createElement('div');
             const anim = stickerConfig.animations[getRandomNumber(0, stickerConfig.animations.length - 1)];
             const idx = getRandomNumber(0, stickerConfig.stickers.length - 1);
-            
+
             sticker.className = `sticker ${anim}`;
             sticker.style.backgroundImage = `url('${stickerConfig.basePath + stickerConfig.stickers[idx]}')`;
-            sticker.style.left = `${x}px`;
-            sticker.style.top = `${y}px`;
-            
-            const size = getRandomNumber(stickerConfig.stickerSize.min, stickerConfig.stickerSize.max);
+
+            const size = customSize || getRandomNumber(stickerConfig.stickerSize.min, stickerConfig.stickerSize.max);
+
+            const clampedX = Math.max(8, Math.min(x - size / 2, window.innerWidth - size - 8));
+            const clampedY = Math.max(8, Math.min(y - size / 2, window.innerHeight - size - 8));
+
+            sticker.style.left = `${clampedX}px`;
+            sticker.style.top = `${clampedY}px`;
             sticker.style.width = `${size}px`;
             sticker.style.height = `${size}px`;
-            sticker.style.transform = `scale(0.2) rotate(${getRandomNumber(-30, 30)}deg)`;
+            sticker.style.transform = `scale(0.2) rotate(${getRandomNumber(-35, 35)}deg)`;
             sticker.style.animationDelay = `${delay}ms`;
-            
-            document.getElementById('stickersContainer').appendChild(sticker);
+
+            stickersContainer.appendChild(sticker);
             activeStickers.push(sticker);
-            
-            const lifeTime = isRandom ? stickerConfig.displayTime + getRandomNumber(-1000, 1000) : stickerConfig.displayTime;
+
+            const lifeTime = stickerConfig.displayTime + getRandomNumber(-1500, 1500);
             setTimeout(() => {
                 if (sticker.parentNode) {
                     sticker.style.opacity = '0';
                     sticker.style.transform = 'scale(0.2)';
-                    setTimeout(() => { sticker.remove(); }, 500);
+                    setTimeout(() => {
+                        sticker.remove();
+                        const index = activeStickers.indexOf(sticker);
+                        if (index > -1) activeStickers.splice(index, 1);
+                    }, 500);
                 }
             }, lifeTime + delay);
         }
 
-        function createThreeStickers(x, y) {
-            createSticker(x, y);
-            const p1 = getRandomPosition();
-            const p2 = getRandomPosition();
-            createSticker(p1.x, p1.y, true, 150); 
-            createSticker(p2.x, p2.y, true, 300); 
+        // Fait éclore un massif floral
+        function spawnBouquet(cx, cy, count = 6, radius = 70, baseDelay = 0) {
+            for (let i = 0; i < count; i++) {
+                let x, y, size;
+                if (i === 0) {
+                    x = cx + (Math.random() - 0.5) * 14;
+                    y = cy + (Math.random() - 0.5) * 14;
+                    size = getRandomNumber(55, 88);
+                } else {
+                    const angle = (i / (count - 1)) * Math.PI * 2 + (Math.random() - 0.5) * 0.7;
+                    const dist = (0.28 + Math.pow(Math.random(), 0.8) * 0.72) * radius;
+                    x = cx + Math.cos(angle) * dist;
+                    y = cy + Math.sin(angle) * dist;
+                    size = getRandomNumber(38, 75);
+                }
+                createSticker(x, y, baseDelay + i * 45, size);
+            }
+        }
+
+        function getRandomScatterPosition() {
+            const margin = 40;
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            let x, y, attempts = 0;
+            do {
+                x = getRandomNumber(margin, w - margin);
+                y = getRandomNumber(margin, h - margin);
+                attempts++;
+                const inCenter = (x > w * 0.35 && x < w * 0.65 && y > h * 0.35 && y < h * 0.65);
+                if (!inCenter || attempts > 10) break;
+            } while (true);
+            return { x, y };
+        }
+
+        function initGarden() {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const isMobile = w < 600;
+
+            const beds = isMobile ? [
+                { x: w * 0.18, y: h * 0.22, count: 5, r: 42 },
+                { x: w * 0.82, y: h * 0.22, count: 5, r: 42 },
+                { x: w * 0.22, y: h * 0.80, count: 5, r: 42 },
+                { x: w * 0.78, y: h * 0.78, count: 5, r: 42 }
+            ] : [
+                { x: w * 0.16, y: h * 0.24, count: 6, r: 70 },
+                { x: w * 0.84, y: h * 0.22, count: 6, r: 70 },
+                { x: w * 0.14, y: h * 0.76, count: 6, r: 70 },
+                { x: w * 0.84, y: h * 0.78, count: 6, r: 70 },
+                { x: w * 0.50, y: h * 0.88, count: 5, r: 60 }
+            ];
+
+            let delay = 0;
+            beds.forEach((bed) => {
+                const jitterX = (Math.random() - 0.5) * (w * 0.07);
+                const jitterY = (Math.random() - 0.5) * (h * 0.05);
+                spawnBouquet(bed.x + jitterX, bed.y + jitterY, bed.count, bed.r, delay);
+                delay += 180;
+            });
+
+            const scatterCount = isMobile ? 6 : 14;
+            for (let i = 0; i < scatterCount; i++) {
+                const pos = getRandomScatterPosition();
+                createSticker(pos.x, pos.y, delay + i * 65);
+            }
         }
 
         document.addEventListener('click', (e) => {
             if (e.target.closest('.top-nav, .back-button')) return;
-            createThreeStickers(e.clientX, e.clientY);
-        });
-
-        // Init
-        window.addEventListener('load', () => {
-            for (let i = 0; i < 45; i++) {
-                const p = getRandomPosition();
-                createSticker(p.x, p.y, true, i * 200);
+            spawnBouquet(e.clientX, e.clientY, getRandomNumber(4, 6), 55, 0);
+            const extraCount = getRandomNumber(1, 2);
+            for (let i = 0; i < extraCount; i++) {
+                const pos = getRandomScatterPosition();
+                createSticker(pos.x, pos.y, 100 + i * 80);
             }
         });
+
+        window.addEventListener('load', initGarden);
     </script>
 </body>
+
 </html>

@@ -5,13 +5,8 @@
         { id: 'dynamic_gallery', title: 'Dynamic Gallery', url: 'dynamic_gallery.html' },
         { id: 'rex_system', title: 'REX_System', url: 'rex_system.html' },
         { id: 'portfolio', title: 'Designer Portfolio', url: 'portfolio.html' },
-        { id: 'imageia', title: 'Image Gen IA', url: 'imageia.html' },
-        { id: 'data_viz', title: 'DATA_VIZ', url: 'data_viz.html' },
         { id: 'trinityringcartier', title: 'Trinity Ring', url: 'trinityringcartier.html' },
-        { id: 'ptitchef', title: 'Made In Work', url: 'ptitchef.html' },
-        { id: 'budl', title: 'BUDL', url: 'budl.html' },
         { id: 'enjoytheride', title: 'Enjoy The Ride', url: 'enjoytheride.html' },
-        { id: 'cltwinter', title: 'CLT Winter Calendar', url: 'cltwinter.html' },
         { id: 'cgivisual', title: 'CGI Visual', url: 'cgivisual.html' }
     ];
 
@@ -38,7 +33,7 @@
 
         let currentPath = decodeURIComponent(window.location.pathname.split('/').pop() || 'index.html').split('?')[0].split('#')[0].toLowerCase();
 
-        let html = `<span class="subnav-title">Tous les projets</span><div class="subnav-list">`;
+        let html = `<span class="subnav-title">Projets sélectionnés</span><div class="subnav-list">`;
 
         PROJECTS_LIST.forEach(project => {
             const isActive = currentPath === project.url.toLowerCase();

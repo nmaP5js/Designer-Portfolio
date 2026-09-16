@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fira+Code:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Fira+Code:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 /* --- DESIGN SYSTEM & CSS CENTRALISÉ --- */
@@ -36,7 +36,7 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Faculty Glyphic', sans-serif;
     min-height: 100vh;
     width: 100%;
     position: relative;
@@ -106,10 +106,10 @@ body {
 }
 
 .subnav-title {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #999999;
+    font-size: 0.75rem;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    color: #888888;
     font-weight: 600;
 }
 
@@ -121,8 +121,8 @@ body {
     gap: 2px;
     padding: 4px;
     background-color: #f4f4f5;
-    border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 0;
+    border: none;
     max-width: 100%;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -145,7 +145,7 @@ body {
     color: #71717a;
     white-space: nowrap;
     padding: 7px 14px;
-    border-radius: 8px;
+    border-radius: 0;
     border: none;
     background: transparent;
     transition: color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
@@ -160,7 +160,8 @@ body {
     color: #18181b !important;
     font-weight: 600 !important;
     background-color: #ffffff !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(0, 0, 0, 0.06) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
 }
 
 /* --- LAYOUT PROJET & 2 COLONNES --- */
@@ -228,20 +229,20 @@ body {
 
 .meta-card {
     background: rgba(0, 0, 0, 0.02);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 20px;
-    padding: 28px;
+    border: none;
+    border-radius: 0;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 .meta-card-title {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #888888;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    color: #555555;
 }
 
 .meta-list {
@@ -254,8 +255,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 2px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding-bottom: 8px;
+    border-bottom: none;
 }
 
 .meta-list-item:last-child {
@@ -264,11 +265,11 @@ body {
 }
 
 .meta-label {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
+    font-size: 0.78rem;
+    text-transform: none;
+    letter-spacing: 0.01em;
     color: #888888;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .meta-value {
@@ -286,12 +287,12 @@ body {
 }
 
 .tag-pill {
-    padding: 5px 14px;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    border-radius: 50px;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 0;
     font-size: 0.8rem;
     color: #555555;
-    background: #ffffff;
+    background: rgba(0, 0, 0, 0.04);
     white-space: nowrap;
 }
 
@@ -304,31 +305,31 @@ body {
     font-size: 0.9rem;
     font-weight: 500;
     padding: 12px 24px;
-    border-radius: 9999px;
+    border: none;
+    border-radius: 0;
     text-decoration: none;
     align-self: flex-start;
     width: fit-content;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cta-button.secondary {
-    background-color: #ffffff;
+    background-color: #f4f4f5;
     color: #09090b;
-    border: 1px solid rgba(0, 0, 0, 0.15);
+    border: none;
 }
 
 .cta-button:hover {
     background-color: #27272a;
     color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    transform: none;
+    box-shadow: none;
 }
 
 .cta-button.secondary:hover {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: #e4e4e7;
     color: #09090b;
-    border-color: rgba(0, 0, 0, 0.3);
 }
 
 .cta-button .cta-icon {
@@ -351,19 +352,45 @@ body {
     align-items: center;
 }
 
+img,
+video,
+figure,
+.visual-main-item,
+.visual-grid-item,
+.modal-image-wrapper,
+.modal-image,
+.thumb-item,
+.bento-item,
+.bento-image {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+img:hover,
+figure:hover,
+.visual-main-item:hover,
+.visual-grid-item:hover,
+.visual-main-item:hover img,
+.visual-grid-item:hover img,
+.bento-item:hover,
+.bento-item:hover .bento-image,
+.bento-image:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
 .visual-main-item {
     width: 100%;
-    border-radius: 16px;
+    border-radius: 0;
     overflow: hidden;
     background-color: #f3f4f6;
     cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: none;
 }
 
 .visual-main-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+    transform: none;
+    box-shadow: none;
 }
 
 .visual-main-item img {
@@ -371,11 +398,10 @@ body {
     height: auto;
     display: block;
     object-fit: cover;
-    transition: transform 0.4s ease;
 }
 
 .visual-main-item:hover img {
-    transform: scale(1.02);
+    transform: none;
 }
 
 /* --- LIGHTBOX MODAL FULLSCREEN --- */
@@ -419,8 +445,8 @@ body {
     justify-content: center;
     align-items: center;
     overflow: visible;
-    border-radius: 12px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    border-radius: 0;
+    box-shadow: none;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -429,7 +455,7 @@ body {
     max-height: 75vh;
     object-fit: contain;
     display: block;
-    border-radius: 12px;
+    border-radius: 0;
     transition: opacity 0.25s ease;
     cursor: zoom-in;
     user-select: none;
@@ -537,7 +563,7 @@ body {
 .thumb-item {
     width: 48px;
     height: 48px;
-    border-radius: 8px;
+    border-radius: 0;
     overflow: hidden;
     cursor: pointer;
     opacity: 0.5;
