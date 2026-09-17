@@ -8,17 +8,18 @@
         content="Projets et réalisations de Nicolas Marie Angelique - Designer UI/UX, 3D et Graphique.">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nicolasmarieangelique.fr/">
+    <meta property="og:url" content="https://nicolasmarieangelique.fr/project.html">
     <meta property="og:title" content="Nicolas Marie Angelique - Designer UI/UX & 3D">
     <meta property="og:description" content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
-    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/aperçu_img.png">
+    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
 
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://nicolasmarieangelique.fr/">
+    <meta property="twitter:url" content="https://nicolasmarieangelique.fr/project.html">
     <meta property="twitter:title" content="Nicolas Marie Angelique - Designer UI/UX">
     <meta property="twitter:description"
         content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
-    <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/aperçu_img.png">
+    <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
+    <link rel="canonical" href="https://nicolasmarieangelique.fr/project.html">
 
     <link rel="icon" type="image/png" href="stickers/sticker1.png">
     <link rel="shortcut icon" type="image/png" href="stickers/sticker1.png">
@@ -401,67 +402,7 @@
             }
         }
 
-        /* --- BARRE DE NAVIGATION CENTRÉE EN HAUT --- */
-        .top-nav {
-            position: fixed;
-            top: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            border-radius: 9999px;
-            padding: 6px 10px;
-            width: max-content;
-            max-width: calc(100vw - 20px);
-        }
-
-        .top-nav-list {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .top-nav-link {
-            display: inline-block;
-            text-decoration: none;
-            color: #111827;
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding: 8px 18px;
-            border-radius: 9999px;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .top-nav-link:hover,
-        .top-nav-link.active {
-            background-color: rgba(56, 139, 255, 0.1);
-            color: var(--blue-color);
-        }
-
-        .top-nav-link:active {
-            transform: scale(0.96);
-        }
-
-        @media (max-width: 600px) {
-            .top-nav {
-                top: 14px;
-                padding: 4px 6px;
-            }
-
-            .top-nav-list {
-                gap: 2px;
-            }
-
-            .top-nav-link {
-                padding: 6px 10px;
-                font-size: 0.82rem;
-            }
+        /* Les styles .top-nav sont définis dans css/main.css */
 
             .projects-column {
                 padding: 85px 20px 40px 20px;
@@ -504,7 +445,7 @@
                     <p class="item-meta">Visionneuse Média Portable - 2026</p>
                 </a>
 
-                <a href="portfolio.html" class="simple-item" data-preview="images/aperçu_img.png">
+                <a href="portfolio.html" class="simple-item" data-preview="images/apercu_img.png">
                     <h2 class="item-title">Conception Portfolio Web</h2>
                     <p class="item-meta">Conception Web - 2025</p>
                 </a>
@@ -566,150 +507,15 @@
         });
 
 
-        // --- 3. GESTION DES STICKERS (FLOWER GARDEN SYSTEM) ---
-        const stickerConfig = {
-            basePath: "stickers/",
-            stickers: ["Flower1.png", "Flower2.png", "Flower3.png", "Flower4.png"],
-            maxStickers: 160,
-            displayTime: 65000,
-            stickerSize: { min: 38, max: 88 },
-            animations: ["pop-in", "zoom-in", "spin-in"]
-        };
+    </script>
 
-        let activeStickers = [];
-
-        function getRandomNumber(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-        function createSticker(x, y, delay = 0, customSize = null) {
-            const container = document.getElementById('stickersContainer');
-            if (!container) return;
-
-            if (activeStickers.length >= stickerConfig.maxStickers) {
-                const oldest = activeStickers.shift();
-                if (oldest) oldest.remove();
-            }
-
-            const sticker = document.createElement('div');
-            const stickerIndex = getRandomNumber(0, stickerConfig.stickers.length - 1);
-            const animationClass = stickerConfig.animations[getRandomNumber(0, stickerConfig.animations.length - 1)];
-
-            sticker.className = `sticker ${animationClass}`;
-            sticker.style.backgroundImage = `url('${stickerConfig.basePath + stickerConfig.stickers[stickerIndex]}')`;
-
-            const size = customSize || getRandomNumber(stickerConfig.stickerSize.min, stickerConfig.stickerSize.max);
-
-            const clampedX = Math.max(8, Math.min(x - size / 2, window.innerWidth - size - 8));
-            const clampedY = Math.max(8, Math.min(y - size / 2, window.innerHeight - size - 8));
-
-            sticker.style.left = `${clampedX}px`;
-            sticker.style.top = `${clampedY}px`;
-            sticker.style.width = `${size}px`;
-            sticker.style.height = `${size}px`;
-            sticker.style.transform = `scale(0.2) rotate(${getRandomNumber(-35, 35)}deg)`;
-
-            if (delay > 0) {
-                sticker.style.animationDelay = `${delay}ms`;
-            }
-
-            container.appendChild(sticker);
-            activeStickers.push(sticker);
-
-            const displayTime = stickerConfig.displayTime + getRandomNumber(-1500, 1500);
-            setTimeout(() => {
-                if (sticker.parentNode) {
-                    sticker.style.opacity = '0';
-                    sticker.style.transform = 'scale(0.2)';
-                    setTimeout(() => {
-                        sticker.remove();
-                        activeStickers = activeStickers.filter(s => s !== sticker);
-                    }, 500);
-                }
-            }, displayTime + delay);
-        }
-
-        // Fait éclore un massif floral
-        function spawnBouquet(cx, cy, count = 6, radius = 70, baseDelay = 0) {
-            for (let i = 0; i < count; i++) {
-                let x, y, size;
-                if (i === 0) {
-                    x = cx + (Math.random() - 0.5) * 14;
-                    y = cy + (Math.random() - 0.5) * 14;
-                    size = getRandomNumber(55, 88);
-                } else {
-                    const angle = (i / (count - 1)) * Math.PI * 2 + (Math.random() - 0.5) * 0.7;
-                    const dist = (0.28 + Math.pow(Math.random(), 0.8) * 0.72) * radius;
-                    x = cx + Math.cos(angle) * dist;
-                    y = cy + Math.sin(angle) * dist;
-                    size = getRandomNumber(38, 75);
-                }
-                createSticker(x, y, baseDelay + i * 45, size);
-            }
-        }
-
-        function getRandomScatterPosition() {
-            const margin = 40;
-            const w = window.innerWidth;
-            const h = window.innerHeight;
-            let x, y, attempts = 0;
-            do {
-                x = getRandomNumber(margin, w - margin);
-                y = getRandomNumber(margin, h - margin);
-                attempts++;
-                const inCenter = (x > w * 0.35 && x < w * 0.65 && y > h * 0.35 && y < h * 0.65);
-                if (!inCenter || attempts > 10) break;
-            } while (true);
-            return { x, y };
-        }
-
-        function initGarden() {
-            const w = window.innerWidth;
-            const h = window.innerHeight;
-            const isMobile = w < 600;
-
-            const beds = isMobile ? [
-                { x: w * 0.18, y: h * 0.22, count: 5, r: 42 },
-                { x: w * 0.82, y: h * 0.22, count: 5, r: 42 },
-                { x: w * 0.22, y: h * 0.80, count: 5, r: 42 },
-                { x: w * 0.78, y: h * 0.78, count: 5, r: 42 }
-            ] : [
-                { x: w * 0.16, y: h * 0.24, count: 6, r: 70 },
-                { x: w * 0.84, y: h * 0.22, count: 6, r: 70 },
-                { x: w * 0.14, y: h * 0.76, count: 6, r: 70 },
-                { x: w * 0.84, y: h * 0.78, count: 6, r: 70 },
-                { x: w * 0.50, y: h * 0.88, count: 5, r: 60 }
-            ];
-
-            let delay = 0;
-            beds.forEach((bed) => {
-                const jitterX = (Math.random() - 0.5) * (w * 0.07);
-                const jitterY = (Math.random() - 0.5) * (h * 0.05);
-                spawnBouquet(bed.x + jitterX, bed.y + jitterY, bed.count, bed.r, delay);
-                delay += 180;
-            });
-
-            const scatterCount = isMobile ? 6 : 14;
-            for (let i = 0; i < scatterCount; i++) {
-                const pos = getRandomScatterPosition();
-                createSticker(pos.x, pos.y, delay + i * 65);
-            }
-        }
-
-        document.addEventListener('click', function (e) {
-            if (e.target.closest('.top-nav') ||
-                e.target.closest('.simple-item')) {
-                return;
-            }
-            spawnBouquet(e.clientX, e.clientY, getRandomNumber(4, 6), 55, 0);
-            const extraCount = getRandomNumber(1, 2);
-            for (let i = 0; i < extraCount; i++) {
-                const pos = getRandomScatterPosition();
-                createSticker(pos.x, pos.y, 100 + i * 80);
-            }
-        });
-
-        window.addEventListener('load', initGarden);
+    <!-- Stickers pleine opacité sur la page projets -->
+    <script>window._stickersManualInit = true;</script>
+    <script src="js/stickers.js" defer></script>
+    <script>
+    window.addEventListener('load', function () {
+        window.initStickers({ finalOpacity: 1, clickExcludes: '.top-nav, .simple-item' });
+    });
     </script>
     <script src="js/nav.js" defer></script>
 </body>

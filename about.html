@@ -8,10 +8,16 @@
         content="Portfolio de Nicolas Marie Angelique - Designer UI/UX et Innovation. Découvrez mon parcours, mes compétences et mon approche.">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nicolasmarieangelique.fr/">
-    <meta property="og:title" content="Nicolas Marie Angelique - Designer UI/UX & 3D">
+    <meta property="og:url" content="https://nicolasmarieangelique.fr/about.html">
+    <meta property="og:title" content="Nicolas Marie Angelique - À Propos">
     <meta property="og:description" content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
-    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/aperçu_img.png">
+    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nicolasmarieangelique.fr/about.html">
+    <meta property="twitter:title" content="Nicolas Marie Angelique - À Propos">
+    <meta property="twitter:description" content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
+    <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
+    <link rel="canonical" href="https://nicolasmarieangelique.fr/about.html">
 
     <link rel="icon" type="image/png" href="stickers/sticker1.png">
     <link rel="shortcut icon" type="image/png" href="stickers/sticker1.png">
@@ -20,10 +26,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
-    
+
     <!-- Design System CSS Centralisé -->
     <link rel="stylesheet" href="css/main.css">
-    
+
     <style>
         :root {
             --bg-color: #ffffff;
@@ -52,53 +58,6 @@
             position: relative;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* --- BARRE DE NAVIGATION CENTRÉE EN HAUT --- */
-        .top-nav {
-            position: fixed;
-            top: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            border-radius: 9999px;
-            padding: 6px 10px;
-            width: max-content;
-            max-width: calc(100vw - 20px);
-        }
-
-        .top-nav-list {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .top-nav-link {
-            display: inline-block;
-            text-decoration: none;
-            color: #111827;
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding: 8px 18px;
-            border-radius: 9999px;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .top-nav-link:hover,
-        .top-nav-link.active {
-            background-color: rgba(56, 139, 255, 0.1);
-            color: var(--blue-color);
-        }
-
-        .top-nav-link:active {
-            transform: scale(0.96);
         }
 
         /* --- LAYOUT PRINCIPAL --- */
@@ -133,6 +92,14 @@
             margin-bottom: 25px;
             display: block;
             color: var(--text-color);
+        }
+
+        /* Titre sémantique de la page (visuellement identique au texte d'intro) */
+        .page-intro-title {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-weight: 400;
         }
 
         .body-text {
@@ -213,86 +180,13 @@
             transform: translateX(3px);
         }
 
-        /* --- STICKERS --- */
+        /* --- STICKERS (z-index bas : en arrière-plan) --- */
         .stickers-container {
             position: fixed;
             inset: 0;
             pointer-events: none;
             z-index: var(--sticker-z);
             overflow: hidden;
-        }
-
-        .sticker {
-            position: absolute;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0;
-            transform: scale(0.2) rotate(0deg);
-            will-change: transform, opacity;
-        }
-
-        .sticker.pop-in {
-            animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-
-        .sticker.zoom-in {
-            animation: zoomIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        }
-
-        .sticker.spin-in {
-            animation: spinIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        @keyframes popIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.2) rotate(0deg);
-            }
-
-            50% {
-                opacity: 0.6;
-                transform: scale(1.2) rotate(15deg);
-            }
-
-            100% {
-                opacity: 0.4;
-                transform: scale(1) rotate(0deg);
-            }
-        }
-
-        @keyframes zoomIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.1) rotate(-20deg);
-            }
-
-            60% {
-                opacity: 0.6;
-                transform: scale(1.3) rotate(10deg);
-            }
-
-            100% {
-                opacity: 0.4;
-                transform: scale(1) rotate(0deg);
-            }
-        }
-
-        @keyframes spinIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.2) rotate(-120deg);
-            }
-
-            70% {
-                opacity: 0.5;
-                transform: scale(1.1) rotate(20deg);
-            }
-
-            100% {
-                opacity: 0.4;
-                transform: scale(1) rotate(0deg);
-            }
         }
 
         /* --- RESPONSIVE --- */
@@ -303,20 +197,6 @@
         }
 
         @media (max-width: 600px) {
-            .top-nav {
-                top: 14px;
-                padding: 4px 6px;
-            }
-
-            .top-nav-list {
-                gap: 2px;
-            }
-
-            .top-nav-link {
-                padding: 6px 10px;
-                font-size: 0.82rem;
-            }
-
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 60px;
@@ -341,7 +221,8 @@
             <section class="grid-column">
                 <article class="info-block">
                     <span class="section-label">Nicolas Marie-Angélique ©2026</span>
-                    <h1 class="body-text">
+                    <!-- H1 sémantique (titre de page) — visuellement identique au corps de texte -->
+                    <h1 class="page-intro-title">
                         Mon profil se distingue par une créativité et une adaptabilité qui me poussent à l'exploration
                         constante.
                     </h1>
@@ -360,10 +241,10 @@
                             <span class="item-header">Chargé d'audit et d'optimisation éditoriale numérique • Immigrant
                                 Québec - Montréal (Stage)</span>
                             <span class="item-sub">Avril 2026 - Octobre 2026</span>
-                            <p class="item-desc">Réaliser l’audit de l’arborescence et de l’architecture de
-                                l’information du site. Analyser, classifier et structurer les contenus éditoriaux
-                                (actualités, conseils d’experts, contenus statiques). Optimiser les taxonomies
-                                (catégories, sous-catégories, étiquettes/tags). Améliorer la lisibilité éditoriale, l’UX
+                            <p class="item-desc">Réaliser l'audit de l'arborescence et de l'architecture de
+                                l'information du site. Analyser, classifier et structurer les contenus éditoriaux
+                                (actualités, conseils d'experts, contenus statiques). Optimiser les taxonomies
+                                (catégories, sous-catégories, étiquettes/tags). Améliorer la lisibilité éditoriale, l'UX
                                 et les parcours utilisateurs. Formuler des recommandations stratégiques et
                                 opérationnelles : arborescence (menus / sous-menus), transformation et valorisation des
                                 contenus existants, titrages, tags et maillage interne, plugins et paramétrages.
@@ -432,12 +313,12 @@
                         <li class="grid-list-item">
                             <span class="item-header">Design</span>
                             <p class="item-desc"> Maquettes haute fidélité, prototypes, parcours utilisateurs,
-                                storytelling, architecture de l’information (arborescence), design d’interaction, design
+                                storytelling, architecture de l'information (arborescence), design d'interaction, design
                                 visuel, audit éditorial.</p>
                         </li>
                         <li class="grid-list-item">
                             <span class="item-header">Recherche</span>
-                            <p class="item-desc"> Veille technologique, tests d’utilisabilité, cartographie du parcours
+                            <p class="item-desc"> Veille technologique, tests d'utilisabilité, cartographie du parcours
                                 utilisateur, évaluation heuristique, analyse et classification de données.</p>
                         </li>
                         <li class="grid-list-item">
@@ -467,143 +348,13 @@
         </div>
     </main>
 
+    <!-- Stickers semi-transparents (z-index 0) sur page de contenu -->
+    <script>window._stickersManualInit = true;</script>
+    <script src="js/stickers.js" defer></script>
     <script>
-        // --- STICKERS FLOWER GARDEN SYSTEM ---
-        const stickerConfig = {
-            basePath: "stickers/",
-            stickers: ["Flower1.png", "Flower2.png", "Flower3.png", "Flower4.png"],
-            maxStickers: 160,
-            displayTime: 65000,
-            stickerSize: { min: 38, max: 88 },
-            animations: ["pop-in", "zoom-in", "spin-in"]
-        };
-
-        const stickersContainer = document.getElementById('stickersContainer');
-        let activeStickers = [];
-
-        function getRandomNumber(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
-
-        function createSticker(x, y, delay = 0, customSize = null) {
-            if (!stickersContainer) return;
-            if (activeStickers.length >= stickerConfig.maxStickers) {
-                const oldest = activeStickers.shift();
-                if (oldest) oldest.remove();
-            }
-
-            const sticker = document.createElement('div');
-            const anim = stickerConfig.animations[getRandomNumber(0, stickerConfig.animations.length - 1)];
-            const idx = getRandomNumber(0, stickerConfig.stickers.length - 1);
-
-            sticker.className = `sticker ${anim}`;
-            sticker.style.backgroundImage = `url('${stickerConfig.basePath + stickerConfig.stickers[idx]}')`;
-
-            const size = customSize || getRandomNumber(stickerConfig.stickerSize.min, stickerConfig.stickerSize.max);
-
-            const clampedX = Math.max(8, Math.min(x - size / 2, window.innerWidth - size - 8));
-            const clampedY = Math.max(8, Math.min(y - size / 2, window.innerHeight - size - 8));
-
-            sticker.style.left = `${clampedX}px`;
-            sticker.style.top = `${clampedY}px`;
-            sticker.style.width = `${size}px`;
-            sticker.style.height = `${size}px`;
-            sticker.style.transform = `scale(0.2) rotate(${getRandomNumber(-35, 35)}deg)`;
-            sticker.style.animationDelay = `${delay}ms`;
-
-            stickersContainer.appendChild(sticker);
-            activeStickers.push(sticker);
-
-            const lifeTime = stickerConfig.displayTime + getRandomNumber(-1500, 1500);
-            setTimeout(() => {
-                if (sticker.parentNode) {
-                    sticker.style.opacity = '0';
-                    sticker.style.transform = 'scale(0.2)';
-                    setTimeout(() => {
-                        sticker.remove();
-                        const index = activeStickers.indexOf(sticker);
-                        if (index > -1) activeStickers.splice(index, 1);
-                    }, 500);
-                }
-            }, lifeTime + delay);
-        }
-
-        // Fait éclore un massif floral
-        function spawnBouquet(cx, cy, count = 6, radius = 70, baseDelay = 0) {
-            for (let i = 0; i < count; i++) {
-                let x, y, size;
-                if (i === 0) {
-                    x = cx + (Math.random() - 0.5) * 14;
-                    y = cy + (Math.random() - 0.5) * 14;
-                    size = getRandomNumber(55, 88);
-                } else {
-                    const angle = (i / (count - 1)) * Math.PI * 2 + (Math.random() - 0.5) * 0.7;
-                    const dist = (0.28 + Math.pow(Math.random(), 0.8) * 0.72) * radius;
-                    x = cx + Math.cos(angle) * dist;
-                    y = cy + Math.sin(angle) * dist;
-                    size = getRandomNumber(38, 75);
-                }
-                createSticker(x, y, baseDelay + i * 45, size);
-            }
-        }
-
-        function getRandomScatterPosition() {
-            const margin = 40;
-            const w = window.innerWidth;
-            const h = window.innerHeight;
-            let x, y, attempts = 0;
-            do {
-                x = getRandomNumber(margin, w - margin);
-                y = getRandomNumber(margin, h - margin);
-                attempts++;
-                const inCenter = (x > w * 0.35 && x < w * 0.65 && y > h * 0.35 && y < h * 0.65);
-                if (!inCenter || attempts > 10) break;
-            } while (true);
-            return { x, y };
-        }
-
-        function initGarden() {
-            const w = window.innerWidth;
-            const h = window.innerHeight;
-            const isMobile = w < 600;
-
-            const beds = isMobile ? [
-                { x: w * 0.18, y: h * 0.22, count: 5, r: 42 },
-                { x: w * 0.82, y: h * 0.22, count: 5, r: 42 },
-                { x: w * 0.22, y: h * 0.80, count: 5, r: 42 },
-                { x: w * 0.78, y: h * 0.78, count: 5, r: 42 }
-            ] : [
-                { x: w * 0.16, y: h * 0.24, count: 6, r: 70 },
-                { x: w * 0.84, y: h * 0.22, count: 6, r: 70 },
-                { x: w * 0.14, y: h * 0.76, count: 6, r: 70 },
-                { x: w * 0.84, y: h * 0.78, count: 6, r: 70 },
-                { x: w * 0.50, y: h * 0.88, count: 5, r: 60 }
-            ];
-
-            let delay = 0;
-            beds.forEach((bed) => {
-                const jitterX = (Math.random() - 0.5) * (w * 0.07);
-                const jitterY = (Math.random() - 0.5) * (h * 0.05);
-                spawnBouquet(bed.x + jitterX, bed.y + jitterY, bed.count, bed.r, delay);
-                delay += 180;
-            });
-
-            const scatterCount = isMobile ? 6 : 14;
-            for (let i = 0; i < scatterCount; i++) {
-                const pos = getRandomScatterPosition();
-                createSticker(pos.x, pos.y, delay + i * 65);
-            }
-        }
-
-        document.addEventListener('click', (e) => {
-            if (e.target.closest('a, button, .top-nav')) return;
-            spawnBouquet(e.clientX, e.clientY, getRandomNumber(4, 6), 55, 0);
-            const extraCount = getRandomNumber(1, 2);
-            for (let i = 0; i < extraCount; i++) {
-                const pos = getRandomScatterPosition();
-                createSticker(pos.x, pos.y, 100 + i * 80);
-            }
-        });
-
-        window.addEventListener('load', initGarden);
+    window.addEventListener('load', function () {
+        window.initStickers({ finalOpacity: 0.4, clickExcludes: 'a, button, .top-nav' });
+    });
     </script>
     <script src="js/nav.js" defer></script>
 </body>

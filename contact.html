@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contactez Nicolas Marie Angélique, Designer Freelance. Formulaire de contact direct.">
-    
+    <meta name="description"
+        content="Contactez Nicolas Marie Angélique, Designer Freelance. Formulaire de contact direct.">
+
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nicolasmarieangelique.fr/">
+    <meta property="og:url" content="https://nicolasmarieangelique.fr/contact.html">
     <meta property="og:title" content="Nicolas Marie Angelique - Designer UI/UX & 3D">
     <meta property="og:description" content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
-    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/aperçu_img.png"> <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://nicolasmarieangelique.fr/">
+    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nicolasmarieangelique.fr/contact.html">
     <meta property="twitter:title" content="Nicolas Marie Angelique - Designer UI/UX">
-    <meta property="twitter:description" content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
-    <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/aperçu_img.png">
+    <meta property="twitter:description"
+        content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
+    <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
+    <link rel="canonical" href="https://nicolasmarieangelique.fr/contact.html">
 
     <link rel="icon" type="image/png" href="stickers/sticker1.png">
     <link rel="shortcut icon" type="image/png" href="stickers/sticker1.png">
     <title>Nicolas Marie Angélique - Contact</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
     <!-- Design System CSS Centralisé -->
     <link rel="stylesheet" href="css/main.css">
-    
+
     <style>
         :root {
             --bg-color: #ffffff;
@@ -49,183 +54,17 @@
             overflow: hidden;
             display: flex;
             position: relative;
-            cursor: default; /* Curseur par défaut pour pouvoir écrire */
+            cursor: default;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- STICKERS --- */
+        /* --- STICKERS (z-index 0 : arrière-plan) --- */
         .stickers-container {
             position: fixed;
             inset: 0;
             pointer-events: none;
             z-index: 0;
             overflow: hidden;
-        }
-        
-        .sticker {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0;
-            transform: scale(0.2) rotate(0deg);
-            will-change: transform, opacity; 
-        }
-        
-        .sticker.pop-in { animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        .sticker.zoom-in { animation: zoomIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
-        .sticker.spin-in { animation: spinIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-        
-        @keyframes popIn { 
-            0% { opacity: 0; transform: scale(0.2) rotate(0deg); } 
-            50% { opacity: 0.6; transform: scale(1.2) rotate(15deg); } 
-            100% { opacity: 0.4; transform: scale(1) rotate(0deg); }
-        }
-        @keyframes zoomIn { 
-            0% { opacity: 0; transform: scale(0.1) rotate(-20deg); } 
-            60% { opacity: 0.6; transform: scale(1.3) rotate(10deg); } 
-            100% { opacity: 0.4; transform: scale(1) rotate(0deg); }
-        }
-        @keyframes spinIn { 
-            0% { opacity: 0; transform: scale(0.2) rotate(-120deg); } 
-            70% { opacity: 0.5; transform: scale(1.1) rotate(20deg); } 
-            100% { opacity: 0.4; transform: scale(1) rotate(0deg); }
-        }
-
-        /* --- BOUTON MENU --- */
-        .menu-btn {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            z-index: calc(var(--menu-z) + 1);
-            cursor: pointer;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.1); 
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 50%;
-            border: none;
-            color: var(--text-color);
-        }
-        .menu-btn:hover { transform: scale(1.1); background-color: rgba(0, 0, 0, 0.05); }
-        .menu-btn .material-symbols-outlined { font-size: 30px; }
-
-        /* --- MENU CAPSULE (NOUVEAU STYLE) --- */
-        .nav-capsule {
-            position: fixed;
-            top: 90px;
-            right: 30px;
-            width: 260px;
-            
-            /* Effet Verre Dépoli */
-            background-color: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            
-            border-radius: 24px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            z-index: var(--menu-z);
-            
-            /* Animation d'entrée */
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px) scale(0.95);
-            transform-origin: top right;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .nav-capsule.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0) scale(1);
-        }
-
-        .capsule-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .capsule-link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 1.1rem;
-            font-weight: 500;
-            padding: 10px 15px;
-            border-radius: 12px;
-            transition: background-color 0.2s ease, color 0.2s ease;
-            cursor: pointer;
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-family: 'Faculty Glyphic', sans-serif;
-        }
-
-        .capsule-link:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-            color: var(--blue-color);
-        }
-
-        /* Sous-menu Projets */
-        .chevron {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .project-trigger[aria-expanded="true"] .chevron {
-            transform: rotate(180deg);
-        }
-
-        .submenu {
-            list-style: none;
-            margin-left: 15px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border-left: 2px solid rgba(0,0,0,0.05);
-        }
-
-        .submenu.open {
-            max-height: 200px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-
-        .submenu li a {
-            display: block;
-            text-decoration: none;
-            color: #666;
-            font-size: 0.95rem;
-            padding: 8px 15px;
-            transition: color 0.2s ease, transform 0.2s ease;
-        }
-
-        .submenu li a:hover {
-            color: var(--blue-color);
-            transform: translateX(5px);
-        }
-
-        .submenu .all-projects {
-            font-weight: 600;
-            color: var(--text-color);
-            font-size: 0.85rem;
-            margin-top: 5px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         /* --- LAYOUT --- */
@@ -234,7 +73,7 @@
             width: 100%;
             height: 100vh;
             position: relative;
-            z-index: 1; 
+            z-index: 1;
         }
 
         /* Zone Gauche */
@@ -243,11 +82,11 @@
             padding: 120px 80px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; 
+            justify-content: space-between;
         }
 
         .quote-block h1 {
-            font-size: clamp(1.85rem, 3.2vw, 3.2rem); 
+            font-size: clamp(1.85rem, 3.2vw, 3.2rem);
             font-weight: 600;
             line-height: 1.15;
             margin-bottom: 0;
@@ -263,18 +102,20 @@
             color: var(--text-color);
             font-weight: 500;
         }
-        
-        .footer-role { color: var(--highlight-color); }
+
+        .footer-role {
+            color: var(--highlight-color);
+        }
 
         /* Zone Droite (Formulaire) */
         .right-panel {
             flex: 1.5;
-            background-color: transparent; 
+            background-color: transparent;
             padding: 120px 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            overflow-y: auto; /* Permet le scroll si le formulaire est haut */
+            overflow-y: auto;
         }
 
         /* --- STYLE DU FORMULAIRE --- */
@@ -292,7 +133,8 @@
         }
 
         /* Inputs Minimalistes */
-        .form-input, .form-textarea {
+        .form-input,
+        .form-textarea {
             width: 100%;
             background: transparent;
             border: none;
@@ -303,16 +145,18 @@
             color: var(--text-color);
             outline: none;
             transition: border-color 0.3s ease;
-            border-radius: 0; /* Reset iOS */
+            border-radius: 0;
         }
 
-        .form-input::placeholder, .form-textarea::placeholder {
+        .form-input::placeholder,
+        .form-textarea::placeholder {
             color: var(--highlight-color);
             opacity: 0.6;
             font-size: 1rem;
         }
 
-        .form-input:focus, .form-textarea:focus {
+        .form-input:focus,
+        .form-textarea:focus {
             border-bottom-color: var(--blue-color);
         }
 
@@ -347,7 +191,9 @@
         }
 
         @media (max-width: 600px) {
-            .direct-email-link { font-size: 1.35rem; }
+            .direct-email-link {
+                font-size: 1.35rem;
+            }
         }
 
         /* --- BOUTONS CTA STYLE SHADCN/UI --- */
@@ -402,79 +248,34 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
-            body { overflow-y: auto; display: block; }
+            body {
+                overflow-y: auto;
+                display: block;
+            }
+
             .container {
                 flex-direction: column;
                 height: auto;
                 min-height: 100vh;
             }
-            
+
             .left-panel {
                 padding: 120px 40px 40px 40px;
                 flex: none;
             }
-            
-            .quote-block h1 { font-size: 2.5rem; }
-            
+
+            .quote-block h1 {
+                font-size: 2.5rem;
+            }
+
             .right-panel {
                 padding: 0 40px 80px 40px;
                 flex: none;
             }
         }
-        
-        /* --- BARRE DE NAVIGATION CENTRÉE EN HAUT --- */
-        .top-nav {
-            position: fixed;
-            top: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            border-radius: 9999px;
-            padding: 6px 10px;
-            width: max-content;
-            max-width: calc(100vw - 20px);
-        }
-
-        .top-nav-list {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .top-nav-link {
-            display: inline-block;
-            text-decoration: none;
-            color: #111827;
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding: 8px 18px;
-            border-radius: 9999px;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .top-nav-link:hover, .top-nav-link.active {
-            background-color: rgba(56, 139, 255, 0.1);
-            color: var(--blue-color);
-        }
-
-        .top-nav-link:active {
-            transform: scale(0.96);
-        }
-
-        @media (max-width: 600px) {
-            .top-nav { top: 14px; padding: 4px 6px; }
-            .top-nav-list { gap: 2px; }
-            .top-nav-link { padding: 6px 10px; font-size: 0.82rem; }
-        }
     </style>
 </head>
+
 <body>
 
     <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
@@ -482,7 +283,7 @@
     <nav class="top-nav" aria-label="Navigation principale"></nav>
 
     <main class="container">
-        
+
         <section class="left-panel" style="max-width: 900px; width: 100%;">
             <div class="quote-block">
                 <h1>
@@ -495,21 +296,25 @@
                 <span class="label-field">Email direct</span>
                 <a href="mailto:nmafreelance@gmail.com" class="direct-email-link">nmafreelance@gmail.com</a>
             </div>
-            
+
             <div class="social-links-row" style="margin-top: 32px;">
-                <a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank" rel="noopener noreferrer" class="shadcn-btn-outline">
+                <a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank" rel="noopener noreferrer"
+                    class="shadcn-btn-outline">
                     <span>LinkedIn</span>
                     <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
                 </a>
-                <a href="https://github.com/nmaP5js?tab=overview&from=2025-12-01&to=2025-12-31" target="_blank" rel="noopener noreferrer" class="shadcn-btn-outline">
+                <a href="https://github.com/nmaP5js?tab=overview&from=2025-12-01&to=2025-12-31" target="_blank"
+                    rel="noopener noreferrer" class="shadcn-btn-outline">
                     <span>GitHub</span>
                     <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
                 </a>
-                <a href="https://dribbble.com/nicolasmarieangelique" target="_blank" rel="noopener noreferrer" class="shadcn-btn-outline">
+                <a href="https://dribbble.com/nicolasmarieangelique" target="_blank" rel="noopener noreferrer"
+                    class="shadcn-btn-outline">
                     <span>Dribbble</span>
                     <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
                 </a>
-                <a href="https://www.instagram.com/nma_png/" target="_blank" rel="noopener noreferrer" class="shadcn-btn-outline">
+                <a href="https://www.instagram.com/nma_png/" target="_blank" rel="noopener noreferrer"
+                    class="shadcn-btn-outline">
                     <span>Instagram</span>
                     <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
                 </a>
@@ -517,161 +322,25 @@
 
             <div class="footer-info" style="margin-top: 50px;">
                 <span>Nicolas Marie Angélique</span>
-                <span class="footer-role">Designer</span>
-                <a href="legals.html" style="font-size: 0.8rem; color: var(--highlight-color); text-decoration: none; margin-top: 15px; display: block;">Mentions Légales</a>
+                <span class="footer-role">Designer de services</span>
+                <a href="legals.html"
+                    style="font-size: 0.8rem; color: var(--highlight-color); text-decoration: none; margin-top: 15px; display: block;">Mentions
+                    Légales</a>
             </div>
         </section>
 
     </main>
 
+    <!-- Stickers semi-transparents sur page de contenu -->
+    <script>window._stickersManualInit = true;</script>
+    <script src="js/stickers.js" defer></script>
     <script>
-        // --- STICKERS FLOWER GARDEN SYSTEM ---
-        const stickerConfig = {
-            basePath: "stickers/", 
-            stickers: ["Flower1.png", "Flower2.png", "Flower3.png", "Flower4.png"],
-            maxStickers: 160, 
-            displayTime: 65000, 
-            stickerSize: { min: 38, max: 88 }, 
-            animations: ["pop-in", "zoom-in", "spin-in"]
-        };
-
-        let activeStickers = [];
-
-        function getRandomNumber(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-        function createSticker(x, y, delay = 0, customSize = null) {
-            const container = document.getElementById('stickersContainer');
-            if (!container) return;
-
-            if (activeStickers.length >= stickerConfig.maxStickers) {
-                const oldest = activeStickers.shift();
-                if (oldest && oldest.parentNode) {
-                    oldest.remove(); 
-                }
-            }
-            
-            const sticker = document.createElement('div');
-            sticker.className = `sticker ${stickerConfig.animations[getRandomNumber(0, stickerConfig.animations.length - 1)]}`;
-            
-            const stickerIndex = getRandomNumber(0, stickerConfig.stickers.length - 1);
-            sticker.style.backgroundImage = `url('${stickerConfig.basePath + stickerConfig.stickers[stickerIndex]}')`;
-            
-            const size = customSize || getRandomNumber(stickerConfig.stickerSize.min, stickerConfig.stickerSize.max);
-
-            const clampedX = Math.max(8, Math.min(x - size / 2, window.innerWidth - size - 8));
-            const clampedY = Math.max(8, Math.min(y - size / 2, window.innerHeight - size - 8));
-
-            sticker.style.left = `${clampedX}px`;
-            sticker.style.top = `${clampedY}px`;
-            sticker.style.width = `${size}px`;
-            sticker.style.height = `${size}px`;
-            sticker.style.transform = `scale(0.2) rotate(${getRandomNumber(-35, 35)}deg)`;
-            
-            if (delay > 0) {
-                sticker.style.animationDelay = `${delay}ms`;
-            }
-
-            container.appendChild(sticker);
-            activeStickers.push(sticker);
-            
-            const displayTime = stickerConfig.displayTime + getRandomNumber(-1500, 1500);
-            
-            setTimeout(() => {
-                if (sticker.parentNode) {
-                    sticker.style.opacity = '0';
-                    sticker.style.transform = 'scale(0.2)';
-                    setTimeout(() => {
-                        if (sticker.parentNode) {
-                            sticker.remove();
-                            activeStickers = activeStickers.filter(s => s !== sticker);
-                        }
-                    }, 500);
-                }
-            }, displayTime + delay);
-        }
-
-        // Fait éclore un massif floral
-        function spawnBouquet(cx, cy, count = 6, radius = 70, baseDelay = 0) {
-            for (let i = 0; i < count; i++) {
-                let x, y, size;
-                if (i === 0) {
-                    x = cx + (Math.random() - 0.5) * 14;
-                    y = cy + (Math.random() - 0.5) * 14;
-                    size = getRandomNumber(55, 88);
-                } else {
-                    const angle = (i / (count - 1)) * Math.PI * 2 + (Math.random() - 0.5) * 0.7;
-                    const dist = (0.28 + Math.pow(Math.random(), 0.8) * 0.72) * radius;
-                    x = cx + Math.cos(angle) * dist;
-                    y = cy + Math.sin(angle) * dist;
-                    size = getRandomNumber(38, 75);
-                }
-                createSticker(x, y, baseDelay + i * 45, size);
-            }
-        }
-
-        function getRandomScatterPosition() {
-            const margin = 40;
-            const w = window.innerWidth;
-            const h = window.innerHeight;
-            let x, y, attempts = 0;
-            do {
-                x = getRandomNumber(margin, w - margin);
-                y = getRandomNumber(margin, h - margin);
-                attempts++;
-                const inCenter = (x > w * 0.35 && x < w * 0.65 && y > h * 0.35 && y < h * 0.65);
-                if (!inCenter || attempts > 10) break;
-            } while (true);
-            return { x, y };
-        }
-
-        function initGarden() {
-            const w = window.innerWidth;
-            const h = window.innerHeight;
-            const isMobile = w < 600;
-
-            const beds = isMobile ? [
-                { x: w * 0.18, y: h * 0.22, count: 5, r: 42 },
-                { x: w * 0.82, y: h * 0.22, count: 5, r: 42 },
-                { x: w * 0.22, y: h * 0.80, count: 5, r: 42 },
-                { x: w * 0.78, y: h * 0.78, count: 5, r: 42 }
-            ] : [
-                { x: w * 0.16, y: h * 0.24, count: 6, r: 70 },
-                { x: w * 0.84, y: h * 0.22, count: 6, r: 70 },
-                { x: w * 0.14, y: h * 0.76, count: 6, r: 70 },
-                { x: w * 0.84, y: h * 0.78, count: 6, r: 70 },
-                { x: w * 0.50, y: h * 0.88, count: 5, r: 60 }
-            ];
-
-            let delay = 0;
-            beds.forEach((bed) => {
-                const jitterX = (Math.random() - 0.5) * (w * 0.07);
-                const jitterY = (Math.random() - 0.5) * (h * 0.05);
-                spawnBouquet(bed.x + jitterX, bed.y + jitterY, bed.count, bed.r, delay);
-                delay += 180;
-            });
-
-            const scatterCount = isMobile ? 6 : 14;
-            for (let i = 0; i < scatterCount; i++) {
-                const pos = getRandomScatterPosition();
-                createSticker(pos.x, pos.y, delay + i * 65);
-            }
-        }
-
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('input, textarea, button, a, .top-nav')) return;
-            spawnBouquet(e.clientX, e.clientY, getRandomNumber(4, 6), 55, 0);
-            const extraCount = getRandomNumber(1, 2);
-            for (let i = 0; i < extraCount; i++) {
-                const pos = getRandomScatterPosition();
-                createSticker(pos.x, pos.y, 100 + i * 80);
-            }
+        window.addEventListener('load', function () {
+            window.initStickers({ finalOpacity: 0.4, clickExcludes: 'input, textarea, button, a, .top-nav' });
         });
-
-        window.addEventListener('load', initGarden);
     </script>
-    
+
     <script src="js/nav.js" defer></script>
 </body>
+
 </html>

@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Portfolio CGI Visual de Nicolas Marie Angelique. Exploration créative en modélisation 3D et motion design.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nicolasmarieangelique.fr/cgivisual.html">
+    <meta property="og:title" content="Nicolas Marie Angelique - CGI Visual">
+    <meta property="og:description" content="Portfolio CGI Visual de Nicolas Marie Angelique. Exploration créative en modélisation 3D et motion design.">
+    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nicolasmarieangelique.fr/cgivisual.html">
+    <meta property="twitter:title" content="Nicolas Marie Angelique - CGI Visual">
+    <meta property="twitter:description" content="Portfolio CGI Visual de Nicolas Marie Angelique. Exploration créative en modélisation 3D et motion design.">
+    <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
     <link rel="icon" type="image/png" href="stickers/sticker1.png">
     <link rel="shortcut icon" type="image/png" href="stickers/sticker1.png">
     <title>Nicolas Marie Angelique - CGI Visual</title>
@@ -37,148 +47,6 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-
-        /* --- BOUTON MENU --- */
-        .menu-btn {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            z-index: calc(var(--menu-z) + 1);
-            cursor: pointer;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 50%;
-            border: none;
-            color: var(--text-color);
-        }
-
-        .menu-btn:hover {
-            transform: scale(1.1);
-            background-color: rgba(0, 0, 0, 0.05);
-        }
-
-        .menu-btn .material-symbols-outlined {
-            font-size: 30px;
-        }
-
-        /* --- MENU CAPSULE (NOUVEAU STYLE) --- */
-        .nav-capsule {
-            position: fixed;
-            top: 90px;
-            right: 30px;
-            width: 260px;
-
-            /* Effet Verre Dépoli */
-            background-color: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-
-            border-radius: 24px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            z-index: var(--menu-z);
-
-            /* Animation d'entrée */
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px) scale(0.95);
-            transform-origin: top right;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .nav-capsule.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0) scale(1);
-        }
-
-        .capsule-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .capsule-link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 1.1rem;
-            font-weight: 500;
-            padding: 10px 15px;
-            border-radius: 12px;
-            transition: background-color 0.2s ease, color 0.2s ease;
-            cursor: pointer;
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-family: 'Faculty Glyphic', sans-serif;
-        }
-
-        .capsule-link:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-            color: var(--blue-color);
-        }
-
-        /* Sous-menu Projets */
-        .chevron {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .project-trigger[aria-expanded="true"] .chevron {
-            transform: rotate(180deg);
-        }
-
-        .submenu {
-            list-style: none;
-            margin-left: 15px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border-left: 2px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .submenu.open {
-            max-height: 200px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-
-        .submenu li a {
-            display: block;
-            text-decoration: none;
-            color: #666;
-            font-size: 0.95rem;
-            padding: 8px 15px;
-            transition: color 0.2s ease, transform 0.2s ease;
-        }
-
-        .submenu li a:hover {
-            color: var(--blue-color);
-            transform: translateX(5px);
-        }
-
-        .submenu .all-projects {
-            font-weight: 600;
-            color: var(--text-color);
-            font-size: 0.85rem;
-            margin-top: 5px;
-            text-transform: none;
-            letter-spacing: normal;
-        }
-
 
         /* --- HEADER CENTRÉ --- */
         .project-header-centered {
@@ -442,120 +310,8 @@
             }
         }
 
-        /* --- BARRE DE NAVIGATION CENTRÉE EN HAUT --- */
-        .top-nav {
-            position: fixed;
-            top: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            border-radius: 9999px;
-            padding: 6px 10px;
-            width: max-content;
-            max-width: calc(100vw - 20px);
-        }
-
-        .top-nav-list {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .top-nav-link {
-            display: inline-block;
-            text-decoration: none;
-            color: #111827;
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding: 8px 18px;
-            border-radius: 9999px;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .top-nav-link:hover,
-        .top-nav-link.active {
-            background-color: rgba(56, 139, 255, 0.1);
-            color: var(--blue-color);
-        }
-
-        .top-nav-link:active {
-            transform: scale(0.96);
-        }
-
-        @media (max-width: 600px) {
-            .top-nav {
-                top: 14px;
-                padding: 4px 6px;
-            }
-
-            .top-nav-list {
-                gap: 2px;
-            }
-
-            .top-nav-link {
-                padding: 6px 10px;
-                font-size: 0.82rem;
-            }
-
-            .project-header {
-                padding: 20px 0 30px 0;
-                width: 92%;
-            }
-
-            .header-titles h1 {
-                font-size: 1.85rem;
-            }
-
-            .bento-grid {
-                grid-template-columns: repeat(2, 1fr);
-                width: 92%;
-                gap: 10px;
-            }
-
-            .modal-content {
-                padding: 60px 10px 90px 10px;
-            }
-
-            .lightbox-toolbar {
-                top: 14px;
-                right: 14px;
-                gap: 6px;
-            }
-
-            .lightbox-btn {
-                width: 38px;
-                height: 38px;
-            }
-
-            .lightbox-btn .material-symbols-outlined {
-                font-size: 18px !important;
-            }
-
-            .lightbox-counter {
-                top: 18px;
-                padding: 5px 14px;
-                font-size: 0.78rem;
-            }
-
-            .lightbox-thumbnails {
-                bottom: 14px;
-                padding: 4px 8px;
-                gap: 6px;
-            }
-
-            .thumb-item {
-                width: 38px;
-                height: 38px;
-            }
-        }
     </style>
+    <link rel="canonical" href="https://nicolasmarieangelique.fr/cgivisual.html">
 </head>
 
 <body>
