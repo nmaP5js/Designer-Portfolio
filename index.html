@@ -65,7 +65,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
         .logo-container {
             width: 80%;
@@ -92,6 +92,7 @@
 <body>
 
     <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
+    <div class="content-backdrop" aria-hidden="true"></div>
 
     <nav class="top-nav" aria-label="Navigation principale"></nav>
 
@@ -101,13 +102,20 @@
         </div>
     </header>
 
-    <!-- Système de stickers centralisé — pleine opacité sur la page d'accueil -->
+    <!-- Système de stickers centralisé — pleine opacité sous le voile de flou -->
     <script>window._stickersManualInit = true;</script>
     <script src="js/stickers.js" defer></script>
     <script>
-    window.addEventListener('load', function () {
-        window.initStickers({ finalOpacity: 1 });
-    });
+    (function() {
+        let initialized = false;
+        function startAccueilStickers() {
+            if (initialized || !window.initStickers) return;
+            initialized = true;
+            window.initStickers({ finalOpacity: 1, clickExcludes: '.top-nav' });
+        }
+        setTimeout(startAccueilStickers, 100);
+        window.addEventListener('load', startAccueilStickers);
+    })();
     </script>
     <script src="js/nav.js" defer></script>
 </body>
