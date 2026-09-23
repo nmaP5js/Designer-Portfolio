@@ -51,7 +51,8 @@
             font-family: 'Faculty Glyphic', sans-serif;
             min-height: 100vh;
             width: 100vw;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
             display: flex;
             position: relative;
             cursor: default;
@@ -67,22 +68,39 @@
             overflow: hidden;
         }
 
+        /* --- VOILE DE FLOU (ENTRE STICKERS ET CONTENU TEXTE) --- */
+        .content-backdrop {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.248);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
         /* --- LAYOUT --- */
         .container {
             display: flex;
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
+            max-width: 1600px;
+            margin: 0 auto;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         /* Zone Gauche */
         .left-panel {
-            flex: 1.5;
-            padding: 120px 80px;
+            flex: 1.4;
+            padding: 120px 60px 120px 80px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
+        }
+
+        .quote-block {
+            margin-top: 36px;
         }
 
         .quote-block h1 {
@@ -101,77 +119,37 @@
             font-size: 0.9rem;
             color: var(--text-color);
             font-weight: 500;
+            margin-top: auto;
+            padding-top: 50px;
         }
 
         .footer-role {
             color: var(--highlight-color);
         }
 
-        /* Zone Droite (Formulaire) */
-        .right-panel {
-            flex: 1.5;
-            background-color: transparent;
-            padding: 120px 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            overflow-y: auto;
-        }
-
-        /* --- STYLE DU FORMULAIRE --- */
-        .contact-form {
-            width: 100%;
-            max-width: 500px;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .form-group {
+        /* --- PHOTO DE PROFIL --- */
+        .photo-card-wrapper {
             position: relative;
             width: 100%;
+            max-width: 480px;
+            margin-top: 0;
         }
 
-        /* Inputs Minimalistes */
-        .form-input,
-        .form-textarea {
+        .photo-card {
+            position: relative;
             width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid #cccccc;
-            padding: 10px 0;
-            font-family: 'Faculty Glyphic', sans-serif;
-            font-size: 1.1rem;
-            color: var(--text-color);
-            outline: none;
-            transition: border-color 0.3s ease;
-            border-radius: 0;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background-color: #f4f4f5;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.05);
         }
 
-        .form-input::placeholder,
-        .form-textarea::placeholder {
-            color: var(--highlight-color);
-            opacity: 0.6;
-            font-size: 1rem;
-        }
-
-        .form-input:focus,
-        .form-textarea:focus {
-            border-bottom-color: var(--blue-color);
-        }
-
-        .label-field {
-            font-size: 0.85rem;
-            text-transform: none;
-            color: var(--highlight-color);
-            margin-bottom: 5px;
-            font-weight: 600;
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
-        }
-
-        .form-textarea {
-            resize: none;
-            min-height: 100px;
         }
 
         .direct-email-link {
@@ -187,7 +165,6 @@
 
         .direct-email-link:hover {
             color: var(--blue-color);
-            transform: translateX(4px);
         }
 
         @media (max-width: 600px) {
@@ -210,9 +187,8 @@
             align-items: center;
             justify-content: center;
             gap: 6px;
-            background-color: #ffffff;
-            border: 1px solid #e4e4e7;
-            color: #18181b;
+            background-color: #212121;
+            color: #ffffff;
             font-size: 0.875rem;
             font-weight: 500;
             padding: 8px 16px;
@@ -224,11 +200,8 @@
         }
 
         .shadcn-btn-outline:hover {
-            background-color: #f4f4f5;
-            border-color: #d4d4d8;
-            color: #09090b;
-            transform: none;
-            box-shadow: none;
+            background-color: var(--blue-color);
+            color: #ffffff;
         }
 
         .shadcn-btn-outline:active {
@@ -257,20 +230,31 @@
                 flex-direction: column;
                 height: auto;
                 min-height: 100vh;
+                padding: 110px 24px 60px 24px;
+                gap: 40px;
             }
 
             .left-panel {
-                padding: 120px 40px 40px 40px;
+                padding: 0;
                 flex: none;
+                gap: 32px;
+            }
+
+            .quote-block {
+                margin-top: 0;
             }
 
             .quote-block h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
-            .right-panel {
-                padding: 0 40px 80px 40px;
-                flex: none;
+            .photo-card {
+                max-width: 220px;
+            }
+
+            .footer-info {
+                margin-top: 10px !important;
+                padding-top: 0;
             }
         }
     </style>
@@ -279,21 +263,30 @@
 <body>
 
     <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
+    <div class="content-backdrop" aria-hidden="true"></div>
 
     <nav class="top-nav" aria-label="Navigation principale"></nav>
 
     <main class="container">
 
-        <section class="left-panel" style="max-width: 900px; width: 100%;">
+        <section class="left-panel">
+            <div class="photo-card-wrapper">
+                <div class="photo-card">
+                    <picture>
+                        <source srcset="images/contact.webp" type="image/webp">
+                        <img src="images/contact.jpg" alt="Nicolas Marie Angélique - Designer de services" width="800"
+                            height="800" loading="eager" decoding="async">
+                    </picture>
+                </div>
+            </div>
             <div class="quote-block">
                 <h1>
                     Mon parcours vous intéresse&nbsp;? <br>
-                    <span style="color: var(--blue-color);">Contactez-moi directement&nbsp;ici.</span>
+                    <span style="color: var(--blue-color);">Contactez-moi</span>
                 </h1>
             </div>
 
             <div class="direct-contact-block" style="margin-top: 40px;">
-                <span class="label-field">Email direct</span>
                 <a href="mailto:nmafreelance@gmail.com" class="direct-email-link">nmafreelance@gmail.com</a>
             </div>
 
@@ -308,19 +301,9 @@
                     <span>GitHub</span>
                     <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
                 </a>
-                <a href="https://dribbble.com/nicolasmarieangelique" target="_blank" rel="noopener noreferrer"
-                    class="shadcn-btn-outline">
-                    <span>Dribbble</span>
-                    <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
-                </a>
-                <a href="https://www.instagram.com/nma_png/" target="_blank" rel="noopener noreferrer"
-                    class="shadcn-btn-outline">
-                    <span>Instagram</span>
-                    <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
-                </a>
             </div>
 
-            <div class="footer-info" style="margin-top: 50px;">
+            <div class="footer-info">
                 <span>Nicolas Marie Angélique</span>
                 <span class="footer-role">Designer de services</span>
                 <a href="legals.html"
@@ -328,7 +311,6 @@
                     Légales</a>
             </div>
         </section>
-
     </main>
 
     <!-- Stickers semi-transparents sur page de contenu -->
@@ -336,7 +318,7 @@
     <script src="js/stickers.js" defer></script>
     <script>
         window.addEventListener('load', function () {
-            window.initStickers({ finalOpacity: 0.4, clickExcludes: 'input, textarea, button, a, .top-nav' });
+            window.initStickers({ finalOpacity: 0.4, clickExcludes: 'input, textarea, button, a, .top-nav, .photo-card' });
         });
     </script>
 

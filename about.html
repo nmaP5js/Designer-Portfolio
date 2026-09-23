@@ -15,7 +15,8 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://nicolasmarieangelique.fr/about.html">
     <meta property="twitter:title" content="Nicolas Marie Angelique - À Propos">
-    <meta property="twitter:description" content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
+    <meta property="twitter:description"
+        content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
     <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
     <link rel="canonical" href="https://nicolasmarieangelique.fr/about.html">
 
@@ -65,7 +66,7 @@
             width: 100%;
             padding: 120px 40px 80px 40px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .about-grid {
@@ -134,9 +135,92 @@
 
         .item-desc {
             font-size: 0.95rem;
-            line-height: 1.5;
+            line-height: 1.6;
             color: var(--text-color);
             opacity: 0.9;
+        }
+
+        .item-role {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-color);
+            line-height: 1.35;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .item-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            font-size: 0.92rem;
+            color: var(--highlight-color);
+            margin-bottom: 3px;
+            line-height: 1.4;
+        }
+
+        .item-company {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .item-dot {
+            color: var(--highlight-color);
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .item-location {
+            color: var(--highlight-color);
+        }
+
+        .item-badge {
+            font-size: 0.88rem;
+            font-weight: 400;
+            color: var(--highlight-color);
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .item-date {
+            font-size: 0.88rem;
+            color: var(--highlight-color);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .item-bullets {
+            list-style: none;
+            padding: 0;
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .item-bullets li {
+            position: relative;
+            padding-left: 16px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            opacity: 0.9;
+        }
+
+        .item-bullets li::before {
+            content: "•";
+            position: absolute;
+            left: 2px;
+            color: var(--highlight-color);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .item-bullets strong {
+            font-weight: 600;
+            color: var(--text-color);
         }
 
         /* --- BOUTON CTA STYLE SHADCN/UI --- */
@@ -145,7 +229,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background-color: #09090b;
+            background-color: #212121;
             color: #ffffff;
             font-size: 0.875rem;
             font-weight: 500;
@@ -161,7 +245,7 @@
         }
 
         .cta-button:hover {
-            background-color: #27272a;
+            background-color: var(--blue-color);
             color: #ffffff;
             transform: none;
             box-shadow: none;
@@ -173,11 +257,13 @@
 
         .cta-button .cta-icon {
             font-size: 16px !important;
-            transition: transform 0.15s ease;
+            opacity: 0.6;
+            transition: transform 0.15s ease, opacity 0.15s ease;
         }
 
         .cta-button:hover .cta-icon {
-            transform: translateX(3px);
+            opacity: 1;
+            transform: translateX(4px);
         }
 
         /* --- STICKERS (z-index bas : en arrière-plan) --- */
@@ -187,6 +273,17 @@
             pointer-events: none;
             z-index: var(--sticker-z);
             overflow: hidden;
+        }
+
+        /* --- VOILE DE FLOU (ENTRE STICKERS ET CONTENU TEXTE) --- */
+        .content-backdrop {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.248);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
         /* --- RESPONSIVE --- */
@@ -212,6 +309,7 @@
 <body>
 
     <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
+    <div class="content-backdrop" aria-hidden="true"></div>
 
     <nav class="top-nav" aria-label="Navigation principale"></nav>
 
@@ -238,49 +336,79 @@
                     <h2 class="section-label">Expérience Professionnelle</h2>
                     <ul class="grid-list">
                         <li class="grid-list-item">
-                            <span class="item-header">Chargé d'audit et d'optimisation éditoriale numérique • Immigrant
-                                Québec - Montréal (Stage)</span>
-                            <span class="item-sub">Avril 2026 - Octobre 2026</span>
-                            <p class="item-desc">Réaliser l'audit de l'arborescence et de l'architecture de
-                                l'information du site. Analyser, classifier et structurer les contenus éditoriaux
-                                (actualités, conseils d'experts, contenus statiques). Optimiser les taxonomies
-                                (catégories, sous-catégories, étiquettes/tags). Améliorer la lisibilité éditoriale, l'UX
-                                et les parcours utilisateurs. Formuler des recommandations stratégiques et
-                                opérationnelles : arborescence (menus / sous-menus), transformation et valorisation des
-                                contenus existants, titrages, tags et maillage interne, plugins et paramétrages.
-                                WordPress, optimisation SEO et IA, nettoyage, archivage et mise à jour des contenus
-                                anciens. Travailler en collaboration avec les équipes éditoriales, communication et
-                                techniques.</p>
+                            <span class="item-role">Chargé d'audit et d'optimisation éditoriale numérique</span>
+                            <div class="item-meta">
+                                <span class="item-company">Immigrant Québec</span>
+                                <span class="item-dot">•</span>
+                                <span class="item-location">Montréal</span>
+                                <span class="item-badge">(Stage)</span>
+                            </div>
+                            <span class="item-date">Avril 2026 – Octobre 2026</span>
+                            <ul class="item-bullets">
+                                <li><strong>Audit & Architecture de l'information :</strong> analyse de l'arborescence,
+                                    classification et restructuration des contenus éditoriaux (actualités, conseils,
+                                    contenus statiques).</li>
+                                <li><strong>Optimisation UX & Taxonomies :</strong> refonte des catégories et tags pour
+                                    améliorer la lisibilité éditoriale et fluidifier les parcours utilisateurs.</li>
+                                <li><strong>Stratégie de contenu & SEO :</strong> recommandations opérationnelles
+                                    (maillage interne, enrichissement éditorial, optimisation SEO et IA) et paramétrage
+                                    sous WordPress.</li>
+                                <li><strong>Collaboration transverse :</strong> travail en synergie avec les équipes
+                                    éditoriales, communication et techniques.</li>
+                            </ul>
                         </li>
                         <li class="grid-list-item">
-                            <span class="item-header">UI-UX Designer • Thales Alenia Space (Stage)</span>
-                            <span class="item-sub">Janvier 2025 - Juin 2025</span>
-                            <p class="item-desc">Soutiens du rebranding de la gamme de produits pour améliorer
-                                l'identité de la marque. Production des maquettes graphiques basées sur les
-                                recommandations d'UX et de design systems. Co-conception et formaliser l'expérience
-                                client du produit via le Design System. Création des supports de design pour des
-                                ateliers de brainstorming. Participation en équipe à l'organisation des évènements
-                                départementaux (charte graphique, visuels de communication) tels que les "UX Awards" ou
-                                les "Tech'Days". Contribution aux activités de recherche UX (entretiens, questionnaires,
-                                ateliers) et activités agiles du département.</p>
+                            <span class="item-role">UI-UX Designer</span>
+                            <div class="item-meta">
+                                <span class="item-company">Thales Alenia Space</span>
+                                <span class="item-badge">(Stage)</span>
+                            </div>
+                            <span class="item-date">Janvier 2025 – Juin 2025</span>
+                            <ul class="item-bullets">
+                                <li><strong>Rebranding & Design System :</strong> production de maquettes graphiques et
+                                    co-conception de l'expérience client via le Design System.</li>
+                                <li><strong>Recherche UX & Facilitation :</strong> participation aux entretiens,
+                                    questionnaires et création de supports pour les ateliers de brainstorming en
+                                    méthodologie agile.</li>
+                                <li><strong>Événements & Communication :</strong> création de la charte graphique et des
+                                    visuels pour les événements départementaux (<em>UX Awards</em>, <em>Tech'Days</em>).
+                                </li>
+                            </ul>
                         </li>
                         <li class="grid-list-item">
-                            <span class="item-header">UI-UX Designer • 904Fleurs (Freelance)</span>
-                            <span class="item-sub">Novembre 2024 - Janvier 2025</span>
-                            <p class="item-desc">Production de maquettes fonctionnelles et développement de l'UX/UI à
-                                travers des prototypes interactifs et tests utilisateurs.</p>
+                            <span class="item-role">UI-UX Designer</span>
+                            <div class="item-meta">
+                                <span class="item-company">904Fleurs</span>
+                                <span class="item-badge">(Freelance)</span>
+                            </div>
+                            <span class="item-date">Novembre 2024 – Janvier 2025</span>
+                            <ul class="item-bullets">
+                                <li><strong>Prototypage & Tests UX/UI :</strong> conception de maquettes fonctionnelles,
+                                    prototypes interactifs et conduite de tests utilisateurs.</li>
+                            </ul>
                         </li>
                         <li class="grid-list-item">
-                            <span class="item-header">Designer 3D • CLT</span>
-                            <span class="item-sub">Décembre 2023</span>
-                            <p class="item-desc">Réalisation d'une vidéo événementielle incluant la conception,
-                                l'animation en 3D et le montage.</p>
+                            <span class="item-role">Designer 3D</span>
+                            <div class="item-meta">
+                                <span class="item-company">CLT</span>
+                            </div>
+                            <span class="item-date">Décembre 2023</span>
+                            <ul class="item-bullets">
+                                <li><strong>Production vidéo & 3D :</strong> conception, animation 3D et montage d'une
+                                    vidéo événementielle.</li>
+                            </ul>
                         </li>
                         <li class="grid-list-item">
-                            <span class="item-header">UI-UX Designer / Game Designer • CLT Festival</span>
-                            <span class="item-sub">Mai 2023 - Septembre 2023</span>
-                            <p class="item-desc">Responsable de l'identité graphique du site web et des assets du jeu
-                                web. Création du logo "Enjoy The Ride".</p>
+                            <span class="item-role">UI-UX Designer / Game Designer</span>
+                            <div class="item-meta">
+                                <span class="item-company">CLT Festival</span>
+                            </div>
+                            <span class="item-date">Mai 2023 – Septembre 2023</span>
+                            <ul class="item-bullets">
+                                <li><strong>Direction artistique & UI :</strong> création de l'identité visuelle du
+                                    site, conception des assets du jeu web et design du logo <em>"Enjoy The Ride"</em>.
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -291,16 +419,25 @@
                     <h2 class="section-label">Éducation & Certifications</h2>
                     <ul class="grid-list">
                         <li class="grid-list-item">
-                            <span class="item-header">Master Design Innovation, Interaction et Service</span>
-                            <span class="item-sub">Université Bordeaux Montaigne - 2023-2026</span>
+                            <span class="item-role">Master Design Innovation, Interaction et Service</span>
+                            <div class="item-meta">
+                                <span class="item-company">Université Bordeaux Montaigne</span>
+                            </div>
+                            <span class="item-date">2023 – 2026</span>
                         </li>
                         <li class="grid-list-item">
-                            <span class="item-header">Certification UX Design for Virtual Reality</span>
-                            <span class="item-sub">IxDF Course Certificate - 2025</span>
+                            <span class="item-role">Certification UX Design for Virtual Reality</span>
+                            <div class="item-meta">
+                                <span class="item-company">IxDF Course Certificate</span>
+                            </div>
+                            <span class="item-date">2025</span>
                         </li>
                         <li class="grid-list-item">
-                            <span class="item-header">Licence Art-Design</span>
-                            <span class="item-sub">Palais Universitaire des Arts de Strasbourg - 2020-2023</span>
+                            <span class="item-role">Licence Art-Design</span>
+                            <div class="item-meta">
+                                <span class="item-company">Palais Universitaire des Arts de Strasbourg</span>
+                            </div>
+                            <span class="item-date">2020 – 2023</span>
                         </li>
                     </ul>
                 </div>
@@ -352,9 +489,9 @@
     <script>window._stickersManualInit = true;</script>
     <script src="js/stickers.js" defer></script>
     <script>
-    window.addEventListener('load', function () {
-        window.initStickers({ finalOpacity: 0.4, clickExcludes: 'a, button, .top-nav' });
-    });
+        window.addEventListener('load', function () {
+            window.initStickers({ finalOpacity: 0.4, clickExcludes: 'a, button, .top-nav' });
+        });
     </script>
     <script src="js/nav.js" defer></script>
 </body>

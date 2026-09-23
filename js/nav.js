@@ -45,8 +45,14 @@
         subnavContainer.innerHTML = html;
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
+    function init() {
         renderTopNav();
         renderSubnav();
-    });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 })();

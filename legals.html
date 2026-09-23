@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,56 +8,83 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
     <style>
-        body { font-family: 'Faculty Glyphic', sans-serif; line-height: 1.6; color: #000; max-width: 800px; margin: 0 auto; padding: 100px 20px 40px 20px; }
-        h1 { font-size: 2.5rem; margin-bottom: 40px; }
-        h2 { font-size: 1.5rem; margin-top: 30px; margin-bottom: 10px; text-transform: uppercase; font-weight: 600; }
-        p { margin-bottom: 15px; font-size: 1rem; color: #333; }
-        a { color: #000; text-decoration: underline; }
-        .back-link { display: inline-block; margin-top: 40px; text-decoration: none; font-weight: 600; border: 1px solid #000; padding: 10px 20px; transition: 0.3s; }
-        .back-link:hover { background: #000; color: #fff; }
+        main {
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 60px 20px;
+        }
 
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        a {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid #000;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            background: #000;
+            color: #fff;
+        }
     </style>
 </head>
+
 <body>
 
-    <nav class="top-nav" aria-label="Navigation principale">
-        <ul class="top-nav-list">
-            <li><a href="index.html" class="top-nav-link">Accueil</a></li>
-            <li><a href="project.html" class="top-nav-link">Projets</a></li>
-            <li><a href="about.html" class="top-nav-link">À Propos</a></li>
-            <li><a href="contact.html" class="top-nav-link">Contact</a></li>
-        </ul>
-    </nav>
+    <nav class="top-nav" aria-label="Navigation principale"></nav>
 
-    <h1>Mentions Légales</h1>
+    <main>
+        <h1>Mentions Légales</h1>
 
-    <h2>1. Éditeur du site</h2>
-    <p>
-        <strong>Nom :</strong> Nicolas Marie Angélique<br>
-        <strong>Statut :</strong> Designer Freelance (Indépendant)<br>
-        <strong>Email :</strong> <a href="mailto:nmafreelance@gmail.com">nmafreelance@gmail.com</a><br>
+        <h2>1. Éditeur du site</h2>
+        <p>
+            <strong>Nom :</strong> Nicolas Marie Angélique<br>
+            <strong>Statut :</strong> Designer Freelance (Indépendant)<br>
+            <strong>Email :</strong> <a href="mailto:nmafreelance@gmail.com">nmafreelance@gmail.com</a><br>
         </p>
 
-    <h2>2. Hébergement</h2>
-    <p>
-        Ce site est hébergé par : Github Page<br>
-    </p>
+        <h2>2. Hébergement</h2>
+        <p>
+            Ce site est hébergé par : Github Page<br>
+        </p>
+        <h2>3. Cookies</h2>
+        <p>
+            Ce site n'utilise aucun cookie de traçage publicitaire ou d'analyse (type Google Analytics).
+        </p>
 
-    <h2>3. Données Personnelles</h2>
-    <p>
-        Les informations recueillies via le formulaire de contact (Nom, Email) sont transmises directement par email à Nicolas Marie Angélique via le service Formspree. Elles ne sont utilisées que pour répondre à votre demande et ne sont jamais cédées à des tiers.
-    </p>
-    <p>
-        Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données en me contactant par email.
-    </p>
+        <a href="index.html" class="back-link">Retour à l'accueil</a>
+    </main>
 
-    <h2>4. Cookies</h2>
-    <p>
-        Ce site n'utilise aucun cookie de traçage publicitaire ou d'analyse (type Google Analytics).
-    </p>
-
-    <a href="index.html" class="back-link">Retour à l'accueil</a>
-
+    <script src="js/nav.js" defer></script>
 </body>
+
 </html>

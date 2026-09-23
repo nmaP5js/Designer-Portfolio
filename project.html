@@ -27,8 +27,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
@@ -197,7 +196,7 @@
             justify-content: flex-start;
             padding: 0;
             position: relative;
-            z-index: 1;
+            z-index: 2;
             text-align: left;
         }
 
@@ -239,6 +238,17 @@
             letter-spacing: -0.03em;
             text-align: left;
             transition: color 0.3s ease;
+        }
+
+        /* --- VOILE DE FLOU (ENTRE STICKERS ET CONTENU TEXTE) --- */
+        .content-backdrop {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.248);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
         .item-meta {
@@ -402,8 +412,7 @@
             }
         }
 
-        /* Les styles .top-nav sont définis dans css/main.css */
-
+        @media (max-width: 600px) {
             .projects-column {
                 padding: 85px 20px 40px 20px;
             }
@@ -427,7 +436,7 @@
 <body>
 
     <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
-
+    <div class="content-backdrop" aria-hidden="true"></div>
     <nav class="top-nav" aria-label="Navigation principale"></nav>
 
     <main class="main-content">
@@ -435,7 +444,8 @@
         <section class="projects-column">
             <div class="simple-list">
 
-                <a href="https://nmap5js.github.io/dynamic-gallery/" class="simple-item" data-preview="images/dynamic_gallery1.png" target="_blank" rel="noopener noreferrer">
+                <a href="https://nmap5js.github.io/dynamic-gallery/" class="simple-item"
+                    data-preview="images/dynamic_gallery1.png" target="_blank" rel="noopener noreferrer">
                     <h2 class="item-title">Dynamic Gallery</h2>
                     <p class="item-meta">Collage Art Interactif (Vanilla JS) - 2026</p>
                 </a>
@@ -513,9 +523,9 @@
     <script>window._stickersManualInit = true;</script>
     <script src="js/stickers.js" defer></script>
     <script>
-    window.addEventListener('load', function () {
-        window.initStickers({ finalOpacity: 1, clickExcludes: '.top-nav, .simple-item' });
-    });
+        window.addEventListener('load', function () {
+            window.initStickers({ finalOpacity: 1, clickExcludes: '.top-nav, .simple-item' });
+        });
     </script>
     <script src="js/nav.js" defer></script>
 </body>
