@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Nicolas Marie Angelique - Designer. Projets, À Propos et Contact.">
+    <meta name="description"
+        content="Portfolio de Nicolas Marie Angelique - Designer UI/UX & 3D. Projets sélectionnés, À Propos et Contact.">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nicolasmarieangelique.fr/">
@@ -13,18 +15,21 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://nicolasmarieangelique.fr/">
     <meta property="twitter:title" content="Nicolas Marie Angelique - Designer UI/UX & 3D">
-    <meta property="twitter:description" content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
+    <meta property="twitter:description"
+        content="Découvrez mon portfolio : Design d'interface, Branding et Création 3D.">
     <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
     <link rel="canonical" href="https://nicolasmarieangelique.fr/">
 
     <link rel="icon" type="image/png" href="stickers/sticker1.png">
     <link rel="shortcut icon" type="image/png" href="stickers/sticker1.png">
 
-    <title>Nicolas Marie Angelique - Accueil</title>
+    <title>Nicolas Marie Angelique - Designer UI/UX & 3D</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <!-- Design System CSS Centralisé -->
     <link rel="stylesheet" href="css/main.css">
 
@@ -34,6 +39,7 @@
             --text-color: #000000;
             --highlight-color: #888888;
             --blue-color: #388BFF;
+            --royal-blue: #0038ff;
             --line-color: #e0e0e0;
             --menu-z: 1000;
         }
@@ -43,6 +49,10 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Faculty Glyphic', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -56,6 +66,8 @@
             -webkit-font-smoothing: antialiased;
         }
 
+
+
         /* --- HERO SECTION --- */
         .hero-section {
             width: 100%;
@@ -67,6 +79,7 @@
             position: relative;
             z-index: 2;
         }
+
         .logo-container {
             width: 80%;
             max-width: 420px;
@@ -76,6 +89,7 @@
             margin: 0 auto;
             pointer-events: none;
         }
+
         .logo-img {
             width: 100%;
             height: auto;
@@ -83,12 +97,384 @@
             object-fit: contain;
         }
 
+        /* --- SECTION PROJETS DE LA LANDING PAGE --- */
+        .landing-projects-section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 0;
+            position: relative;
+            z-index: 5;
+            text-align: left;
+            background-color: var(--bg-color);
+            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.28), 0 10px 20px -5px rgba(0, 0, 0, 0.16);
+        }
+
+        /* Colonne Gauche : Liste des Projets */
+        .projects-column {
+            width: 50%;
+            padding: 100px 60px 140px 80px;
+            z-index: 2;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .projects-header-badge {
+            margin-bottom: 44px;
+        }
+
+        .projects-section-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--highlight-color);
+            display: inline-block;
+        }
+
+        .simple-list {
+            display: flex;
+            flex-direction: column;
+            gap: 52px;
+            width: 100%;
+            text-align: left;
+            align-items: flex-start;
+        }
+
+        .simple-item {
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            text-align: left;
+            transition: opacity 0.4s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .item-title {
+            font-size: 3.8rem;
+            font-weight: 600;
+            margin: 0;
+            color: var(--text-color);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            text-align: left;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .item-meta {
+            font-size: 1rem;
+            color: var(--highlight-color);
+            margin: 10px 0 0 0;
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0.02em;
+            text-align: left;
+            transition: color 0.3s ease;
+        }
+
+        /* Interactions Liste */
+        .simple-item:hover .item-title {
+            color: var(--blue-color);
+        }
+
+        .simple-item:hover .item-meta {
+            color: #555555;
+        }
+
+        /* Dimming subtil des autres éléments lors du survol (desktop) */
+        .simple-list:hover .simple-item:not(:hover) {
+            opacity: 0.3;
+        }
+
+        /* Colonne Droite : Preview Sticky Centrée */
+        .preview-column {
+            width: 50%;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .preview-image-container {
+            width: 100%;
+            height: 80%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: scale(0.95);
+            will-change: transform, opacity;
+        }
+
+        .preview-image-container.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* --- CONTENEUR DE RÉVÉLATION FOOTER (EFFET PORTE DE GARAGE / AWWWARDS) --- */
+        .footer-reveal-container {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            min-height: 520px;
+            clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+            -webkit-clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+            z-index: 1;
+        }
+
+        .garage-reveal-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80vh;
+            min-height: 520px;
+            z-index: 1;
+            background-color: var(--royal-blue);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 80px 80px 32px 80px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .footer-curtain-inner {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+            will-change: transform, opacity;
+        }
+
+        .footer-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .footer-left-block {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .footer-title {
+            font-size: clamp(1.8rem, 3.2vw, 3.2rem);
+            font-weight: 400;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .footer-email-link {
+            font-size: clamp(1.4rem, 2.5vw, 2.6rem);
+            font-weight: 400;
+            color: #ffffff;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+            text-decoration-thickness: 1.5px;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-email-link:hover {
+            opacity: 0.85;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .shadcn-btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #ffffff;
+            color: #000000;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 0;
+            text-decoration: none;
+            box-shadow: none;
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 1px solid #ffffff;
+        }
+
+        .shadcn-btn-outline:hover {
+            background-color: var(--blue-color);
+            border-color: var(--blue-color);
+            color: #ffffff;
+        }
+
+        .shadcn-btn-outline:active {
+            transform: scale(0.98);
+        }
+
+        .shadcn-icon {
+            font-size: 15px !important;
+            opacity: 0.75;
+            transition: transform 0.15s ease, opacity 0.15s ease;
+        }
+
+        .shadcn-btn-outline:hover .shadcn-icon {
+            opacity: 1;
+            color: #ffffff;
+        }
+
+        /* Grand Nom Typographique (style Nata Butkowska) */
+        .footer-giant-name-wrapper {
+            width: 100%;
+            overflow: visible;
+            margin-top: auto;
+            padding-top: 40px;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .footer-giant-name {
+            font-size: clamp(3.4rem, 8.8vw, 9.8rem);
+            font-weight: 100;
+            line-height: 1.02;
+            letter-spacing: -0.03em;
+            color: #ffffff;
+            display: block;
+            white-space: nowrap;
+            text-align: left;
+            user-select: none;
+            transform: none;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 900px) {
+            .simple-list:hover .simple-item:not(:hover) {
+                opacity: 1;
+            }
+
+            .landing-projects-section {
+                flex-direction: column;
+            }
+
+            .projects-column {
+                width: 100%;
+                padding: 70px 30px 60px 30px;
+            }
+
+            .preview-column {
+                display: none;
+            }
+
+            .item-title {
+                font-size: 2.6rem;
+            }
+
+            .footer-reveal-container,
+            .garage-reveal-footer {
+                height: 70vh;
+                min-height: 480px;
+            }
+
+            .garage-reveal-footer {
+                padding: 60px 30px 24px 30px;
+            }
+
+            .footer-top-row {
+                flex-direction: column;
+                gap: 28px;
+            }
+
+            .footer-giant-name {
+                font-size: clamp(3rem, 11vw, 6rem);
+                white-space: normal;
+                line-height: 0.98;
+                letter-spacing: -0.035em;
+            }
+        }
+
         @media (max-width: 600px) {
-            .hero-section { min-height: 100vh; }
-            .logo-container { width: 80%; max-width: 290px; }
+            .hero-section {
+                min-height: 100vh;
+            }
+
+            .logo-container {
+                width: 80%;
+                max-width: 290px;
+            }
+
+            .projects-column {
+                padding: 60px 20px 40px 20px;
+            }
+
+            .simple-list {
+                gap: 34px;
+            }
+
+            .item-title {
+                font-size: 1.9rem;
+            }
+
+            .item-meta {
+                font-size: 0.85rem;
+                margin-top: 4px;
+            }
+
+            .footer-reveal-container,
+            .garage-reveal-footer {
+                height: 82vh;
+                min-height: 520px;
+            }
+
+            .garage-reveal-footer {
+                padding: 40px 20px 24px 20px;
+            }
+
+            .footer-email-link {
+                font-size: 1.3rem;
+                word-break: break-all;
+            }
+
+            .footer-giant-name-wrapper {
+                padding-top: 24px;
+            }
+
+            .footer-giant-name {
+                font-size: clamp(3.2rem, 13vw, 4.8rem);
+                white-space: normal;
+                line-height: 0.95;
+                letter-spacing: -0.04em;
+                word-break: break-word;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
@@ -96,27 +482,182 @@
 
     <nav class="top-nav" aria-label="Navigation principale"></nav>
 
-    <header class="hero-section">
+    <!-- SECTION HERO PLEIN ÉCRAN -->
+    <header class="hero-section" id="hero">
         <div class="logo-container">
             <img src="images/Group@2x.png" alt="Nicolas Marie Angelique" class="logo-img">
         </div>
     </header>
 
-    <!-- Système de stickers centralisé — pleine opacité sous le voile de flou -->
+    <!-- SECTION PROJETS DE LA LANDING PAGE -->
+    <main class="landing-projects-section" id="projects" aria-label="Projets sélectionnés">
+
+        <section class="projects-column">
+            <div class="projects-header-badge">
+                <span class="projects-section-tag">Projets sélectionnés</span>
+            </div>
+
+            <div class="simple-list">
+
+                <a href="https://nmap5js.github.io/dynamic-gallery/" class="simple-item"
+                    data-preview="images/dynamic_gallery1.png" target="_blank" rel="noopener noreferrer">
+                    <h2 class="item-title">Dynamic Gallery</h2>
+                    <p class="item-meta">Collage Art Interactif (Vanilla JS) — 2026</p>
+                </a>
+
+                <a href="rex_system.html" class="simple-item" data-preview="images/rex_system1.png">
+                    <h2 class="item-title">REX_System</h2>
+                    <p class="item-meta">Visionneuse Média Portable — 2026</p>
+                </a>
+
+                <a href="portfolio.html" class="simple-item" data-preview="images/apercu_img.png">
+                    <h2 class="item-title">Conception Portfolio Web</h2>
+                    <p class="item-meta">Conception Web — 2025</p>
+                </a>
+
+                <a href="trinityringcartier.html" class="simple-item" data-preview="images/ring3.webp">
+                    <h2 class="item-title">Trinity Ring</h2>
+                    <p class="item-meta">Publicité — 2024</p>
+                </a>
+
+                <a href="enjoytheride.html" class="simple-item" data-preview="gif/LOGOSPIN.gif">
+                    <h2 class="item-title">Enjoy The Ride</h2>
+                    <p class="item-meta">Designer Graphique — 2023</p>
+                </a>
+
+                <a href="cgivisual.html" class="simple-item" data-preview="images/cgi_1.webp">
+                    <h2 class="item-title">CGI Visual</h2>
+                    <p class="item-meta">Design 3D — 2023</p>
+                </a>
+
+            </div>
+        </section>
+
+        <aside class="preview-column" aria-hidden="true">
+            <div class="preview-image-container" id="previewContainer"></div>
+        </aside>
+
+    </main>
+
+    <!-- FOOTER RÉVÉLÉ EN PORTE DE GARAGE (STYLE AWWWARDS) -->
+    <div class="footer-reveal-container" id="footerRevealContainer">
+        <footer class="garage-reveal-footer" id="garageFooter" aria-label="Pied de page">
+            <div class="footer-curtain-inner">
+                <div class="footer-top-row">
+                    <div class="footer-left-block">
+                        <h2 class="footer-title">
+                            Mon parcours vous intéresse&nbsp;? <br>
+                            Contactez-moi
+                        </h2>
+                        <a href="mailto:nmafreelance@gmail.com" class="footer-email-link">nmafreelance@gmail.com</a>
+                        <div class="footer-social-links">
+                            <a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank"
+                                rel="noopener noreferrer" class="shadcn-btn-outline" aria-label="LinkedIn">
+                                <span>LinkedIn</span>
+                                <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
+                            </a>
+                            <a href="https://github.com/nmaP5js?tab=overview&from=2025-12-01&to=2025-12-31"
+                                target="_blank" rel="noopener noreferrer" class="shadcn-btn-outline"
+                                aria-label="GitHub">
+                                <span>GitHub</span>
+                                <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRAND NOM DISPLAY EN BAS DU FOOTER (STYLE NATA BUTKOWSKA) -->
+                <div class="footer-giant-name-wrapper">
+                    <span class="footer-giant-name">Nicolas Marie Angélique</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- GESTION DE LA PREVIEW D'IMAGE SURVOLÉE -->
+    <script>
+        (function () {
+            const previewContainer = document.getElementById('previewContainer');
+            const projectItems = document.querySelectorAll('.simple-item');
+
+            const preloadImages = () => {
+                projectItems.forEach(item => {
+                    const src = item.getAttribute('data-preview');
+                    if (src) {
+                        const img = new Image();
+                        img.src = src;
+                    }
+                });
+            };
+            preloadImages();
+
+            projectItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    const imagePath = item.getAttribute('data-preview');
+                    if (imagePath && previewContainer) {
+                        previewContainer.style.backgroundImage = `url('${imagePath}')`;
+                        previewContainer.classList.add('active');
+                    }
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    if (previewContainer) {
+                        previewContainer.classList.remove('active');
+                    }
+                });
+            });
+        })();
+    </script>
+
+    <!-- PARALLAXE DU FOOTER RÉVÉLÉ -->
+    <script>
+        (function () {
+            const container = document.getElementById('footerRevealContainer');
+            const inner = document.querySelector('.footer-curtain-inner');
+            if (!container || !inner) return;
+
+            function updateFooterParallax() {
+                const rect = container.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    const visibleHeight = windowHeight - rect.top;
+                    const progress = Math.min(1, Math.max(0, visibleHeight / rect.height));
+                    const translateY = (1 - progress) * 35;
+                    inner.style.transform = `translateY(${translateY}px)`;
+                    inner.style.opacity = `${0.75 + progress * 0.25}`;
+                } else if (rect.top >= windowHeight) {
+                    inner.style.transform = 'translateY(35px)';
+                    inner.style.opacity = '0.75';
+                }
+            }
+
+            window.addEventListener('scroll', updateFooterParallax, { passive: true });
+            window.addEventListener('resize', updateFooterParallax, { passive: true });
+            window.addEventListener('load', updateFooterParallax);
+            updateFooterParallax();
+        })();
+    </script>
+
+    <!-- SYSTÈME DE STICKERS CENTRALISÉ -->
     <script>window._stickersManualInit = true;</script>
     <script src="js/stickers.js" defer></script>
     <script>
-    (function() {
-        let initialized = false;
-        function startAccueilStickers() {
-            if (initialized || !window.initStickers) return;
-            initialized = true;
-            window.initStickers({ finalOpacity: 1, clickExcludes: '.top-nav' });
-        }
-        setTimeout(startAccueilStickers, 100);
-        window.addEventListener('load', startAccueilStickers);
-    })();
+        (function () {
+            let initialized = false;
+            function startAccueilStickers() {
+                if (initialized || !window.initStickers) return;
+                initialized = true;
+                window.initStickers({
+                    finalOpacity: 1,
+                    clickExcludes: '.top-nav, .simple-item, .garage-reveal-footer'
+                });
+            }
+            setTimeout(startAccueilStickers, 100);
+            window.addEventListener('load', startAccueilStickers);
+        })();
     </script>
     <script src="js/nav.js" defer></script>
 </body>
+
 </html>
