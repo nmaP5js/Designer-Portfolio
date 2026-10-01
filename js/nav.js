@@ -2,6 +2,7 @@
 
 (function () {
     const PROJECTS_LIST = [
+        { id: 'immigrantquebec', title: 'Immigrant Québec', url: 'immigrantquebec.html' },
         { id: 'dynamic_gallery', title: 'Dynamic Gallery', url: 'dynamic_gallery.html' },
         { id: 'rex_system', title: 'REX_System', url: 'rex_system.html' },
         { id: 'portfolio', title: 'Designer Portfolio', url: 'portfolio.html' },
@@ -66,7 +67,7 @@
         // Support du hash #projects initial avec défilement fluide
         if (window.location.hash === '#projects') {
             setTimeout(() => {
-                projectsSection.scrollIntoView({ behavior: 'smooth' });
+                if (window.lenis) { window.lenis.scrollTo(projectsSection); } else { projectsSection.scrollIntoView({ behavior: 'smooth' }); }
             }, 100);
         }
 
@@ -78,7 +79,7 @@
                     const target = document.querySelector(href);
                     if (target) {
                         e.preventDefault();
-                        target.scrollIntoView({ behavior: 'smooth' });
+                        if (window.lenis) { window.lenis.scrollTo(target); } else { target.scrollIntoView({ behavior: 'smooth' }); }
                         history.pushState(null, null, href);
                     }
                 }
