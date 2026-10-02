@@ -268,7 +268,11 @@
 
         /* RÈGLE RESTAURÉE POUR DESKTOP UNIQUEMENT */
         .simple-list:hover .simple-item:not(:hover) {
-            opacity: 0.3;
+            opacity: 0.3 !important;
+        }
+
+        .simple-list:hover .simple-item:hover {
+            opacity: 1 !important;
         }
 
 
@@ -395,7 +399,7 @@
 
             /* RÈGLE AJOUTÉE : Annule l'effet de dimming sur mobile/tablette */
             .simple-list:hover .simple-item:not(:hover) {
-                opacity: 1;
+                opacity: 1 !important;
             }
 
             .projects-column {
@@ -448,6 +452,12 @@
                     data-preview="images/immigrant-quebec/obsidian_dataview.png">
                     <h2 class="item-title">Immigrant Québec</h2>
                     <p class="item-meta">Audit de Contenu & Refonte Web - 2026</p>
+                </a>
+
+                <a href="thalesaleniaspace.html" class="simple-item"
+                    data-preview="images/thales_alenia_space_logo.png">
+                    <h2 class="item-title">Thales Alenia Space</h2>
+                    <p class="item-meta">UI/UX & Systèmes Critiques - 2025</p>
                 </a>
 
                 <a href="https://nmap5js.github.io/dynamic-gallery/" class="simple-item"

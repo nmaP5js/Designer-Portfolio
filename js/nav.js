@@ -3,6 +3,7 @@
 (function () {
     const PROJECTS_LIST = [
         { id: 'immigrantquebec', title: 'Immigrant Québec', url: 'immigrantquebec.html' },
+        { id: 'thalesaleniaspace', title: 'Thales Alenia Space', url: 'thalesaleniaspace.html' },
         { id: 'dynamic_gallery', title: 'Dynamic Gallery', url: 'dynamic_gallery.html' },
         { id: 'rex_system', title: 'REX_System', url: 'rex_system.html' },
         { id: 'portfolio', title: 'Designer Portfolio', url: 'portfolio.html' },

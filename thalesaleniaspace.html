@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Concevoir pour les systèmes critiques : Retour d'expérience chez Thales Alenia Space par Nicolas Marie Angélique. Recherche utilisateur, alignement sémantique et prototypage UI/UX d'outils métiers complexes.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://nicolasmarieangelique.fr/thalesaleniaspace.html">
+    <meta property="og:title" content="Nicolas Marie Angelique - Thales Alenia Space">
+    <meta property="og:description"
+        content="Concevoir pour les systèmes critiques : Retour d'expérience chez Thales Alenia Space. Recherche utilisateur, alignement sémantique et prototypage UI/UX d'outils métiers complexes.">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://nicolasmarieangelique.fr/thalesaleniaspace.html">
+    <meta property="twitter:title" content="Nicolas Marie Angelique - Thales Alenia Space">
+    <meta property="twitter:description"
+        content="Concevoir pour les systèmes critiques : Retour d'expérience chez Thales Alenia Space. Recherche utilisateur, alignement sémantique et prototypage UI/UX d'outils métiers complexes.">
+    <link rel="canonical" href="https://nicolasmarieangelique.fr/thalesaleniaspace.html">
+
+    <link rel="icon" type="image/png" href="stickers/sticker1.png">
+    <link rel="shortcut icon" type="image/png" href="stickers/sticker1.png">
+
+    <title>Nicolas Marie Angelique - Thales Alenia Space</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet">
+
+    <!-- Design System CSS Centralisé -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        /* --- STYLE ÉPURÉ & SOBRE POUR L'ARTICLE --- */
+        .article-header {
+            width: 100%;
+            margin-bottom: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .article-category {
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--highlight-color);
+        }
+
+        .header-titles h1 {
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            font-weight: 600;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+
+        .header-titles h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #666666;
+            max-width: 820px;
+        }
+
+        /* Corps de texte sobre */
+        .article-body {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            font-size: 1.08rem;
+            line-height: 1.75;
+            color: #222222;
+        }
+
+        .article-body p {
+            margin-bottom: 18px;
+        }
+
+        .article-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-body strong {
+            color: #000000;
+            font-weight: 600;
+        }
+
+        .article-body em {
+            font-style: italic;
+        }
+
+        .article-body a:not(.cta-button) {
+            color: #000000;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.15s ease;
+        }
+
+        .article-body a:not(.cta-button):hover {
+            color: var(--blue-color);
+        }
+
+        .section-heading {
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #000000;
+            margin-top: 36px;
+            margin-bottom: 16px;
+            line-height: 1.25;
+        }
+
+        .subsection-heading {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #000000;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .minor-heading {
+            font-size: 1.12rem;
+            font-weight: 600;
+            color: #111111;
+            margin-top: 22px;
+            margin-bottom: 10px;
+        }
+
+        /* Listes sobres */
+        .article-list {
+            list-style: disc;
+            padding-left: 24px;
+            margin: 12px 0 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .article-list li {
+            padding-left: 4px;
+        }
+
+        .article-ordered-list {
+            list-style: decimal;
+            padding-left: 24px;
+            margin: 14px 0 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .article-ordered-list li {
+            padding-left: 4px;
+        }
+
+        /* Citation d'impact sobre */
+        .sober-quote {
+            margin: 24px 0;
+            padding: 16px 22px;
+            border-left: 2px solid #000000;
+            background: rgba(0, 0, 0, 0.02);
+            font-size: 1.15rem;
+            color: #111111;
+        }
+
+        .sober-quote p {
+            margin: 0;
+        }
+
+        /* Séparateur discret */
+        .article-divider {
+            border: none;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            margin: 44px 0 32px 0;
+        }
+
+        @media (max-width: 900px) {
+            .project-grid-2col {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .right-col {
+                position: static;
+                order: initial;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="top-nav" aria-label="Navigation principale"></nav>
+
+    <nav class="projects-subnav-container" aria-label="Tous les projets"></nav>
+
+    <main class="main-content">
+        <div class="project-grid-2col">
+
+            <!-- Colonne Gauche : Article -->
+            <div class="left-col">
+
+                <!-- En-tête du projet -->
+                <header class="article-header">
+                    <span class="article-category">Stage 2025 · Thales Alenia Space</span>
+
+                    <div class="header-titles">
+                        <h1>Concevoir pour les systèmes critiques</h1>
+                        <h2>Retour d'expérience chez Thales Alenia Space : recherche utilisateur, alignement sémantique et
+                            prototypage d'outils métiers complexes.</h2>
+                    </div>
+                </header>
+
+                <!-- Article éditorial épuré -->
+                <article class="article-body">
+
+                    <!-- CONTEXTE -->
+                    <section id="contexte">
+                        <h2 class="section-heading">Contexte et environnement industriel</h2>
+
+                        <p>
+                            Mon intervention s'est déroulée chez <strong>Thales Alenia Space</strong> à
+                            Mandelieu-la-Napoule, au sein du pôle consacré aux systèmes sol, à l'avionique et aux
+                            logiciels. Dans un secteur spatial en pleine mutation concurrentielle, la fiabilité logicielle
+                            est déterminante pour la réussite des opérations.
+                        </p>
+
+                        <p>
+                            En tant que <strong>designer UI/UX</strong>, j'ai travaillé sur l'amélioration continue
+                            d'outils métiers complexes. Ma mission s'est concentrée sur la recherche utilisateur,
+                            l'analyse qualitative des usages en place et le prototypage itératif, avec un objectif clair :
+                            sécuriser l'ergonomie et la cohérence fonctionnelle des logiciels avant leur développement.
+                        </p>
+                    </section>
+
+                    <hr class="article-divider">
+
+                    <!-- DÉMARCHE MÉTHODOLOGIQUE -->
+                    <section id="demarche">
+                        <h2 class="section-heading">Démarche méthodologique</h2>
+
+                        <p>
+                            Pour s'intégrer efficacement aux équipes d'ingénierie, le design s'est calé sur les
+                            <strong>méthodes agiles</strong> déjà en vigueur.
+                        </p>
+
+                        <p>
+                            <strong>Figma</strong> a servi d'outil principal, permettant de passer de wireframes basse
+                            fidélité à des maquettes haute fidélité interactives. Pour faciliter le travail des
+                            développeurs, chaque interface intégrait des annotations précises et un tableau de légende
+                            définissant les codes visuels et les acronymes techniques. La méthode <strong>MoSCoW</strong> a
+                            permis de hiérarchiser clairement les besoins, tandis que <strong>Jira</strong> assurait le
+                            suivi des priorités au rythme des sprints. Cette démarche issue du <em>Design Thinking</em> a
+                            permis de co-construire les interfaces directement avec les experts du domaine.
+                        </p>
+                    </section>
+
+                    <hr class="article-divider">
+
+                    <!-- PROJET 1 -->
+                    <section id="projet-1">
+                        <h2 class="section-heading">Projet 1 : Structurer les retours utilisateurs pour guider la feuille de route</h2>
+
+                        <p>
+                            Le premier projet concernait un outil interne de télémétrie capable de surveiller jusqu'à
+                            <strong>douze satellites en simultané</strong> pour détecter d'éventuelles anomalies. Utilisé au
+                            quotidien par des ingénieurs expérimentés, le logiciel nécessitait un bilan d'usage complet
+                            pour guider les investissements techniques souhaités par le responsable du service.
+                        </p>
+
+                        <p>
+                            J'ai conçu et animé plusieurs ateliers fondés sur le modèle du <strong>diamant de la
+                            participation</strong>, en alternant divergence, émergence et convergence. L'organisation a
+                            été pensée dans le détail : conducteur minuté, supports visuels et réservation d'une salle au
+                            plus près des équipes. Le format a également été adapté à distance sur Miro et Teams pour
+                            intégrer les collaborateurs du site de Toulouse.
+                        </p>
+
+                        <p>
+                            Après un brise-glace, les participants ont exprimé les réussites et les points de blocage du
+                            logiciel, avant de proposer de nouvelles fonctionnalités et de les prioriser par un vote
+                            direct. Toutes les données ont ensuite été triées et synthétisées dans un livrable de
+                            restitution. En anonymisant l'ensemble des verbatims, j'ai garanti la neutralité des échanges et
+                            protégé la parole des utilisateurs. Cette restitution a permis d'objectiver les manques
+                            fonctionnels et de valider une feuille de route alignée sur les besoins réels du terrain.
+                        </p>
+                    </section>
+
+                    <hr class="article-divider">
+
+                    <!-- PROJET 2 -->
+                    <section id="projet-2">
+                        <h2 class="section-heading">Projet 2 : Système de contrôle satellite et alignement sémantique</h2>
+
+                        <p>
+                            Le deuxième projet s'inscrivait dans la refonte d'un <strong>système de contrôle et de
+                            maintenance satellite (SCC)</strong>, conçu pour remplacer un outil en service depuis 1990 et
+                            accompagner les satellites sur un cycle de vie d'environ quinze ans. Intégré au projet sous le
+                            framework <strong>SAFe</strong>, j'ai travaillé sur la conception des écrans de gestion des
+                            alarmes.
+                        </p>
+
+                        <p>
+                            Lors des revues hebdomadaires de conception, nous soumettions nos prototypes interactifs aux
+                            utilisateurs finaux à travers des scénarios d'usage précis. L'observation directe de leurs
+                            réactions a permis de déceler des freins ergonomiques majeurs, notamment autour du vocabulaire
+                            visuel.
+                        </p>
+
+                        <h3 class="subsection-heading">L'alignement sémantique des codes métiers</h3>
+
+                        <p>
+                            Cette étape a révélé un décalage sémantique capital. En design classique, on associe
+                            naturellement le rouge au danger critique, l'orange à la vigilance et le gris à la
+                            désactivation. Or, dans la réalité opérationnelle du spatial :
+                        </p>
+
+                        <ul class="article-list">
+                            <li><strong>Le rouge</strong> désigne simplement une alarme active nécessitant une prise en
+                                compte.</li>
+                            <li><strong>Le vert</strong> indique l'état de veille normale d'un système opérationnel prêt à
+                                détecter une anomalie.</li>
+                            <li><strong>Le gris</strong> correspond à une perte de données de télémétrie.</li>
+                        </ul>
+
+                        <blockquote class="sober-quote">
+                            <p>Cet alignement a montré qu'une interface critique gagne en sécurité uniquement si elle adopte
+                                les modèles mentaux et les codes métiers des opérateurs.</p>
+                        </blockquote>
+
+                        <p>
+                            J'ai également clarifié l'indicateur d'activation des alarmes, rédigé les spécifications d'un
+                            <strong>gestionnaire de son</strong> limitant la fatigue auditive grâce à des volumes
+                            réglables et des signatures sonores distinctes, et décliné les maquettes avec le design system
+                            <strong>Fusion</strong> du groupe.
+                        </p>
+                    </section>
+
+                    <hr class="article-divider">
+
+                    <!-- PROJET 3 -->
+                    <section id="projet-3">
+                        <h2 class="section-heading">Projet 3 : Un PoC exploitant une technologie d'IA pour le Salon du Bourget</h2>
+
+                        <p>
+                            Ce troisième projet est né d'une collaboration avec un développeur autour d'un PoC exploitant une
+                            technologie d'IA sur une carte matérielle <strong>AMD VEK280</strong> (Edge Computing).
+                            L'objectif était de réaliser la segmentation d'images satellites pour une démonstration
+                            officielle lors du <strong>Salon du Bourget</strong>.
+                        </p>
+
+                        <p>
+                            L'application d'origine, codée en C++, imposait des étapes de configuration matérielle complexes
+                            et un jargon technique peu adapté à une présentation commerciale ou institutionnelle.
+                        </p>
+
+                        <p>
+                            J'ai repensé l'architecture globale pour concevoir une interface sur un écran unique, claire et
+                            didactique :
+                        </p>
+
+                        <ul class="article-list">
+                            <li><strong>Bandeau supérieur épuré :</strong> simplification des contrôles principaux avec des
+                                commandes évidentes comme « Pause ».</li>
+                            <li><strong>Comparaison visuelle directe :</strong> disposition centrale mettant en regard
+                                l'image source et le résultat traité.</li>
+                            <li><strong>Monitoring lisible :</strong> affichage direct des métriques de performance et
+                                journal d'événements accessible.</li>
+                        </ul>
+
+                        <p>
+                            Ce travail a permis de transformer une preuve de concept brute en un démonstrateur valorisant
+                            pour l'entreprise.
+                        </p>
+                    </section>
+
+                    <hr class="article-divider">
+
+                    <!-- ENSEIGNEMENTS -->
+                    <section id="enseignements">
+                        <h2 class="section-heading">Apports du design et enseignements</h2>
+
+                        <p>
+                            Ces réalisations montrent concrètement comment le design soutient l'amélioration des logiciels
+                            industriels. La démarche permet de transformer des avis subjectifs en données d'orientation
+                            exploitables, de sécuriser les choix ergonomiques par le prototypage avant la phase de code, et
+                            de rendre accessibles des technologies de pointe.
+                        </p>
+
+                        <blockquote class="sober-quote">
+                            <p>Le design prend toute sa valeur lorsqu'il intervient dès les premières phases de réflexion
+                                technique, créant le lien indispensable entre ingénierie, utilisateurs et stratégie produit.</p>
+                        </blockquote>
+
+                        <p>
+                            Cette expérience a également confirmé l'importance d'une documentation vivante et rigoureuse pour
+                            garantir la mémoire des projets face aux mouvements d'équipes dans le temps.
+                        </p>
+                    </section>
+
+                </article>
+            </div>
+
+            <!-- Colonne Droite : Carte Métadonnées Collante -->
+            <aside class="right-col">
+                <div class="meta-card">
+                    <h3 class="meta-card-title">Informations du projet</h3>
+
+                    <div class="meta-list">
+                        <div class="meta-list-item">
+                            <span class="meta-label">Entreprise</span>
+                            <span class="meta-value">Thales Alenia Space</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Site Web</span>
+                            <span class="meta-value">
+                                <a href="https://www.thalesgroup.com/fr/espace" target="_blank" rel="noopener noreferrer"
+                                    style="color: inherit; text-decoration: underline;">thalesgroup.com</a>
+                            </span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Cadre</span>
+                            <span class="meta-value">Stage 2025</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Rôle</span>
+                            <span class="meta-value">Designer UI/UX</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Périmètre</span>
+                            <span class="meta-value">Systèmes sol, Télémétrie satellite, Edge AI</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Outils & Méthodes</span>
+                            <span class="meta-value">Figma, SAFe, Jira, Miro, MoSCoW</span>
+                        </div>
+                    </div>
+
+                    <div class="tags-container">
+                        <span class="tag-pill">UI/UX Design</span>
+                        <span class="tag-pill">Systèmes Critiques</span>
+                        <span class="tag-pill">Recherche Utilisateur</span>
+                        <span class="tag-pill">Design System Fusion</span>
+                        <span class="tag-pill">Design Thinking</span>
+                        <span class="tag-pill">SAFe / Agile</span>
+                        <span class="tag-pill">Edge AI (AMD)</span>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- JavaScript Unifié -->
+    <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+    <script src="js/lenis-init.js"></script>
+    <script src="js/nav.js" defer></script>
+</body>
+
+</html>

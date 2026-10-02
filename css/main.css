@@ -848,33 +848,39 @@ main,
 
 /* Cascade séquentielle subtile sur les éléments de contenu (effet studio de design vivant) */
 .about-grid > .grid-column:nth-child(1),
-.simple-list > .simple-item:nth-child(1),
 .project-grid-2col > .left-col {
     animation: pageRiseIn 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.02s both;
 }
 
 .about-grid > .grid-column:nth-child(2),
-.simple-list > .simple-item:nth-child(2),
 .project-grid-2col > .right-col {
     animation: pageRiseIn 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.06s both;
 }
 
-.about-grid > .grid-column:nth-child(3),
-.simple-list > .simple-item:nth-child(3) {
+.about-grid > .grid-column:nth-child(3) {
     animation: pageRiseIn 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.10s both;
 }
 
-.about-grid > .grid-column:nth-child(4),
-.simple-list > .simple-item:nth-child(4) {
+.about-grid > .grid-column:nth-child(4) {
     animation: pageRiseIn 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.14s both;
 }
 
-.simple-list > .simple-item:nth-child(5) {
-    animation: pageRiseIn 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+/* Éléments de la liste des projets (animation avec backwards pour libérer l'opacité lors du survol) */
+.simple-list > .simple-item:nth-child(1) { animation: pageRiseIn 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.02s backwards; }
+.simple-list > .simple-item:nth-child(2) { animation: pageRiseIn 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.06s backwards; }
+.simple-list > .simple-item:nth-child(3) { animation: pageRiseIn 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.10s backwards; }
+.simple-list > .simple-item:nth-child(4) { animation: pageRiseIn 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.14s backwards; }
+.simple-list > .simple-item:nth-child(5) { animation: pageRiseIn 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.18s backwards; }
+.simple-list > .simple-item:nth-child(6) { animation: pageRiseIn 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.22s backwards; }
+.simple-list > .simple-item:nth-child(7) { animation: pageRiseIn 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.26s backwards; }
+.simple-list > .simple-item:nth-child(8) { animation: pageRiseIn 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.30s backwards; }
+
+.simple-list:hover .simple-item:not(:hover) {
+    opacity: 0.3 !important;
 }
 
-.simple-list > .simple-item:nth-child(6) {
-    animation: pageRiseIn 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+.simple-list:hover .simple-item:hover {
+    opacity: 1 !important;
 }
 
 .left-panel {
