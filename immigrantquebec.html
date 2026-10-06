@@ -332,16 +332,6 @@
             pointer-events: none;
         }
 
-        .ba-handle::before,
-        .ba-handle::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 0;
-            height: 0;
-            border-style: solid;
-        }
-
         .ba-handle-btn {
             position: absolute;
             top: 50%;
@@ -351,18 +341,28 @@
             height: 36px;
             border-radius: 50%;
             background: #ffffff;
-            border: 1.5px solid rgba(0, 0, 0, 0.12);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+            border: 1.5px solid rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
             display: flex;
             align-items: center;
             justify-content: center;
             pointer-events: none;
+            color: #333333;
         }
 
         .ba-handle-btn svg {
-            width: 16px;
-            height: 16px;
-            fill: #555;
+            width: 18px;
+            height: 18px;
+            display: block;
+            pointer-events: none;
+        }
+
+        .ba-handle-btn svg polyline {
+            fill: none !important;
+            stroke: currentColor;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .ba-caption {
@@ -612,9 +612,9 @@
                                 <!-- Poignée -->
                                 <div class="ba-handle" id="ba-handle-1">
                                     <div class="ba-handle-btn">
-                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M8 5l-5 7 5 7M16 5l5 7-5 7" stroke="#555" stroke-width="2"
-                                                fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+                                            <polyline points="8 7 3 12 8 17" />
+                                            <polyline points="16 7 21 12 16 17" />
                                         </svg>
                                     </div>
                                 </div>
@@ -655,9 +655,9 @@
                                 </div>
                                 <div class="ba-handle" id="ba-handle-2">
                                     <div class="ba-handle-btn">
-                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M8 5l-5 7 5 7M16 5l5 7-5 7" stroke="#555" stroke-width="2"
-                                                fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+                                            <polyline points="8 7 3 12 8 17" />
+                                            <polyline points="16 7 21 12 16 17" />
                                         </svg>
                                     </div>
                                 </div>
@@ -693,9 +693,9 @@
                                 </div>
                                 <div class="ba-handle" id="ba-handle-3">
                                     <div class="ba-handle-btn">
-                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M8 5l-5 7 5 7M16 5l5 7-5 7" stroke="#555" stroke-width="2"
-                                                fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+                                            <polyline points="8 7 3 12 8 17" />
+                                            <polyline points="16 7 21 12 16 17" />
                                         </svg>
                                     </div>
                                 </div>
