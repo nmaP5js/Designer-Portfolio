@@ -243,6 +243,157 @@
         }
 
 
+        /* ---- BEFORE / AFTER SLIDER ---- */
+        .ba-slider-wrapper {
+            margin: 28px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ba-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: #888888;
+        }
+
+        .ba-label-row .ba-label-before {
+            color: #c0392b;
+        }
+
+        .ba-label-row .ba-label-after {
+            color: #27ae60;
+        }
+
+        .ba-slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: #fafafa;
+            cursor: col-resize;
+            user-select: none;
+            touch-action: none;
+        }
+
+        .ba-slider img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            pointer-events: none;
+        }
+
+        /* Ratio fixé pour que les deux images s'alignent */
+        .ba-slider {
+            aspect-ratio: 3 / 8;
+        }
+
+        #ba-slider-2 {
+            aspect-ratio: 3396 / 5962;
+        }
+
+        #ba-slider-3 {
+            aspect-ratio: 3396 / 7400;
+        }
+
+        .ba-after {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            clip-path: inset(0 50% 0 0);
+            pointer-events: none;
+        }
+
+        .ba-after img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .ba-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: #ffffff;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+            pointer-events: none;
+        }
+
+        .ba-handle::before,
+        .ba-handle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .ba-handle-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 1.5px solid rgba(0, 0, 0, 0.12);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .ba-handle-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: #555;
+        }
+
+        .ba-caption {
+            font-size: 0.85rem;
+            line-height: 1.45;
+            color: #71717a;
+            padding: 0 2px;
+        }
+
+        /* Hint animé au premier survol */
+        .ba-slider::after {
+            content: '‹ glisser ›';
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.35);
+            padding: 3px 10px;
+            border-radius: 20px;
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity 0.4s ease;
+        }
+
+        .ba-slider.interacted::after {
+            opacity: 0;
+        }
+
         @media (max-width: 900px) {
             .figures-grid-2col {
                 grid-template-columns: 1fr;
@@ -422,6 +573,143 @@
                         </p>
                     </section>
 
+                    <hr class="article-divider">
+
+                    <!-- PHASE 2 -->
+                    <section id="phase2">
+                        <h2 class="section-heading">Conception des maquettes</h2>
+
+                        <p>
+                            En parallèle de l'audit, j'ai conduit un travail de <strong>prototypage UI/UX</strong>
+                            pour projeter la future architecture du site. L'objectif : traduire les préconisations
+                            stratégiques en interfaces concrètes, testables et argumentées.
+                        </p>
+
+
+
+                        <!-- MAQUETTE 1 -->
+                        <h3 class="subsection-heading">Page d'accueil</h3>
+
+                        <p>
+                            La refonte de la page d'accueil vise à clarifier la proposition de valeur dès le
+                            premier écran, structurer les entrées thématiques et renforcer la conversion.
+                        </p>
+
+                        <div class="ba-slider-wrapper">
+                            <div class="ba-label-row">
+                                <span class="ba-label-before">Avant</span>
+                                <span class="ba-label-after">Après</span>
+                            </div>
+                            <div class="ba-slider" id="ba-slider-1" data-index="4">
+                                <!-- Image APRÈS (fond, visible à droite) -->
+                                <img src="./images/immigrant-quebec/maquette_accueil_apres.png"
+                                    alt="Après — Maquette refonte page d'accueil Immigrant Québec" loading="lazy">
+                                <!-- Image AVANT (overlay, rogné à gauche) -->
+                                <div class="ba-after" id="ba-after-1">
+                                    <img src="./images/immigrant-quebec/maquette_accueil_avant.png"
+                                        alt="Avant — Page d'accueil Immigrant Québec existante" loading="lazy">
+                                </div>
+                                <!-- Poignée -->
+                                <div class="ba-handle" id="ba-handle-1">
+                                    <div class="ba-handle-btn">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 5l-5 7 5 7M16 5l5 7-5 7" stroke="#555" stroke-width="2"
+                                                fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="ba-caption">Comparaison avant / après — Page d'accueil. Glissez la poignée pour
+                                révéler la maquette.</p>
+                        </div>
+
+                        <!-- MAQUETTE 2 -->
+                        <h3 class="subsection-heading">Page de rubrique (Hub thématique)</h3>
+
+                        <p>
+                            Initialement, le site ne disposait <strong>d'aucune page de rubrique</strong> : l'accès aux
+                            grandes thématiques comme « Réussir » se résumait à un simple menu déroulant textuel,
+                            sans hiérarchie, sans repères visuels ni vue d'ensemble des contenus.
+                        </p>
+
+                        <p>
+                            Pour la refonte, j'ai conçu de toutes pièces un <strong>hub de rubrique</strong> (« Réussir
+                            son intégration & sa carrière ») : une véritable page pilier qui structure les
+                            sous-thématiques (emploi, CV & entretiens, démarches, ordres professionnels), met en avant
+                            l'article à la une et intègre des filtres pour orienter efficacement le lecteur.
+                        </p>
+
+                        <div class="ba-slider-wrapper">
+                            <div class="ba-label-row">
+                                <span class="ba-label-before">Avant (Menu seul)</span>
+                                <span class="ba-label-after">Après (Création Hub)</span>
+                            </div>
+                            <div class="ba-slider" id="ba-slider-2" data-index="5">
+                                <!-- Image APRÈS (fond, visible à droite) -->
+                                <img src="./images/immigrant-quebec/maquette_rubrique_apres.png"
+                                    alt="Après — Création du hub de rubrique Réussir son intégration & sa carrière" loading="lazy">
+                                <!-- Image AVANT (overlay, rogné à gauche) -->
+                                <div class="ba-after" id="ba-after-2">
+                                    <img src="./images/immigrant-quebec/maquette_rubrique_avant.png"
+                                        alt="Avant — Absence de page de rubrique, navigation limitée au menu déroulant" loading="lazy">
+                                </div>
+                                <div class="ba-handle" id="ba-handle-2">
+                                    <div class="ba-handle-btn">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 5l-5 7 5 7M16 5l5 7-5 7" stroke="#555" stroke-width="2"
+                                                fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="ba-caption">Comparaison avant / après — Page de rubrique. Glissez la poignée pour
+                                révéler la création de la page.</p>
+                        </div>
+
+                        <!-- MAQUETTE 3 -->
+                        <h3 class="subsection-heading">Page article</h3>
+
+                        <p>
+                            L'expérience de lecture a été repensée pour valoriser des contenus denses et souvent techniques. L'une des évolutions majeures est l'intégration d'une <strong>table des matières (TOC)</strong> interactive : elle offre une vue d'ensemble du plan, permet un repérage immédiat et facilite l'accès direct aux sections clés sans défilement fastidieux.
+                        </p>
+
+                        <p>
+                            La mise en page gagne en lisibilité grâce à une hiérarchie typographique renforcée, des métadonnées explicites (temps de lecture, date de mise à jour), des encadrés d'information bien délimités et un maillage interne contextualisé, contribuant à réduire la fatigue cognitive et à limiter le taux de rebond.
+                        </p>
+
+                        <div class="ba-slider-wrapper">
+                            <div class="ba-label-row">
+                                <span class="ba-label-before">Avant</span>
+                                <span class="ba-label-after">Après</span>
+                            </div>
+                            <div class="ba-slider" id="ba-slider-3" data-index="6">
+                                <!-- Image APRÈS (fond, visible à droite) -->
+                                <img src="./images/immigrant-quebec/maquette_article_apres.png"
+                                    alt="Après — Maquette refonte page article Immigrant Québec" loading="lazy">
+                                <!-- Image AVANT (overlay, rogné à gauche) -->
+                                <div class="ba-after" id="ba-after-3">
+                                    <img src="./images/immigrant-quebec/maquette_article_avant.png"
+                                        alt="Avant — Page article Immigrant Québec existante" loading="lazy">
+                                </div>
+                                <div class="ba-handle" id="ba-handle-3">
+                                    <div class="ba-handle-btn">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 5l-5 7 5 7M16 5l5 7-5 7" stroke="#555" stroke-width="2"
+                                                fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="ba-caption">Comparaison avant / après — Page article. Glissez la poignée pour
+                                révéler la maquette.</p>
+                        </div>
+
+                        <p style="margin-top: 36px;">
+                            Ces aperçus ne constituent que quelques exemples parmi l'ensemble des maquettes et déclinaisons produites au cours de ce projet. De l'<strong>audit stratégique de contenu</strong> jusqu'aux pistes de <strong>refonte ergonomique et visuelle</strong>, c'est avec beaucoup d'attention et de bienveillance que j'ai mené cette démarche globale. Je reste avec grand plaisir à votre disposition pour détailler la méthodologie, approfondir les choix de conception ou répondre à vos questions si nécessaire.
+                        </p>
+
+                    </section>
+
 
                 </article>
             </div>
@@ -525,6 +813,48 @@
                 ]);
             }
         });
+    </script>
+
+    <!-- Before / After Slider Script -->
+    <script>
+        (function () {
+            function initSlider(sliderId, afterId, handleId) {
+                const slider = document.getElementById(sliderId);
+                const after = document.getElementById(afterId);
+                const handle = document.getElementById(handleId);
+                if (!slider || !after || !handle) return;
+
+                let dragging = false;
+
+                function setPos(x) {
+                    const rect = slider.getBoundingClientRect();
+                    let pct = Math.min(Math.max((x - rect.left) / rect.width, 0), 1) * 100;
+                    after.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+                    handle.style.left = pct + '%';
+                    slider.classList.add('interacted');
+                }
+
+                // Initialisation à 50%
+                after.style.clipPath = 'inset(0 50% 0 0)';
+                handle.style.left = '50%';
+
+                /* Mouse */
+                slider.addEventListener('mousedown', (e) => { dragging = true; setPos(e.clientX); e.preventDefault(); });
+                window.addEventListener('mousemove', (e) => { if (dragging) setPos(e.clientX); });
+                window.addEventListener('mouseup', () => { dragging = false; });
+
+                /* Touch */
+                slider.addEventListener('touchstart', (e) => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+                window.addEventListener('touchmove', (e) => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+                window.addEventListener('touchend', () => { dragging = false; });
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                initSlider('ba-slider-1', 'ba-after-1', 'ba-handle-1');
+                initSlider('ba-slider-2', 'ba-after-2', 'ba-handle-2');
+                initSlider('ba-slider-3', 'ba-after-3', 'ba-handle-3');
+            });
+        })();
     </script>
 </body>
 
