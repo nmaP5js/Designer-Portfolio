@@ -32,51 +32,12 @@
 
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
             --highlight-color: #2e2e2e;
-            --blue-color: #388BFF;
-            --menu-z: 1000;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Faculty Glyphic', sans-serif;
-            min-height: 100vh;
-            width: 100vw;
-            overflow-x: hidden;
-            overflow-y: auto;
             display: flex;
-            position: relative;
             cursor: default;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* --- STICKERS (z-index 0 : arrière-plan) --- */
-        .stickers-container {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        /* --- VOILE DE FLOU (ENTRE STICKERS ET CONTENU TEXTE) --- */
-        .content-backdrop {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 1;
-            background-color: rgba(255, 255, 255, 0.248);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
         }
 
         /* --- LAYOUT --- */
@@ -296,7 +257,7 @@
                     <span>LinkedIn</span>
                     <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
                 </a>
-                <a href="https://github.com/nmaP5js?tab=overview&from=2025-12-01&to=2025-12-31" target="_blank"
+                <a href="https://github.com/nmaP5js" target="_blank"
                     rel="noopener noreferrer" class="shadcn-btn-outline">
                     <span>GitHub</span>
                     <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>

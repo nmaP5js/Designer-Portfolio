@@ -33,32 +33,7 @@
 
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --highlight-color: #888888;
-            --blue-color: #388BFF;
             --grid-gap: 40px;
-            --sticker-z: 0;
-            --content-z: 5;
-            --menu-z: 1000;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Faculty Glyphic', sans-serif;
-            min-height: 100vh;
-            width: 100vw;
-            overflow-x: hidden;
-            position: relative;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         /* --- LAYOUT PRINCIPAL --- */
@@ -264,26 +239,6 @@
         .cta-button:hover .cta-icon {
             opacity: 1;
             transform: translateX(4px);
-        }
-
-        /* --- STICKERS (z-index bas : en arrière-plan) --- */
-        .stickers-container {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: var(--sticker-z);
-            overflow: hidden;
-        }
-
-        /* --- VOILE DE FLOU (ENTRE STICKERS ET CONTENU TEXTE) --- */
-        .content-backdrop {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 1;
-            background-color: rgba(255, 255, 255, 0.248);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
         }
 
         /* --- RESPONSIVE --- */

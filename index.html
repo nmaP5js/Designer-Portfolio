@@ -35,36 +35,9 @@
 
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --highlight-color: #888888;
-            --blue-color: #388BFF;
             --royal-blue: #00a6fb;
             --line-color: #e0e0e0;
-            --menu-z: 1000;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Faculty Glyphic', sans-serif;
-        }
-
-        html {}
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            min-height: 100vh;
-            width: 100vw;
-            overflow-x: hidden;
-            overflow-y: auto;
-            position: relative;
-            -webkit-font-smoothing: antialiased;
-        }
-
-
 
         /* --- HERO SECTION --- */
         .hero-section {
@@ -487,7 +460,7 @@
     <!-- SECTION HERO PLEIN ÉCRAN -->
     <header class="hero-section" id="hero">
         <div class="logo-container">
-            <img src="images/Group@2x.png" alt="Nicolas Marie Angelique" class="logo-img">
+            <img src="images/Group@2x.webp" alt="Nicolas Marie Angelique" class="logo-img" fetchpriority="high">
         </div>
     </header>
 
@@ -502,28 +475,28 @@
             <div class="simple-list">
 
                 <a href="immigrantquebec.html" class="simple-item"
-                    data-preview="images/immigrant-quebec/obsidian_dataview.png">
+                    data-preview="images/immigrant-quebec/obsidian_dataview.webp">
                     <h2 class="item-title">Immigrant Québec</h2>
                     <p class="item-meta">Audit de Contenu & Refonte Web - 2026</p>
                 </a>
 
-                <a href="thalesaleniaspace.html" class="simple-item" data-preview="images/thales_alenia_space_logo.png">
+                <a href="thalesaleniaspace.html" class="simple-item" data-preview="images/thales_alenia_space_logo.webp">
                     <h2 class="item-title">Thales Alenia Space</h2>
                     <p class="item-meta">UI/UX & Systèmes Critiques - 2025</p>
                 </a>
 
-                <a href="https://nmap5js.github.io/dynamic-gallery/" class="simple-item"
-                    data-preview="images/dynamic_gallery1.png" target="_blank" rel="noopener noreferrer">
+                <a href="dynamic_gallery.html" class="simple-item"
+                    data-preview="images/dynamic_gallery1.webp">
                     <h2 class="item-title">Dynamic Gallery</h2>
                     <p class="item-meta">Collage Art Interactif - 2026</p>
                 </a>
 
-                <a href="rex_system.html" class="simple-item" data-preview="images/rex_system1.png">
+                <a href="rex_system.html" class="simple-item" data-preview="images/rex_system1.webp">
                     <h2 class="item-title">REX_System</h2>
                     <p class="item-meta">Visionneuse Média Portable - 2026</p>
                 </a>
 
-                <a href="portfolio.html" class="simple-item" data-preview="images/apercu_img.png">
+                <a href="portfolio.html" class="simple-item" data-preview="images/apercu_img.webp">
                     <h2 class="item-title">Conception Portfolio Web</h2>
                     <p class="item-meta">Conception Web - 2025</p>
                 </a>
@@ -533,7 +506,7 @@
                     <p class="item-meta">Concept Publicitaire - 2024</p>
                 </a>
 
-                <a href="enjoytheride.html" class="simple-item" data-preview="gif/LOGOSPIN.gif">
+                <a href="enjoytheride.html" class="simple-item" data-preview="gif/LOGOSPIN.webp">
                     <h2 class="item-title">Enjoy The Ride</h2>
                     <p class="item-meta">Designer Graphique - 2023</p>
                 </a>
@@ -569,7 +542,7 @@
                                 <span>LinkedIn</span>
                                 <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
                             </a>
-                            <a href="https://github.com/nmaP5js?tab=overview&from=2025-12-01&to=2025-12-31"
+                            <a href="https://github.com/nmaP5js"
                                 target="_blank" rel="noopener noreferrer" class="shadcn-btn-outline"
                                 aria-label="GitHub">
                                 <span>GitHub</span>
@@ -594,15 +567,22 @@
             const projectItems = document.querySelectorAll('.simple-item');
 
             const preloadImages = () => {
+                if (!window.matchMedia('(min-width: 901px)').matches) return;
                 projectItems.forEach(item => {
                     const src = item.getAttribute('data-preview');
                     if (src) {
                         const img = new Image();
+                        img.decoding = 'async';
                         img.src = src;
                     }
                 });
             };
-            preloadImages();
+
+            if ('requestIdleCallback' in window) {
+                window.requestIdleCallback(preloadImages, { timeout: 2500 });
+            } else {
+                window.addEventListener('load', () => setTimeout(preloadImages, 600), { once: true });
+            }
 
             projectItems.forEach(item => {
                 item.addEventListener('mouseenter', () => {

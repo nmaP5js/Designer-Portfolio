@@ -13,7 +13,7 @@
 
     const DEFAULT_CONFIG = {
         basePath: 'stickers/',
-        stickers: ['Flower1.png', 'Flower2.png', 'Flower3.png', 'Flower4.png'],
+        stickers: ['Flower1.webp', 'Flower2.webp', 'Flower3.webp', 'Flower4.webp'],
         maxStickers: 380,
         displayTime: 70000,
         stickerSize: { min: 34, max: 92 },

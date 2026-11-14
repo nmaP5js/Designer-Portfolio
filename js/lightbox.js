@@ -20,6 +20,38 @@
         const zoomBtn = document.getElementById('zoomToggleBtn');
         const closeBtn = document.getElementById('modalClose');
 
+        // Génération dynamique de la grille Bento si #galleryContainer est présent
+        const galleryContainer = document.getElementById('galleryContainer');
+        if (galleryContainer && galleryContainer.children.length === 0) {
+            const fragment = document.createDocumentFragment();
+            galleryImages.forEach((image, index) => {
+                const item = document.createElement('div');
+                item.className = 'bento-item';
+                item.dataset.index = index;
+                item.setAttribute('role', 'button');
+                item.setAttribute('tabindex', '0');
+                item.setAttribute('aria-label', `Voir ${image.alt || 'image'}`);
+                const img = document.createElement('img');
+                img.src = image.src;
+                img.alt = image.alt || '';
+                img.className = 'bento-image';
+                img.loading = 'lazy';
+                item.appendChild(img);
+                fragment.appendChild(item);
+            });
+            galleryContainer.appendChild(fragment);
+
+            galleryContainer.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    const item = e.target.closest('.bento-item');
+                    if (item) {
+                        e.preventDefault();
+                        openModal(parseInt(item.dataset.index, 10) || 0);
+                    }
+                }
+            });
+        }
+
         function generateThumbnails() {
             const thumbsContainer = document.getElementById('lightboxThumbnails');
             if (!thumbsContainer) return;
@@ -85,9 +117,9 @@
         }
 
         function openModal(index) {
-            currentIndex = index;
+            currentIndex = (index >= 0 && index < galleryImages.length) ? index : 0;
             resetZoom();
-            const image = galleryImages[index];
+            const image = galleryImages[currentIndex];
             if (!modalImg) return;
             modalImg.style.opacity = '0';
             modalImg.src = image.src;
@@ -126,13 +158,18 @@
             goToImage(nextIndex);
         }
 
-        // Event listeners
-        const galleryItems = document.querySelectorAll('.main-image, .bento-image, .secondary-image, .zoomable');
-        galleryItems.forEach((img, index) => {
-            img.style.cursor = 'pointer';
-            img.addEventListener('click', (e) => {
+        // Sélectionner les images cliquables sans doublon parent/enfant (.zoomable > img)
+        const clickableImages = document.querySelectorAll('.main-image, .bento-image, .secondary-image');
+        clickableImages.forEach((img, domIndex) => {
+            const wrapper = img.closest('.zoomable, .bento-item, .visual-main-item, .visual-grid-item');
+            const clickTarget = wrapper || img;
+            clickTarget.style.cursor = 'pointer';
+
+            clickTarget.addEventListener('click', (e) => {
                 e.stopPropagation();
-                openModal(index < galleryImages.length ? index : 0);
+                const explicitIndex = img.dataset.index ?? (wrapper && wrapper.dataset.index);
+                const resolvedIndex = explicitIndex !== undefined ? parseInt(explicitIndex, 10) : domIndex;
+                openModal(resolvedIndex);
             });
         });
 
@@ -179,6 +216,55 @@
             });
         }
 
+        // Navigation à la molette / trackpad
+        let isWheeling = false;
+        modal.addEventListener('wheel', (e) => {
+            if (!modal.classList.contains('active') || isZoomed || galleryImages.length <= 1) return;
+            e.preventDefault();
+            if (isWheeling) return;
+
+            const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+            if (Math.abs(delta) > 20) {
+                isWheeling = true;
+                navigate(delta > 0 ? 1 : -1);
+                setTimeout(() => { isWheeling = false; }, 350);
+            }
+        }, { passive: false });
+
+        // Navigation tactile (Swipe mobile / Pan quand zoomé)
+        let touchStartX = 0;
+        let isTouchPanning = false;
+        let touchPanStartX = 0, touchPanStartY = 0;
+
+        modal.addEventListener('touchstart', (e) => {
+            if (isZoomed) {
+                isTouchPanning = true;
+                touchPanStartX = e.changedTouches[0].clientX - currentPanX;
+                touchPanStartY = e.changedTouches[0].clientY - currentPanY;
+            } else {
+                isTouchPanning = false;
+                touchStartX = e.changedTouches[0].screenX;
+            }
+        }, { passive: true });
+
+        modal.addEventListener('touchmove', (e) => {
+            if (!isZoomed || !isTouchPanning) return;
+            currentPanX = e.changedTouches[0].clientX - touchPanStartX;
+            currentPanY = e.changedTouches[0].clientY - touchPanStartY;
+            applyTransform();
+        }, { passive: true });
+
+        modal.addEventListener('touchend', (e) => {
+            if (isZoomed) {
+                isTouchPanning = false;
+            } else if (galleryImages.length > 1) {
+                const diff = e.changedTouches[0].screenX - touchStartX;
+                if (Math.abs(diff) > 40) {
+                    navigate(diff < 0 ? 1 : -1);
+                }
+            }
+        }, { passive: true });
+
         modal.addEventListener('click', (e) => {
             if (e.target === modal || e.target.classList.contains('modal-content') || e.target.classList.contains('modal-image-wrapper')) closeModal();
         });
@@ -192,3 +278,4 @@
         });
     };
 })();
+
