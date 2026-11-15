@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Contactez Nicolas Marie Angélique, Designer Freelance. Formulaire de contact direct.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nicolasmarieangelique.fr/contact.html">
+    <meta property="og:title" content="Nicolas Marie Angelique - Designer UI/UX">
+    <meta property="og:description" content="Découvrez mon portfolio : Design d'interface, Branding et Recherche UX.">
+    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nicolasmarieangelique.fr/contact.html">
+    <meta property="twitter:title" content="Nicolas Marie Angelique - Designer UI/UX">
+    <meta property="twitter:description"
+        content="Découvrez mon portfolio : Design d'interface, Branding et Recherche UX.">
+    <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
+    <link rel="canonical" href="https://nicolasmarieangelique.fr/contact.html">
+
+    <link rel="icon" type="image/png" href="../stickers/sticker1.png">
+    <link rel="shortcut icon" type="image/png" href="../stickers/sticker1.png">
+    <title>Nicolas Marie Angélique - Contact</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
+    <!-- Design System CSS Centralisé -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        body {
+            display: flex;
+            cursor: default;
+        }
+
+        /* --- LAYOUT --- */
+        .container {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+            max-width: 1240px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Zone Gauche */
+        .left-panel {
+            flex: 1.4;
+            padding: 120px 48px 80px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .quote-block {
+            margin-top: 24px;
+        }
+
+        .quote-block h1 {
+            font-size: clamp(1.85rem, 3.2vw, 2.8rem);
+            font-weight: 700;
+            line-height: 1.12;
+            margin-bottom: 0;
+            color: var(--text-color);
+            letter-spacing: -0.035em;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-top: auto;
+            padding-top: 50px;
+        }
+
+        .footer-role {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--highlight-color);
+        }
+
+        /* --- PHOTO DE PROFIL --- */
+        .photo-card-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            margin-top: 0;
+        }
+
+        .photo-card {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background-color: var(--surface-1);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .direct-email-link {
+            font-family: var(--font-mono);
+            font-size: clamp(1.2rem, 2.2vw, 1.75rem);
+            font-weight: 600;
+            color: var(--blue-color);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 16px;
+            word-break: break-all;
+            transition: opacity 0.2s ease;
+        }
+
+        .direct-email-link:hover {
+            opacity: 0.85;
+        }
+
+        /* --- BOUTONS CTA STYLE TECH --- */
+        .social-links-row {
+            margin-top: 32px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .shadcn-btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background-color: var(--surface-1);
+            color: var(--text-color);
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 500;
+            padding: 10px 16px;
+            border: 1px solid var(--border-strong);
+            text-decoration: none;
+            transition: all 0.15s ease;
+            cursor: pointer;
+        }
+
+        .shadcn-btn-outline:hover {
+            background-color: var(--blue-color);
+            border-color: var(--blue-color);
+            color: #ffffff;
+        }
+
+        .shadcn-btn-outline:active {
+            transform: scale(0.98);
+        }
+
+        .shadcn-icon {
+            font-size: 15px !important;
+            opacity: 0.6;
+            transition: transform 0.15s ease, opacity 0.15s ease;
+        }
+
+        .shadcn-btn-outline:hover .shadcn-icon {
+            opacity: 1;
+            transform: translate(2px, -2px);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            body {
+                overflow-y: auto;
+                display: block;
+            }
+
+            .container {
+                flex-direction: column;
+                height: auto;
+                min-height: 100vh;
+                padding: 110px 24px 60px 24px;
+                gap: 40px;
+            }
+
+            .left-panel {
+                padding: 0;
+                flex: none;
+                gap: 32px;
+            }
+
+            .quote-block {
+                margin-top: 0;
+            }
+
+            .quote-block h1 {
+                font-size: 2.2rem;
+            }
+
+            .photo-card {
+                max-width: 220px;
+            }
+
+            .footer-info {
+                margin-top: 10px !important;
+                padding-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
+    <div class="content-backdrop" aria-hidden="true"></div>
+
+    <nav class="top-nav" aria-label="Navigation principale"></nav>
+
+    <main class="container">
+
+        <section class="left-panel">
+            <div class="photo-card-wrapper">
+                <div class="photo-card">
+                    <picture>
+                        <source srcset="../images/contact.webp" type="image/webp">
+                        <img src="../images/contact.jpg" alt="Nicolas Marie Angélique - Designer de services" width="800"
+                            height="800" loading="eager" decoding="async">
+                    </picture>
+                </div>
+            </div>
+            <div class="quote-block">
+                <h1>
+                    Mon parcours vous intéresse&nbsp;? <br>
+                    <span style="color: var(--blue-color);">Contactez-moi</span>
+                </h1>
+            </div>
+
+            <div class="direct-contact-block" style="margin-top: 40px;">
+                <a href="mailto:nmafreelance@gmail.com" class="direct-email-link">nmafreelance@gmail.com</a>
+            </div>
+
+            <div class="social-links-row" style="margin-top: 32px;">
+                <a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank" rel="noopener noreferrer"
+                    class="shadcn-btn-outline">
+                    <span>LinkedIn</span>
+                    <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
+                </a>
+                <a href="https://github.com/nmaP5js" target="_blank"
+                    rel="noopener noreferrer" class="shadcn-btn-outline">
+                    <span>GitHub</span>
+                    <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
+                </a>
+            </div>
+
+            <div class="footer-info">
+                <span>Nicolas Marie Angélique</span>
+                <span class="footer-role">Designer de services</span>
+                <a href="legals.html"
+                    style="font-size: 0.8rem; color: var(--highlight-color); text-decoration: none; margin-top: 15px; display: block;">Mentions
+                    Légales</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Stickers semi-transparents sur page de contenu -->
+    <script>window._stickersManualInit = true;</script>
+    <script src="js/stickers.js" defer></script>
+    <script>
+        window.addEventListener('load', function () {
+            window.initStickers({ finalOpacity: 0.4, clickExcludes: 'input, textarea, button, a, .top-nav, .photo-card' });
+        });
+    </script>
+
+    <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+    <script src="js/lenis-init.js"></script>
+    <script src="js/nav.js" defer></script>
+</body>
+
+</html>

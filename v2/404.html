@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Erreur 404 - Page introuvable. Retournez à l'accueil du portfolio de Nicolas Marie Angelique.">
+    <title>Page introuvable (404) - Nicolas Marie Angelique</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- Design System CSS Centralisé -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        /* --- CONTENU 404 --- */
+        .error-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            pointer-events: none;
+            /* Laisse passer les clics pour les stickers */
+        }
+
+        .error-title {
+            font-size: clamp(8rem, 20vw, 20rem);
+            /* Taille énorme adaptative */
+            font-weight: 800;
+            line-height: 0.8;
+            margin: 0;
+            letter-spacing: -0.05em;
+            color: var(--text-color);
+        }
+
+        .error-subtitle {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            margin-top: 20px;
+            margin-bottom: 40px;
+            color: var(--highlight-color);
+            max-width: 600px;
+        }
+
+        .back-button {
+            pointer-events: auto;
+            display: inline-block;
+            padding: 12px 32px;
+            border: 1px solid var(--border-strong);
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            background: var(--surface-1);
+        }
+
+        .back-button:hover {
+            background-color: var(--blue-color);
+            border-color: var(--blue-color);
+            color: #ffffff;
+        }
+
+    </style>
+    <link rel="canonical" href="https://nicolasmarieangelique.fr/404.html">
+</head>
+
+<body>
+
+    <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
+    <main class="error-content">
+        <h1 class="error-title">404</h1>
+        <p class="error-subtitle">Oups ! Cette page s'est perdue dans mes projets.</p>
+        <a href="index.html" class="back-button">Retour à l'accueil</a>
+    </main>
+
+    <script>window._stickersManualInit = true;</script>
+    <script src="js/stickers.js" defer></script>
+    <script>
+    window.addEventListener('load', function () { window.initStickers({ finalOpacity: 0.4 }); });
+    </script>
+</body>
+
+</html>

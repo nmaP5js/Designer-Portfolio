@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Audit de contenu & refonte d'Immigrant Québec par Nicolas Marie Angélique. Évaluation de 1 800+ pages, système documentaire Obsidian, pipeline d'automatisation IA et conception UI/UX.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://nicolasmarieangelique.fr/immigrantquebec.html">
+    <meta property="og:title" content="Nicolas Marie Angelique - Immigrant Québec">
+    <meta property="og:description"
+        content="Étude de cas du stage : audit stratégique de 1 817 pages, système Obsidian sur mesure, pipeline IA et prototypage web.">
+    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/immigrant-quebec/obsidian_dataview.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nicolasmarieangelique.fr/immigrantquebec.html">
+    <meta property="twitter:title" content="Nicolas Marie Angelique - Immigrant Québec">
+    <meta property="twitter:description"
+        content="Étude de cas du stage : audit stratégique de 1 817 pages, système Obsidian sur mesure, pipeline IA et prototypage web.">
+    <meta property="twitter:image"
+        content="https://nicolasmarieangelique.fr/images/immigrant-quebec/obsidian_dataview.png">
+    <link rel="canonical" href="https://nicolasmarieangelique.fr/immigrantquebec.html">
+
+    <link rel="icon" type="image/png" href="../stickers/sticker1.png">
+    <link rel="shortcut icon" type="image/png" href="../stickers/sticker1.png">
+
+    <title>Nicolas Marie Angelique - Immigrant Québec</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet">
+
+    <!-- Design System CSS Centralisé -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        /* ---- BEFORE / AFTER SLIDER ---- */
+        .ba-slider-wrapper {
+            margin: 28px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ba-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: #888888;
+        }
+
+        .ba-label-row .ba-label-before {
+            color: #c0392b;
+        }
+
+        .ba-label-row .ba-label-after {
+            color: #27ae60;
+        }
+
+        .ba-slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: #fafafa;
+            cursor: col-resize;
+            user-select: none;
+            touch-action: none;
+        }
+
+        .ba-slider img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            pointer-events: none;
+        }
+
+        /* Ratio fixé pour que les deux images s'alignent */
+        .ba-slider {
+            aspect-ratio: 3 / 8;
+        }
+
+        #ba-slider-2 {
+            aspect-ratio: 3396 / 5962;
+        }
+
+        #ba-slider-3 {
+            aspect-ratio: 3396 / 7400;
+        }
+
+        .ba-after {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            clip-path: inset(0 50% 0 0);
+            pointer-events: none;
+        }
+
+        .ba-after img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .ba-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: #ffffff;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+            pointer-events: none;
+        }
+
+        .ba-handle-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 1.5px solid rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            color: #333333;
+        }
+
+        .ba-handle-btn svg {
+            width: 18px;
+            height: 18px;
+            display: block;
+            pointer-events: none;
+        }
+
+        .ba-handle-btn svg polyline {
+            fill: none !important;
+            stroke: currentColor;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .ba-caption {
+            font-size: 0.85rem;
+            line-height: 1.45;
+            color: #71717a;
+            padding: 0 2px;
+        }
+
+        /* Hint animé au premier survol */
+        .ba-slider::after {
+            content: '‹ glisser ›';
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.35);
+            padding: 3px 10px;
+            border-radius: 20px;
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity 0.4s ease;
+        }
+
+        .ba-slider.interacted::after {
+            opacity: 0;
+        }
+
+        @media (max-width: 900px) {
+            .figures-grid-2col {
+                grid-template-columns: 1fr;
+            }
+
+            .project-grid-2col {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .right-col {
+                position: static;
+                order: initial;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="top-nav" aria-label="Navigation principale"></nav>
+
+    <nav class="projects-subnav-container" aria-label="Tous les projets"></nav>
+
+    <main class="main-content">
+        <div class="project-grid-2col">
+
+            <!-- Colonne Gauche : Article -->
+            <div class="left-col">
+
+                <!-- En-tête du projet -->
+                <header class="article-header">
+                    <span class="article-category">Stage 2026 · Immigrant Québec</span>
+
+                    <div class="header-titles">
+                        <h1>Audit de contenu & refonte</h1>
+                        <h2>Système documentaire sur mesure dans Obsidian, automatisation par pipeline IA et conception
+                            UI/UX de la future architecture web.</h2>
+                    </div>
+                </header>
+
+                <!-- Article éditorial épuré -->
+                <article class="article-body">
+
+                    <!-- PHASE 1 -->
+                    <section id="phase1">
+                        <h2 class="section-heading">Audit stratégique de contenu</h2>
+
+                        <p>
+                            J'ai conduit l'audit complet du site <a href="http://immigrantquebec.com" target="_blank"
+                                rel="noopener noreferrer">immigrantquebec.com</a> en vue de sa refonte. L'enjeu :
+                            évaluer
+                            l'intégralité des contenus du site, qualifier chaque page (conserver, archiver,
+                            fusionner, rediriger ou supprimer) et cartographier l'architecture d'information existante.
+                        </p>
+
+                        <p>
+                            Ce projet représentait un terrain d'exploration nouveau, que j'ai abordé de manière curieuse
+                            et rigoureuse. J'ai premièrement déployé un <strong>serveur WordPress en local</strong> pour
+                            disposer d'un miroir technique du site.
+                        </p>
+
+                        <h3 class="subsection-heading">Système de documentation sur mesure</h3>
+
+                        <p>
+                            J'ai conçu un environnement d'audit complet dans <strong>Obsidian</strong>, reposant sur le
+                            principe <em>« 1 note = 1 page web »</em>.
+                        </p>
+
+                        <h4 class="minor-heading">Template structuré</h4>
+
+                        <p>
+                            Chaque note suit un gabarit normalisé avec des propriétés frontmatter (statut, priorité,
+                            score SEO, date de dernière mise à jour, action à mener) et des sections d'analyse dédiées :
+                        </p>
+
+                        <ul class="article-list">
+                            <li><strong>Emplacement</strong> - Le fil d'Ariane de chaque page est reconstitué afin de
+                                situer précisément le contenu dans l'arborescence globale du site.</li>
+                            <li><strong>SEO On-Page</strong> - Les principaux indicateurs de référencement sont passés
+                                en revue : balise title, meta description, H1, attributs ALT des images,
+                                expressions-clés ciblées et maillage interne, tant sortant qu'entrant.</li>
+                            <li><strong>UX & Ergonomie</strong> - La compatibilité mobile, l'accessibilité et les
+                                éventuels points de friction sont évalués pour chaque page.</li>
+                            <li><strong>Analyse du contenu</strong> - Le contenu est examiné sous l'angle de l'intention
+                                de recherche, de sa pertinence éditoriale et de la présence d'appels à l'action.</li>
+                        </ul>
+
+                        <figure class="article-figure">
+                            <div class="figure-wrapper zoomable" data-index="0">
+                                <img src="../images/immigrant-quebec/obsidian_template.webp"
+                                    alt="Template d'audit Obsidian — Gabarit structuré avec propriétés frontmatter et sections d'analyse"
+                                    class="secondary-image" loading="lazy">
+                            </div>
+                            <figcaption class="figure-caption">Template d'audit Obsidian - Gabarit structuré avec
+                                propriétés frontmatter et sections d'analyse</figcaption>
+                        </figure>
+
+                        <h4 class="minor-heading">Vue tabulaire (Dataview)</h4>
+
+                        <p>
+                            Un tableau de bord centralise les +1 800 notes avec filtres et tri par nom, date, statut,
+                            priorité, mots-clés et URL, offrant une lecture instantanée de l'état global de l'audit.
+                        </p>
+
+                        <figure class="article-figure">
+                            <div class="figure-wrapper zoomable" data-index="1">
+                                <img src="../images/immigrant-quebec/obsidian_dataview.webp"
+                                    alt="Vue Dataview — Tableau de bord centralisant les 1 817 notes avec statut, priorité et URL"
+                                    class="main-image" loading="eager">
+                            </div>
+                            <figcaption class="figure-caption">Vue Dataview - Tableau de bord centralisant les 1 817
+                                notes avec statut, priorité et URL</figcaption>
+                        </figure>
+
+                        <h4 class="minor-heading">Vue graphique</h4>
+
+                        <p>
+                            Les graphes Obsidian reconstituent visuellement l'arborescence thématique du site : chaque
+                            cluster de nœuds représente une rubrique (Actualités, Articles, Installation & Territoire,
+                            Emploi & Économie…), révélant les zones denses, les contenus orphelins et les connexions
+                            entre thématiques.
+                        </p>
+
+                        <div class="figures-grid-2col">
+                            <figure class="article-figure">
+                                <div class="figure-wrapper zoomable" data-index="2">
+                                    <img src="../images/immigrant-quebec/obsidian_graph_clusters.webp"
+                                        alt="Vue graphique macro — Clusters thématiques du site par rubrique"
+                                        class="secondary-image" loading="lazy">
+                                </div>
+                                <figcaption class="figure-caption">Vue graphique macro - Clusters thématiques du site
+                                    par rubrique</figcaption>
+                            </figure>
+
+                            <figure class="article-figure">
+                                <div class="figure-wrapper zoomable" data-index="3">
+                                    <img src="../images/immigrant-quebec/obsidian_graph_detail.webp"
+                                        alt="Vue graphique détaillée — Arborescence de la rubrique Installation & Territoire"
+                                        class="secondary-image" loading="lazy">
+                                </div>
+                                <figcaption class="figure-caption">Vue graphique détaillée - Arborescence de la rubrique
+                                    Installation & Territoire</figcaption>
+                            </figure>
+                        </div>
+
+                        <h3 class="subsection-heading">Automatisation progressive</h3>
+
+                        <p>
+                            Le projet a démarré par une analyse manuelle, page par page. Face au volume (1 800+ pages),
+                            j'ai itéré vers une automatisation croissante :
+                        </p>
+
+                        <ol class="article-ordered-list">
+                            <li><strong>Analyse manuelle :</strong> J'ai commencé par une immersion approfondie dans le
+                                site afin de comprendre sa logique éditoriale et sa structure existante.</li>
+                            <li><strong>Script Python :</strong> Face à la répétitivité de certaines tâches, j'ai conçu
+                                un premier outil d'extraction de données en Python avec l'appui de l'IA.</li>
+                            <li><strong>Pipeline IA :</strong> Pour aller plus loin, j'ai exploré le fonctionnement des
+                                agents IA notamment Antigravity de Google et mis en place, après plusieurs
+                                itérations, un pipeline d'automatisation complet qui a considérablement
+                                accéléré le traitement.</li>
+                        </ol>
+
+                        <h3 class="subsection-heading">Impact</h3>
+
+                        <blockquote class="sober-quote">
+                            <p><strong>1 817 notes Obsidian</strong> couvrant l'intégralité du site, de 2012 à mars
+                                2026.</p>
+                        </blockquote>
+
+                        <p>
+                            Cette base documentaire a été pensée pour donner à mes responsables de projet une vision
+                            claire et actionnable lors de chaque point d'étape. Elle leur a permis de confirmer
+                            certaines hypothèses, d'en écarter d'autres et d'arbitrer les orientations stratégiques de
+                            la refonte en s'appuyant sur des données concrètes.
+                        </p>
+                    </section>
+
+                    <hr class="article-divider">
+
+                    <!-- PHASE 2 -->
+                    <section id="phase2">
+                        <h2 class="section-heading">Conception des maquettes</h2>
+
+                        <p>
+                            En parallèle de l'audit, j'ai conduit un travail de <strong>prototypage UI/UX</strong>
+                            pour projeter la future architecture du site. L'objectif : traduire les préconisations
+                            stratégiques en interfaces concrètes, testables et argumentées.
+                        </p>
+
+
+
+                        <!-- MAQUETTE 1 -->
+                        <h3 class="subsection-heading">Page d'accueil</h3>
+
+                        <p>
+                            La refonte de la page d'accueil vise à clarifier la proposition de valeur dès le
+                            premier écran, structurer les entrées thématiques et renforcer la conversion.
+                        </p>
+
+                        <div class="ba-slider-wrapper">
+                            <div class="ba-label-row">
+                                <span class="ba-label-before">Avant</span>
+                                <span class="ba-label-after">Après</span>
+                            </div>
+                            <div class="ba-slider" id="ba-slider-1">
+                                <!-- Image APRÈS (fond, visible à droite) -->
+                                <img src="../images/immigrant-quebec/maquette_accueil_apres.webp"
+                                    alt="Après — Maquette refonte page d'accueil Immigrant Québec" loading="lazy">
+                                <!-- Image AVANT (overlay, rogné à gauche) -->
+                                <div class="ba-after" id="ba-after-1">
+                                    <img src="../images/immigrant-quebec/maquette_accueil_avant.webp"
+                                        alt="Avant — Page d'accueil Immigrant Québec existante" loading="lazy">
+                                </div>
+                                <!-- Poignée -->
+                                <div class="ba-handle" id="ba-handle-1">
+                                    <div class="ba-handle-btn">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+                                            <polyline points="8 7 3 12 8 17" />
+                                            <polyline points="16 7 21 12 16 17" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="ba-caption">Comparaison avant / après — Page d'accueil. Glissez la poignée pour
+                                révéler la maquette.</p>
+                        </div>
+
+                        <!-- MAQUETTE 2 -->
+                        <h3 class="subsection-heading">Page de rubrique (Hub thématique)</h3>
+
+                        <p>
+                            Initialement, le site ne disposait <strong>d'aucune page de rubrique</strong> : l'accès aux
+                            grandes thématiques comme « Réussir » se résumait à un simple menu déroulant textuel,
+                            sans hiérarchie, sans repères visuels ni vue d'ensemble des contenus.
+                        </p>
+
+                        <p>
+                            Pour la refonte, j'ai conçu de toutes pièces un <strong>hub de rubrique</strong> (« Réussir
+                            son intégration & sa carrière ») : une véritable page pilier qui structure les
+                            sous-thématiques (emploi, CV & entretiens, démarches, ordres professionnels), met en avant
+                            l'article à la une et intègre des filtres pour orienter efficacement le lecteur.
+                        </p>
+
+                        <div class="ba-slider-wrapper">
+                            <div class="ba-label-row">
+                                <span class="ba-label-before">Avant (Menu seul)</span>
+                                <span class="ba-label-after">Après (Création Hub)</span>
+                            </div>
+                            <div class="ba-slider" id="ba-slider-2">
+                                <!-- Image APRÈS (fond, visible à droite) -->
+                                <img src="../images/immigrant-quebec/maquette_rubrique_apres.webp"
+                                    alt="Après — Création du hub de rubrique Réussir son intégration & sa carrière" loading="lazy">
+                                <!-- Image AVANT (overlay, rogné à gauche) -->
+                                <div class="ba-after" id="ba-after-2">
+                                    <img src="../images/immigrant-quebec/maquette_rubrique_avant.webp"
+                                        alt="Avant — Absence de page de rubrique, navigation limitée au menu déroulant" loading="lazy">
+                                </div>
+                                <div class="ba-handle" id="ba-handle-2">
+                                    <div class="ba-handle-btn">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+                                            <polyline points="8 7 3 12 8 17" />
+                                            <polyline points="16 7 21 12 16 17" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="ba-caption">Comparaison avant / après — Page de rubrique. Glissez la poignée pour
+                                révéler la création de la page.</p>
+                        </div>
+
+                        <!-- MAQUETTE 3 -->
+                        <h3 class="subsection-heading">Page article</h3>
+
+                        <p>
+                            L'expérience de lecture a été repensée pour valoriser des contenus denses et souvent techniques. L'une des évolutions majeures est l'intégration d'une <strong>table des matières (TOC)</strong> interactive : elle offre une vue d'ensemble du plan, permet un repérage immédiat et facilite l'accès direct aux sections clés sans défilement fastidieux.
+                        </p>
+
+                        <p>
+                            La mise en page gagne en lisibilité grâce à une hiérarchie typographique renforcée, des métadonnées explicites (temps de lecture, date de mise à jour), des encadrés d'information bien délimités et un maillage interne contextualisé, contribuant à réduire la fatigue cognitive et à limiter le taux de rebond.
+                        </p>
+
+                        <div class="ba-slider-wrapper">
+                            <div class="ba-label-row">
+                                <span class="ba-label-before">Avant</span>
+                                <span class="ba-label-after">Après</span>
+                            </div>
+                            <div class="ba-slider" id="ba-slider-3">
+                                <!-- Image APRÈS (fond, visible à droite) -->
+                                <img src="../images/immigrant-quebec/maquette_article_apres.webp"
+                                    alt="Après — Maquette refonte page article Immigrant Québec" loading="lazy">
+                                <!-- Image AVANT (overlay, rogné à gauche) -->
+                                <div class="ba-after" id="ba-after-3">
+                                    <img src="../images/immigrant-quebec/maquette_article_avant.webp"
+                                        alt="Avant — Page article Immigrant Québec existante" loading="lazy">
+                                </div>
+                                <div class="ba-handle" id="ba-handle-3">
+                                    <div class="ba-handle-btn">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+                                            <polyline points="8 7 3 12 8 17" />
+                                            <polyline points="16 7 21 12 16 17" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="ba-caption">Comparaison avant / après — Page article. Glissez la poignée pour
+                                révéler la maquette.</p>
+                        </div>
+
+                        <p style="margin-top: 36px;">
+                            Ces aperçus ne constituent que quelques exemples parmi l'ensemble des maquettes et déclinaisons produites au cours de ce projet. De l'<strong>audit stratégique de contenu</strong> jusqu'aux pistes de <strong>refonte ergonomique et visuelle</strong>, ce travail a fourni à l'équipe produit une cartographie exhaustive et des gabarits prêts pour la phase de migration technique et d'intégration WordPress.
+                        </p>
+
+                    </section>
+
+
+                </article>
+            </div>
+
+            <!-- Colonne Droite : Carte Métadonnées Collante -->
+            <aside class="right-col">
+                <div class="meta-card">
+                    <h3 class="meta-card-title">Informations du projet</h3>
+
+                    <div class="meta-list">
+                        <div class="meta-list-item">
+                            <span class="meta-label">Entreprise</span>
+                            <span class="meta-value">Immigrant Québec</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Site Web</span>
+                            <span class="meta-value">
+                                <a href="http://immigrantquebec.com" target="_blank" rel="noopener noreferrer"
+                                    style="color: inherit; text-decoration: underline;">immigrantquebec.com</a>
+                            </span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Cadre</span>
+                            <span class="meta-value">Stage 2026</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Rôle</span>
+                            <span class="meta-value">Audit de Contenu, UI/UX</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Périmètre</span>
+                            <span class="meta-value">1 817 pages (2012 - 2026)</span>
+                        </div>
+                        <div class="meta-list-item">
+                            <span class="meta-label">Outils & Stack</span>
+                            <span class="meta-value">Obsidian, Figma, WordPress, Python, IA</span>
+                        </div>
+                    </div>
+
+                    <div class="tags-container">
+                        <span class="tag-pill">UI/UX Design</span>
+                        <span class="tag-pill">Audit SEO</span>
+                        <span class="tag-pill">Obsidian</span>
+                        <span class="tag-pill">FigJam/Figma</span>
+                        <span class="tag-pill">WordPress</span>
+                        <span class="tag-pill">Python</span>
+                        <span class="tag-pill">Obsidian Dataview</span>
+                        <span class="tag-pill">Antigravity</span>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Modal Lightbox Partagé -->
+    <div class="modal" id="imageModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="lightbox-counter" id="imageCounter">01 / 04</div>
+
+        <div class="lightbox-toolbar">
+            <button class="lightbox-btn" id="zoomToggleBtn" title="Agrandir / Réduire (Clic)">
+                <span class="material-symbols-outlined" id="zoomIcon">zoom_in</span>
+            </button>
+            <button class="lightbox-btn" id="modalClose" title="Fermer (Échap)">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+
+        <div class="modal-content">
+            <div class="modal-image-wrapper">
+                <img src="" alt="" class="modal-image" id="modalImage">
+            </div>
+        </div>
+
+        <div class="lightbox-thumbnails" id="lightboxThumbnails"></div>
+    </div>
+
+    <!-- JavaScript Unifié & Lightbox -->
+    <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+    <script src="js/lenis-init.js"></script>
+    <script src="js/nav.js" defer></script>
+    <script src="js/lightbox.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.initLightbox) {
+                window.initLightbox([
+                    {
+                        src: '../images/immigrant-quebec/obsidian_template.webp',
+                        alt: 'Template d\'audit Obsidian — Gabarit structuré avec propriétés frontmatter et sections d\'analyse'
+                    },
+                    {
+                        src: '../images/immigrant-quebec/obsidian_dataview.webp',
+                        alt: 'Vue Dataview — Tableau de bord centralisant les 1 817 notes avec statut, priorité et URL'
+                    },
+                    {
+                        src: '../images/immigrant-quebec/obsidian_graph_clusters.webp',
+                        alt: 'Vue graphique macro — Clusters thématiques du site par rubrique'
+                    },
+                    {
+                        src: '../images/immigrant-quebec/obsidian_graph_detail.webp',
+                        alt: 'Vue graphique détaillée — Arborescence de la rubrique Installation & Territoire'
+                    }
+                ]);
+            }
+        });
+    </script>
+
+    <!-- Before / After Slider Script -->
+    <script>
+        (function () {
+            function initSlider(sliderId, afterId, handleId) {
+                const slider = document.getElementById(sliderId);
+                const after = document.getElementById(afterId);
+                const handle = document.getElementById(handleId);
+                if (!slider || !after || !handle) return;
+
+                let dragging = false;
+
+                function setPos(x) {
+                    const rect = slider.getBoundingClientRect();
+                    let pct = Math.min(Math.max((x - rect.left) / rect.width, 0), 1) * 100;
+                    after.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+                    handle.style.left = pct + '%';
+                    slider.classList.add('interacted');
+                }
+
+                // Initialisation à 50%
+                after.style.clipPath = 'inset(0 50% 0 0)';
+                handle.style.left = '50%';
+
+                /* Mouse */
+                slider.addEventListener('mousedown', (e) => { dragging = true; setPos(e.clientX); e.preventDefault(); });
+                window.addEventListener('mousemove', (e) => { if (dragging) setPos(e.clientX); });
+                window.addEventListener('mouseup', () => { dragging = false; });
+
+                /* Touch */
+                slider.addEventListener('touchstart', (e) => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+                window.addEventListener('touchmove', (e) => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+                window.addEventListener('touchend', () => { dragging = false; });
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                initSlider('ba-slider-1', 'ba-after-1', 'ba-handle-1');
+                initSlider('ba-slider-2', 'ba-after-2', 'ba-handle-2');
+                initSlider('ba-slider-3', 'ba-after-3', 'ba-handle-3');
+            });
+        })();
+    </script>
+</body>
+
+</html>
