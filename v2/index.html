@@ -5,26 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Portfolio de Nicolas Marie-Angélique — Product & UI/UX Designer. Conception d'interfaces critiques, recherche utilisateur, architecture d'information et workflows IA.">
+        content="Design, engineered · Nicolas Marie-Angélique — Product & UI/UX Designer. Interfaces critiques, architectures éditoriales et outils interactifs construits avec exigence et IA.">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nicolasmarieangelique.fr/">
-    <meta property="og:title" content="Nicolas Marie-Angélique — Product & UI/UX Designer">
+    <meta property="og:url" content="https://nicolasmarieangelique.fr/v2/">
+    <meta property="og:title" content="Design, engineered · Nicolas Marie-Angélique">
     <meta property="og:description"
         content="Product & UI/UX Designer : Systèmes critiques (Thales Alenia Space), Audit & Refonte Web (Immigrant Québec), Outils Web & Workflows IA.">
     <meta property="og:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://nicolasmarieangelique.fr/">
-    <meta property="twitter:title" content="Nicolas Marie-Angélique — Product & UI/UX Designer">
-    <meta property="twitter:description"
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Design, engineered · Nicolas Marie-Angélique">
+    <meta name="twitter:description"
         content="Product & UI/UX Designer : Systèmes critiques, Architecture d'information et Workflows IA.">
-    <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
-    <link rel="canonical" href="https://nicolasmarieangelique.fr/">
+    <meta name="twitter:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
+    <link rel="canonical" href="https://nicolasmarieangelique.fr/v2/">
 
     <link rel="icon" type="image/png" href="../stickers/sticker1.png">
     <link rel="shortcut icon" type="image/png" href="../stickers/sticker1.png">
 
-    <title>Nicolas Marie-Angélique — Product & UI/UX Designer</title>
+    <title>Design, engineered · Nicolas Marie-Angélique</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,592 +32,860 @@
     <link rel="stylesheet" href="css/main.css">
 
     <style>
-        /* --- LAYOUT LANDING V2 : PRODUCT DESIGNER / DARK TECH --- */
-        .v2-container {
+        /* ==========================================================================
+           LANDING PAGE — STYLE CRAFT.WILD.AS ("DESIGN, ENGINEERED · NMA")
+           ========================================================================== */
+
+        .wild-wrap {
             width: 92%;
-            max-width: 1240px;
+            max-width: 1320px;
             margin: 0 auto;
         }
 
-        /* --- HERO COMPACT & DIRECT --- */
-        .hero-v2 {
-            padding: 104px 0 48px 0;
+        /* --- 1. HERO STAGE & INTERACTIVE DITHER / CELLULAR CANVAS --- */
+        .wild-hero {
+            position: relative;
+            padding-top: 52px;
+            border-bottom: 1px solid var(--border-subtle);
+            overflow: hidden;
+        }
+
+        .wild-canvas-stage {
+            position: relative;
+            width: 100%;
+            height: clamp(320px, 46vh, 480px);
+            border-bottom: 1px solid var(--border-subtle);
+            background: var(--bg-color);
+            cursor: crosshair;
+            overflow: hidden;
+        }
+
+        #wildHeroCanvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .wild-canvas-overlay-title {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: clamp(20px, 4vw, 48px);
+            pointer-events: none;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        .wild-hero-display {
+            font-family: var(--font-serif);
+            font-size: clamp(3.8rem, 10vw, 8.6rem);
+            font-weight: 400;
+            line-height: 0.92;
+            letter-spacing: -0.03em;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        .wild-hero-display em {
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .wild-canvas-hint {
+            position: absolute;
+            top: 16px;
+            right: 28px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--highlight-color);
+            letter-spacing: 0.04em;
+            pointer-events: none;
+            background: rgba(244, 241, 234, 0.75);
+            padding: 3px 8px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* Barre d'identité sous le canvas (3 colonnes style craft.wild.as) */
+        .wild-hero-meta-bar {
+            display: grid;
+            grid-template-columns: 1fr auto 1.2fr;
+            gap: 32px;
+            align-items: baseline;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.92rem;
+        }
+
+        .wild-meta-col-left {
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+
+        .wild-meta-col-center {
+            font-family: var(--font-serif);
+            font-size: 1.65rem;
+            font-style: italic;
+            color: var(--text-color);
+            letter-spacing: -0.02em;
+        }
+
+        .wild-meta-col-right {
+            color: var(--text-color);
+            text-align: right;
+            line-height: 1.45;
+        }
+
+        /* Point de vue d'introduction ("A short point of view from us... But first, here's some work:") */
+        .wild-pov-intro {
+            padding: clamp(44px, 7vw, 84px) 0 clamp(36px, 5vw, 60px) 0;
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 48px;
+            align-items: end;
+        }
+
+        .wild-pov-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--highlight-color);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .wild-pov-eyebrow strong {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .wild-pov-lead {
+            font-family: var(--font-serif);
+            font-size: clamp(1.65rem, 2.8vw, 2.5rem);
+            line-height: 1.22;
+            letter-spacing: -0.015em;
+            color: var(--text-color);
+            max-width: 780px;
+        }
+
+        .wild-pov-lead span {
+            color: var(--text-secondary);
+        }
+
+        /* --- 2. ÉTUDES DE CAS ("Mais d'abord, voici quelques réalisations :") --- */
+        .wild-work-section {
+            padding: 12px 0 88px 0;
             border-bottom: 1px solid var(--border-subtle);
         }
 
-        .hero-v2-grid {
+        .wild-work-grid {
             display: grid;
-            grid-template-columns: 1.45fr 1fr;
-            gap: 48px;
-            align-items: start;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 44px 32px;
         }
 
-        .hero-v2-left {
+        .wild-case-card {
             display: flex;
             flex-direction: column;
-            gap: 18px;
-        }
-
-        .hero-eyebrow {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--blue-color);
-        }
-
-        .hero-headline {
-            font-size: clamp(2rem, 3.6vw, 3.1rem);
-            font-weight: 700;
-            line-height: 1.08;
-            letter-spacing: -0.035em;
+            text-decoration: none;
             color: var(--text-color);
+            group: true;
         }
 
-        .hero-lead {
-            font-size: 1.02rem;
-            line-height: 1.68;
-            color: var(--text-secondary);
-            max-width: 640px;
+        .wild-case-card.wide {
+            grid-column: span 2;
         }
 
-        .hero-lead strong {
-            color: var(--text-color);
-            font-weight: 600;
+        .wild-case-media {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background: var(--surface-1);
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+            margin-bottom: 16px;
         }
 
-        .hero-actions {
+        .wild-case-card.wide .wild-case-media {
+            aspect-ratio: 21 / 9;
+        }
+
+        .wild-case-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+        }
+
+        .wild-case-media.contain-media {
             display: flex;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 6px;
+            justify-content: center;
+            padding: 40px;
+            background: #1B2436;
         }
 
-        .btn-tech-primary {
-            display: inline-flex;
+        .wild-case-media.contain-media img {
+            width: auto;
+            height: auto;
+            max-width: 68%;
+            max-height: 72%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .wild-case-media.contain-light {
+            display: flex;
             align-items: center;
-            gap: 8px;
-            background: var(--text-color);
-            color: #09090b;
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 10px 18px;
-            border: 1px solid var(--text-color);
-            text-decoration: none;
-            transition: all 0.15s ease;
-            cursor: pointer;
-        }
-
-        .btn-tech-primary:hover {
-            background: var(--blue-color);
-            border-color: var(--blue-color);
-            color: #ffffff;
-        }
-
-        .btn-tech-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            justify-content: center;
+            padding: 36px;
             background: var(--surface-1);
-            color: var(--text-color);
+        }
+
+        .wild-case-media.contain-light img {
+            width: auto;
+            height: auto;
+            max-width: 62%;
+            max-height: 78%;
+            object-fit: contain;
+        }
+
+        .wild-case-card:hover .wild-case-media img {
+            transform: scale(1.025);
+        }
+
+        .wild-case-pill {
+            position: absolute;
+            top: 14px;
+            left: 14px;
             font-family: var(--font-mono);
-            font-size: 0.78rem;
-            font-weight: 500;
-            padding: 10px 15px;
-            border: 1px solid var(--border-strong);
-            text-decoration: none;
-            transition: all 0.15s ease;
-            cursor: pointer;
-        }
-
-        .btn-tech-secondary:hover {
-            background: var(--surface-2);
-            border-color: var(--text-secondary);
-        }
-
-        .btn-tech-ghost {
+            font-size: 0.7rem;
+            letter-spacing: 0.03em;
+            background: rgba(244, 241, 234, 0.92);
+            color: var(--text-color);
+            padding: 5px 10px;
+            border: 1px solid var(--border-subtle);
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: transparent;
-            color: var(--text-secondary);
-            font-size: 0.84rem;
-            font-weight: 500;
-            padding: 10px 14px;
-            border: 1px solid var(--border-subtle);
-            text-decoration: none;
-            transition: all 0.15s ease;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
 
-        .btn-tech-ghost:hover {
+        .wild-case-card:hover .wild-case-pill {
+            background: var(--text-color);
+            color: var(--bg-color);
+            border-color: var(--text-color);
+        }
+
+        .wild-case-index {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
             color: var(--text-color);
-            border-color: var(--border-strong);
-            background: var(--surface-1);
+            background: rgba(244, 241, 234, 0.85);
+            padding: 4px 8px;
+            border: 1px solid var(--border-subtle);
         }
 
-        /* Panneau de synthèse parcours à droite du Hero */
-        .hero-spec-panel {
-            background: var(--surface-1);
-            border: 1px solid var(--border-subtle);
-            padding: 20px 22px;
+        .wild-case-caption {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 20px;
+            align-items: baseline;
+            padding-top: 4px;
+        }
+
+        .wild-case-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--text-color);
+            transition: color 0.15s ease;
+        }
+
+        .wild-case-card:hover .wild-case-title {
+            color: var(--blue-color);
+        }
+
+        .wild-case-desc {
+            font-size: 0.95rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+        }
+
+        /* --- 3. SECTIONS ÉDITORIALES MANIFESTE (STYLE VIENNA / WILD) --- */
+        .wild-editorial-section {
+            padding: clamp(64px, 9vw, 116px) 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .wild-editorial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.45fr;
+            gap: 56px;
+            align-items: start;
+        }
+
+        .wild-section-kicker {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--highlight-color);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .wild-section-display {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 4.6vw, 4.2rem);
+            font-weight: 400;
+            line-height: 1.02;
+            letter-spacing: -0.02em;
+            color: var(--text-color);
+        }
+
+        .wild-section-display em {
+            font-style: italic;
+        }
+
+        .wild-prose {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 20px;
+            font-size: 1.05rem;
+            line-height: 1.72;
+            color: var(--text-secondary);
+            max-width: 660px;
         }
 
-        .spec-panel-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-subtle);
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--highlight-color);
+        .wild-prose strong {
+            color: var(--text-color);
+            font-weight: 600;
         }
 
-        .spec-rows {
+        /* Comparatif "Brillante pour / Impuissante pour" (Brilliant at / Hopeless at) */
+        .wild-duality-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            margin-top: 28px;
+            border: 1px solid var(--border-subtle);
+            background: var(--surface-1);
+        }
+
+        .wild-duality-col {
+            padding: 24px 26px;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
 
-        .spec-row {
+        .wild-duality-col:first-child {
+            border-right: 1px solid var(--border-subtle);
+        }
+
+        .wild-duality-label {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .wild-duality-dot {
+            width: 7px;
+            height: 7px;
+            display: inline-block;
+        }
+
+        .wild-duality-dot.brilliant {
+            background: var(--blue-color);
+        }
+
+        .wild-duality-dot.hopeless {
+            background: var(--espresso-color);
+        }
+
+        .wild-duality-text {
+            font-size: 0.94rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* --- 4. GRILLE NUMÉROTÉE 01 — 04 ("Explorer. Générer. Affiner. Systématiser.") --- */
+        .wild-steps-header {
             display: grid;
-            grid-template-columns: 52px 1fr auto;
-            align-items: baseline;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: end;
+            margin-bottom: 48px;
+        }
+
+        .wild-steps-sub {
+            font-size: 1.02rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            max-width: 520px;
+        }
+
+        .wild-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--border-subtle);
+            border-left: 1px solid var(--border-subtle);
+        }
+
+        .wild-step-card {
+            padding: 28px 24px 32px 24px;
+            border-right: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            background: var(--bg-color);
+            transition: background-color 0.2s ease;
+        }
+
+        .wild-step-card:hover {
+            background: var(--surface-1);
+        }
+
+        .wild-step-num {
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            color: var(--highlight-color);
+            letter-spacing: 0.04em;
+        }
+
+        .wild-step-title {
+            font-family: var(--font-serif);
+            font-size: 1.85rem;
+            font-weight: 400;
+            color: var(--text-color);
+            line-height: 1.1;
+        }
+
+        .wild-step-desc {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* --- 5. PROTOCOLE SYSTÈME & ARBORESCENCE (STYLE BRAND CONTEXT PROTOCOL) --- */
+        .wild-protocol-box {
+            margin-top: 44px;
+            display: grid;
+            grid-template-columns: 1.05fr 1.35fr;
+            border: 1px solid var(--border-subtle);
+            background: var(--surface-1);
+        }
+
+        .wild-protocol-tree {
+            padding: 28px 30px;
+            border-right: 1px solid var(--border-subtle);
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            line-height: 1.65;
+            color: var(--text-color);
+            background: #EAE5DA;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        .wild-protocol-parts {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wild-protocol-item {
+            padding: 22px 28px;
+            border-bottom: 1px solid var(--border-subtle);
+            display: grid;
+            grid-template-columns: 44px 1fr;
             gap: 12px;
-            font-size: 0.84rem;
-            padding-bottom: 8px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            align-items: baseline;
+            transition: background-color 0.15s ease;
         }
 
-        .spec-row:last-child {
+        .wild-protocol-item:last-child {
             border-bottom: none;
-            padding-bottom: 0;
         }
 
-        .spec-year {
+        .wild-protocol-item:hover {
+            background: var(--bg-color);
+        }
+
+        .wild-protocol-idx {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--blue-color);
+            font-weight: 500;
+        }
+
+        .wild-protocol-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 4px;
+        }
+
+        .wild-protocol-content p {
+            font-size: 0.9rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+        }
+
+        /* Niveaux L1 / L3 / L5 */
+        .wild-levels-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .wild-level-card {
+            padding: 22px;
+            background: var(--surface-1);
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .wild-level-tag {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            font-weight: 500;
+            color: var(--blue-color);
+        }
+
+        .wild-level-title {
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .wild-level-desc {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+        }
+
+        /* --- 6. LAB & EXPÉRIMENTATIONS ("The tools are everywhere. The judgment isn't.") --- */
+        .wild-experiments-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 44px;
+        }
+
+        .wild-exp-card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-subtle);
+            background: var(--surface-1);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .wild-exp-card:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-2px);
+        }
+
+        .wild-exp-thumb {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-subtle);
+            background: var(--bg-color);
+            position: relative;
+        }
+
+        .wild-exp-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .wild-exp-card:hover .wild-exp-thumb img {
+            transform: scale(1.04);
+        }
+
+        .wild-exp-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: var(--font-mono);
+            font-size: 0.66rem;
+            background: rgba(244, 241, 234, 0.92);
+            color: var(--text-color);
+            padding: 3px 8px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .wild-exp-body {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .wild-exp-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .wild-exp-desc {
+            font-size: 0.86rem;
+            line-height: 1.52;
+            color: var(--text-secondary);
+            flex: 1;
+        }
+
+        .wild-exp-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .wild-exp-tool {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--highlight-color);
+            background: var(--bg-color);
+            padding: 2px 7px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* --- 7. FOOTER "GET IN TOUCH" + MINI-JEU ARCADE ("play · 000000") --- */
+        .wild-footer {
+            padding: clamp(64px, 8vw, 108px) 0 48px 0;
+            background: var(--bg-color);
+        }
+
+        .wild-footer-top {
+            display: grid;
+            grid-template-columns: 1fr 1.45fr;
+            gap: 56px;
+            padding-bottom: 56px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .wild-contact-line {
+            margin-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-mono);
+            font-size: 0.84rem;
+            color: var(--text-color);
+        }
+
+        .wild-email-btn {
+            font-family: var(--font-mono);
+            font-size: 0.84rem;
+            color: var(--text-color);
+            background: var(--surface-1);
+            border: 1px solid var(--border-strong);
+            padding: 8px 14px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.15s ease;
+        }
+
+        .wild-email-btn:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        .wild-contact-link {
+            color: var(--text-secondary);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.15s ease;
+        }
+
+        .wild-contact-link:hover {
+            color: var(--text-color);
+        }
+
+        /* Mini-jeu d'arcade en bas de page ("play · 000000 · Game over play again") */
+        .wild-arcade-bar {
+            margin-top: 28px;
+            padding: 18px 22px;
+            background: var(--surface-1);
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .wild-arcade-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+        }
+
+        .wild-arcade-left {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .wild-play-btn {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            background: var(--text-color);
+            color: var(--bg-color);
+            border: 1px solid var(--text-color);
+            padding: 4px 12px;
+            cursor: pointer;
+            text-transform: lowercase;
+            transition: opacity 0.15s ease;
+        }
+
+        .wild-play-btn:hover {
+            opacity: 0.85;
+        }
+
+        .wild-arcade-score {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            color: var(--text-color);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .wild-arcade-status {
+            color: var(--highlight-color);
+            font-size: 0.74rem;
+        }
+
+        #wildArcadeCanvas {
+            width: 100%;
+            height: 76px;
+            display: block;
+            background: var(--bg-color);
+            border: 1px solid var(--border-subtle);
+            cursor: pointer;
+        }
+
+        .wild-footer-bottom {
+            margin-top: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
             font-family: var(--font-mono);
             font-size: 0.74rem;
             color: var(--highlight-color);
         }
 
-        .spec-company {
-            color: var(--text-color);
-            font-weight: 600;
-        }
-
-        .spec-role {
-            font-family: var(--font-mono);
-            font-size: 0.73rem;
-            color: var(--text-secondary);
-            text-align: right;
-        }
-
-        .spec-stack-bar {
-            padding-top: 10px;
-            border-top: 1px solid var(--border-subtle);
+        .wild-footer-nav {
             display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .spec-chip {
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-            background: var(--surface-2);
-            border: 1px solid var(--border-subtle);
-            padding: 3px 8px;
-        }
-
-        /* --- SECTION PROJETS & ÉTUDES DE CAS --- */
-        .projects-v2-section {
-            padding: 40px 0 88px 0;
-        }
-
-        .projects-toolbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 28px;
-        }
-
-        .projects-toolbar-left {
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-        }
-
-        .section-title-v2 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: var(--text-color);
-        }
-
-        .section-count-v2 {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--highlight-color);
-        }
-
-        .filter-tabs {
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            gap: 18px;
             flex-wrap: wrap;
         }
 
-        .filter-btn {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            background: var(--surface-1);
-            border: 1px solid var(--border-subtle);
-            padding: 6px 12px;
-            cursor: pointer;
-            transition: all 0.15s ease;
-        }
-
-        .filter-btn:hover {
-            color: var(--text-color);
-            border-color: var(--border-strong);
-        }
-
-        .filter-btn.active {
-            background: var(--blue-subtle);
-            color: var(--blue-color);
-            border-color: rgba(56, 139, 255, 0.45);
-        }
-
-        /* Grille des 2 études de cas phares (Featured) */
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        /* Grille des 6 autres projets (3 colonnes) */
-        .secondary-projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .project-card {
-            display: flex;
-            flex-direction: column;
-            background: var(--surface-1);
-            border: 1px solid var(--border-subtle);
-            text-decoration: none;
-            color: var(--text-color);
-            transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-            overflow: hidden;
-        }
-
-        .project-card:hover {
-            border-color: rgba(56, 139, 255, 0.5);
-            background: var(--surface-2);
-        }
-
-        .project-card[hidden] {
-            display: none !important;
-        }
-
-        .card-thumb-wrapper {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background: #0d0d11;
-            border-bottom: 1px solid var(--border-subtle);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card-thumb-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .project-card:hover .card-thumb-wrapper img {
-            transform: scale(1.03);
-        }
-
-        .card-thumb-wrapper.contain-logo {
-            background: radial-gradient(circle at center, #1b1b24 0%, #0d0d11 100%);
-            padding: 36px;
-        }
-
-        .card-thumb-wrapper.contain-logo img {
-            object-fit: contain;
-            max-height: 100%;
-        }
-
-        /* En-tête pour Thales Alenia Space (logo sombre sur carte) */
-        .card-thumb-wrapper.thales-surface {
-            background: #f4f4f6;
-            padding: 44px;
-        }
-
-        .card-thumb-wrapper.thales-surface img {
-            object-fit: contain;
-            max-height: 100%;
-        }
-
-        .card-badge-overlay {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            font-family: var(--font-mono);
-            font-size: 0.68rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            padding: 4px 9px;
-            background: rgba(9, 9, 11, 0.86);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            color: var(--text-color);
-            border: 1px solid var(--border-strong);
-        }
-
-        .card-body {
-            padding: 22px 24px 24px 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            flex: 1;
-        }
-
-        .card-meta-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            color: var(--highlight-color);
-        }
-
-        .card-type {
-            color: var(--blue-color);
-        }
-
-        .card-title-row {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        .card-title {
-            font-size: 1.32rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: var(--text-color);
-            line-height: 1.25;
-        }
-
-        .secondary-projects-grid .card-title {
-            font-size: 1.14rem;
-        }
-
-        .card-arrow {
-            font-size: 17px !important;
-            color: var(--highlight-color);
-            transition: transform 0.15s ease, color 0.15s ease;
-            flex-shrink: 0;
-        }
-
-        .project-card:hover .card-arrow {
-            color: var(--blue-color);
-            transform: translate(2px, -2px);
-        }
-
-        .card-desc {
-            font-size: 0.9rem;
-            line-height: 1.58;
-            color: var(--text-secondary);
-        }
-
-        .card-metrics {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            padding: 12px 0;
-            margin-top: 2px;
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .metric-box {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .metric-val {
-            font-family: var(--font-mono);
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--text-color);
-        }
-
-        .metric-lbl {
-            font-size: 0.72rem;
-            color: var(--highlight-color);
-        }
-
-        .card-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: auto;
-            padding-top: 6px;
-        }
-
-        .card-tag {
-            font-family: var(--font-mono);
-            font-size: 0.69rem;
-            color: var(--text-secondary);
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-subtle);
-            padding: 3px 8px;
-        }
-
-        /* --- FOOTER TECH COMPACT --- */
-        .footer-v2 {
-            border-top: 1px solid var(--border-subtle);
-            background: var(--surface-1);
-            padding: 48px 0 36px 0;
-        }
-
-        .footer-v2-top {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 32px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .footer-v2-cta {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .footer-v2-heading {
-            font-size: 1.4rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: var(--text-color);
-        }
-
-        .footer-v2-sub {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .footer-v2-actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .footer-v2-bottom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-            padding-top: 24px;
-            font-size: 0.8rem;
-            color: var(--highlight-color);
-        }
-
-        .footer-v2-links {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-v2-links a {
+        .wild-footer-nav a {
             color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.15s ease;
         }
 
-        .footer-v2-links a:hover {
-            color: var(--blue-color);
+        .wild-footer-nav a:hover {
+            color: var(--text-color);
+            text-decoration: underline;
         }
 
-        /* --- RESPONSIVE LANDING V2 --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
-            .secondary-projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 900px) {
-            .hero-v2 {
-                padding: 88px 0 36px 0;
+            .wild-hero-meta-bar {
+                grid-template-columns: 1fr;
+                gap: 10px;
             }
 
-            .hero-v2-grid {
+            .wild-meta-col-right {
+                text-align: left;
+            }
+
+            .wild-pov-intro,
+            .wild-editorial-grid,
+            .wild-steps-header,
+            .wild-protocol-box,
+            .wild-footer-top {
                 grid-template-columns: 1fr;
                 gap: 28px;
             }
 
-            .featured-grid {
-                grid-template-columns: 1fr;
+            .wild-protocol-tree {
+                border-right: none;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+
+            .wild-steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .wild-experiments-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (max-width: 600px) {
-            .v2-container {
-                width: 94%;
-            }
-
-            .secondary-projects-grid {
+        @media (max-width: 720px) {
+            .wild-work-grid {
                 grid-template-columns: 1fr;
             }
 
-            .card-metrics {
+            .wild-case-card.wide {
+                grid-column: span 1;
+            }
+
+            .wild-case-card.wide .wild-case-media {
+                aspect-ratio: 16 / 10;
+            }
+
+            .wild-case-caption {
                 grid-template-columns: 1fr;
                 gap: 6px;
             }
 
-            .metric-box {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: baseline;
+            .wild-duality-grid,
+            .wild-steps-grid,
+            .wild-levels-row,
+            .wild-experiments-grid {
+                grid-template-columns: 1fr;
             }
 
-            .spec-row {
-                grid-template-columns: 44px 1fr;
-            }
-
-            .spec-role {
-                grid-column: 2;
-                text-align: left;
+            .wild-duality-col:first-child {
+                border-right: none;
+                border-bottom: 1px solid var(--border-subtle);
             }
         }
     </style>
@@ -628,418 +895,841 @@
 
     <nav class="top-nav" aria-label="Navigation principale"></nav>
 
-    <!-- HERO COMPACT : PROPOSITION DE VALEUR, PARCOURS & ACTIONS DIRECTES -->
-    <header class="hero-v2" id="hero">
-        <div class="v2-container hero-v2-grid">
+    <!-- 1. HERO STAGE : GRILLE INTERACTIVE CELL / BRUSH + "DESIGN, ENGINEERED." -->
+    <header class="wild-hero" id="hero">
+        <div class="wild-canvas-stage" id="wildCanvasStage">
+            <canvas id="wildHeroCanvas" aria-label="Surface générative interactive Cell et Brush"></canvas>
+            <span class="wild-canvas-hint">Déplacez le curseur · Cell L/M/S · Brush L/M/S</span>
+            <div class="wild-canvas-overlay-title">
+                <h1 class="wild-hero-display">Design, <em>engineered.</em></h1>
+            </div>
+        </div>
 
-            <div class="hero-v2-left">
-                <span class="hero-eyebrow">Product &amp; UI/UX Designer · Systèmes Complexes &amp; IA</span>
-                <h1 class="hero-headline">
-                    Concevoir des interfaces claires pour des systèmes critiques et métiers.
-                </h1>
-                <p class="hero-lead">
-                    Je structure des <strong>architectures d'information denses</strong>, conduis la <strong>recherche utilisateur</strong> et prototype des produits numériques à fort impact — de l'industrie spatiale (<strong>Thales Alenia Space</strong>) aux médias spécialisés (<strong>Immigrant Québec</strong>), avec des workflows augmentés par le code et l'IA.
-                </p>
-
-                <div class="hero-actions">
-                    <a href="mailto:nmafreelance@gmail.com" class="btn-tech-primary">
-                        <span>Me contacter</span>
-                        <span class="material-symbols-outlined" style="font-size: 17px;">arrow_outward</span>
-                    </a>
-                    <button type="button" class="btn-tech-secondary" id="copyEmailBtn" data-email="nmafreelance@gmail.com">
-                        <span class="material-symbols-outlined" style="font-size: 16px;" id="copyEmailIcon">content_copy</span>
-                        <span id="copyEmailText">nmafreelance@gmail.com</span>
-                    </button>
-                    <a href="about.html" class="btn-tech-ghost">Parcours &amp; Compétences</a>
-                    <a href="https://github.com/nmaP5js" target="_blank" rel="noopener noreferrer" class="btn-tech-ghost">GitHub ↗</a>
+        <div class="wild-wrap">
+            <div class="wild-hero-meta-bar">
+                <div class="wild-meta-col-left">
+                    Partenaire design &amp; technologie pour systèmes critiques et marques modernes
+                </div>
+                <div class="wild-meta-col-center">
+                    nma
+                </div>
+                <div class="wild-meta-col-right">
+                    Interfaces métiers, architectures d'information et outils interactifs, construits avec exigence et IA.
                 </div>
             </div>
 
-            <aside class="hero-spec-panel" aria-label="Synthèse du parcours">
-                <div class="spec-panel-header">
-                    <span>Expérience &amp; Périmètre</span>
-                    <span>FR / CA</span>
+            <div class="wild-pov-intro">
+                <div class="wild-pov-eyebrow">
+                    <span>Point de vue &amp; Portfolio</span>
+                    <strong>Nicolas Marie-Angélique · Product &amp; UI/UX</strong>
                 </div>
-                <div class="spec-rows">
-                    <div class="spec-row">
-                        <span class="spec-year">2026</span>
-                        <span class="spec-company">Immigrant Québec</span>
-                        <span class="spec-role">Audit Contenu &amp; UI/UX</span>
-                    </div>
-                    <div class="spec-row">
-                        <span class="spec-year">2025</span>
-                        <span class="spec-company">Thales Alenia Space</span>
-                        <span class="spec-role">UI/UX Systèmes Sol</span>
-                    </div>
-                    <div class="spec-row">
-                        <span class="spec-year">2024</span>
-                        <span class="spec-company">Label Expérience</span>
-                        <span class="spec-role">UI &amp; Direction Artistique</span>
-                    </div>
-                    <div class="spec-row">
-                        <span class="spec-year">2023</span>
-                        <span class="spec-company">Musée de l'Automobile</span>
-                        <span class="spec-role">UI/UX &amp; Game Design</span>
-                    </div>
-                </div>
-                <div class="spec-stack-bar" aria-label="Outils principaux">
-                    <span class="spec-chip">Figma</span>
-                    <span class="spec-chip">Design Systems</span>
-                    <span class="spec-chip">UX Research</span>
-                    <span class="spec-chip">Obsidian</span>
-                    <span class="spec-chip">HTML/CSS/JS</span>
-                    <span class="spec-chip">Python &amp; Agents IA</span>
-                </div>
-            </aside>
-
+                <p class="wild-pov-lead">
+                    Un court point de vue sur ce qui a réellement changé dans ma façon de concevoir des interfaces — et sur les fondamentaux qui n'ont pas changé du tout. <span>Mais d'abord, voici quelques réalisations :</span>
+                </p>
+            </div>
         </div>
     </header>
 
-    <!-- SECTION ÉTUDES DE CAS & PROJETS SÉLECTIONNÉS (VISIBLE DÈS LE 1ER ÉCRAN) -->
-    <main class="projects-v2-section" id="projects" aria-label="Études de cas et projets sélectionnés">
-        <div class="v2-container">
+    <!-- 2. SÉLECTION D'ÉTUDES DE CAS ("Here's some work:") -->
+    <main class="wild-work-section" id="projects" aria-label="Études de cas sélectionnées">
+        <div class="wild-wrap">
+            <div class="wild-work-grid">
 
-            <div class="projects-toolbar">
-                <div class="projects-toolbar-left">
-                    <h2 class="section-title-v2">Études de cas &amp; Réalisations</h2>
-                    <span class="section-count-v2" id="projectsCountLabel">08 PROJETS</span>
-                </div>
-
-                <div class="filter-tabs" role="tablist" aria-label="Filtrer les projets par domaine">
-                    <button type="button" class="filter-btn active" data-filter="all">Tous (8)</button>
-                    <button type="button" class="filter-btn" data-filter="product">Product &amp; UX (4)</button>
-                    <button type="button" class="filter-btn" data-filter="tools">Outils &amp; Code (2)</button>
-                    <button type="button" class="filter-btn" data-filter="3d">3D &amp; Identité (2)</button>
-                </div>
-            </div>
-
-            <!-- 2 ÉTUDES DE CAS PHARES (FEATURED) -->
-            <div class="featured-grid" id="featuredGrid">
-
-                <!-- 1. IMMIGRANT QUÉBEC -->
-                <a href="immigrantquebec.html" class="project-card" data-category="product">
-                    <div class="card-thumb-wrapper">
+                <!-- 01. IMMIGRANT QUÉBEC (WIDE FEATURE) -->
+                <a href="immigrantquebec.html" class="wild-case-card wide">
+                    <div class="wild-case-media">
                         <img src="../images/immigrant-quebec/obsidian_dataview.webp"
                             alt="Immigrant Québec — Système d'audit Obsidian Dataview et refonte UI/UX"
                             fetchpriority="high">
-                        <span class="card-badge-overlay">Étude de cas phare</span>
+                        <span class="wild-case-pill">Voir l'étude de cas →</span>
+                        <span class="wild-case-index">W / 01 · 2026</span>
                     </div>
-                    <div class="card-body">
-                        <div class="card-meta-row">
-                            <span class="card-type">PRODUCT &amp; ARCHITECTURE D'INFORMATION</span>
-                            <span>2026</span>
-                        </div>
-                        <div class="card-title-row">
-                            <h3 class="card-title">Immigrant Québec — Audit &amp; Refonte Web</h3>
-                            <span class="material-symbols-outlined card-arrow" aria-hidden="true">arrow_outward</span>
-                        </div>
-                        <p class="card-desc">
-                            Conception d'un système documentaire sur mesure dans Obsidian, automatisation de l'audit SEO/UX par pipeline Python &amp; IA, et prototypage haute fidélité de la nouvelle architecture éditoriale.
+                    <div class="wild-case-caption">
+                        <h2 class="wild-case-title">Immigrant Québec</h2>
+                        <p class="wild-case-desc">
+                            Audit stratégique de 1 817 pages, conception d'un système documentaire sur mesure dans Obsidian, pipeline d'automatisation Python/IA et refonte UI/UX complète du média.
                         </p>
-                        <div class="card-metrics">
-                            <div class="metric-box">
-                                <span class="metric-val">1 817 pages</span>
-                                <span class="metric-lbl">Auditées (2012–2026)</span>
-                            </div>
-                            <div class="metric-box">
-                                <span class="metric-val">Pipeline IA</span>
-                                <span class="metric-lbl">Python + Obsidian</span>
-                            </div>
-                            <div class="metric-box">
-                                <span class="metric-val">3 gabarits clés</span>
-                                <span class="metric-lbl">Accueil, Hub, Article</span>
-                            </div>
-                        </div>
-                        <div class="card-tags">
-                            <span class="card-tag">UI/UX Design</span>
-                            <span class="card-tag">Audit SEO</span>
-                            <span class="card-tag">Obsidian Dataview</span>
-                            <span class="card-tag">Figma</span>
-                            <span class="card-tag">Python / IA</span>
-                        </div>
                     </div>
                 </a>
 
-                <!-- 2. THALES ALENIA SPACE -->
-                <a href="thalesaleniaspace.html" class="project-card" data-category="product">
-                    <div class="card-thumb-wrapper thales-surface">
+                <!-- 02. THALES ALENIA SPACE -->
+                <a href="thalesaleniaspace.html" class="wild-case-card">
+                    <div class="wild-case-media contain-media">
                         <img src="../images/thales_alenia_space_logo.webp"
                             alt="Thales Alenia Space — Systèmes critiques et IHM spatiales"
                             fetchpriority="high">
-                        <span class="card-badge-overlay">Étude de cas phare</span>
+                        <span class="wild-case-pill">Voir l'étude de cas →</span>
+                        <span class="wild-case-index">W / 02 · 2025</span>
                     </div>
-                    <div class="card-body">
-                        <div class="card-meta-row">
-                            <span class="card-type">SYSTÈMES CRITIQUES &amp; UX RESEARCH</span>
-                            <span>2025</span>
-                        </div>
-                        <div class="card-title-row">
-                            <h3 class="card-title">Thales Alenia Space — Systèmes Sol &amp; IHM</h3>
-                            <span class="material-symbols-outlined card-arrow" aria-hidden="true">arrow_outward</span>
-                        </div>
-                        <p class="card-desc">
-                            Recherche utilisateur, ateliers collaboratifs, alignement sémantique d'alarmes satellites (SCC) et conception d'un démonstrateur IA Edge Computing présenté au Salon du Bourget.
+                    <div class="wild-case-caption">
+                        <h2 class="wild-case-title">Thales Alenia Space</h2>
+                        <p class="wild-case-desc">
+                            La même précision que les systèmes orbitaux : recherche utilisateur, alignement sémantique d'alarmes satellites (SCC) et démonstrateur IA Edge Computing présenté au Salon du Bourget.
                         </p>
-                        <div class="card-metrics">
-                            <div class="metric-box">
-                                <span class="metric-val">12 satellites</span>
-                                <span class="metric-lbl">Télémétrie simultanée</span>
-                            </div>
-                            <div class="metric-box">
-                                <span class="metric-val">Agile SAFe</span>
-                                <span class="metric-lbl">Design System Fusion</span>
-                            </div>
-                            <div class="metric-box">
-                                <span class="metric-val">PoC IA Bourget</span>
-                                <span class="metric-lbl">Carte AMD VEK280</span>
-                            </div>
-                        </div>
-                        <div class="card-tags">
-                            <span class="card-tag">Systèmes Critiques</span>
-                            <span class="card-tag">UX Research</span>
-                            <span class="card-tag">Figma</span>
-                            <span class="card-tag">Design System</span>
-                            <span class="card-tag">SAFe / Jira</span>
-                        </div>
+                    </div>
+                </a>
+
+                <!-- 03. DYNAMIC GALLERY -->
+                <a href="dynamic_gallery.html" class="wild-case-card">
+                    <div class="wild-case-media">
+                        <img src="../images/dynamic_gallery1.webp"
+                            alt="Dynamic Gallery — Moodboard et collage mathématique 2D/3D"
+                            loading="lazy">
+                        <span class="wild-case-pill">Voir l'étude de cas →</span>
+                        <span class="wild-case-index">W / 03 · 2026</span>
+                    </div>
+                    <div class="wild-case-caption">
+                        <h2 class="wild-case-title">Dynamic Gallery</h2>
+                        <p class="wild-case-desc">
+                            Un outil web de moodboard transformant des équations paramétriques (Lissajous, Fibonacci, Lorenz) en collages interactifs 2D/3D avec export haute définition.
+                        </p>
+                    </div>
+                </a>
+
+                <!-- 04. REX_SYSTEM -->
+                <a href="rex_system.html" class="wild-case-card">
+                    <div class="wild-case-media">
+                        <img src="../images/rex_system1.webp"
+                            alt="REX_System — Visionneuse média autonome hors-ligne"
+                            loading="lazy">
+                        <span class="wild-case-pill">Voir l'étude de cas →</span>
+                        <span class="wild-case-index">W / 04 · 2026</span>
+                    </div>
+                    <div class="wild-case-caption">
+                        <h2 class="wild-case-title">REX_System</h2>
+                        <p class="wild-case-desc">
+                            Une visionneuse de médias portable compilée en un unique fichier HTML autonome, conçue pour tourner 100 % hors-ligne sur supports externes sécurisés.
+                        </p>
+                    </div>
+                </a>
+
+                <!-- 05. ENJOY THE RIDE -->
+                <a href="enjoytheride.html" class="wild-case-card">
+                    <div class="wild-case-media contain-light">
+                        <img src="../gif/LOGOSPIN.webp"
+                            alt="Enjoy The Ride — Identité, UI/UX et Game Design"
+                            loading="lazy">
+                        <span class="wild-case-pill">Voir l'étude de cas →</span>
+                        <span class="wild-case-index">W / 05 · 2023</span>
+                    </div>
+                    <div class="wild-case-caption">
+                        <h2 class="wild-case-title">Enjoy The Ride</h2>
+                        <p class="wild-case-desc">
+                            Identité visuelle, interface UI/UX et game design d'une expérience rétro-gaming interactive pour le Musée National de l'Automobile.
+                        </p>
+                    </div>
+                </a>
+
+                <!-- 06. TRINITY RING CARTIER -->
+                <a href="trinityringcartier.html" class="wild-case-card">
+                    <div class="wild-case-media">
+                        <img src="../images/ring3.webp"
+                            alt="Trinity Ring — Concept publicitaire 3D Cartier"
+                            loading="lazy">
+                        <span class="wild-case-pill">Voir l'étude de cas →</span>
+                        <span class="wild-case-index">W / 06 · 2024</span>
+                    </div>
+                    <div class="wild-case-caption">
+                        <h2 class="wild-case-title">Trinity Ring — Cartier</h2>
+                        <p class="wild-case-desc">
+                            Direction artistique et réalisation sous Blender d'un film publicitaire 3D mettant en scène l'entrelacement des trois anneaux par un éclairage studio minimaliste.
+                        </p>
+                    </div>
+                </a>
+
+                <!-- 07. CGI VISUAL ARCHIVE -->
+                <a href="cgivisual.html" class="wild-case-card">
+                    <div class="wild-case-media">
+                        <img src="../images/cgi_1.webp"
+                            alt="CGI Visual — Laboratoire 3D et shaders"
+                            loading="lazy">
+                        <span class="wild-case-pill">Voir l'étude de cas →</span>
+                        <span class="wild-case-index">W / 07 · 2023</span>
+                    </div>
+                    <div class="wild-case-caption">
+                        <h2 class="wild-case-title">CGI Visual Archive</h2>
+                        <p class="wild-case-desc">
+                            Une exploration de 13 scènes 3D autour des matériaux procéduraux, de la topologie et de la lumière photographique sous Blender.
+                        </p>
                     </div>
                 </a>
 
             </div>
-
-            <!-- 6 AUTRES PROJETS (GRILLE 3 COLONNES) -->
-            <div class="secondary-projects-grid" id="secondaryGrid">
-
-                <!-- 3. DYNAMIC GALLERY -->
-                <a href="dynamic_gallery.html" class="project-card" data-category="tools">
-                    <div class="card-thumb-wrapper">
-                        <img src="../images/dynamic_gallery1.webp" alt="Dynamic Gallery — Outil de moodboard et collage 3D interactif" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-meta-row">
-                            <span class="card-type">OUTIL WEB &amp; CRÉATIF</span>
-                            <span>2026</span>
-                        </div>
-                        <div class="card-title-row">
-                            <h3 class="card-title">Dynamic Gallery</h3>
-                            <span class="material-symbols-outlined card-arrow" aria-hidden="true">arrow_outward</span>
-                        </div>
-                        <p class="card-desc">
-                            Application web de moodboard et collage animé selon 11 formules mathématiques 2D/3D, avec persistance locale IndexedDB et export PNG 2x.
-                        </p>
-                        <div class="card-tags">
-                            <span class="card-tag">Vanilla JS</span>
-                            <span class="card-tag">IndexedDB</span>
-                            <span class="card-tag">CSS3 3D</span>
-                            <span class="card-tag">Open Source</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- 4. REX_SYSTEM -->
-                <a href="rex_system.html" class="project-card" data-category="tools">
-                    <div class="card-thumb-wrapper">
-                        <img src="../images/rex_system1.webp" alt="REX_System — Visionneuse de médias autonome" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-meta-row">
-                            <span class="card-type">OUTIL STANDALONE</span>
-                            <span>2026</span>
-                        </div>
-                        <div class="card-title-row">
-                            <h3 class="card-title">REX_System</h3>
-                            <span class="material-symbols-outlined card-arrow" aria-hidden="true">arrow_outward</span>
-                        </div>
-                        <p class="card-desc">
-                            Visionneuse de médias portable et sécurisée compilée en un unique fichier HTML autonome, fonctionnant 100 % hors-ligne sur supports externes.
-                        </p>
-                        <div class="card-tags">
-                            <span class="card-tag">Standalone HTML</span>
-                            <span class="card-tag">Zero Dépendance</span>
-                            <span class="card-tag">Hors-ligne</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- 5. DESIGNER PORTFOLIO -->
-                <a href="portfolio.html" class="project-card" data-category="product">
-                    <div class="card-thumb-wrapper">
-                        <img src="../images/apercu_img.webp" alt="Architecture et conception du portfolio web" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-meta-row">
-                            <span class="card-type">DESIGN SYSTEM &amp; IA</span>
-                            <span>2025</span>
-                        </div>
-                        <div class="card-title-row">
-                            <h3 class="card-title">Conception Portfolio Web</h3>
-                            <span class="material-symbols-outlined card-arrow" aria-hidden="true">arrow_outward</span>
-                        </div>
-                        <p class="card-desc">
-                            Conception et développement itératif d'un portfolio ultra-léger en HTML/CSS/JS natif, co-conçu via un workflow assisté par agents IA.
-                        </p>
-                        <div class="card-tags">
-                            <span class="card-tag">Design System</span>
-                            <span class="card-tag">Performance Web</span>
-                            <span class="card-tag">AI Workflow</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- 6. ENJOY THE RIDE -->
-                <a href="enjoytheride.html" class="project-card" data-category="product">
-                    <div class="card-thumb-wrapper contain-logo">
-                        <img src="../gif/LOGOSPIN.webp" alt="Enjoy The Ride — Identité, UI/UX et Game Design" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-meta-row">
-                            <span class="card-type">UI/UX &amp; GAME DESIGN</span>
-                            <span>2023</span>
-                        </div>
-                        <div class="card-title-row">
-                            <h3 class="card-title">Enjoy The Ride</h3>
-                            <span class="material-symbols-outlined card-arrow" aria-hidden="true">arrow_outward</span>
-                        </div>
-                        <p class="card-desc">
-                            Conception d'un jeu promotionnel interactif, de son interface UI/UX et de l'identité visuelle du festival au Musée National de l'Automobile.
-                        </p>
-                        <div class="card-tags">
-                            <span class="card-tag">UI/UX Design</span>
-                            <span class="card-tag">Game Design</span>
-                            <span class="card-tag">Identité Visuelle</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- 7. TRINITY RING CARTIER -->
-                <a href="trinityringcartier.html" class="project-card" data-category="3d">
-                    <div class="card-thumb-wrapper">
-                        <img src="../images/ring3.webp" alt="Trinity Ring — Concept publicitaire 3D Cartier" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-meta-row">
-                            <span class="card-type">DIRECTION ARTISTIQUE 3D</span>
-                            <span>2024</span>
-                        </div>
-                        <div class="card-title-row">
-                            <h3 class="card-title">Trinity Ring — Cartier</h3>
-                            <span class="material-symbols-outlined card-arrow" aria-hidden="true">arrow_outward</span>
-                        </div>
-                        <p class="card-desc">
-                            Réalisation sous Blender d'un film publicitaire 3D alternatif mettant en scène la bague Trinity par un travail d'éclairage studio et de mouvement.
-                        </p>
-                        <div class="card-tags">
-                            <span class="card-tag">Blender</span>
-                            <span class="card-tag">Animation 3D</span>
-                            <span class="card-tag">Direction Artistique</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- 8. CGI VISUAL -->
-                <a href="cgivisual.html" class="project-card" data-category="3d">
-                    <div class="card-thumb-wrapper">
-                        <img src="../images/cgi_1.webp" alt="CGI Visual — Laboratoire et galerie 3D" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-meta-row">
-                            <span class="card-type">LABORATOIRE 3D &amp; RENDUS</span>
-                            <span>2023</span>
-                        </div>
-                        <div class="card-title-row">
-                            <h3 class="card-title">CGI Visual Archive</h3>
-                            <span class="material-symbols-outlined card-arrow" aria-hidden="true">arrow_outward</span>
-                        </div>
-                        <p class="card-desc">
-                            Sélection de 13 travaux de modélisation, texturing procédural, éclairage et composition 3D réalisés sous Blender.
-                        </p>
-                        <div class="card-tags">
-                            <span class="card-tag">CGI</span>
-                            <span class="card-tag">Lighting</span>
-                            <span class="card-tag">Shaders</span>
-                        </div>
-                    </div>
-                </a>
-
-            </div>
-
         </div>
     </main>
 
-    <!-- FOOTER TECH DIRECT -->
-    <footer class="footer-v2" aria-label="Pied de page">
-        <div class="v2-container">
-            <div class="footer-v2-top">
-                <div class="footer-v2-cta">
-                    <h2 class="footer-v2-heading">Un projet produit, UX ou système complexe ?</h2>
-                    <p class="footer-v2-sub">Disponible pour échanger sur vos enjeux d'interface, d'architecture d'information et de prototypage.</p>
+    <!-- 3. MANIFESTE 01 : "Formé entre art, code et industrie, là où le design est une discipline." -->
+    <section class="wild-editorial-section" id="origin">
+        <div class="wild-wrap wild-editorial-grid">
+            <div>
+                <span class="wild-section-kicker">D'où je viens</span>
+                <h2 class="wild-section-display">
+                    Formé entre art, code et industrie, <em>là où le design est une discipline.</em>
+                </h2>
+            </div>
+            <div class="wild-prose">
+                <p>
+                    En 1903, la Wiener Werkstätte réunissait artistes, architectes et artisans sous un même toit. Mobilier, typographie, objets techniques : tout répondait au même niveau d'exigence.
+                </p>
+                <p>
+                    Leur idée était simple jusqu'à l'obstination : <strong>les outils que l'on utilise tous les jours méritent autant de soin que les œuvres exposées dans une galerie.</strong> C'est exactement avec cette conviction que j'aborde le Product Design — qu'il s'agisse d'un poste de contrôle satellite chez <strong>Thales Alenia Space</strong> ou d'un guide éditorial consulté par des milliers de lecteurs chez <strong>Immigrant Québec</strong>.
+                </p>
+                <p>
+                    Du DNMADE Numérique au Master Design d'interfaces à Toulouse, j'ai gardé la fabrication au plus près de la conception : un même regard pour observer le terrain, structurer l'architecture d'information, et écrire le code qui donne vie au prototype.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. MANIFESTE 02 : "L'IA est excellente partout, sauf sur les 10 derniers pourcents." -->
+    <section class="wild-editorial-section" id="point-of-view">
+        <div class="wild-wrap wild-editorial-grid">
+            <div>
+                <span class="wild-section-kicker">Ce qui a changé</span>
+                <h2 class="wild-section-display">
+                    L'IA est excellente partout, <em>sauf sur les 10 derniers pourcents.</em>
+                </h2>
+            </div>
+            <div class="wild-prose">
+                <p>
+                    Les outils sont devenus redoutables, et tout le monde possède les mêmes. Un premier jet, dix variations de maquettes, un script fonctionnel : ce qui prenait une semaine se construit désormais en un après-midi.
+                </p>
+                <p>
+                    C'est précisément pourquoi <strong>produire du volume n'est plus la partie difficile</strong>. Demandez à une IA de concevoir une page à partir d'une feuille blanche : elle vous rendra la moyenne statistique de tout ce qu'elle a déjà vu. Compétent en apparence, et instantanément oubliable.
+                </p>
+
+                <div class="wild-duality-grid">
+                    <div class="wild-duality-col">
+                        <span class="wild-duality-label">
+                            <span class="wild-duality-dot brilliant" aria-hidden="true"></span>
+                            Brillante pour
+                        </span>
+                        <p class="wild-duality-text">
+                            Produire rapidement une première base, auditer 1 800 URL par script et mettre un prototype interactif entre les mains des utilisateurs en quelques heures.
+                        </p>
+                    </div>
+                    <div class="wild-duality-col">
+                        <span class="wild-duality-label">
+                            <span class="wild-duality-dot hopeless" aria-hidden="true"></span>
+                            Impuissante pour
+                        </span>
+                        <p class="wild-duality-text">
+                            Savoir laquelle de ces dix versions est réellement juste pour un opérateur sous pression, et avoir la rigueur de jeter tout le reste.
+                        </p>
+                    </div>
                 </div>
-                <div class="footer-v2-actions">
-                    <a href="mailto:nmafreelance@gmail.com" class="btn-tech-primary">
-                        <span>nmafreelance@gmail.com</span>
-                        <span class="material-symbols-outlined" style="font-size: 16px;">arrow_outward</span>
-                    </a>
-                    <a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank" rel="noopener noreferrer" class="btn-tech-ghost">LinkedIn ↗</a>
-                    <a href="https://github.com/nmaP5js" target="_blank" rel="noopener noreferrer" class="btn-tech-ghost">GitHub ↗</a>
+
+                <p>
+                    Et c'est dans ces dix derniers pourcents que réside le vrai travail de designer. Ils demandent toujours 90 % de l'effort — et c'est la partie que l'on doit faire soi-même.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. MÉTHODE 01—04 : "Explorer. Générer. Affiner. Systématiser." -->
+    <section class="wild-editorial-section" id="method">
+        <div class="wild-wrap">
+            <div class="wild-steps-header">
+                <div>
+                    <span class="wild-section-kicker">Processus de conception</span>
+                    <h2 class="wild-section-display">
+                        Explorer. Générer.<br><em>Affiner. Systématiser.</em>
+                    </h2>
+                </div>
+                <p class="wild-steps-sub">
+                    La machine multiplie les pistes, le designer prend les décisions. En pratique, cela représente environ 60 % d'exploration et de recherche terrain, 20 % de génération et prototypage, et 20 % d'affinage systémique.
+                </p>
+            </div>
+
+            <div class="wild-steps-grid">
+                <div class="wild-step-card">
+                    <span class="wild-step-num">01</span>
+                    <h3 class="wild-step-title">Explorer</h3>
+                    <p class="wild-step-desc">
+                        Aller plus loin et plus vite : entretiens utilisateurs, cartographie métier et prototypage d'interactions réelles en code, pas seulement des écrans statiques.
+                    </p>
+                </div>
+                <div class="wild-step-card">
+                    <span class="wild-step-num">02</span>
+                    <h3 class="wild-step-title">Générer</h3>
+                    <p class="wild-step-desc">
+                        La première piste est rarement la bonne : j'itère entre Figma, scripts Python et composants web en affinant le contexte jusqu'à ce que l'interface tombe juste.
+                    </p>
+                </div>
+                <div class="wild-step-card">
+                    <span class="wild-step-num">03</span>
+                    <h3 class="wild-step-title">Affiner</h3>
+                    <p class="wild-step-desc">
+                        Conserver ce qui fonctionne, corriger chaque friction cognitive, hiérarchiser la typographie et pousser le souci du détail jusqu'au bout.
+                    </p>
+                </div>
+                <div class="wild-step-card">
+                    <span class="wild-step-num">04</span>
+                    <h3 class="wild-step-title">Systématiser</h3>
+                    <p class="wild-step-desc">
+                        Dès qu'une solution fait ses preuves, elle devient un Design System ou une base documentaire réutilisable par toute l'équipe.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ARCHITECTURE DOCUMENTAIRE & IA ("Le Protocole de Contexte Produit") -->
+    <section class="wild-editorial-section" id="protocol">
+        <div class="wild-wrap">
+            <div class="wild-editorial-grid">
+                <div>
+                    <span class="wild-section-kicker">Rendre un produit lisible par l'humain et l'IA</span>
+                    <h2 class="wild-section-display">
+                        Le Protocole de <em>Contexte Produit.</em>
+                    </h2>
+                </div>
+                <div class="wild-prose">
+                    <p>
+                        Chaque projet complexe sur lequel j'interviens repose sur une <strong>source unique de vérité</strong> : une architecture en fichiers Markdown versionnés (Obsidian / Git) reliée à Figma, écrite pour qu'un humain comme un agent IA puissent raisonner dessus sans perdre le contexte métier.
+                    </p>
+                    <p>
+                        C'est ce système qui m'a permis d'auditer et restructurer les <strong>1 817 pages d'Immigrant Québec</strong> tout en maintenant une cohérence éditoriale et UI irréprochable.
+                    </p>
+                    <div>
+                        <a href="immigrantquebec.html" class="cta-button">
+                            <span>Lire l'histoire complète (Immigrant Québec)</span>
+                            <span class="material-symbols-outlined cta-icon">arrow_forward</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="footer-v2-bottom">
-                <span>© 2026 Nicolas Marie-Angélique · Product &amp; UI/UX Designer</span>
-                <div class="footer-v2-links">
+            <div class="wild-protocol-box">
+                <div class="wild-protocol-tree" aria-label="Structure de dépôt d'un projet Product Design">projet-produit/
+├─ harness/
+│  ├─ 00-source-ux/
+│  │  ├─ entretiens-terrain.md
+│  │  └─ contraintes-metier.md
+│  ├─ 01-architecture/
+│  │  ├─ arborescence-cible.md
+│  │  └─ taxonomie-seo.yaml
+│  ├─ 02-design-system/
+│  │  ├─ tokens-couleurs-typo.json
+│  │  └─ composants-figma.md
+│  ├─ 03-pipelines-ia/
+│  │  ├─ crawler-audit.py
+│  │  └─ scoring-qualite.py
+│  └─ 04-livrables/
+│     ├─ prototypes-haute-fidelite/
+│     └─ rapport-passage-relais.md
+└─ README.md</div>
+
+                <div class="wild-protocol-parts">
+                    <div class="wild-protocol-item">
+                        <span class="wild-protocol-idx">01</span>
+                        <div class="wild-protocol-content">
+                            <h4>Vérité Métier (Source of Truth)</h4>
+                            <p>Un seul endroit qui rassemble les retours utilisateurs, les règles d'interface et les décisions d'architecture à partir desquels tout est construit.</p>
+                        </div>
+                    </div>
+                    <div class="wild-protocol-item">
+                        <span class="wild-protocol-idx">02</span>
+                        <div class="wild-protocol-content">
+                            <h4>Pipelines &amp; Workflows</h4>
+                            <p>Des scripts Python et requêtes Dataview capables d'analyser des centaines de pages ou d'états système de manière reproductible.</p>
+                        </div>
+                    </div>
+                    <div class="wild-protocol-item">
+                        <span class="wild-protocol-idx">03</span>
+                        <div class="wild-protocol-content">
+                            <h4>Interfaces &amp; Prototypes</h4>
+                            <p>Les maquettes Figma et prototypes HTML/CSS/JS tirés directement de la source métier, alignés dès le premier écran.</p>
+                        </div>
+                    </div>
+                    <div class="wild-protocol-item">
+                        <span class="wild-protocol-idx">04</span>
+                        <div class="wild-protocol-content">
+                            <h4>Contrôle &amp; Traçabilité</h4>
+                            <p>Chaque décision de design est documentée, mesurée et réinjectée dans le système pour faciliter la passation aux développeurs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wild-levels-row">
+                <div class="wild-level-card">
+                    <span class="wild-level-tag">L1 · Prompts isolés</span>
+                    <h3 class="wild-level-title">Ad-hoc</h3>
+                    <p class="wild-level-desc">Interroger un chatbot à la main sans mémoire projet. Utile ponctuellement, mais rien ne se capitalise dans le temps.</p>
+                </div>
+                <div class="wild-level-card">
+                    <span class="wild-level-tag">L3 · Workflows structurés</span>
+                    <h3 class="wild-level-title">Système guidé</h3>
+                    <p class="wild-level-desc">Une tâche d'audit ou de design exécutée avec la même rigueur à chaque fois, sous le regard critique et la validation du designer.</p>
+                </div>
+                <div class="wild-level-card">
+                    <span class="wild-level-tag">L5 · Pipelines &amp; Agents</span>
+                    <h3 class="wild-level-title">Design augmenté</h3>
+                    <p class="wild-level-desc">La collecte et le tri tournent de bout en bout, pendant que le designer se concentre à 100 % sur l'ergonomie, le goût et les arbitrages humains.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. LAB & EXPÉRIMENTATIONS ("Les outils sont partout. Le jugement, non.") -->
+    <section class="wild-editorial-section" id="lab">
+        <div class="wild-wrap">
+            <div class="wild-editorial-grid">
+                <div>
+                    <span class="wild-section-kicker">Lab &amp; Prototypes fonctionnels</span>
+                    <h2 class="wild-section-display">
+                        Les outils sont partout. <em>Le jugement, non.</em>
+                    </h2>
+                </div>
+                <div class="wild-prose">
+                    <p>
+                        Le code et l'IA sont devenus une nouvelle couche d'expression plastique. Le soin artisanal n'est pas nouveau, mais il exigeait autrefois toute une chaîne de production avant de pouvoir tester une idée. Aujourd'hui, un designer peut coder directement ses propres outils, mouvements et moteurs visuels pour emmener un projet bien plus loin qu'une maquette figée.
+                    </p>
+                </div>
+            </div>
+
+            <div class="wild-experiments-grid">
+                <a href="dynamic_gallery.html" class="wild-exp-card">
+                    <div class="wild-exp-thumb">
+                        <img src="../images/dynamic_gallery2.webp" alt="Dynamic Gallery — 11 formules mathématiques" loading="lazy">
+                        <span class="wild-exp-badge">Voir l'expérimentation →</span>
+                    </div>
+                    <div class="wild-exp-body">
+                        <h3 class="wild-exp-title">Dynamic Gallery Engine</h3>
+                        <p class="wild-exp-desc">
+                            Moteur de collage interactif piloté par 11 courbes mathématiques (Lissajous, Lorenz, Fibonacci) avec stockage local.
+                        </p>
+                        <div class="wild-exp-tools">
+                            <span class="wild-exp-tool">Vanilla JS</span>
+                            <span class="wild-exp-tool">IndexedDB</span>
+                            <span class="wild-exp-tool">CSS 3D</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="rex_system.html" class="wild-exp-card">
+                    <div class="wild-exp-thumb">
+                        <img src="../images/rex_system2.webp" alt="REX_System — Architecture single-file" loading="lazy">
+                        <span class="wild-exp-badge">Voir l'expérimentation →</span>
+                    </div>
+                    <div class="wild-exp-body">
+                        <h3 class="wild-exp-title">REX_System Standalone</h3>
+                        <p class="wild-exp-desc">
+                            Application média complète encapsulée dans un fichier HTML unique, zéro dépendance externe, pensée pour la résilience hors-ligne.
+                        </p>
+                        <div class="wild-exp-tools">
+                            <span class="wild-exp-tool">HTML5</span>
+                            <span class="wild-exp-tool">Offline-first</span>
+                            <span class="wild-exp-tool">Claude</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="immigrantquebec.html" class="wild-exp-card">
+                    <div class="wild-exp-thumb">
+                        <img src="../images/immigrant-quebec/workflow_ia.webp" alt="Pipeline d'audit IA & Obsidian" loading="lazy">
+                        <span class="wild-exp-badge">Voir l'expérimentation →</span>
+                    </div>
+                    <div class="wild-exp-body">
+                        <h3 class="wild-exp-title">Pipeline d'Audit Éditorial</h3>
+                        <p class="wild-exp-desc">
+                            Transformer le chaos de 14 années d'archives web en une base relationnelle Obsidian Dataview interrogeable en temps réel.
+                        </p>
+                        <div class="wild-exp-tools">
+                            <span class="wild-exp-tool">Python</span>
+                            <span class="wild-exp-tool">Obsidian</span>
+                            <span class="wild-exp-tool">Figma</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="portfolio.html" class="wild-exp-card">
+                    <div class="wild-exp-thumb">
+                        <img src="../images/apercu_img.webp" alt="Co-conception web et générative" loading="lazy">
+                        <span class="wild-exp-badge">Voir l'expérimentation →</span>
+                    </div>
+                    <div class="wild-exp-body">
+                        <h3 class="wild-exp-title">Co-conception &amp; p5.js</h3>
+                        <p class="wild-exp-desc">
+                            Dialogue entre design d'interface, grilles génératives inspirées de p5.js et optimisation extrême des performances web (-85 Mo).
+                        </p>
+                        <div class="wild-exp-tools">
+                            <span class="wild-exp-tool">p5.js</span>
+                            <span class="wild-exp-tool">Canvas 2D</span>
+                            <span class="wild-exp-tool">Agents IA</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FOOTER "GET IN TOUCH" + MINI-JEU ARCADE ("play · 000000 · Game over play again") -->
+    <footer class="wild-footer" aria-label="Contact et pied de page">
+        <div class="wild-wrap">
+            <div class="wild-footer-top">
+                <div>
+                    <span class="wild-section-kicker">Contact</span>
+                    <h2 class="wild-section-display">Entrer en <em>contact.</em></h2>
+                </div>
+                <div class="wild-prose">
+                    <p>
+                        Disponible pour accompagner des équipes produit, studios de design et acteurs industriels sur des interfaces exigeantes — de la recherche utilisateur sur le terrain jusqu'au design system et au prototype fonctionnel.
+                    </p>
+                    <div class="wild-contact-line">
+                        <button type="button" class="wild-email-btn" id="copyEmailBtn" data-email="nmafreelance@gmail.com">
+                            <span id="copyEmailText">nmafreelance@gmail.com</span>
+                            <span>⎘</span>
+                        </button>
+                        <span>·</span>
+                        <span>Toulouse / Paris / Montréal</span>
+                        <span>·</span>
+                        <a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank" rel="noopener noreferrer" class="wild-contact-link">LinkedIn ↗</a>
+                        <a href="https://github.com/nmaP5js" target="_blank" rel="noopener noreferrer" class="wild-contact-link">GitHub ↗</a>
+                        <a href="about.html" class="wild-contact-link">CV &amp; Parcours</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MINI-JEU PIXEL RUNNER STYLE CRAFT.WILD.AS ("play · 000000 · Game over play again") -->
+            <div class="wild-arcade-bar" aria-label="Mini-jeu interactif de pied de page">
+                <div class="wild-arcade-controls">
+                    <div class="wild-arcade-left">
+                        <button type="button" class="wild-play-btn" id="wildArcadeBtn">play</button>
+                        <span class="wild-arcade-score" id="wildArcadeScore">000000</span>
+                    </div>
+                    <span class="wild-arcade-status" id="wildArcadeStatus">Cliquez sur « play » ou appuyez sur Espace pour sauter par-dessus les blocs</span>
+                </div>
+                <canvas id="wildArcadeCanvas" width="1200" height="76"></canvas>
+            </div>
+
+            <div class="wild-footer-bottom">
+                <span>© 2026 Nicolas Marie-Angélique · Design, engineered.</span>
+                <div class="wild-footer-nav">
                     <a href="about.html">À Propos</a>
                     <a href="contact.html">Contact</a>
                     <a href="legals.html">Mentions légales</a>
+                    <a href="../index.html">Version V1 (Originale) ↗</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- INTERACTIONS V2 : FILTRAGE INSTANTANÉ DES PROJETS & COPIE D'EMAIL -->
+    <!-- SCRIPTS INTERACTIFS :
+         1. GRILLE CELL / BRUSH (STYLE CRAFT.WILD.AS)
+         2. COPIE D'EMAIL
+         3. MINI-JEU ARCADE FOOTER (PLAY / 000000 / GAME OVER PLAY AGAIN) -->
     <script>
         (function () {
-            // 1. Filtrage par compétence / domaine
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.project-card[data-category]');
-            const countLabel = document.getElementById('projectsCountLabel');
+            /* ======================================================================
+               1. HERO INTERACTIVE DITHER / CELLULAR CANVAS (Cell L/M/S · Brush L/M/S)
+               ====================================================================== */
+            const canvas = document.getElementById('wildHeroCanvas');
+            const stage = document.getElementById('wildCanvasStage');
 
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const filter = btn.getAttribute('data-filter');
-                    filterBtns.forEach(b => b.classList.toggle('active', b === btn));
+            if (canvas && stage) {
+                const ctx = canvas.getContext('2d');
+                // Palette authentique craft.wild.as : Cobalt, Ocre, Pervenche, Espresso, Encre
+                const PALETTE = ['#273C87', '#E7C53C', '#A2B6E4', '#462D27', '#161513', '#BAC3D0'];
 
-                    let visibleCount = 0;
-                    projectCards.forEach(card => {
-                        const cat = card.getAttribute('data-category');
-                        const match = filter === 'all' || cat === filter;
-                        card.hidden = !match;
-                        if (match) visibleCount++;
-                    });
+                let cellSize = 14;
+                let brushRadius = 3.0;
+                let cols = 0;
+                let rows = 0;
+                let cells = [];
+                let pointer = { x: -9999, y: -9999, active: false };
+                let tick = 0;
 
-                    if (countLabel) {
-                        countLabel.textContent = `${String(visibleCount).padStart(2, '0')} PROJET${visibleCount > 1 ? 'S' : ''}`;
+                function initGrid() {
+                    const rect = stage.getBoundingClientRect();
+                    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                    canvas.width = Math.floor(rect.width * dpr);
+                    canvas.height = Math.floor(rect.height * dpr);
+                    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+                    cols = Math.ceil(rect.width / cellSize);
+                    rows = Math.ceil(rect.height / cellSize);
+                    cells = new Array(cols * rows);
+
+                    for (let r = 0; r < rows; r++) {
+                        for (let c = 0; c < cols; c++) {
+                            // Motif géométrique initial inspiré du tissage Wiener Werkstätte & trame dither
+                            const wave = Math.sin(c * 0.16) * Math.cos(r * 0.22);
+                            const baseEnergy = wave > 0.52 ? (wave - 0.45) * 0.75 : 0;
+                            const colorIdx = (c * 3 + r * 5) % PALETTE.length;
+                            cells[r * cols + c] = {
+                                energy: baseEnergy,
+                                color: PALETTE[colorIdx],
+                                phase: (c * 0.13 + r * 0.19)
+                            };
+                        }
+                    }
+                }
+
+                function paintAt(clientX, clientY, boost) {
+                    const rect = stage.getBoundingClientRect();
+                    const x = clientX - rect.left;
+                    const y = clientY - rect.top;
+                    const centerC = x / cellSize;
+                    const centerR = y / cellSize;
+                    const rad = brushRadius;
+
+                    const minC = Math.max(0, Math.floor(centerC - rad - 1));
+                    const maxC = Math.min(cols - 1, Math.ceil(centerC + rad + 1));
+                    const minR = Math.max(0, Math.floor(centerR - rad - 1));
+                    const maxR = Math.min(rows - 1, Math.ceil(centerR + rad + 1));
+
+                    for (let r = minR; r <= maxR; r++) {
+                        for (let c = minC; c <= maxC; c++) {
+                            const dist = Math.hypot(c - centerC, r - centerR);
+                            if (dist <= rad) {
+                                const cell = cells[r * cols + c];
+                                if (!cell) continue;
+                                const falloff = 1 - dist / (rad + 0.001);
+                                cell.energy = Math.min(1, Math.max(cell.energy, falloff * boost));
+                                if (falloff > 0.45) {
+                                    const idx = Math.floor((tick * 0.15 + c + r) % PALETTE.length);
+                                    cell.color = PALETTE[idx];
+                                }
+                            }
+                        }
+                    }
+                }
+
+                stage.addEventListener('pointermove', (e) => {
+                    pointer.x = e.clientX;
+                    pointer.y = e.clientY;
+                    pointer.active = true;
+                    paintAt(e.clientX, e.clientY, 1.0);
+                });
+
+                stage.addEventListener('pointerdown', (e) => {
+                    paintAt(e.clientX, e.clientY, 1.25);
+                });
+
+                // Délégation des boutons Cell [L] [M] [S] et Brush [L] [M] [S] dans la barre du haut
+                document.addEventListener('click', (e) => {
+                    const cellBtn = e.target.closest('[data-cell-size]');
+                    if (cellBtn) {
+                        cellSize = parseFloat(cellBtn.getAttribute('data-cell-size')) || 14;
+                        document.querySelectorAll('[data-cell-size]').forEach(b => b.classList.toggle('active', b === cellBtn));
+                        initGrid();
+                        return;
+                    }
+                    const brushBtn = e.target.closest('[data-brush-size]');
+                    if (brushBtn) {
+                        brushRadius = parseFloat(brushBtn.getAttribute('data-brush-size')) || 3.0;
+                        document.querySelectorAll('[data-brush-size]').forEach(b => b.classList.toggle('active', b === brushBtn));
                     }
                 });
-            });
 
-            // 2. Copie rapide de l'adresse email avec feedback
+                function renderLoop() {
+                    tick++;
+                    const rect = stage.getBoundingClientRect();
+                    ctx.clearRect(0, 0, rect.width, rect.height);
+
+                    // Légère onde autonome pour donner vie à la trame même sans mouvement souris
+                    if (tick % 3 === 0 && cols > 0 && rows > 0) {
+                        const autoC = Math.floor((Math.sin(tick * 0.024) * 0.4 + 0.5) * cols);
+                        const autoR = Math.floor((Math.cos(tick * 0.019) * 0.35 + 0.45) * rows);
+                        const idx = autoR * cols + autoC;
+                        if (cells[idx] && cells[idx].energy < 0.4) {
+                            cells[idx].energy = 0.65;
+                            cells[idx].color = PALETTE[(autoC + autoR) % PALETTE.length];
+                        }
+                    }
+
+                    // Trame de fond subtile (points d'ancrage)
+                    ctx.fillStyle = 'rgba(22, 21, 19, 0.08)';
+                    for (let r = 0; r < rows; r++) {
+                        for (let c = 0; c < cols; c++) {
+                            const x = c * cellSize;
+                            const y = r * cellSize;
+                            ctx.fillRect(x + cellSize * 0.5 - 0.5, y + cellSize * 0.5 - 0.5, 1, 1);
+
+                            const cell = cells[r * cols + c];
+                            if (cell && cell.energy > 0.02) {
+                                ctx.save();
+                                ctx.fillStyle = cell.color;
+                                const pad = cell.energy > 0.55 ? 1 : Math.max(2, (1 - cell.energy) * (cellSize * 0.42));
+                                ctx.fillRect(
+                                    x + pad * 0.5,
+                                    y + pad * 0.5,
+                                    Math.max(2, cellSize - pad),
+                                    Math.max(2, cellSize - pad)
+                                );
+                                ctx.restore();
+                                cell.energy *= 0.968;
+                            }
+                        }
+                    }
+
+                    requestAnimationFrame(renderLoop);
+                }
+
+                window.addEventListener('resize', initGrid, { passive: true });
+                initGrid();
+                requestAnimationFrame(renderLoop);
+            }
+
+            /* ======================================================================
+               2. COPIE RAPIDE DE L'EMAIL
+               ====================================================================== */
             const copyBtn = document.getElementById('copyEmailBtn');
             const copyText = document.getElementById('copyEmailText');
-            const copyIcon = document.getElementById('copyEmailIcon');
-
             if (copyBtn && copyText) {
                 copyBtn.addEventListener('click', () => {
                     const email = copyBtn.getAttribute('data-email') || 'nmafreelance@gmail.com';
                     if (navigator.clipboard && navigator.clipboard.writeText) {
                         navigator.clipboard.writeText(email).then(() => {
-                            copyText.textContent = 'Email copié !';
-                            if (copyIcon) copyIcon.textContent = 'check';
+                            copyText.textContent = 'Copié : ' + email;
                             setTimeout(() => {
                                 copyText.textContent = email;
-                                if (copyIcon) copyIcon.textContent = 'content_copy';
                             }, 2000);
                         });
                     }
                 });
+            }
+
+            /* ======================================================================
+               3. MINI-JEU D'ARCADE DE PIED DE PAGE ("play · 000000 · Game over play again")
+               ====================================================================== */
+            const arcadeCanvas = document.getElementById('wildArcadeCanvas');
+            const arcadeBtn = document.getElementById('wildArcadeBtn');
+            const arcadeScoreEl = document.getElementById('wildArcadeScore');
+            const arcadeStatusEl = document.getElementById('wildArcadeStatus');
+
+            if (arcadeCanvas && arcadeBtn && arcadeScoreEl) {
+                const actx = arcadeCanvas.getContext('2d');
+                let running = false;
+                let gameOver = false;
+                let score = 0;
+                let speed = 4.6;
+                const groundY = 58;
+                const player = { x: 64, y: groundY - 14, w: 14, h: 14, vy: 0, jumping: false };
+                let obstacles = [];
+                let spawnTimer = 0;
+
+                function formatScore(n) {
+                    return String(Math.floor(n)).padStart(6, '0');
+                }
+
+                function resetGame() {
+                    score = 0;
+                    speed = 4.6;
+                    player.y = groundY - player.h;
+                    player.vy = 0;
+                    player.jumping = false;
+                    obstacles = [];
+                    spawnTimer = 30;
+                    running = true;
+                    gameOver = false;
+                    arcadeBtn.textContent = 'jump';
+                    arcadeScoreEl.textContent = '000000';
+                    if (arcadeStatusEl) arcadeStatusEl.textContent = 'En cours · Espace ou clic pour sauter';
+                }
+
+                function jump() {
+                    if (!running) {
+                        resetGame();
+                        return;
+                    }
+                    if (!player.jumping) {
+                        player.vy = -8.2;
+                        player.jumping = true;
+                    }
+                }
+
+                arcadeBtn.addEventListener('click', () => {
+                    if (!running) resetGame();
+                    else jump();
+                });
+
+                arcadeCanvas.addEventListener('pointerdown', jump);
+
+                window.addEventListener('keydown', (e) => {
+                    if (e.code === 'Space' && running) {
+                        e.preventDefault();
+                        jump();
+                    }
+                });
+
+                function drawArcade() {
+                    const W = arcadeCanvas.width;
+                    const H = arcadeCanvas.height;
+                    actx.clearRect(0, 0, W, H);
+
+                    // Ligne de sol
+                    actx.strokeStyle = 'rgba(22, 21, 19, 0.22)';
+                    actx.beginPath();
+                    actx.moveTo(0, groundY);
+                    actx.lineTo(W, groundY);
+                    actx.stroke();
+
+                    if (running) {
+                        score += 0.25;
+                        speed = Math.min(9.5, 4.6 + score * 0.004);
+                        arcadeScoreEl.textContent = formatScore(score);
+
+                        // Physique du joueur
+                        player.vy += 0.46;
+                        player.y += player.vy;
+                        if (player.y >= groundY - player.h) {
+                            player.y = groundY - player.h;
+                            player.vy = 0;
+                            player.jumping = false;
+                        }
+
+                        // Génération d'obstacles
+                        spawnTimer--;
+                        if (spawnTimer <= 0) {
+                            const h = 12 + Math.floor(Math.random() * 14);
+                            const w = 10 + Math.floor(Math.random() * 10);
+                            obstacles.push({
+                                x: W + 20,
+                                y: groundY - h,
+                                w: w,
+                                h: h,
+                                color: Math.random() > 0.5 ? '#273C87' : '#462D27'
+                            });
+                            spawnTimer = Math.floor(55 + Math.random() * 55);
+                        }
+
+                        for (let i = obstacles.length - 1; i >= 0; i--) {
+                            const ob = obstacles[i];
+                            ob.x -= speed;
+                            if (
+                                player.x < ob.x + ob.w &&
+                                player.x + player.w > ob.x &&
+                                player.y < ob.y + ob.h &&
+                                player.y + player.h > ob.y
+                            ) {
+                                running = false;
+                                gameOver = true;
+                                arcadeBtn.textContent = 'play again';
+                                if (arcadeStatusEl) arcadeStatusEl.textContent = 'Game over · play again';
+                            }
+                            if (ob.x + ob.w < 0) obstacles.splice(i, 1);
+                        }
+                    }
+
+                    // Dessin du joueur (carré encre + ocre)
+                    actx.fillStyle = gameOver ? '#c0392b' : '#161513';
+                    actx.fillRect(player.x, player.y, player.w, player.h);
+                    actx.fillStyle = '#E7C53C';
+                    actx.fillRect(player.x + 8, player.y + 3, 4, 4);
+
+                    // Dessin des obstacles
+                    obstacles.forEach(ob => {
+                        actx.fillStyle = ob.color;
+                        actx.fillRect(ob.x, ob.y, ob.w, ob.h);
+                    });
+
+                    requestAnimationFrame(drawArcade);
+                }
+
+                requestAnimationFrame(drawArcade);
             }
         })();
     </script>

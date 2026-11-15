@@ -70,19 +70,36 @@
         const accueilHref = isLandingPage ? '#hero' : 'index.html';
         const projetsHref = isLandingPage ? '#projects' : 'index.html#projects';
 
+        const canvasControlsHtml = isLandingPage ? `
+            <div class="wild-canvas-controls" aria-label="Paramètres de la grille interactive">
+                <div class="wild-control-group" role="group" aria-label="Taille des cellules">
+                    <span class="wild-control-label">Cell</span>
+                    <button type="button" class="wild-size-btn" data-cell-size="22">L</button>
+                    <button type="button" class="wild-size-btn active" data-cell-size="14">M</button>
+                    <button type="button" class="wild-size-btn" data-cell-size="9">S</button>
+                </div>
+                <div class="wild-control-group" role="group" aria-label="Taille du pinceau">
+                    <span class="wild-control-label">Brush</span>
+                    <button type="button" class="wild-size-btn" data-brush-size="4.8">L</button>
+                    <button type="button" class="wild-size-btn active" data-brush-size="3.0">M</button>
+                    <button type="button" class="wild-size-btn" data-brush-size="1.6">S</button>
+                </div>
+            </div>
+        ` : '';
+
         topNavContainer.innerHTML = `
             <div class="top-nav-inner">
                 <a href="index.html" class="top-nav-brand">
                     <span class="brand-dot" aria-hidden="true"></span>
-                    <span>Nicolas Marie-Angélique</span>
-                    <span class="brand-role-badge">Product &amp; UI/UX</span>
+                    <span>Design, engineered · nma</span>
                 </a>
+                ${canvasControlsHtml}
                 <ul class="top-nav-list">
                     <li><a href="${accueilHref}" class="top-nav-link ${isLandingPage ? 'active' : ''}" data-nav="accueil">Accueil</a></li>
                     <li><a href="${projetsHref}" class="top-nav-link ${!isLandingPage && isProjectPage ? 'active' : ''}" data-nav="projets">Projets</a></li>
                     <li><a href="about.html" class="top-nav-link ${currentPath === 'about.html' ? 'active' : ''}" data-nav="about">À Propos</a></li>
                     <li><a href="contact.html" class="top-nav-link ${currentPath === 'contact.html' ? 'active' : ''}" data-nav="contact">Contact</a></li>
-                    <li><a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank" rel="noopener noreferrer" class="top-nav-cta">LinkedIn ↗</a></li>
+                    <li><a href="../index.html" class="top-nav-cta" title="Voir le site V1 actuel">Voir le site V1 ↗</a></li>
                 </ul>
             </div>
         `;

@@ -1,27 +1,35 @@
 /* ==========================================================================
-   DESIGN SYSTEM V2 — DARK MODE TECH / PRODUCT DESIGNER (STYLE LINEAR / RAYCAST)
+   DESIGN SYSTEM V2 — STYLE CRAFT.WILD.AS ("CRAFT, ENGINEERED")
+   Esthétique éditoriale Wiener Werkstätte × Studio Tech & IA
+   Palette : Papier chaud (#F4F1EA), Encre profonde (#161513), Cobalt (#273C87),
+   Ocre (#E7C53C), Pervenche (#A2B6E4), Espresso (#462D27)
+   Typographie : Instrument Serif (Titres éditoriaux) + Inter (Corps) + Fira Code (Index)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-    --bg-color: #09090b;
-    --surface-1: #111115;
-    --surface-2: #17171d;
-    --surface-3: #1f1f27;
-    --surface-glass: rgba(14, 14, 18, 0.82);
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-strong: rgba(255, 255, 255, 0.16);
-    --text-color: #f4f4f6;
-    --text-secondary: #a1a1aa;
-    --highlight-color: #71717a;
-    --blue-color: #388bff;
-    --blue-subtle: rgba(56, 139, 255, 0.12);
-    --emerald-color: #10b981;
-    --light-gray: #141419;
+    --bg-color: #F4F1EA;
+    --surface-1: #ECE8DF;
+    --surface-2: #E3DEC3;
+    --surface-2: #E4DFD3;
+    --surface-3: #DAD4C6;
+    --surface-glass: rgba(244, 241, 234, 0.88);
+    --border-subtle: rgba(22, 21, 19, 0.12);
+    --border-strong: rgba(22, 21, 19, 0.28);
+    --text-color: #161513;
+    --text-secondary: #57544E;
+    --highlight-color: #78746C;
+    --blue-color: #273C87;
+    --blue-subtle: rgba(39, 60, 135, 0.08);
+    --ochre-color: #E7C53C;
+    --periwinkle-color: #A2B6E4;
+    --espresso-color: #462D27;
+    --light-gray: #EAE6DC;
     --sticker-z: 0;
     --content-z: 5;
     --menu-z: 1000;
+    --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
@@ -34,7 +42,7 @@
 
 html {
     background-color: var(--bg-color);
-    color-scheme: dark;
+    color-scheme: light;
 }
 
 body {
@@ -48,6 +56,11 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+}
+
+::selection {
+    background-color: var(--ochre-color);
+    color: var(--text-color);
 }
 
 /* Désactivation propre des anciens stickers fleurs et voiles de flou en V2 */
@@ -78,72 +91,114 @@ html.lenis body {
     pointer-events: none;
 }
 
-/* --- BARRE DE NAVIGATION PRINCIPALE (COMMAND BAR TECH) --- */
+/* --- BARRE DE NAVIGATION PRINCIPALE (STYLE CRAFT.WILD.AS) --- */
 .top-nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: var(--menu-z);
-    height: 60px;
+    height: 52px;
     background: var(--surface-glass);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border-subtle);
     display: flex;
     align-items: center;
-    padding: 0 32px;
+    padding: 0 28px;
 }
 
 .top-nav-inner {
     width: 100%;
-    max-width: 1240px;
+    max-width: 1360px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 16px;
 }
 
 .top-nav-brand {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     text-decoration: none;
     color: var(--text-color);
-    font-weight: 600;
-    font-size: 0.92rem;
-    letter-spacing: -0.015em;
+    font-weight: 500;
+    font-size: 0.86rem;
+    letter-spacing: -0.01em;
     transition: opacity 0.15s ease;
 }
 
 .top-nav-brand:hover {
-    opacity: 0.85;
+    opacity: 0.7;
 }
 
 .brand-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--blue-color);
+    width: 7px;
+    height: 7px;
+    background-color: var(--text-color);
     display: inline-block;
     flex-shrink: 0;
 }
 
 .brand-role-badge {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 400;
     color: var(--highlight-color);
-    padding: 2px 8px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-subtle);
+}
+
+/* Contrôles interactifs Cell L M S / Brush L M S dans la barre du haut */
+.wild-canvas-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--highlight-color);
+    user-select: none;
+}
+
+.wild-control-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.wild-control-label {
+    margin-right: 3px;
+    color: var(--text-secondary);
+}
+
+.wild-size-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--highlight-color);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 2px 5px;
+    cursor: pointer;
+    transition: all 0.12s ease;
+    line-height: 1.1;
+}
+
+.wild-size-btn:hover {
+    color: var(--text-color);
+}
+
+.wild-size-btn.active {
+    color: var(--text-color);
+    border-color: var(--border-strong);
+    background: var(--surface-1);
+    font-weight: 500;
 }
 
 .top-nav-list {
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     margin: 0;
     padding: 0;
 }
@@ -151,9 +206,9 @@ html.lenis body {
 .top-nav-link {
     text-decoration: none;
     color: var(--text-secondary);
-    font-size: 0.85rem;
-    font-weight: 500;
-    padding: 6px 12px;
+    font-size: 0.82rem;
+    font-weight: 400;
+    padding: 5px 10px;
     border: 1px solid transparent;
     transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
     cursor: pointer;
@@ -162,38 +217,38 @@ html.lenis body {
 
 .top-nav-link:hover {
     color: var(--text-color);
-    background: rgba(255, 255, 255, 0.04);
 }
 
 .top-nav-link.active {
     color: var(--text-color);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: var(--border-subtle);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
 .top-nav-cta {
     font-family: var(--font-mono);
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     color: var(--text-color);
-    background: var(--surface-2);
+    background: transparent;
     border: 1px solid var(--border-strong);
-    padding: 6px 12px;
+    padding: 5px 11px;
     text-decoration: none;
     transition: all 0.15s ease;
     margin-left: 6px;
 }
 
 .top-nav-cta:hover {
-    background: var(--blue-color);
-    border-color: var(--blue-color);
-    color: #ffffff;
+    background: var(--text-color);
+    border-color: var(--text-color);
+    color: var(--bg-color);
 }
 
 /* --- SOUS-MENU HORIZONTAL DES PROJETS --- */
 .projects-subnav-container {
     width: 92%;
-    max-width: 1240px;
-    margin: 88px auto 32px auto;
+    max-width: 1320px;
+    margin: 82px auto 32px auto;
     padding-bottom: 16px;
     border-bottom: 1px solid var(--border-subtle);
     display: flex;
@@ -208,7 +263,7 @@ html.lenis body {
     font-size: 0.72rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     color: var(--highlight-color);
 }
 
@@ -222,7 +277,7 @@ html.lenis body {
 .subnav-item {
     text-decoration: none;
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 400;
     color: var(--text-secondary);
     padding: 5px 11px;
     border: 1px solid transparent;
@@ -238,10 +293,10 @@ html.lenis body {
 }
 
 .subnav-item.active {
-    background: var(--blue-subtle);
-    color: var(--blue-color);
-    border-color: rgba(56, 139, 255, 0.35);
-    font-weight: 600;
+    background: var(--text-color);
+    color: var(--bg-color);
+    border-color: var(--text-color);
+    font-weight: 500;
 }
 
 /* --- LAYOUT PROJET : GRILLE 2 COLONNES ASYMÉTRIQUE --- */
@@ -255,7 +310,7 @@ html.lenis body {
 
 .project-grid-2col {
     width: 92%;
-    max-width: 1240px;
+    max-width: 1320px;
     margin: 0 auto 50px auto;
     display: grid;
     grid-template-columns: 1.55fr 1fr;
@@ -272,19 +327,20 @@ html.lenis body {
 .header-titles {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .header-titles h1 {
-    font-size: clamp(2rem, 3.4vw, 2.85rem);
-    font-weight: 700;
-    line-height: 1.12;
-    letter-spacing: -0.035em;
+    font-family: var(--font-serif);
+    font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
     color: var(--text-color);
 }
 
 .header-titles h2 {
-    font-size: 1.12rem;
+    font-size: 1.1rem;
     font-weight: 400;
     color: var(--text-secondary);
     line-height: 1.55;
@@ -304,7 +360,7 @@ html.lenis body {
 .project-description code {
     font-family: var(--font-mono);
     font-size: 0.86em;
-    background: var(--surface-2);
+    background: var(--surface-1);
     color: var(--text-color);
     padding: 2px 6px;
     border: 1px solid var(--border-subtle);
@@ -312,11 +368,11 @@ html.lenis body {
 
 .right-col {
     position: sticky;
-    top: 84px;
+    top: 76px;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    max-height: calc(100vh - 104px);
+    max-height: calc(100vh - 96px);
     overflow-y: auto;
     scrollbar-width: none;
 }
@@ -336,10 +392,10 @@ html.lenis body {
 
 .meta-card-title {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.74rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     color: var(--highlight-color);
     padding-bottom: 12px;
     border-bottom: 1px solid var(--border-subtle);
@@ -357,7 +413,7 @@ html.lenis body {
     align-items: baseline;
     gap: 16px;
     padding-bottom: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .meta-list-item:last-child {
@@ -394,7 +450,7 @@ html.lenis body {
     border: 1px solid var(--border-subtle);
     font-size: 0.72rem;
     color: var(--text-secondary);
-    background: var(--surface-2);
+    background: var(--bg-color);
     white-space: nowrap;
 }
 
@@ -403,9 +459,9 @@ html.lenis body {
     align-items: center;
     gap: 8px;
     background-color: var(--text-color);
-    color: #09090b;
-    font-size: 0.86rem;
-    font-weight: 600;
+    color: var(--bg-color);
+    font-size: 0.85rem;
+    font-weight: 500;
     padding: 10px 20px;
     border: 1px solid var(--text-color);
     text-decoration: none;
@@ -416,7 +472,7 @@ html.lenis body {
 }
 
 .cta-button.secondary {
-    background-color: var(--surface-1);
+    background-color: transparent;
     color: var(--text-color);
     border: 1px solid var(--border-strong);
 }
@@ -428,8 +484,8 @@ html.lenis body {
 }
 
 .cta-button.secondary:hover {
-    background-color: var(--surface-2);
-    border-color: var(--text-secondary);
+    background-color: var(--surface-1);
+    border-color: var(--text-color);
     color: var(--text-color);
 }
 
@@ -445,7 +501,7 @@ html.lenis body {
 /* --- GALERIE PHOTO / VISUELS --- */
 .project-visuals-centered {
     width: 92%;
-    max-width: 1240px;
+    max-width: 1320px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -588,7 +644,7 @@ figure,
 
 .article-category {
     font-family: var(--font-mono);
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -601,7 +657,7 @@ figure,
     gap: 18px;
     font-size: 1.02rem;
     line-height: 1.75;
-    color: #d4d4d8;
+    color: var(--text-secondary);
 }
 
 .article-body p {
@@ -615,7 +671,7 @@ figure,
 
 .article-body em {
     font-style: italic;
-    color: #e4e4e7;
+    color: var(--text-color);
 }
 
 .article-body a:not(.cta-button) {
@@ -626,21 +682,22 @@ figure,
 }
 
 .article-body a:not(.cta-button):hover {
-    opacity: 0.85;
+    opacity: 0.75;
 }
 
 .section-heading {
-    font-size: 1.65rem;
-    font-weight: 700;
-    letter-spacing: -0.025em;
+    font-family: var(--font-serif);
+    font-size: 2.1rem;
+    font-weight: 400;
+    letter-spacing: -0.015em;
     color: var(--text-color);
-    margin-top: 36px;
-    margin-bottom: 14px;
-    line-height: 1.25;
+    margin-top: 38px;
+    margin-bottom: 12px;
+    line-height: 1.15;
 }
 
 .subsection-heading {
-    font-size: 1.24rem;
+    font-size: 1.2rem;
     font-weight: 600;
     letter-spacing: -0.015em;
     color: var(--text-color);
@@ -650,9 +707,9 @@ figure,
 }
 
 .minor-heading {
-    font-size: 1.05rem;
+    font-size: 1.02rem;
     font-weight: 600;
-    color: #e4e4e7;
+    color: var(--text-color);
     margin-top: 22px;
     margin-bottom: 8px;
 }
@@ -682,13 +739,15 @@ figure,
 
 .sober-quote {
     margin: 24px 0;
-    padding: 18px 22px;
-    border-left: 2px solid var(--blue-color);
+    padding: 20px 24px;
+    border-left: 2px solid var(--text-color);
     background: var(--surface-1);
     border-top: 1px solid var(--border-subtle);
     border-right: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
-    font-size: 1.08rem;
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    line-height: 1.4;
     color: var(--text-color);
 }
 
@@ -727,7 +786,7 @@ figure,
 
 .figure-caption {
     font-family: var(--font-mono);
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     line-height: 1.45;
     color: var(--highlight-color);
     padding: 0 2px;
@@ -748,9 +807,9 @@ figure,
 .modal {
     position: fixed;
     inset: 0;
-    background: rgba(5, 5, 8, 0.94);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    background: rgba(22, 21, 19, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -813,9 +872,9 @@ figure,
 .lightbox-btn {
     width: 42px;
     height: 42px;
-    border: 1px solid var(--border-strong);
-    background: var(--surface-2);
-    color: #fff;
+    border: 1px solid rgba(244, 241, 234, 0.25);
+    background: rgba(244, 241, 234, 0.1);
+    color: #F4F1EA;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -824,8 +883,8 @@ figure,
 }
 
 .lightbox-btn:hover {
-    background: var(--blue-color);
-    border-color: var(--blue-color);
+    background: #F4F1EA;
+    color: #161513;
 }
 
 .lightbox-counter {
@@ -833,9 +892,9 @@ figure,
     top: 28px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--surface-2);
-    border: 1px solid var(--border-subtle);
-    color: var(--text-color);
+    background: rgba(244, 241, 234, 0.1);
+    border: 1px solid rgba(244, 241, 234, 0.2);
+    color: #F4F1EA;
     padding: 6px 14px;
     font-size: 0.78rem;
     font-family: var(--font-mono);
@@ -851,8 +910,8 @@ figure,
     display: flex;
     gap: 8px;
     padding: 6px;
-    background: var(--surface-1);
-    border: 1px solid var(--border-subtle);
+    background: rgba(244, 241, 234, 0.1);
+    border: 1px solid rgba(244, 241, 234, 0.2);
     z-index: 2010;
     max-width: 90vw;
     overflow-x: auto;
@@ -878,7 +937,7 @@ figure,
 .thumb-item.active,
 .thumb-item:hover {
     opacity: 1;
-    border-color: var(--blue-color);
+    border-color: var(--ochre-color);
 }
 
 /* --- SOMMAIRE INTERACTIF (TOC) DES ÉTUDES DE CAS --- */
@@ -900,10 +959,10 @@ figure,
 
 .toc-title {
     font-family: var(--font-mono);
-    font-size: 0.74rem;
+    font-size: 0.72rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     color: var(--highlight-color);
 }
 
@@ -911,21 +970,21 @@ figure,
     font-family: var(--font-mono);
     font-size: 0.72rem;
     font-weight: 500;
-    color: var(--blue-color);
+    color: var(--text-color);
     font-variant-numeric: tabular-nums;
 }
 
 .toc-progress-bar {
     width: 100%;
     height: 2px;
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--border-subtle);
     overflow: hidden;
 }
 
 .toc-progress-fill {
     width: 0%;
     height: 100%;
-    background: var(--blue-color);
+    background: var(--text-color);
     transition: width 0.15s ease-out;
 }
 
@@ -966,14 +1025,14 @@ figure,
 
 .toc-link:hover {
     color: var(--text-color);
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(22, 21, 19, 0.03);
 }
 
 .toc-link.active {
-    color: var(--blue-color);
+    color: var(--text-color);
     font-weight: 600;
-    border-left-color: var(--blue-color);
-    background: var(--blue-subtle);
+    border-left-color: var(--text-color);
+    background: rgba(22, 21, 19, 0.05);
 }
 
 .toc-text {
@@ -985,7 +1044,7 @@ figure,
 /* --- NAVIGATION PROJET PRÉCÉDENT / SUIVANT + FOOTER DE PAGE PROJET --- */
 .project-bottom-section {
     width: 92%;
-    max-width: 1240px;
+    max-width: 1320px;
     margin: 72px auto 0 auto;
     padding-top: 40px;
     border-top: 1px solid var(--border-subtle);
@@ -1020,7 +1079,7 @@ figure,
 
 .project-nav-card:hover {
     background: var(--surface-2);
-    border-color: rgba(56, 139, 255, 0.45);
+    border-color: var(--border-strong);
 }
 
 .project-nav-direction {
@@ -1031,7 +1090,7 @@ figure,
     font-size: 0.72rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     color: var(--highlight-color);
     transition: color 0.15s ease;
 }
@@ -1055,17 +1114,17 @@ figure,
 }
 
 .project-nav-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    font-family: var(--font-serif);
+    font-size: 1.65rem;
+    font-weight: 400;
+    line-height: 1.15;
     color: var(--text-color);
     transition: color 0.15s ease;
 }
 
 .project-nav-meta {
     font-family: var(--font-mono);
-    font-size: 0.76rem;
+    font-size: 0.75rem;
     color: var(--text-secondary);
 }
 
@@ -1107,13 +1166,18 @@ figure,
 }
 
 .project-footer-links a:hover {
-    color: var(--blue-color);
+    color: var(--text-color);
+    text-decoration: underline;
 }
 
 /* --- RESPONSIVE GLOBAL --- */
 @media (max-width: 1024px) {
     .bento-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .wild-canvas-controls {
+        display: none;
     }
 }
 
@@ -1185,12 +1249,12 @@ figure,
     }
 
     .top-nav-cta {
-        padding: 5px 9px;
-        font-size: 0.72rem;
+        padding: 4px 8px;
+        font-size: 0.7rem;
     }
 
     .projects-subnav-container {
-        margin: 76px auto 24px auto;
+        margin: 72px auto 24px auto;
         width: 94%;
         flex-direction: column;
         align-items: flex-start;
@@ -1235,7 +1299,7 @@ figure,
 @keyframes pageRiseIn {
     0% {
         opacity: 0;
-        transform: translateY(14px);
+        transform: translateY(12px);
     }
 
     100% {
