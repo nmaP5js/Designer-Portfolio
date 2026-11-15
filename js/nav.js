@@ -71,12 +71,20 @@
         const projetsHref = isLandingPage ? '#projects' : 'index.html#projects';
 
         topNavContainer.innerHTML = `
-            <ul class="top-nav-list">
-                <li><a href="${accueilHref}" class="top-nav-link ${isLandingPage ? 'active' : ''}" data-nav="accueil">Accueil</a></li>
-                <li><a href="${projetsHref}" class="top-nav-link ${!isLandingPage && isProjectPage ? 'active' : ''}" data-nav="projets">Projets</a></li>
-                <li><a href="about.html" class="top-nav-link ${currentPath === 'about.html' ? 'active' : ''}" data-nav="about">À Propos</a></li>
-                <li><a href="contact.html" class="top-nav-link ${currentPath === 'contact.html' ? 'active' : ''}" data-nav="contact">Contact</a></li>
-            </ul>
+            <div class="top-nav-inner">
+                <a href="index.html" class="top-nav-brand">
+                    <span class="brand-dot" aria-hidden="true"></span>
+                    <span>Nicolas Marie-Angélique</span>
+                    <span class="brand-role-badge">Product &amp; UI/UX</span>
+                </a>
+                <ul class="top-nav-list">
+                    <li><a href="${accueilHref}" class="top-nav-link ${isLandingPage ? 'active' : ''}" data-nav="accueil">Accueil</a></li>
+                    <li><a href="${projetsHref}" class="top-nav-link ${!isLandingPage && isProjectPage ? 'active' : ''}" data-nav="projets">Projets</a></li>
+                    <li><a href="about.html" class="top-nav-link ${currentPath === 'about.html' ? 'active' : ''}" data-nav="about">À Propos</a></li>
+                    <li><a href="contact.html" class="top-nav-link ${currentPath === 'contact.html' ? 'active' : ''}" data-nav="contact">Contact</a></li>
+                    <li><a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank" rel="noopener noreferrer" class="top-nav-cta">LinkedIn ↗</a></li>
+                </ul>
+            </div>
         `;
 
         if (isLandingPage) {

@@ -63,26 +63,39 @@
         }
 
         .section-label {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 25px;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 22px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-subtle);
             display: block;
-            color: var(--text-color);
+            color: var(--blue-color);
         }
 
         /* Titre sémantique de la page (visuellement identique au texte d'intro) */
         .page-intro-title {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            font-size: 1.02rem;
+            line-height: 1.68;
+            margin-bottom: 18px;
             font-weight: 400;
+            color: var(--text-secondary);
         }
 
         .body-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            font-size: 1.02rem;
+            line-height: 1.68;
+            margin-bottom: 18px;
             font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .page-intro-title strong,
+        .body-text strong {
+            color: var(--text-color);
+            font-weight: 600;
         }
 
         /* --- LISTES --- */
@@ -91,33 +104,40 @@
         }
 
         .grid-list-item {
-            margin-bottom: 35px;
+            margin-bottom: 28px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .grid-list-item:last-child {
+            border-bottom: none;
         }
 
         .item-header {
-            font-weight: 500;
-            font-size: 1.1rem;
+            font-weight: 600;
+            font-size: 1.02rem;
             display: block;
             margin-bottom: 5px;
+            color: var(--text-color);
         }
 
         .item-sub {
-            font-size: 0.95rem;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
             color: var(--highlight-color);
             display: block;
             margin-bottom: 8px;
         }
 
         .item-desc {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             line-height: 1.6;
-            color: var(--text-color);
-            opacity: 0.9;
+            color: var(--text-secondary);
         }
 
         .item-role {
             font-weight: 600;
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             color: var(--text-color);
             line-height: 1.35;
             display: block;
@@ -129,9 +149,9 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 6px;
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             color: var(--highlight-color);
-            margin-bottom: 3px;
+            margin-bottom: 4px;
             line-height: 1.4;
         }
 
@@ -151,19 +171,21 @@
         }
 
         .item-badge {
-            font-size: 0.88rem;
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
             font-weight: 400;
-            color: var(--highlight-color);
-            background: none;
-            border: none;
-            padding: 0;
+            color: var(--blue-color);
+            background: var(--blue-subtle);
+            border: 1px solid rgba(56, 139, 255, 0.3);
+            padding: 1px 6px;
         }
 
         .item-date {
-            font-size: 0.88rem;
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
             color: var(--highlight-color);
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .item-bullets {
@@ -178,17 +200,16 @@
         .item-bullets li {
             position: relative;
             padding-left: 16px;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-color);
-            opacity: 0.9;
+            font-size: 0.92rem;
+            line-height: 1.62;
+            color: var(--text-secondary);
         }
 
         .item-bullets li::before {
             content: "•";
             position: absolute;
             left: 2px;
-            color: var(--highlight-color);
+            color: var(--blue-color);
             font-size: 0.9rem;
             line-height: 1.5;
         }
@@ -198,47 +219,8 @@
             color: var(--text-color);
         }
 
-        /* --- BOUTON CTA STYLE SHADCN/UI --- */
         .cta-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background-color: #212121;
-            color: #ffffff;
-            font-size: 0.875rem;
-            font-weight: 500;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 0;
-            text-decoration: none;
-            box-shadow: none;
-            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
             margin-top: 24px;
-            text-transform: none;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            background-color: var(--blue-color);
-            color: #ffffff;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .cta-button:active {
-            transform: scale(0.98);
-        }
-
-        .cta-button .cta-icon {
-            font-size: 16px !important;
-            opacity: 0.6;
-            transition: transform 0.15s ease, opacity 0.15s ease;
-        }
-
-        .cta-button:hover .cta-icon {
-            opacity: 1;
-            transform: translateX(4px);
         }
 
         /* --- RESPONSIVE --- */
