@@ -130,6 +130,9 @@
             modal.classList.add('active');
             modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
+            if (window.lenis && typeof window.lenis.stop === 'function') {
+                window.lenis.stop();
+            }
         }
 
         function closeModal() {
@@ -137,6 +140,9 @@
             modal.classList.remove('active');
             modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
+            if (window.lenis && typeof window.lenis.start === 'function') {
+                window.lenis.start();
+            }
             if (modalImg) modalImg.src = '';
         }
 

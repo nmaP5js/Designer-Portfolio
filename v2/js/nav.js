@@ -1,6 +1,10 @@
-/* --- SYSTÈME DE NAVIGATION CENTRALISÉ UNIFIÉ --- */
+/* ==========================================================================
+   NAVIGATION CENTRALISÉE — V2 GALERIE PRODUIT MINIMALISTE
+   ========================================================================== */
 
 (function () {
+    'use strict';
+
     const PROJECTS_LIST = [
         {
             id: 'immigrantquebec',
@@ -33,21 +37,21 @@
             url: 'portfolio.html'
         },
         {
-            id: 'trinityringcartier',
-            title: 'Trinity Ring',
-            meta: 'Concept Publicitaire 3D · 2024',
-            url: 'trinityringcartier.html'
-        },
-        {
             id: 'enjoytheride',
             title: 'Enjoy The Ride',
             meta: 'Identité, UI/UX & Game Design · 2023',
             url: 'enjoytheride.html'
         },
         {
+            id: 'trinityringcartier',
+            title: 'Trinity Ring',
+            meta: 'Concept Publicitaire 3D · 2024',
+            url: 'trinityringcartier.html'
+        },
+        {
             id: 'cgivisual',
             title: 'CGI Visual',
-            meta: 'Direction Artistique & 3D · 2023',
+            meta: '3D & Motion Design · 2023',
             url: 'cgivisual.html'
         }
     ];
@@ -60,133 +64,82 @@
     }
 
     function renderTopNav() {
-        const topNavContainer = document.querySelector('.top-nav');
-        if (!topNavContainer) return;
+        const topNav = document.querySelector('.top-nav');
+        if (!topNav) return;
 
         const currentPath = getCurrentFilename();
-        const isLandingPage = currentPath === 'index.html' || currentPath === '';
-        const isProjectPage = currentPath === 'project.html' || PROJECTS_LIST.some(p => p.url.toLowerCase() === currentPath);
+        const isLanding = currentPath === 'index.html' || currentPath === '';
+        const isProject = currentPath === 'project.html' || PROJECTS_LIST.some(p => p.url.toLowerCase() === currentPath);
+        const projetsHref = isLanding ? '#projects' : 'index.html#projects';
 
-        const accueilHref = isLandingPage ? '#hero' : 'index.html';
-        const projetsHref = isLandingPage ? '#projects' : 'index.html#projects';
-
-        const canvasControlsHtml = isLandingPage ? `
-            <div class="wild-canvas-controls" aria-label="Paramètres de la grille interactive">
-                <div class="wild-control-group" role="group" aria-label="Taille des cellules">
-                    <span class="wild-control-label">Cell</span>
-                    <button type="button" class="wild-size-btn" data-cell-size="22">L</button>
-                    <button type="button" class="wild-size-btn active" data-cell-size="14">M</button>
-                    <button type="button" class="wild-size-btn" data-cell-size="9">S</button>
-                </div>
-                <div class="wild-control-group" role="group" aria-label="Taille du pinceau">
-                    <span class="wild-control-label">Brush</span>
-                    <button type="button" class="wild-size-btn" data-brush-size="4.8">L</button>
-                    <button type="button" class="wild-size-btn active" data-brush-size="3.0">M</button>
-                    <button type="button" class="wild-size-btn" data-brush-size="1.6">S</button>
-                </div>
-            </div>
-        ` : '';
-
-        topNavContainer.innerHTML = `
+        topNav.innerHTML = `
             <div class="top-nav-inner">
-                <a href="index.html" class="top-nav-brand">
-                    <span class="brand-dot" aria-hidden="true"></span>
-                    <span>Design, engineered · nma</span>
+                <a href="index.html" class="top-nav-brand" aria-label="Accueil — Nicolas Marie-Angélique">
+                    <span class="brand-full">Nicolas Marie-Angélique</span>
+                    <span class="brand-short" aria-hidden="true">NMA</span>
                 </a>
-                ${canvasControlsHtml}
-                <ul class="top-nav-list">
-                    <li><a href="${accueilHref}" class="top-nav-link ${isLandingPage ? 'active' : ''}" data-nav="accueil">Accueil</a></li>
-                    <li><a href="${projetsHref}" class="top-nav-link ${!isLandingPage && isProjectPage ? 'active' : ''}" data-nav="projets">Projets</a></li>
-                    <li><a href="about.html" class="top-nav-link ${currentPath === 'about.html' ? 'active' : ''}" data-nav="about">À Propos</a></li>
-                    <li><a href="contact.html" class="top-nav-link ${currentPath === 'contact.html' ? 'active' : ''}" data-nav="contact">Contact</a></li>
-                    <li><a href="../index.html" class="top-nav-cta" title="Voir le site V1 actuel">Voir le site V1 ↗</a></li>
-                </ul>
+                <div class="top-nav-right">
+                    <ul class="top-nav-list">
+                        <li><a href="${projetsHref}" class="top-nav-link ${isLanding || isProject ? 'active' : ''}" data-nav="projets">Projets</a></li>
+                        <li><a href="about.html" class="top-nav-link ${currentPath === 'about.html' ? 'active' : ''}" data-nav="about">À Propos</a></li>
+                        <li><a href="contact.html" class="top-nav-link ${currentPath === 'contact.html' ? 'active' : ''}" data-nav="contact">Contact</a></li>
+                    </ul>
+                    <a href="../index.html" class="top-nav-cta" title="Voir la version V1">V1 ↗</a>
+                </div>
             </div>
         `;
 
-        if (isLandingPage) {
-            setupLandingScrollspy(topNavContainer);
+        function syncNavBorder() {
+            topNav.classList.toggle('is-scrolled', window.scrollY > 12);
+        }
+        window.addEventListener('scroll', syncNavBorder, { passive: true });
+        syncNavBorder();
+
+        if (isLanding) {
+            setupLandingAnchors(topNav);
         }
     }
 
-    function setupLandingScrollspy(topNavContainer) {
-        const accueilLink = topNavContainer.querySelector('[data-nav="accueil"]');
-        const projetsLink = topNavContainer.querySelector('[data-nav="projets"]');
+    function setupLandingAnchors(topNav) {
+        const projetsLink = topNav.querySelector('[data-nav="projets"]');
         const projectsSection = document.getElementById('projects');
 
-        if (!accueilLink || !projetsLink || !projectsSection) return;
-
-        function updateScrollspy() {
-            const scrollY = window.scrollY || window.pageYOffset;
-            const projectsTop = projectsSection.getBoundingClientRect().top + scrollY;
-            const threshold = projectsTop - window.innerHeight * 0.4;
-
-            if (scrollY >= threshold) {
-                projetsLink.classList.add('active');
-                projetsLink.setAttribute('aria-current', 'true');
-                accueilLink.classList.remove('active');
-                accueilLink.removeAttribute('aria-current');
-            } else {
-                accueilLink.classList.add('active');
-                accueilLink.setAttribute('aria-current', 'true');
-                projetsLink.classList.remove('active');
-                projetsLink.removeAttribute('aria-current');
-            }
-        }
-
-        window.addEventListener('scroll', updateScrollspy, { passive: true });
-        updateScrollspy();
-
-        // Support du hash #projects initial avec défilement fluide
-        if (window.location.hash === '#projects') {
+        if (window.location.hash === '#projects' && projectsSection) {
             setTimeout(() => {
                 if (window.lenis) {
-                    window.lenis.scrollTo(projectsSection);
+                    window.lenis.scrollTo(projectsSection, { offset: -64 });
                 } else {
                     projectsSection.scrollIntoView({ behavior: 'smooth' });
                 }
-            }, 100);
+            }, 80);
         }
 
-        // Défilement fluide au clic sur les ancres de la landing page
-        [accueilLink, projetsLink].forEach(link => {
-            link.addEventListener('click', (e) => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('#')) {
-                    const target = document.querySelector(href);
-                    if (target) {
-                        e.preventDefault();
-                        if (window.lenis) {
-                            window.lenis.scrollTo(target);
-                        } else {
-                            target.scrollIntoView({ behavior: 'smooth' });
-                        }
-                        history.pushState(null, null, href);
-                    }
+        if (projetsLink && projectsSection) {
+            projetsLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (window.lenis) {
+                    window.lenis.scrollTo(projectsSection, { offset: -64 });
+                } else {
+                    projectsSection.scrollIntoView({ behavior: 'smooth' });
                 }
+                history.pushState(null, '', '#projects');
             });
-        });
+        }
     }
 
     function renderSubnav() {
-        const subnavContainer = document.querySelector('.projects-subnav-container');
-        if (!subnavContainer) return;
+        const subnav = document.querySelector('.projects-subnav-container');
+        if (!subnav) return;
 
         const currentPath = getCurrentFilename();
-
-        let html = `<span class="subnav-title">Projets sélectionnés</span><div class="subnav-list">`;
-
-        PROJECTS_LIST.forEach(project => {
+        const links = PROJECTS_LIST.map(project => {
             const isActive = currentPath === project.url.toLowerCase();
-            const activeClass = isActive ? 'active' : '';
-            html += `<a href="${project.url}" class="subnav-item ${activeClass}">${project.title}</a>`;
-        });
+            return `<a href="${project.url}" class="subnav-item ${isActive ? 'active' : ''}">${project.title}</a>`;
+        }).join('');
 
-        html += `</div>`;
-        subnavContainer.innerHTML = html;
+        subnav.innerHTML = `<span class="subnav-title">Projets</span><div class="subnav-list">${links}</div>`;
     }
 
-    /* --- SOMMAIRE INTERACTIF STICKY (TABLE OF CONTENTS) SUR LES ÉTUDES DE CAS --- */
     function renderCaseStudyTOC() {
         const articleBody = document.querySelector('.article-body');
         const rightCol = document.querySelector('.right-col');
@@ -195,7 +148,6 @@
         const headings = Array.from(articleBody.querySelectorAll('h2.section-heading, h3.subsection-heading'));
         if (headings.length < 2) return;
 
-        // S'assurer que chaque titre possède un id d'ancrage
         const items = headings.map((heading, idx) => {
             const parentSection = heading.closest('section[id]');
             let targetId = '';
@@ -214,15 +166,9 @@
                 targetId = heading.id;
             }
 
-            // Nettoyage d'un intitulé très long pour le sommaire
             let label = heading.textContent.trim();
-            if (label.length > 52) {
-                const colonIdx = label.indexOf(':');
-                if (colonIdx !== -1 && colonIdx < 16) {
-                    label = label.slice(0, 50).trim() + '…';
-                } else {
-                    label = label.slice(0, 48).trim() + '…';
-                }
+            if (label.length > 48) {
+                label = label.slice(0, 46).trim() + '…';
             }
 
             return {
@@ -238,7 +184,7 @@
         tocCard.className = 'toc-card';
         tocCard.setAttribute('aria-label', 'Sommaire de l\'étude de cas');
 
-        let linksHtml = items.map((item, index) => `
+        const linksHtml = items.map((item, index) => `
             <li class="toc-item toc-item-${item.level}">
                 <a href="#${item.id}" class="toc-link ${index === 0 ? 'active' : ''}" data-toc-target="${item.id}" title="${item.fullLabel.replace(/"/g, '&quot;')}">
                     <span class="toc-indicator" aria-hidden="true"></span>
@@ -255,9 +201,7 @@
             <div class="toc-progress-bar" aria-hidden="true">
                 <div class="toc-progress-fill" id="tocProgressFill"></div>
             </div>
-            <ul class="toc-list">
-                ${linksHtml}
-            </ul>
+            <ul class="toc-list">${linksHtml}</ul>
         `;
 
         rightCol.appendChild(tocCard);
@@ -274,18 +218,18 @@
                 if (!targetEl) return;
 
                 if (window.lenis) {
-                    window.lenis.scrollTo(targetEl, { offset: -95 });
+                    window.lenis.scrollTo(targetEl, { offset: -84 });
                 } else {
-                    const y = targetEl.getBoundingClientRect().top + window.scrollY - 95;
+                    const y = targetEl.getBoundingClientRect().top + window.scrollY - 84;
                     window.scrollTo({ top: y, behavior: 'smooth' });
                 }
-                history.replaceState(null, null, `#${targetId}`);
+                history.replaceState(null, '', `#${targetId}`);
             });
         });
 
         function updateActiveToc() {
             const scrollY = window.scrollY || window.pageYOffset;
-            const triggerLine = scrollY + window.innerHeight * 0.26;
+            const triggerLine = scrollY + window.innerHeight * 0.25;
 
             let activeId = items[0].id;
             for (let i = 0; i < items.length; i++) {
@@ -296,11 +240,9 @@
             }
 
             tocLinks.forEach(link => {
-                const isMatch = link.getAttribute('data-toc-target') === activeId;
-                link.classList.toggle('active', isMatch);
+                link.classList.toggle('active', link.getAttribute('data-toc-target') === activeId);
             });
 
-            // Progression de lecture de l'article
             const articleRect = articleBody.getBoundingClientRect();
             const articleTop = articleRect.top + scrollY;
             const articleHeight = Math.max(1, articleBody.offsetHeight - window.innerHeight * 0.5);
@@ -316,7 +258,6 @@
         updateActiveToc();
     }
 
-    /* --- NAVIGATION PROJET PRÉCÉDENT / SUIVANT + FOOTER DE BAS DE PAGE --- */
     function renderProjectPaginationAndFooter() {
         const currentPath = getCurrentFilename();
         const currentIndex = PROJECTS_LIST.findIndex(p => p.url.toLowerCase() === currentPath);
@@ -343,7 +284,6 @@
                     <span class="project-nav-title">${prevProject.title}</span>
                     <span class="project-nav-meta">${prevProject.meta}</span>
                 </a>
-
                 <a href="${nextProject.url}" class="project-nav-card next">
                     <span class="project-nav-direction">
                         <span>Projet suivant</span>
@@ -356,12 +296,12 @@
 
             <div class="project-site-footer">
                 <div class="project-footer-left">
-                    <span class="project-footer-copy">© ${new Date().getFullYear()} Nicolas Marie-Angélique</span>
-                    <span class="project-footer-sep" aria-hidden="true">·</span>
-                    <span class="project-footer-role">Designer UI/UX</span>
+                    <span class="project-footer-copy">© 2026 Nicolas Marie-Angélique</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Designer UI/UX &amp; Services</span>
                 </div>
                 <div class="project-footer-links">
-                    <a href="index.html#projects">Tous les projets</a>
+                    <a href="index.html#projects">Projets</a>
                     <a href="about.html">À Propos</a>
                     <a href="contact.html">Contact</a>
                     <a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
@@ -374,57 +314,11 @@
         mainEl.appendChild(bottomSection);
     }
 
-    /* --- MINIATURES D'APERÇU PROJET SUR MOBILE / TABLETTE (< 900px) --- */
-    function renderMobileProjectThumbnails() {
-        const items = document.querySelectorAll('.simple-list .simple-item[data-preview]');
-        if (!items.length) return;
-
-        const mql = window.matchMedia('(max-width: 900px)');
-
-        function injectThumbnailsIfNeeded() {
-            if (!mql.matches) return;
-
-            items.forEach(item => {
-                if (item.classList.contains('has-mobile-thumb')) return;
-                const previewSrc = item.getAttribute('data-preview');
-                if (!previewSrc) return;
-
-                const textWrapper = document.createElement('div');
-                textWrapper.className = 'simple-item-text';
-                while (item.firstChild) {
-                    textWrapper.appendChild(item.firstChild);
-                }
-
-                const isLogo = /logo/i.test(previewSrc);
-                const thumb = document.createElement('div');
-                thumb.className = `mobile-item-thumb${isLogo ? ' is-logo' : ''}`;
-                thumb.setAttribute('aria-hidden', 'true');
-
-                const img = document.createElement('img');
-                img.src = previewSrc;
-                img.alt = '';
-                img.loading = 'lazy';
-                img.decoding = 'async';
-
-                thumb.appendChild(img);
-                item.appendChild(textWrapper);
-                item.appendChild(thumb);
-                item.classList.add('has-mobile-thumb');
-            });
-        }
-
-        injectThumbnailsIfNeeded();
-        if (mql.addEventListener) {
-            mql.addEventListener('change', injectThumbnailsIfNeeded);
-        }
-    }
-
     function init() {
         renderTopNav();
         renderSubnav();
         renderCaseStudyTOC();
         renderProjectPaginationAndFooter();
-        renderMobileProjectThumbnails();
     }
 
     if (document.readyState === 'loading') {
