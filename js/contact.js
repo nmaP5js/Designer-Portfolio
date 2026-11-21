@@ -52,14 +52,13 @@
         const lead = document.querySelector('.contact-lead');
         const emailBox = document.querySelector('.contact-email-box');
         const links = document.querySelector('.contact-links');
-        const portraitCard = document.querySelector('.contact-portrait-card');
 
         const tl = gsap.timeline({
             defaults: { ease: 'power4.out' },
             onComplete: () => {
                 root.classList.remove('js-entrance');
                 gsap.set(
-                    [kicker, lead, emailBox, links, portraitCard, ...revealLines].filter(Boolean),
+                    [kicker, lead, emailBox, links, ...revealLines].filter(Boolean),
                     { clearProps: 'all' }
                 );
             }
@@ -78,14 +77,6 @@
                 { y: 0, yPercent: 112 },
                 { y: 0, yPercent: 0, duration: 0.72, stagger: 0.09, ease: 'power4.out' },
                 0.06
-            );
-        }
-        if (portraitCard) {
-            tl.fromTo(
-                portraitCard,
-                { opacity: 0, y: 20, scale: 0.97 },
-                { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power3.out' },
-                0.14
             );
         }
         if (lead) {

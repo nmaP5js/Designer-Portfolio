@@ -636,10 +636,6 @@ html.js-entrance .c-featured-links_list {
         max-width: 60ch;
     }
 
-    .c-featured-links_discipline {
-        display: none;
-    }
-
     .c-featured-links_title {
         padding-inline: 44px;
     }
@@ -693,8 +689,7 @@ html.js-entrance .c-featured-links_list {
     }
 
     .c-featured-links_meta {
-        position: static;
-        flex-shrink: 0;
+        display: none;
     }
 
     .c-mobile-thumb {

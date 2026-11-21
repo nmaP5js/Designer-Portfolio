@@ -191,9 +191,9 @@
                 0.44
             );
             rowMetas.forEach((meta, idx) => {
-                const yearSpan = meta.querySelector('span:last-child');
-                if (yearSpan) {
-                    const t = createDecodeTween(yearSpan, 0.26, NUMERIC_CHARS);
+                const disciplineSpan = meta.querySelector('.c-featured-links_discipline');
+                if (disciplineSpan) {
+                    const t = createDecodeTween(disciplineSpan, 0.28, SHUFFLE_CHARS);
                     if (t) tl.add(t, 0.44 + idx * 0.045);
                 }
             });

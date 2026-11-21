@@ -6,8 +6,9 @@
 (function () {
     'use strict';
 
-    // Respecter les préférences d'accessibilité
+    // Respecter les préférences d'accessibilité & vérifier la disponibilité de Lenis
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (typeof Lenis === 'undefined') return;
 
     var lenis = new Lenis({
         duration: 1.2,

@@ -5,654 +5,421 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Portfolio de Nicolas Marie Angelique - Designer UI/UX. Projets sélectionnés, À Propos et Contact.">
+        content="Portfolio de Nicolas Marie-Angélique — Designer UI/UX, Architecture d'information et Design de services. Projets : Immigrant Québec, Thales Alenia Space, Dynamic Gallery, REX_System.">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nicolasmarieangelique.fr/">
-    <meta property="og:title" content="Nicolas Marie Angelique - Designer UI/UX">
-    <meta property="og:description" content="Découvrez mon portfolio : Design d'interface, Branding et Recherche UX.">
-    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://nicolasmarieangelique.fr/">
-    <meta property="twitter:title" content="Nicolas Marie Angelique - Designer UI/UX">
-    <meta property="twitter:description"
-        content="Découvrez mon portfolio : Design d'interface, Branding et Recherche UX.">
-    <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
-    <link rel="canonical" href="https://nicolasmarieangelique.fr/">
+    <meta property="og:url" content="https://www.nicolasmarieangelique.fr/v2/">
+    <meta property="og:title" content="Nicolas Marie-Angélique — Designer UI/UX & Services">
+    <meta property="og:description"
+        content="Interfaces métiers, architecture d'information, recherche UX et outils web interactifs.">
+    <meta property="og:image" content="https://www.nicolasmarieangelique.fr/images/apercu_img.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nicolas Marie-Angélique — Designer UI/UX & Services">
+    <meta name="twitter:description"
+        content="Interfaces métiers, architecture d'information, recherche UX et outils web interactifs.">
+    <meta name="twitter:image" content="https://www.nicolasmarieangelique.fr/images/apercu_img.png">
+    <link rel="canonical" href="https://www.nicolasmarieangelique.fr/">
 
-    <link rel="icon" type="image/png" href="stickers/sticker1.png">
-    <link rel="shortcut icon" type="image/png" href="stickers/sticker1.png">
-
-    <title>Nicolas Marie Angelique</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261121-prod">
+    <title>Nicolas Marie-Angélique — Designer UI/UX &amp; Services</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <!-- Design System CSS Centralisé -->
-    <link rel="stylesheet" href="css/main.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0"
+        rel="stylesheet">
 
-    <style>
-        :root {
-            --royal-blue: #00a6fb;
-            --line-color: #e0e0e0;
+    <link rel="stylesheet" href="css/main.css?v=20261121-prod">
+    <link rel="stylesheet" href="css/landing.css?v=20261121-prod">
+    <script>
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.classList.add('js-entrance');
         }
-
-        /* --- HERO SECTION --- */
-        .hero-section {
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .logo-container {
-            width: 80%;
-            max-width: 420px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-            pointer-events: none;
-        }
-
-        .logo-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: contain;
-        }
-
-        /* --- SECTION PROJETS DE LA LANDING PAGE --- */
-        .landing-projects-section {
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: flex-start;
-            padding: 0;
-            position: relative;
-            z-index: 5;
-            text-align: left;
-            background-color: var(--bg-color);
-            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.28), 0 10px 20px -5px rgba(0, 0, 0, 0.16);
-        }
-
-        /* Colonne Gauche : Liste des Projets */
-        .projects-column {
-            width: 50%;
-            padding: 100px 60px 140px 80px;
-            z-index: 2;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .projects-header-badge {
-            margin-bottom: 44px;
-        }
-
-        .projects-section-tag {
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--highlight-color);
-            display: inline-block;
-        }
-
-        .simple-list {
-            display: flex;
-            flex-direction: column;
-            gap: 52px;
-            width: 100%;
-            text-align: left;
-            align-items: flex-start;
-        }
-
-        .simple-item {
-            text-decoration: none;
-            display: block;
-            width: 100%;
-            text-align: left;
-            transition: opacity 0.4s ease, transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .item-title {
-            font-size: 3.8rem;
-            font-weight: 600;
-            margin: 0;
-            color: var(--text-color);
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            text-align: left;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .item-meta {
-            font-size: 1rem;
-            color: var(--highlight-color);
-            margin: 10px 0 0 0;
-            font-weight: 400;
-            text-transform: none;
-            letter-spacing: 0.02em;
-            text-align: left;
-            transition: color 0.3s ease;
-        }
-
-        /* Interactions Liste */
-        .simple-item:hover .item-title {
-            color: var(--blue-color);
-        }
-
-        .simple-item:hover .item-meta {
-            color: #555555;
-        }
-
-        /* Dimming subtil des autres éléments lors du survol (desktop) */
-        .simple-list:hover .simple-item:not(:hover) {
-            opacity: 0.3 !important;
-        }
-
-        .simple-list:hover .simple-item:hover {
-            opacity: 1 !important;
-        }
-
-        /* Colonne Droite : Preview Sticky Centrée */
-        .preview-column {
-            width: 50%;
-            height: 100vh;
-            position: sticky;
-            top: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 60px;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .preview-image-container {
-            width: 100%;
-            height: 80%;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0;
-            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transform: scale(0.95);
-            will-change: transform, opacity;
-        }
-
-        .preview-image-container.active {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* --- CONTENEUR DE RÉVÉLATION FOOTER (EFFET PORTE DE GARAGE / AWWWARDS) --- */
-        .footer-reveal-container {
-            position: relative;
-            width: 100%;
-            height: 80vh;
-            min-height: 520px;
-            clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
-            -webkit-clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
-            z-index: 1;
-        }
-
-        .garage-reveal-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 80vh;
-            min-height: 520px;
-            z-index: 1;
-            background-color: var(--royal-blue);
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 80px 80px 32px 80px;
-            overflow: hidden;
-            box-sizing: border-box;
-        }
-
-        .footer-curtain-inner {
-            width: 100%;
-            max-width: 1600px;
-            margin: 0 auto;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.1s ease-out, opacity 0.1s ease-out;
-            will-change: transform, opacity;
-        }
-
-        .footer-top-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 40px;
-            width: 100%;
-        }
-
-        .footer-left-block {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        .footer-title {
-            font-size: clamp(1.8rem, 3.2vw, 3.2rem);
-            font-weight: 400;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-            color: #ffffff;
-            margin: 0;
-        }
-
-        .footer-email-link {
-            font-size: clamp(1.4rem, 2.5vw, 2.6rem);
-            font-weight: 400;
-            color: #ffffff;
-            text-decoration: underline;
-            text-underline-offset: 6px;
-            text-decoration-thickness: 1.5px;
-            transition: opacity 0.2s ease, transform 0.2s ease;
-            display: inline-block;
-            letter-spacing: -0.01em;
-        }
-
-        .footer-email-link:hover {
-            opacity: 0.85;
-        }
-
-        .footer-social-links {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-        }
-
-        .shadcn-btn-outline {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background-color: #ffffff;
-            color: #000000;
-            font-size: 0.875rem;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 0;
-            text-decoration: none;
-            box-shadow: none;
-            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            border: 1px solid #ffffff;
-        }
-
-        .shadcn-btn-outline:hover {
-            background-color: var(--blue-color);
-            border-color: var(--blue-color);
-            color: #ffffff;
-        }
-
-        .shadcn-btn-outline:active {
-            transform: scale(0.98);
-        }
-
-        .shadcn-icon {
-            font-size: 15px !important;
-            opacity: 0.75;
-            transition: transform 0.15s ease, opacity 0.15s ease;
-        }
-
-        .shadcn-btn-outline:hover .shadcn-icon {
-            opacity: 1;
-            color: #ffffff;
-        }
-
-        /* Grand Nom Typographique (style Nata Butkowska) */
-        .footer-giant-name-wrapper {
-            width: 100%;
-            overflow: visible;
-            margin-top: auto;
-            padding-top: 40px;
-            line-height: 1;
-            pointer-events: none;
-        }
-
-        .footer-giant-name {
-            font-size: clamp(3.4rem, 8.8vw, 9.8rem);
-            font-weight: 100;
-            line-height: 1.02;
-            letter-spacing: -0.03em;
-            color: #ffffff;
-            display: block;
-            white-space: nowrap;
-            text-align: left;
-            user-select: none;
-            transform: none;
-        }
-
-        /* --- RESPONSIVE DESIGN --- */
-        @media (max-width: 900px) {
-            .simple-list:hover .simple-item:not(:hover) {
-                opacity: 1 !important;
-            }
-
-            .landing-projects-section {
-                flex-direction: column;
-            }
-
-            .projects-column {
-                width: 100%;
-                padding: 70px 30px 60px 30px;
-            }
-
-            .preview-column {
-                display: none;
-            }
-
-            .item-title {
-                font-size: 2.6rem;
-            }
-
-            .footer-reveal-container,
-            .garage-reveal-footer {
-                height: 70vh;
-                min-height: 480px;
-            }
-
-            .garage-reveal-footer {
-                padding: 60px 30px 24px 30px;
-            }
-
-            .footer-top-row {
-                flex-direction: column;
-                gap: 28px;
-            }
-
-            .footer-giant-name {
-                font-size: clamp(3rem, 11vw, 6rem);
-                white-space: normal;
-                line-height: 0.98;
-                letter-spacing: -0.035em;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .hero-section {
-                min-height: 100vh;
-            }
-
-            .logo-container {
-                width: 80%;
-                max-width: 290px;
-            }
-
-            .projects-column {
-                padding: 60px 20px 40px 20px;
-            }
-
-            .simple-list {
-                gap: 34px;
-            }
-
-            .item-title {
-                font-size: 1.9rem;
-            }
-
-            .item-meta {
-                font-size: 0.85rem;
-                margin-top: 4px;
-            }
-
-            .footer-reveal-container,
-            .garage-reveal-footer {
-                height: 82vh;
-                min-height: 520px;
-            }
-
-            .garage-reveal-footer {
-                padding: 40px 20px 24px 20px;
-            }
-
-            .footer-email-link {
-                font-size: 1.3rem;
-                word-break: break-all;
-            }
-
-            .footer-giant-name-wrapper {
-                padding-top: 24px;
-            }
-
-            .footer-giant-name {
-                font-size: clamp(3.2rem, 13vw, 4.8rem);
-                white-space: normal;
-                line-height: 0.95;
-                letter-spacing: -0.04em;
-                word-break: break-word;
-            }
-        }
-    </style>
+    </script>
 </head>
 
 <body>
 
-    <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
-    <div class="content-backdrop" aria-hidden="true"></div>
-
     <nav class="top-nav" aria-label="Navigation principale"></nav>
 
-    <!-- SECTION HERO PLEIN ÉCRAN -->
-    <header class="hero-section" id="hero">
-        <div class="logo-container">
-            <img src="images/Group@2x.webp" alt="Nicolas Marie Angelique" class="logo-img" fetchpriority="high">
-        </div>
-    </header>
+    <div class="page-shell">
 
-    <!-- SECTION PROJETS DE LA LANDING PAGE -->
-    <main class="landing-projects-section" id="projects" aria-label="Projets sélectionnés">
+        <!-- 1. HERO ÉPURÉ -->
+        <header class="hero" id="hero">
+            <div class="wrap">
+                <div class="hero-grid">
+                    <div>
+                        <div class="hero-kicker">
+                            <span class="hero-dot" aria-hidden="true"></span>
+                            <span data-entrance-decode>Designer UI/UX · Designer de services</span>
+                        </div>
+                        <h1 class="hero-title">
+                            <span class="reveal-line"><span class="reveal-line-inner">Nicolas
+                                    Marie-Angélique</span></span>
+                            <span class="reveal-line"><span class="reveal-line-inner hero-title-muted">Conception
+                                    d'interfaces &amp;</span></span>
+                            <span class="reveal-line"><span class="reveal-line-inner hero-title-muted">d'outils
+                                    numériques.</span></span>
+                        </h1>
+                    </div>
 
-        <section class="projects-column">
-            <div class="projects-header-badge">
-                <span class="projects-section-tag">Projets sélectionnés</span>
-            </div>
-
-            <div class="simple-list">
-
-                <a href="immigrantquebec.html" class="simple-item"
-                    data-preview="images/immigrant-quebec/obsidian_dataview.webp">
-                    <h2 class="item-title">Immigrant Québec</h2>
-                    <p class="item-meta">Audit de Contenu & Refonte Web - 2026</p>
-                </a>
-
-                <a href="thalesaleniaspace.html" class="simple-item" data-preview="images/thales_alenia_space_logo.webp">
-                    <h2 class="item-title">Thales Alenia Space</h2>
-                    <p class="item-meta">UI/UX & Systèmes Critiques - 2025</p>
-                </a>
-
-                <a href="dynamic_gallery.html" class="simple-item"
-                    data-preview="images/dynamic_gallery1.webp">
-                    <h2 class="item-title">Dynamic Gallery</h2>
-                    <p class="item-meta">Collage Art Interactif - 2026</p>
-                </a>
-
-                <a href="rex_system.html" class="simple-item" data-preview="images/rex_system1.webp">
-                    <h2 class="item-title">REX_System</h2>
-                    <p class="item-meta">Visionneuse Média Portable - 2026</p>
-                </a>
-
-                <a href="portfolio.html" class="simple-item" data-preview="images/apercu_img.webp">
-                    <h2 class="item-title">Conception Portfolio Web</h2>
-                    <p class="item-meta">Conception Web - 2025</p>
-                </a>
-
-                <a href="trinityringcartier.html" class="simple-item" data-preview="images/ring3.webp">
-                    <h2 class="item-title">Trinity Ring</h2>
-                    <p class="item-meta">Concept Publicitaire - 2024</p>
-                </a>
-
-                <a href="enjoytheride.html" class="simple-item" data-preview="gif/LOGOSPIN.webp">
-                    <h2 class="item-title">Enjoy The Ride</h2>
-                    <p class="item-meta">Designer Graphique - 2023</p>
-                </a>
-
-                <a href="cgivisual.html" class="simple-item" data-preview="images/cgi_1.webp">
-                    <h2 class="item-title">CGI Visual</h2>
-                    <p class="item-meta">Anciens Projets - 2023</p>
-                </a>
-
-            </div>
-        </section>
-
-        <aside class="preview-column" aria-hidden="true">
-            <div class="preview-image-container" id="previewContainer"></div>
-        </aside>
-
-    </main>
-
-    <!-- FOOTER RÉVÉLÉ EN PORTE DE GARAGE (STYLE AWWWARDS) -->
-    <div class="footer-reveal-container" id="footerRevealContainer">
-        <footer class="garage-reveal-footer" id="garageFooter" aria-label="Pied de page">
-            <div class="footer-curtain-inner">
-                <div class="footer-top-row">
-                    <div class="footer-left-block">
-                        <h2 class="footer-title">
-                            Mon parcours vous intéresse&nbsp;? <br>
-                            Contactez-moi
-                        </h2>
-                        <a href="mailto:nmafreelance@gmail.com" class="footer-email-link">nmafreelance@gmail.com</a>
-                        <div class="footer-social-links">
+                    <div class="hero-aside">
+                        <p class="hero-desc">
+                            Recherche utilisateur, architecture d'information et prototypage récemment chez
+                            <strong>Immigrant Québec</strong> (Montréal) et <strong>Thales Alenia Space</strong>.
+                        </p>
+                        <div class="hero-links">
+                            <a href="mailto:nmafreelance@gmail.com" class="text-link"
+                                data-copy-email="nmafreelance@gmail.com">
+                                <span data-copy-label>nmafreelance@gmail.com</span>
+                            </a>
                             <a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank"
-                                rel="noopener noreferrer" class="shadcn-btn-outline" aria-label="LinkedIn">
-                                <span>LinkedIn</span>
-                                <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
-                            </a>
-                            <a href="https://github.com/nmaP5js"
-                                target="_blank" rel="noopener noreferrer" class="shadcn-btn-outline"
-                                aria-label="GitHub">
-                                <span>GitHub</span>
-                                <span class="material-symbols-outlined shadcn-icon">arrow_outward</span>
-                            </a>
+                                rel="noopener noreferrer" class="text-link muted">LinkedIn ↗</a>
+                            <a href="https://github.com/nmaP5js" target="_blank" rel="noopener noreferrer"
+                                class="text-link muted">GitHub ↗</a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </header>
 
-                <!-- GRAND NOM DISPLAY EN BAS DU FOOTER (STYLE NATA BUTKOWSKA) -->
-                <div class="footer-giant-name-wrapper">
-                    <span class="footer-giant-name">Nicolas Marie Angélique</span>
+        <!-- 2. LISTE DE PROJETS (ARCHITECTURE LOCOMOTIVE c-featured-links + GSAP HoverShuffle) -->
+        <main class="c-featured-links" id="projects" aria-label="Projets sélectionnés">
+            <div class="wrap">
+
+                <div class="c-featured-links_bar">
+                    <span class="c-featured-links_heading">
+                        Projets récents
+                        <span class="c-featured-links_count" id="locoCount">(08)</span>
+                    </span>
+
+                    <div class="c-featured-links_filters" role="group" aria-label="Filtrer par discipline">
+                        <button type="button" class="c-filter-btn active" data-filter="all"
+                            aria-pressed="true">Tous</button>
+                        <button type="button" class="c-filter-btn" data-filter="uiux" aria-pressed="false">UI/UX &amp;
+                            Produit</button>
+                        <button type="button" class="c-filter-btn" data-filter="tools" aria-pressed="false">Outils &amp;
+                            Web</button>
+                        <button type="button" class="c-filter-btn" data-filter="3d" aria-pressed="false">3D &amp;
+                            Motion</button>
+                    </div>
+                </div>
+
+                <ul class="c-featured-links_list">
+
+                    <li class="c-featured-links_item" data-category="uiux" data-hover-shuffle="children">
+                        <h2 class="u-screen-reader-text">Immigrant Québec — Audit &amp; Refonte Web</h2>
+                        <span class="c-featured-links_label" aria-hidden="true">01</span>
+                        <span class="c-mobile-thumb" aria-hidden="true">
+                            <img src="images/immigrant-quebec/maquette_accueil_apres.webp" alt="">
+                        </span>
+
+                        <div aria-hidden="true" class="c-featured-links_title">
+                            <span data-hover-shuffle-child>Immigrant</span>
+                            <div class="c-featured-links_visual">
+                                <span class="c-featured-links_visual-inner">
+                                    <img src="images/immigrant-quebec/maquette_accueil_apres.webp" alt="">
+                                </span>
+                            </div>
+                            <span data-hover-shuffle-child>Québec</span>
+                        </div>
+
+                        <span class="c-featured-links_meta" aria-hidden="true">
+                            <span class="c-featured-links_discipline">Audit &amp; Refonte</span>
+                        </span>
+                        <a href="immigrantquebec.html" class="c-featured-links_link">En voir plus à propos d'Immigrant
+                            Québec</a>
+                    </li>
+
+                    <li class="c-featured-links_item" data-category="uiux" data-hover-shuffle="children">
+                        <h2 class="u-screen-reader-text">Thales Alenia Space — Systèmes Critiques</h2>
+                        <span class="c-featured-links_label" aria-hidden="true">02</span>
+                        <span class="c-mobile-thumb is-space" aria-hidden="true">
+                            <img src="images/thales_alenia_space_logo.webp" alt="">
+                        </span>
+
+                        <div aria-hidden="true" class="c-featured-links_title">
+                            <span data-hover-shuffle-child>Thales</span>
+                            <div class="c-featured-links_visual is-space">
+                                <span class="c-featured-links_visual-inner">
+                                    <img src="images/thales_alenia_space_logo.webp" alt="">
+                                </span>
+                            </div>
+                            <span data-hover-shuffle-child>Alenia Space</span>
+                        </div>
+
+                        <span class="c-featured-links_meta" aria-hidden="true">
+                            <span class="c-featured-links_discipline">Systèmes Critiques</span>
+                        </span>
+                        <a href="thalesaleniaspace.html" class="c-featured-links_link">En voir plus à propos de Thales
+                            Alenia Space</a>
+                    </li>
+
+                    <li class="c-featured-links_item" data-category="tools" data-hover-shuffle="children">
+                        <h2 class="u-screen-reader-text">Dynamic Gallery — Outil Web</h2>
+                        <span class="c-featured-links_label" aria-hidden="true">03</span>
+                        <span class="c-mobile-thumb" aria-hidden="true">
+                            <img src="images/dynamic_gallery1.webp" alt="">
+                        </span>
+
+                        <div aria-hidden="true" class="c-featured-links_title">
+                            <span data-hover-shuffle-child>Dynamic</span>
+                            <div class="c-featured-links_visual is-center">
+                                <span class="c-featured-links_visual-inner">
+                                    <img src="images/dynamic_gallery1.webp" alt="">
+                                </span>
+                            </div>
+                            <span data-hover-shuffle-child>Gallery</span>
+                        </div>
+
+                        <span class="c-featured-links_meta" aria-hidden="true">
+                            <span class="c-featured-links_discipline">Outil Web</span>
+                        </span>
+                        <a href="dynamic_gallery.html" class="c-featured-links_link">En voir plus à propos de Dynamic
+                            Gallery</a>
+                    </li>
+
+                    <li class="c-featured-links_item" data-category="tools" data-hover-shuffle="children">
+                        <h2 class="u-screen-reader-text">REX_System — Visionneuse Média Portable</h2>
+                        <span class="c-featured-links_label" aria-hidden="true">04</span>
+                        <span class="c-mobile-thumb" aria-hidden="true">
+                            <img src="images/rex_system1.webp" alt="">
+                        </span>
+
+                        <div aria-hidden="true" class="c-featured-links_title">
+                            <span data-hover-shuffle-child>REX</span>
+                            <div class="c-featured-links_visual">
+                                <span class="c-featured-links_visual-inner">
+                                    <img src="images/rex_system1.webp" alt="">
+                                </span>
+                            </div>
+                            <span data-hover-shuffle-child>System</span>
+                        </div>
+
+                        <span class="c-featured-links_meta" aria-hidden="true">
+                            <span class="c-featured-links_discipline">Standalone</span>
+                        </span>
+                        <a href="rex_system.html" class="c-featured-links_link">En voir plus à propos de REX_System</a>
+                    </li>
+
+                    <li class="c-featured-links_item" data-category="tools" data-hover-shuffle="children">
+                        <h2 class="u-screen-reader-text">Designer Portfolio — Conception Web &amp; IA</h2>
+                        <span class="c-featured-links_label" aria-hidden="true">05</span>
+                        <span class="c-mobile-thumb" aria-hidden="true">
+                            <img src="images/apercu_img.webp" alt="">
+                        </span>
+
+                        <div aria-hidden="true" class="c-featured-links_title">
+                            <span data-hover-shuffle-child>Designer</span>
+                            <div class="c-featured-links_visual is-center">
+                                <span class="c-featured-links_visual-inner">
+                                    <img src="images/apercu_img.webp" alt="">
+                                </span>
+                            </div>
+                            <span data-hover-shuffle-child>Portfolio</span>
+                        </div>
+
+                        <span class="c-featured-links_meta" aria-hidden="true">
+                            <span class="c-featured-links_discipline">Web &amp; IA</span>
+                        </span>
+                        <a href="portfolio.html" class="c-featured-links_link">En voir plus à propos de Designer
+                            Portfolio</a>
+                    </li>
+
+                    <li class="c-featured-links_item" data-category="uiux" data-hover-shuffle="children">
+                        <h2 class="u-screen-reader-text">Enjoy The Ride — UI &amp; Game Design</h2>
+                        <span class="c-featured-links_label" aria-hidden="true">06</span>
+                        <span class="c-mobile-thumb" aria-hidden="true">
+                            <img src="images/uietr.webp" alt="">
+                        </span>
+
+                        <div aria-hidden="true" class="c-featured-links_title">
+                            <span data-hover-shuffle-child>Enjoy</span>
+                            <div class="c-featured-links_visual is-center">
+                                <span class="c-featured-links_visual-inner">
+                                    <img src="images/uietr.webp" alt="">
+                                </span>
+                            </div>
+                            <span data-hover-shuffle-child>The Ride</span>
+                        </div>
+
+                        <span class="c-featured-links_meta" aria-hidden="true">
+                            <span class="c-featured-links_discipline">UI &amp; Game Design</span>
+                        </span>
+                        <a href="enjoytheride.html" class="c-featured-links_link">En voir plus à propos d'Enjoy The
+                            Ride</a>
+                    </li>
+
+                    <li class="c-featured-links_item" data-category="3d" data-hover-shuffle="children">
+                        <h2 class="u-screen-reader-text">Trinity Ring — Publicité 3D Cartier</h2>
+                        <span class="c-featured-links_label" aria-hidden="true">07</span>
+                        <span class="c-mobile-thumb" aria-hidden="true">
+                            <img src="images/ring3.webp" alt="">
+                        </span>
+
+                        <div aria-hidden="true" class="c-featured-links_title">
+                            <span data-hover-shuffle-child>Trinity</span>
+                            <div class="c-featured-links_visual is-center">
+                                <span class="c-featured-links_visual-inner">
+                                    <img src="images/ring3.webp" alt="">
+                                </span>
+                            </div>
+                            <span data-hover-shuffle-child>Ring</span>
+                        </div>
+
+                        <span class="c-featured-links_meta" aria-hidden="true">
+                            <span class="c-featured-links_discipline">Publicité 3D</span>
+                        </span>
+                        <a href="trinityringcartier.html" class="c-featured-links_link">En voir plus à propos de Trinity
+                            Ring</a>
+                    </li>
+
+                    <li class="c-featured-links_item" data-category="3d" data-hover-shuffle="children">
+                        <h2 class="u-screen-reader-text">CGI Visual — 3D &amp; Motion Design</h2>
+                        <span class="c-featured-links_label" aria-hidden="true">08</span>
+                        <span class="c-mobile-thumb" aria-hidden="true">
+                            <img src="images/cgi_1.webp" alt="">
+                        </span>
+
+                        <div aria-hidden="true" class="c-featured-links_title">
+                            <span data-hover-shuffle-child>CGI</span>
+                            <div class="c-featured-links_visual is-center">
+                                <span class="c-featured-links_visual-inner">
+                                    <img src="images/cgi_1.webp" alt="">
+                                </span>
+                            </div>
+                            <span data-hover-shuffle-child>Visual</span>
+                        </div>
+
+                        <span class="c-featured-links_meta" aria-hidden="true">
+                            <span class="c-featured-links_discipline">3D &amp; Motion</span>
+                        </span>
+                        <a href="cgivisual.html" class="c-featured-links_link">En voir plus à propos de CGI Visual</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </main>
+
+        <!-- 3. PARCOURS & COMPÉTENCES -->
+        <section class="loco-extras" id="parcours" aria-label="Parcours, formation et outils">
+            <div class="wrap">
+                <div class="loco-extras-header">
+                    <h2 class="loco-extras-title">Parcours</h2>
+                    <span class="loco-extras-count">(08)</span>
+                </div>
+
+                <div class="loco-group">
+                    <span class="loco-group-label">Expériences</span>
+                    <ul class="loco-group-rows">
+                        <li class="loco-group-row">
+                            <span class="loco-group-main">UX Designer &amp; Architecte de l'Information</span>
+                            <span class="loco-group-sub">Immigrant Québec · Montréal (Stage)</span>
+                            <span class="loco-group-date">Avr. – Oct. 2026</span>
+                        </li>
+                        <li class="loco-group-row">
+                            <span class="loco-group-main">UI-UX Designer</span>
+                            <span class="loco-group-sub">Thales Alenia Space · Mandelieu-la-Napoule (Stage)</span>
+                            <span class="loco-group-date">Jan. – Juin 2025</span>
+                        </li>
+                        <li class="loco-group-row">
+                            <span class="loco-group-main">UI-UX Designer</span>
+                            <span class="loco-group-sub">904Fleurs (Freelance)</span>
+                            <span class="loco-group-date">Nov. 2024 – Jan. 2025</span>
+                        </li>
+                        <li class="loco-group-row">
+                            <span class="loco-group-main">Designer 3D</span>
+                            <span class="loco-group-sub">CLT</span>
+                            <span class="loco-group-date">Déc. 2023</span>
+                        </li>
+                        <li class="loco-group-row">
+                            <span class="loco-group-main">UI-UX Designer / Game Designer</span>
+                            <span class="loco-group-sub">CLT Festival</span>
+                            <span class="loco-group-date">Mai – Sept. 2023</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="loco-group">
+                    <span class="loco-group-label">Formation &amp; Certifications</span>
+                    <ul class="loco-group-rows">
+                        <li class="loco-group-row">
+                            <span class="loco-group-main">Master Design Innovation, Interaction et Service</span>
+                            <span class="loco-group-sub">Université Bordeaux Montaigne</span>
+                            <span class="loco-group-date">2023 – 2026</span>
+                        </li>
+                        <li class="loco-group-row">
+                            <span class="loco-group-main">Certification UX Design for Virtual Reality</span>
+                            <span class="loco-group-sub">IxDF Course Certificate</span>
+                            <span class="loco-group-date">2025</span>
+                        </li>
+                        <li class="loco-group-row">
+                            <span class="loco-group-main">Licence Art-Design</span>
+                            <span class="loco-group-sub">Palais Universitaire des Arts de Strasbourg</span>
+                            <span class="loco-group-date">2020 – 2023</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="loco-group">
+                    <span class="loco-group-label">Outils &amp; Méthodes</span>
+                    <div class="loco-tools-inline">
+                        <p><strong>Design :</strong> Figma, Illustrator, Photoshop, Blender, Affinity, Miro, Premiere
+                            Pro, After Effects, Outils IA, Suite Office, WordPress.</p>
+                        <p><strong>Dev / Méthode :</strong> HTML, CSS, Jira, Design Thinking, Scrum, Agile. — <a
+                                href="about.html" class="text-link">Voir le CV détaillé →</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FOOTER -->
+        <footer class="site-footer" aria-label="Contact et pied de page">
+            <div class="wrap">
+                <div class="footer-top">
+                    <div>
+                        <h2 class="footer-title">
+                            Mon parcours vous intéresse&nbsp;?<br>
+                            <span>Contactez-moi.</span>
+                        </h2>
+                        <a href="mailto:nmafreelance@gmail.com" class="footer-email"
+                            data-copy-email="nmafreelance@gmail.com">
+                            <span data-copy-label>nmafreelance@gmail.com</span>
+                        </a>
+                    </div>
+
+                    <div class="footer-socials">
+                        <a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank"
+                            rel="noopener noreferrer" class="text-link muted">LinkedIn ↗</a>
+                        <a href="https://github.com/nmaP5js" target="_blank" rel="noopener noreferrer"
+                            class="text-link muted">GitHub ↗</a>
+                        <a href="contact.html" class="text-link muted">Page Contact →</a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <span>© 2026 Nicolas Marie-Angélique · Designer UI/UX &amp; Services</span>
+                    <div class="footer-links">
+                        <a href="about.html">À Propos</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="legals.html">Mentions légales</a>
+                    </div>
                 </div>
             </div>
         </footer>
+
     </div>
 
-    <!-- GESTION DE LA PREVIEW D'IMAGE SURVOLÉE -->
-    <script>
-        (function () {
-            const previewContainer = document.getElementById('previewContainer');
-            const projectItems = document.querySelectorAll('.simple-item');
-
-            const preloadImages = () => {
-                if (!window.matchMedia('(min-width: 901px)').matches) return;
-                projectItems.forEach(item => {
-                    const src = item.getAttribute('data-preview');
-                    if (src) {
-                        const img = new Image();
-                        img.decoding = 'async';
-                        img.src = src;
-                    }
-                });
-            };
-
-            if ('requestIdleCallback' in window) {
-                window.requestIdleCallback(preloadImages, { timeout: 2500 });
-            } else {
-                window.addEventListener('load', () => setTimeout(preloadImages, 600), { once: true });
-            }
-
-            projectItems.forEach(item => {
-                item.addEventListener('mouseenter', () => {
-                    const imagePath = item.getAttribute('data-preview');
-                    if (imagePath && previewContainer) {
-                        previewContainer.style.backgroundImage = `url('${imagePath}')`;
-                        previewContainer.classList.add('active');
-                    }
-                });
-
-                item.addEventListener('mouseleave', () => {
-                    if (previewContainer) {
-                        previewContainer.classList.remove('active');
-                    }
-                });
-            });
-        })();
-    </script>
-
-    <!-- PARALLAXE DU FOOTER RÉVÉLÉ -->
-    <script>
-        (function () {
-            const container = document.getElementById('footerRevealContainer');
-            const inner = document.querySelector('.footer-curtain-inner');
-            if (!container || !inner) return;
-
-            function updateFooterParallax() {
-                const rect = container.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-
-                if (rect.top < windowHeight && rect.bottom > 0) {
-                    const visibleHeight = windowHeight - rect.top;
-                    const progress = Math.min(1, Math.max(0, visibleHeight / rect.height));
-                    const translateY = (1 - progress) * 35;
-                    inner.style.transform = `translateY(${translateY}px)`;
-                    inner.style.opacity = `${0.75 + progress * 0.25}`;
-                } else if (rect.top >= windowHeight) {
-                    inner.style.transform = 'translateY(35px)';
-                    inner.style.opacity = '0.75';
-                }
-            }
-
-            window.addEventListener('scroll', updateFooterParallax, { passive: true });
-            window.addEventListener('resize', updateFooterParallax, { passive: true });
-            window.addEventListener('load', updateFooterParallax);
-            updateFooterParallax();
-        })();
-    </script>
-
-    <!-- SYSTÈME DE STICKERS CENTRALISÉ -->
-    <script>window._stickersManualInit = true;</script>
-    <script src="js/stickers.js" defer></script>
-    <script>
-        (function () {
-            let initialized = false;
-            function startAccueilStickers() {
-                if (initialized || !window.initStickers) return;
-                initialized = true;
-                window.initStickers({
-                    finalOpacity: 1,
-                    clickExcludes: '.top-nav, .simple-item, .garage-reveal-footer'
-                });
-            }
-            setTimeout(startAccueilStickers, 100);
-            window.addEventListener('load', startAccueilStickers);
-        })();
-    </script>
-    <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
-    <script src="js/lenis-init.js"></script>
-    <script src="js/nav.js" defer></script>
+    <!-- Mêmes outils que Locomotive : GSAP + Lenis -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+    <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
+    <script src="js/lenis-init.js?v=20261121-prod" defer></script>
+    <script src="js/nav.js?v=20261121-prod" defer></script>
+    <script src="js/cursor.js?v=20261121-prod" defer></script>
+    <script src="js/landing.js?v=20261121-prod" defer></script>
 </body>
 
 </html>

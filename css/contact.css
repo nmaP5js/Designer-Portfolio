@@ -24,8 +24,7 @@
 html.js-entrance .contact-kicker,
 html.js-entrance .contact-lead,
 html.js-entrance .contact-email-box,
-html.js-entrance .contact-links,
-html.js-entrance .contact-portrait-card {
+html.js-entrance .contact-links {
     opacity: 0;
 }
 
@@ -33,13 +32,10 @@ html.js-entrance .contact-title .reveal-line-inner {
     transform: translateY(112%);
 }
 
-/* --- HERO ÉDITORIAL + PORTRAIT --- */
+/* --- HERO ÉDITORIAL DIRECT --- */
 .contact-hero {
     padding: clamp(44px, 7vw, 80px) 0;
-    display: grid;
-    grid-template-columns: minmax(0, 1.38fr) minmax(260px, 0.62fr);
-    gap: clamp(32px, 5vw, 72px);
-    align-items: center;
+    max-width: 780px;
 }
 
 .contact-hero-main {
@@ -191,65 +187,10 @@ html.js-entrance .contact-title .reveal-line-inner {
     font-weight: 500;
 }
 
-/* Portrait éditorial (identique à about.html) */
-.contact-portrait-card {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    justify-self: end;
-    width: 100%;
-    max-width: 340px;
-}
-
-.contact-portrait-frame {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 4.6;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    background: var(--surface-1);
-    border: 1px solid var(--border-subtle);
-}
-
-.contact-portrait-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 22%;
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.contact-portrait-frame:hover img {
-    transform: scale(1.03);
-}
-
-.contact-portrait-caption {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--highlight-color);
-    letter-spacing: 0.02em;
-    padding-inline: 2px;
-    white-space: nowrap;
-}
-
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
     .contact-main-wrap {
         align-items: flex-start;
-    }
-
-    .contact-hero {
-        grid-template-columns: 1fr;
-        align-items: start;
-    }
-
-    .contact-portrait-card {
-        justify-self: start;
-        max-width: 320px;
     }
 }
 
@@ -262,11 +203,5 @@ html.js-entrance .contact-title .reveal-line-inner {
     .contact-email-actions .contact-copy-btn {
         width: 100%;
         justify-content: center;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .contact-portrait-frame img {
-        transition: none !important;
     }
 }

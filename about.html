@@ -5,452 +5,505 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Portfolio de Nicolas Marie Angelique - Designer UI/UX et Innovation. Découvrez mon parcours, mes compétences et mon approche.">
+        content="Parcours, expériences, formation et compétences de Nicolas Marie-Angélique — Designer UI/UX et Design de services.">
+    <link rel="canonical" href="https://www.nicolasmarieangelique.fr/about.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261121-prod">
+    <title>Nicolas Marie-Angélique — À Propos</title>
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nicolasmarieangelique.fr/about.html">
-    <meta property="og:title" content="Nicolas Marie Angelique - À Propos">
-    <meta property="og:description" content="Découvrez mon portfolio : Design d'interface, Branding et Recherche UX.">
-    <meta property="og:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://nicolasmarieangelique.fr/about.html">
-    <meta property="twitter:title" content="Nicolas Marie Angelique - À Propos">
-    <meta property="twitter:description"
-        content="Découvrez mon portfolio : Design d'interface, Branding et Recherche UX.">
-    <meta property="twitter:image" content="https://nicolasmarieangelique.fr/images/apercu_img.png">
-    <link rel="canonical" href="https://nicolasmarieangelique.fr/about.html">
-
-    <link rel="icon" type="image/png" href="stickers/sticker1.png">
-    <link rel="shortcut icon" type="image/png" href="stickers/sticker1.png">
-    <title>Nicolas Marie Angelique - À Propos</title>
+    <script>
+        (function () {
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.documentElement.classList.add('js-entrance');
+                setTimeout(function () {
+                    document.documentElement.classList.remove('js-entrance');
+                }, 1400);
+            }
+        })();
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
-
-    <!-- Design System CSS Centralisé -->
-    <link rel="stylesheet" href="css/main.css">
-
-    <style>
-        :root {
-            --grid-gap: 40px;
-        }
-
-        /* --- LAYOUT PRINCIPAL --- */
-        .main-content {
-            width: 100%;
-            padding: 120px 40px 80px 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--grid-gap);
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-
-        .grid-column {
-            position: relative;
-            z-index: var(--content-z);
-        }
-
-        /* --- TYPOGRAPHIE & BLOCS --- */
-        .info-block {
-            margin-bottom: 60px;
-        }
-
-        .section-label {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            display: block;
-            color: var(--text-color);
-        }
-
-        /* Titre sémantique de la page (visuellement identique au texte d'intro) */
-        .page-intro-title {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
-
-        .body-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
-
-        /* --- LISTES --- */
-        .grid-list {
-            list-style: none;
-        }
-
-        .grid-list-item {
-            margin-bottom: 35px;
-        }
-
-        .item-header {
-            font-weight: 500;
-            font-size: 1.1rem;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .item-sub {
-            font-size: 0.95rem;
-            color: var(--highlight-color);
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .item-desc {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-color);
-            opacity: 0.9;
-        }
-
-        .item-role {
-            font-weight: 600;
-            font-size: 1.05rem;
-            color: var(--text-color);
-            line-height: 1.35;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .item-meta {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 6px;
-            font-size: 0.92rem;
-            color: var(--highlight-color);
-            margin-bottom: 3px;
-            line-height: 1.4;
-        }
-
-        .item-company {
-            color: var(--text-color);
-            font-weight: 500;
-        }
-
-        .item-dot {
-            color: var(--highlight-color);
-            font-size: 0.75rem;
-            opacity: 0.7;
-        }
-
-        .item-location {
-            color: var(--highlight-color);
-        }
-
-        .item-badge {
-            font-size: 0.88rem;
-            font-weight: 400;
-            color: var(--highlight-color);
-            background: none;
-            border: none;
-            padding: 0;
-        }
-
-        .item-date {
-            font-size: 0.88rem;
-            color: var(--highlight-color);
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .item-bullets {
-            list-style: none;
-            padding: 0;
-            margin-top: 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-bullets li {
-            position: relative;
-            padding-left: 16px;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-color);
-            opacity: 0.9;
-        }
-
-        .item-bullets li::before {
-            content: "•";
-            position: absolute;
-            left: 2px;
-            color: var(--highlight-color);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .item-bullets strong {
-            font-weight: 600;
-            color: var(--text-color);
-        }
-
-        /* --- BOUTON CTA STYLE SHADCN/UI --- */
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background-color: #212121;
-            color: #ffffff;
-            font-size: 0.875rem;
-            font-weight: 500;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 0;
-            text-decoration: none;
-            box-shadow: none;
-            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-top: 24px;
-            text-transform: none;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            background-color: var(--blue-color);
-            color: #ffffff;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .cta-button:active {
-            transform: scale(0.98);
-        }
-
-        .cta-button .cta-icon {
-            font-size: 16px !important;
-            opacity: 0.6;
-            transition: transform 0.15s ease, opacity 0.15s ease;
-        }
-
-        .cta-button:hover .cta-icon {
-            opacity: 1;
-            transform: translateX(4px);
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 1024px) {
-            .about-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-
-            .main-content {
-                padding: 100px 20px;
-            }
-        }
-    </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css?v=20261121-prod">
+    <link rel="stylesheet" href="css/landing.css?v=20261121-prod">
+    <link rel="stylesheet" href="css/about.css?v=20261121-prod">
 </head>
 
 <body>
-
-    <div class="stickers-container" id="stickersContainer" aria-hidden="true"></div>
-    <div class="content-backdrop" aria-hidden="true"></div>
-
     <nav class="top-nav" aria-label="Navigation principale"></nav>
 
-    <main class="main-content">
-        <div class="about-grid">
+    <div class="about-page">
+        <div class="wrap">
+            <!-- 1. HERO ÉDITORIAL + PORTRAIT -->
+            <header class="about-hero">
+                <div class="about-hero-main">
+                    <div class="about-kicker">
+                        <span class="hero-dot" aria-hidden="true"></span>
+                        <span data-entrance-decode>À Propos · Nicolas Marie-Angélique ©2026</span>
+                    </div>
 
-            <section class="grid-column">
-                <article class="info-block">
-                    <span class="section-label">Nicolas Marie-Angélique ©2026</span>
-                    <!-- H1 sémantique (titre de page) — visuellement identique au corps de texte -->
-                    <h1 class="page-intro-title">
-                        Mon profil se distingue par une créativité et une adaptabilité qui me poussent à l'exploration
-                        constante.
+                    <h1 class="about-title">
+                        <span class="reveal-line"><span class="reveal-line-inner">Mon profil se distingue par une</span></span>
+                        <span class="reveal-line"><span class="reveal-line-inner">créativité et une adaptabilité qui</span></span>
+                        <span class="reveal-line"><span class="reveal-line-inner about-title-muted">me poussent à l'exploration constante.</span></span>
                     </h1>
-                    <a href="contact.html" class="cta-button">
-                        <span>Prendre contact</span>
-                        <span class="material-symbols-outlined cta-icon">arrow_forward</span>
-                    </a>
-                </article>
-            </section>
 
-            <section class="grid-column">
-                <div class="info-block">
-                    <h2 class="section-label">Expérience Professionnelle</h2>
-                    <ul class="grid-list">
-                        <li class="grid-list-item">
-                            <span class="item-role">UX Designer & Architecte de l'Information</span>
-                            <div class="item-meta">
-                                <span class="item-company">Immigrant Québec</span>
-                                <span class="item-dot">•</span>
-                                <span class="item-location">Montréal</span>
-                                <span class="item-badge">(Stage)</span>
-                            </div>
-                            <span class="item-date">Avril 2026 – Octobre 2026</span>
-                            <ul class="item-bullets">
-                                <li><strong>Audit & Architecture de l'information :</strong> analyse de l'arborescence,
-                                    classification et restructuration des contenus éditoriaux (actualités, conseils,
-                                    contenus statiques).</li>
-                                <li><strong>Optimisation UX & Taxonomies :</strong> refonte des catégories et tags pour
-                                    améliorer la lisibilité éditoriale et fluidifier les parcours utilisateurs.</li>
-                                <li><strong>Stratégie de contenu & SEO :</strong> recommandations opérationnelles
-                                    (maillage interne, enrichissement éditorial, optimisation SEO et IA) et paramétrage
-                                    sous WordPress.</li>
-                                <li><strong>Collaboration transverse :</strong> travail en synergie avec les équipes
-                                    éditoriales, communication et techniques.</li>
-                            </ul>
-                        </li>
-                        <li class="grid-list-item">
-                            <span class="item-role">UI-UX Designer</span>
-                            <div class="item-meta">
-                                <span class="item-company">Thales Alenia Space</span>
-                                <span class="item-badge">(Stage)</span>
-                            </div>
-                            <span class="item-date">Janvier 2025 – Juin 2025</span>
-                            <ul class="item-bullets">
-                                <li><strong>Rebranding & Design System :</strong> production de maquettes graphiques et
-                                    co-conception de l'expérience client via le Design System.</li>
-                                <li><strong>Recherche UX & Facilitation :</strong> participation aux entretiens,
-                                    questionnaires et création de supports pour les ateliers de brainstorming en
-                                    méthodologie agile.</li>
-                                <li><strong>Événements & Communication :</strong> création de la charte graphique et des
-                                    visuels pour les événements départementaux (<em>UX Awards</em>, <em>Tech'Days</em>).
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="grid-list-item">
-                            <span class="item-role">UI-UX Designer</span>
-                            <div class="item-meta">
-                                <span class="item-company">904Fleurs</span>
-                                <span class="item-badge">(Freelance)</span>
-                            </div>
-                            <span class="item-date">Novembre 2024 – Janvier 2025</span>
-                            <ul class="item-bullets">
-                                <li><strong>Prototypage & Tests UX/UI :</strong> conception de maquettes fonctionnelles,
-                                    prototypes interactifs et conduite de tests utilisateurs.</li>
-                            </ul>
-                        </li>
-                        <li class="grid-list-item">
-                            <span class="item-role">Designer 3D</span>
-                            <div class="item-meta">
-                                <span class="item-company">CLT</span>
-                            </div>
-                            <span class="item-date">Décembre 2023</span>
-                            <ul class="item-bullets">
-                                <li><strong>Production vidéo & 3D :</strong> conception, animation 3D et montage d'une
-                                    vidéo événementielle.</li>
-                            </ul>
-                        </li>
-                        <li class="grid-list-item">
-                            <span class="item-role">UI-UX Designer / Game Designer</span>
-                            <div class="item-meta">
-                                <span class="item-company">CLT Festival</span>
-                            </div>
-                            <span class="item-date">Mai 2023 – Septembre 2023</span>
-                            <ul class="item-bullets">
-                                <li><strong>Direction artistique & UI :</strong> création de l'identité visuelle du
-                                    site, conception des assets du jeu web et design du logo <em>"Enjoy The Ride"</em>.
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+                    <div class="about-lead-meta">
+                        <div class="about-meta-cell">
+                            <span class="about-meta-label">Discipline</span>
+                            <span class="about-meta-value">Design UI/UX &amp; Services</span>
+                            <span class="about-meta-sub">Architecture d'information &amp; Prototypage</span>
+                        </div>
+                        <div class="about-meta-cell">
+                            <span class="about-meta-label">Formation</span>
+                            <span class="about-meta-value">Master Design Innovation</span>
+                            <span class="about-meta-sub">Bordeaux Montaigne · 2023–2026</span>
+                        </div>
+                        <div class="about-meta-cell">
+                            <span class="about-meta-label">Expérience récente</span>
+                            <span class="about-meta-value">Immigrant Québec · Montréal</span>
+                            <span class="about-meta-sub">Stage UX &amp; Architecture · Avr. – Oct. 2026</span>
+                        </div>
+                    </div>
 
-            <section class="grid-column">
-                <div class="info-block">
-                    <h2 class="section-label">Éducation & Certifications</h2>
-                    <ul class="grid-list">
-                        <li class="grid-list-item">
-                            <span class="item-role">Master Design Innovation, Interaction et Service</span>
-                            <div class="item-meta">
-                                <span class="item-company">Université Bordeaux Montaigne</span>
-                            </div>
-                            <span class="item-date">2023 – 2026</span>
-                        </li>
-                        <li class="grid-list-item">
-                            <span class="item-role">Certification UX Design for Virtual Reality</span>
-                            <div class="item-meta">
-                                <span class="item-company">IxDF Course Certificate</span>
-                            </div>
-                            <span class="item-date">2025</span>
-                        </li>
-                        <li class="grid-list-item">
-                            <span class="item-role">Licence Art-Design</span>
-                            <div class="item-meta">
-                                <span class="item-company">Palais Universitaire des Arts de Strasbourg</span>
-                            </div>
-                            <span class="item-date">2020 – 2023</span>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="grid-column">
-                <div class="info-block">
-                    <h2 class="section-label">Compétences</h2>
-                    <ul class="grid-list">
-                        <li class="grid-list-item">
-                            <span class="item-header">Design</span>
-                            <p class="item-desc"> Maquettes haute fidélité, prototypes, parcours utilisateurs,
-                                storytelling, architecture de l'information (arborescence), design d'interaction, design
-                                visuel, audit éditorial.</p>
-                        </li>
-                        <li class="grid-list-item">
-                            <span class="item-header">Recherche</span>
-                            <p class="item-desc"> Veille technologique, tests d'utilisabilité, cartographie du parcours
-                                utilisateur, évaluation heuristique, analyse et classification de données.</p>
-                        </li>
-                        <li class="grid-list-item">
-                            <span class="item-header">Stratégie de contenu </span>
-                            <p class="item-desc"> Optimisation SEO (IA & sémantique), gestion des taxonomies
-                                (catégories/ tags), maillage interne, recommandation stratégique et opérationnelle.</p>
-                        </li>
-                    </ul>
+                    <div class="about-actions">
+                        <a href="contact.html" class="cta-button">
+                            <span>Prendre contact</span>
+                            <span class="material-symbols-outlined cta-icon" aria-hidden="true">arrow_forward</span>
+                        </a>
+                        <a href="index.html#projects" class="text-link">Voir les projets →</a>
+                        <a href="https://linkedin.com/in/nicolasmarieangelique" target="_blank"
+                            rel="noopener noreferrer" class="text-link muted">LinkedIn ↗</a>
+                        <a href="https://github.com/nmaP5js" target="_blank"
+                            rel="noopener noreferrer" class="text-link muted">GitHub ↗</a>
+                    </div>
                 </div>
 
-                <div class="info-block">
-                    <h2 class="section-label">Outils de design</h2>
-                    <p class="body-text" style="font-size: 0.95rem;">
-                        <strong>Design :</strong> Figma, Illustrator, Photoshop, Blender, Affinity, Miro, Premiere Pro,
-                        After-Effect, Outils IA, Suite Office, Wordpress.
-                    </p>
-                    <p class="body-text" style="font-size: 0.95rem;">
-                        <strong>Dev/Méthode :</strong> HTML, CSS, Jira, Design Thinking, Scrum, Agile.
-                    </p>
-                </div>
-            </section>
-
-            <a href="legals.html"
-                style="font-size: 0.8rem; color: var(--highlight-color); text-decoration: none; margin-top: 40px; display: block;">Mentions
-                Légales</a>
-
+                <aside class="about-portrait-card" aria-label="Portrait de Nicolas Marie-Angélique">
+                    <div class="about-portrait-frame">
+                        <picture>
+                            <source srcset="images/contact.webp" type="image/webp">
+                            <img src="images/contact.jpg"
+                                alt="Portrait de Nicolas Marie-Angélique — Designer UI/UX et Design de services"
+                                width="800" height="800" loading="eager" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="about-portrait-caption">
+                        <span>Nicolas Marie-Angélique</span>
+                        <span>UI/UX · Services</span>
+                    </div>
+                </aside>
+            </header>
         </div>
-    </main>
 
-    <!-- Stickers semi-transparents (z-index 0) sur page de contenu -->
-    <script>window._stickersManualInit = true;</script>
-    <script src="js/stickers.js" defer></script>
-    <script>
-        window.addEventListener('load', function () {
-            window.initStickers({ finalOpacity: 0.4, clickExcludes: 'a, button, .top-nav' });
-        });
-    </script>
-    <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
-    <script src="js/lenis-init.js"></script>
-    <script src="js/nav.js" defer></script>
+        <!-- 2. BARRE DE CHAPITRAGE STICKY -->
+        <nav class="about-chapter-bar" aria-label="Sections de la page À Propos">
+            <div class="wrap">
+                <div class="about-chapter-inner">
+                    <div class="about-chapter-links">
+                        <a href="#experiences" class="about-chapter-link is-active"><span>01</span> Expériences</a>
+                        <a href="#competences" class="about-chapter-link"><span>02</span> Compétences</a>
+                        <a href="#formation" class="about-chapter-link"><span>03</span> Formation</a>
+                        <a href="#outils" class="about-chapter-link"><span>04</span> Outils</a>
+                    </div>
+                    <span class="about-chapter-status">CV &amp; Parcours · 2020–2026</span>
+                </div>
+            </div>
+        </nav>
+
+        <main class="wrap">
+            <!-- 4. EXPÉRIENCES PROFESSIONNELLES -->
+            <section id="experiences" class="about-band" aria-label="Expérience Professionnelle">
+                <div class="about-band-head">
+                    <div class="about-band-title-wrap">
+                        <span class="about-band-index">01</span>
+                        <h2 class="about-band-title">Expériences</h2>
+                        <span class="about-band-count" id="expCount">(05)</span>
+                    </div>
+                    <div class="about-filters" role="group" aria-label="Filtrer par type d'expérience">
+                        <button type="button" class="about-filter-btn is-active" data-exp-filter="all"
+                            aria-pressed="true">Toutes</button>
+                        <button type="button" class="about-filter-btn" data-exp-filter="stage"
+                            aria-pressed="false">Stages</button>
+                        <button type="button" class="about-filter-btn" data-exp-filter="mission"
+                            aria-pressed="false">Freelance &amp; Projets</button>
+                    </div>
+                </div>
+
+                <ol class="exp-timeline">
+                    <!-- 1. Immigrant Québec -->
+                    <li class="exp-entry is-current reveal-on-scroll" data-exp-type="stage">
+                        <div class="exp-rail">
+                            <div class="exp-date-row">
+                                <span class="exp-node" aria-hidden="true"></span>
+                                <span class="exp-period">Avr. 2026 – Oct. 2026</span>
+                            </div>
+                            <div class="exp-meta-tags">
+                                <span class="exp-badge is-primary">Stage</span>
+                                <span class="exp-badge">Montréal</span>
+                            </div>
+                        </div>
+
+                        <div class="exp-content">
+                            <div class="exp-header">
+                                <div>
+                                    <h3 class="exp-role">UX Designer &amp; Architecte de l'Information</h3>
+                                    <p class="exp-org"><strong>Immigrant Québec</strong> · Montréal</p>
+                                </div>
+                                <a href="immigrantquebec.html" class="exp-case-link">
+                                    <span>Étude de cas</span>
+                                    <span aria-hidden="true">↗</span>
+                                </a>
+                            </div>
+
+                            <div class="exp-pillars">
+                                <article class="exp-pillar">
+                                    <h4 class="exp-pillar-title">Audit &amp; Architecture de l'information</h4>
+                                    <p class="exp-pillar-text">Analyse de l'arborescence, classification et restructuration des contenus éditoriaux (actualités, conseils, contenus statiques).</p>
+                                </article>
+                                <article class="exp-pillar">
+                                    <h4 class="exp-pillar-title">Optimisation UX &amp; Taxonomies</h4>
+                                    <p class="exp-pillar-text">Refonte des catégories et tags pour améliorer la lisibilité éditoriale et fluidifier les parcours utilisateurs.</p>
+                                </article>
+                                <article class="exp-pillar">
+                                    <h4 class="exp-pillar-title">Stratégie de contenu &amp; SEO</h4>
+                                    <p class="exp-pillar-text">Recommandations opérationnelles (maillage interne, enrichissement éditorial, optimisation SEO et IA) et paramétrage sous WordPress.</p>
+                                </article>
+                                <article class="exp-pillar">
+                                    <h4 class="exp-pillar-title">Collaboration transverse</h4>
+                                    <p class="exp-pillar-text">Travail en synergie avec les équipes éditoriales, communication et techniques.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- 2. Thales Alenia Space -->
+                    <li class="exp-entry reveal-on-scroll" data-exp-type="stage">
+                        <div class="exp-rail">
+                            <div class="exp-date-row">
+                                <span class="exp-node" aria-hidden="true"></span>
+                                <span class="exp-period">Jan. 2025 – Juin 2025</span>
+                            </div>
+                            <div class="exp-meta-tags">
+                                <span class="exp-badge">Stage</span>
+                                <span class="exp-badge">Mandelieu-la-Napoule</span>
+                            </div>
+                        </div>
+
+                        <div class="exp-content">
+                            <div class="exp-header">
+                                <div>
+                                    <h3 class="exp-role">UI-UX Designer</h3>
+                                    <p class="exp-org"><strong>Thales Alenia Space</strong> · Mandelieu-la-Napoule</p>
+                                </div>
+                                <a href="thalesaleniaspace.html" class="exp-case-link">
+                                    <span>Étude de cas</span>
+                                    <span aria-hidden="true">↗</span>
+                                </a>
+                            </div>
+
+                            <div class="exp-pillars">
+                                <article class="exp-pillar">
+                                    <h4 class="exp-pillar-title">Rebranding &amp; Design System</h4>
+                                    <p class="exp-pillar-text">Production de maquettes graphiques et co-conception de l'expérience client via le Design System.</p>
+                                </article>
+                                <article class="exp-pillar">
+                                    <h4 class="exp-pillar-title">Recherche UX &amp; Facilitation</h4>
+                                    <p class="exp-pillar-text">Participation aux entretiens, questionnaires et création de supports pour les ateliers de brainstorming en méthodologie agile.</p>
+                                </article>
+                                <article class="exp-pillar" style="grid-column: 1 / -1;">
+                                    <h4 class="exp-pillar-title">Événements &amp; Communication</h4>
+                                    <p class="exp-pillar-text">Création de la charte graphique et des visuels pour les événements départementaux (<em>UX Awards</em>, <em>Tech'Days</em>).</p>
+                                </article>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- 3. 904Fleurs -->
+                    <li class="exp-entry reveal-on-scroll" data-exp-type="mission">
+                        <div class="exp-rail">
+                            <div class="exp-date-row">
+                                <span class="exp-node" aria-hidden="true"></span>
+                                <span class="exp-period">Nov. 2024 – Jan. 2025</span>
+                            </div>
+                            <div class="exp-meta-tags">
+                                <span class="exp-badge">Freelance</span>
+                            </div>
+                        </div>
+
+                        <div class="exp-content">
+                            <div class="exp-header">
+                                <div>
+                                    <h3 class="exp-role">UI-UX Designer</h3>
+                                    <p class="exp-org"><strong>904Fleurs</strong> · Freelance</p>
+                                </div>
+                            </div>
+
+                            <div class="exp-pillars is-single">
+                                <article class="exp-pillar">
+                                    <h4 class="exp-pillar-title">Prototypage &amp; Tests UX/UI</h4>
+                                    <p class="exp-pillar-text">Conception de maquettes fonctionnelles, prototypes interactifs et conduite de tests utilisateurs.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- 4. CLT 3D -->
+                    <li class="exp-entry reveal-on-scroll" data-exp-type="mission">
+                        <div class="exp-rail">
+                            <div class="exp-date-row">
+                                <span class="exp-node" aria-hidden="true"></span>
+                                <span class="exp-period">Déc. 2023</span>
+                            </div>
+                            <div class="exp-meta-tags">
+                                <span class="exp-badge">3D &amp; Vidéo</span>
+                            </div>
+                        </div>
+
+                        <div class="exp-content">
+                            <div class="exp-header">
+                                <div>
+                                    <h3 class="exp-role">Designer 3D</h3>
+                                    <p class="exp-org"><strong>CLT</strong></p>
+                                </div>
+                            </div>
+
+                            <div class="exp-pillars is-single">
+                                <article class="exp-pillar">
+                                    <h4 class="exp-pillar-title">Production vidéo &amp; 3D</h4>
+                                    <p class="exp-pillar-text">Conception, animation 3D et montage d'une vidéo événementielle.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- 5. CLT Festival -->
+                    <li class="exp-entry reveal-on-scroll" data-exp-type="mission">
+                        <div class="exp-rail">
+                            <div class="exp-date-row">
+                                <span class="exp-node" aria-hidden="true"></span>
+                                <span class="exp-period">Mai 2023 – Sept. 2023</span>
+                            </div>
+                            <div class="exp-meta-tags">
+                                <span class="exp-badge">Festival</span>
+                                <span class="exp-badge">Game &amp; UI</span>
+                            </div>
+                        </div>
+
+                        <div class="exp-content">
+                            <div class="exp-header">
+                                <div>
+                                    <h3 class="exp-role">UI-UX Designer / Game Designer</h3>
+                                    <p class="exp-org"><strong>CLT Festival</strong></p>
+                                </div>
+                                <a href="enjoytheride.html" class="exp-case-link">
+                                    <span>Voir Enjoy The Ride</span>
+                                    <span aria-hidden="true">↗</span>
+                                </a>
+                            </div>
+
+                            <div class="exp-pillars is-single">
+                                <article class="exp-pillar">
+                                    <h4 class="exp-pillar-title">Direction artistique &amp; UI</h4>
+                                    <p class="exp-pillar-text">Création de l'identité visuelle du site, conception des assets du jeu web et design du logo <em>« Enjoy The Ride »</em>.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <!-- 5. COMPÉTENCES — 3 PILIERS ÉDITORIAUX -->
+            <section id="competences" class="about-band reveal-on-scroll" aria-label="Compétences">
+                <div class="about-band-head">
+                    <div class="about-band-title-wrap">
+                        <span class="about-band-index">02</span>
+                        <h2 class="about-band-title">Compétences</h2>
+                        <span class="about-band-count">(03)</span>
+                    </div>
+                </div>
+
+                <div class="skills-grid">
+                    <article class="skill-card">
+                        <div class="skill-card-head">
+                            <span class="skill-card-index">01 / CONCEPTION</span>
+                            <h3 class="skill-card-title">Design</h3>
+                            <p class="skill-card-desc">De l'architecture d'information aux interfaces haute fidélité, avec une attention portée à la clarté des parcours et au storytelling.</p>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Maquettes haute fidélité</span>
+                            <span class="skill-tag">Prototypes</span>
+                            <span class="skill-tag">Parcours utilisateurs</span>
+                            <span class="skill-tag">Storytelling</span>
+                            <span class="skill-tag">Architecture de l'information</span>
+                            <span class="skill-tag">Design d'interaction</span>
+                            <span class="skill-tag">Design visuel</span>
+                            <span class="skill-tag">Audit éditorial</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-card-head">
+                            <span class="skill-card-index">02 / TERRAIN &amp; ANALYSE</span>
+                            <h3 class="skill-card-title">Recherche</h3>
+                            <p class="skill-card-desc">Compréhension fine des usages par le test, l'évaluation heuristique et la structuration de données pour fonder chaque décision design.</p>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Veille technologique</span>
+                            <span class="skill-tag">Tests d'utilisabilité</span>
+                            <span class="skill-tag">Cartographie du parcours</span>
+                            <span class="skill-tag">Évaluation heuristique</span>
+                            <span class="skill-tag">Analyse &amp; classification</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-card-head">
+                            <span class="skill-card-index">03 / ÉDITORIAL &amp; SEO</span>
+                            <h3 class="skill-card-title">Stratégie de contenu</h3>
+                            <p class="skill-card-desc">Structuration des taxonomies, maillage interne et recommandations opérationnelles orientées visibilité SEO, sémantique et IA.</p>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Optimisation SEO (IA &amp; sémantique)</span>
+                            <span class="skill-tag">Taxonomies (catégories / tags)</span>
+                            <span class="skill-tag">Maillage interne</span>
+                            <span class="skill-tag">Recommandation stratégique</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 6. ÉDUCATION & CERTIFICATIONS -->
+            <section id="formation" class="about-band reveal-on-scroll" aria-label="Éducation et Certifications">
+                <div class="about-band-head">
+                    <div class="about-band-title-wrap">
+                        <span class="about-band-index">03</span>
+                        <h2 class="about-band-title">Éducation &amp; Certifications</h2>
+                        <span class="about-band-count">(03)</span>
+                    </div>
+                </div>
+
+                <ul class="edu-list">
+                    <li class="edu-row">
+                        <span class="edu-type">Master</span>
+                        <span class="edu-degree">Master Design Innovation, Interaction et Service</span>
+                        <span class="edu-school">Université Bordeaux Montaigne</span>
+                        <span class="edu-date">2023 – 2026</span>
+                    </li>
+                    <li class="edu-row">
+                        <span class="edu-type is-cert">Certification</span>
+                        <span class="edu-degree">Certification UX Design for Virtual Reality</span>
+                        <span class="edu-school">IxDF Course Certificate</span>
+                        <span class="edu-date">2025</span>
+                    </li>
+                    <li class="edu-row">
+                        <span class="edu-type">Licence</span>
+                        <span class="edu-degree">Licence Art-Design</span>
+                        <span class="edu-school">Palais Universitaire des Arts de Strasbourg</span>
+                        <span class="edu-date">2020 – 2023</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 7. OUTILS & MÉTHODOLOGIES -->
+            <section id="outils" class="about-band reveal-on-scroll" aria-label="Outils et Méthodologies">
+                <div class="about-band-head">
+                    <div class="about-band-title-wrap">
+                        <span class="about-band-index">04</span>
+                        <h2 class="about-band-title">Outils &amp; Méthodologies</h2>
+                        <span class="about-band-count">(17)</span>
+                    </div>
+                </div>
+
+                <div class="toolbox-grid">
+                    <div class="toolbox-panel">
+                        <div class="toolbox-head">
+                            <h3 class="toolbox-title">Design, 3D &amp; Production</h3>
+                            <span class="toolbox-count">(11)</span>
+                        </div>
+                        <div class="toolbox-chips">
+                            <span class="toolbox-chip">Figma</span>
+                            <span class="toolbox-chip">Illustrator</span>
+                            <span class="toolbox-chip">Photoshop</span>
+                            <span class="toolbox-chip">Blender</span>
+                            <span class="toolbox-chip">Affinity</span>
+                            <span class="toolbox-chip">Miro</span>
+                            <span class="toolbox-chip">Premiere Pro</span>
+                            <span class="toolbox-chip">After Effects</span>
+                            <span class="toolbox-chip">Outils IA</span>
+                            <span class="toolbox-chip">Suite Office</span>
+                            <span class="toolbox-chip">WordPress</span>
+                        </div>
+                    </div>
+
+                    <div class="toolbox-panel">
+                        <div class="toolbox-head">
+                            <h3 class="toolbox-title">Dev &amp; Méthodes</h3>
+                            <span class="toolbox-count">(06)</span>
+                        </div>
+                        <div class="toolbox-chips">
+                            <span class="toolbox-chip">HTML</span>
+                            <span class="toolbox-chip">CSS</span>
+                            <span class="toolbox-chip">Jira</span>
+                            <span class="toolbox-chip">Design Thinking</span>
+                            <span class="toolbox-chip">Scrum</span>
+                            <span class="toolbox-chip">Agile</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. BANDEAU CTA FINAL -->
+            <section class="about-cta-band reveal-on-scroll" aria-label="Contact et suite">
+                <div>
+                    <span class="section-kicker">Discutons d'un projet ou d'une opportunité</span>
+                    <h2 class="about-cta-heading">
+                        Envie d'échanger autour d'un produit<span> ou d'une équipe design&nbsp;?</span>
+                    </h2>
+                </div>
+
+                <div class="about-cta-right">
+                    <a href="mailto:nmafreelance@gmail.com" class="footer-email"
+                        data-copy-email="nmafreelance@gmail.com">
+                        <span data-copy-label>nmafreelance@gmail.com</span>
+                    </a>
+                    <div class="about-cta-buttons">
+                        <a href="contact.html" class="cta-button">
+                            <span>Page contact</span>
+                            <span class="material-symbols-outlined cta-icon" aria-hidden="true">arrow_forward</span>
+                        </a>
+                        <a href="index.html#projects" class="pill-action">Explorer les 8 projets →</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer" aria-label="Pied de page">
+            <div class="wrap">
+                <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                    <span>© 2026 Nicolas Marie-Angélique · Designer UI/UX &amp; Services</span>
+                    <div class="footer-links">
+                        <a href="index.html">Accueil</a>
+                        <a href="index.html#projects">Projets</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="legals.html">Mentions légales</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+    <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
+    <script src="js/lenis-init.js?v=20261121-prod" defer></script>
+    <script src="js/nav.js?v=20261121-prod" defer></script>
+    <script src="js/cursor.js?v=20261121-prod" defer></script>
+    <script src="js/about.js?v=20261121-prod" defer></script>
 </body>
 
 </html>

@@ -426,14 +426,15 @@ html.js-entrance .about-title .reveal-line-inner {
 .exp-case-link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     text-decoration: none;
     font-family: var(--font-mono);
     font-size: 0.72rem;
+    line-height: 1;
     color: var(--text-color);
     background: var(--surface-1);
     border: 1px solid var(--border-subtle);
-    padding: 7px 13px;
+    padding: 6px 11px;
     border-radius: var(--radius-pill);
     white-space: nowrap;
     transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;

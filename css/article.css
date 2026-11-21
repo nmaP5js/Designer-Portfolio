@@ -1,0 +1,636 @@
+/* ==========================================================================
+   FORMAT ARTICLE / ÉTUDE DE CAS V2 — ÉDITORIAL MODERNE & LISIBILITÉ MAXIMALE
+   Cohérent avec index.html, about.html et contact.html (Inter + IBM Plex Mono,
+   fond #ffffff, encre #111113, accent unique #0052ff).
+   ========================================================================== */
+
+/* --- 1. SHELL & HERO PLEINE LARGEUR --- */
+.article-page .main-content {
+    padding: clamp(28px, 4vw, 48px) 0 clamp(64px, 8vw, 96px) 0;
+    align-items: stretch;
+}
+
+.article-shell {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding-inline: var(--gutter);
+}
+
+.article-page .project-bottom-section {
+    max-width: 1160px;
+    margin-inline: auto;
+}
+
+.article-hero {
+    padding-bottom: clamp(28px, 4vw, 40px);
+}
+
+.article-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--highlight-color);
+    margin-bottom: 18px;
+}
+
+.article-eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--blue-color);
+    flex-shrink: 0;
+}
+
+.article-eyebrow-cat {
+    color: var(--blue-color);
+    font-weight: 500;
+}
+
+.article-eyebrow-sep {
+    opacity: 0.45;
+}
+
+.article-hero-title {
+    font-family: var(--font-sans);
+    font-size: clamp(2.2rem, 4.5vw, 3.75rem);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -0.04em;
+    color: var(--text-color);
+    max-width: 19ch;
+}
+
+.article-hero-deck {
+    margin-top: 18px;
+    font-family: var(--font-sans);
+    font-size: clamp(1.06rem, 1.5vw, 1.24rem);
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    max-width: 60ch;
+}
+
+/* --- 3. BANDEAU DE MÉTADONNÉES HORIZONTAL (REMPLACE LA GROSSE CARTE GRISE) --- */
+.article-meta-strip {
+    margin-top: clamp(28px, 4vw, 40px);
+    padding: 20px 0;
+    border-top: 1px solid rgba(17, 17, 19, 0.16);
+    border-bottom: 1px solid var(--border-subtle);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 18px 28px;
+}
+
+.article-meta-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.article-meta-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--highlight-color);
+}
+
+.article-meta-value {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-color);
+    line-height: 1.4;
+}
+
+.article-meta-value a {
+    color: var(--text-color);
+    text-decoration: underline;
+    text-decoration-color: var(--border-strong);
+    text-underline-offset: 3px;
+    transition: color 0.16s ease, text-decoration-color 0.16s ease;
+}
+
+.article-meta-value a:hover {
+    color: var(--blue-color);
+    text-decoration-color: var(--blue-color);
+}
+
+.article-meta-tags {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.article-meta-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    background: var(--surface-1);
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    line-height: 1.2;
+}
+
+/* --- 4. GRILLE DE LECTURE ASYMÉTRIQUE (TOC SANS CADRE À GAUCHE + ARTICLE) --- */
+.article-layout {
+    margin-top: clamp(32px, 4.5vw, 52px);
+    display: grid;
+    grid-template-columns: 230px minmax(0, 760px);
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+}
+
+/* Rail TOC épuré (zéro boîte grise lourde, zéro scrollbar interne) */
+.article-toc-rail {
+    position: sticky;
+    top: calc(var(--nav-height) + 32px);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.article-toc-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.article-toc-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.article-toc-title {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--highlight-color);
+}
+
+.article-toc-pct {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--blue-color);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+}
+
+.article-toc-bar {
+    width: 100%;
+    height: 1px;
+    background: var(--border-subtle);
+    overflow: hidden;
+}
+
+.article-toc-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--blue-color);
+    transition: width 0.14s ease-out;
+}
+
+.article-toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-left: 1px solid var(--border-subtle);
+}
+
+.article-toc-link {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 6px 0 6px 14px;
+    margin-left: -1px;
+    border-left: 2px solid transparent;
+    text-decoration: none;
+    font-size: 0.81rem;
+    line-height: 1.38;
+    color: var(--highlight-color);
+    transition: color 0.16s ease, border-color 0.16s ease;
+}
+
+.article-toc-item-sub .article-toc-link {
+    padding-left: 24px;
+    font-size: 0.77rem;
+}
+
+.article-toc-num {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    color: var(--highlight-color);
+    opacity: 0.65;
+    flex-shrink: 0;
+}
+
+.article-toc-link:hover {
+    color: var(--text-color);
+}
+
+.article-toc-link.active {
+    color: var(--text-color);
+    font-weight: 500;
+    border-left-color: var(--blue-color);
+}
+
+.article-toc-link.active .article-toc-num {
+    color: var(--blue-color);
+    opacity: 1;
+}
+
+/* Sommaire pliable sur mobile / tablette */
+.mobile-toc {
+    display: none;
+    margin-bottom: 28px;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background: var(--surface-1);
+    overflow: hidden;
+}
+
+.mobile-toc summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 16px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.mobile-toc summary::-webkit-details-marker {
+    display: none;
+}
+
+.mobile-toc-chevron {
+    font-size: 0.85rem;
+    color: var(--highlight-color);
+    transition: transform 0.2s ease;
+}
+
+.mobile-toc[open] .mobile-toc-chevron {
+    transform: rotate(180deg);
+}
+
+.mobile-toc-list {
+    list-style: none;
+    padding: 4px 16px 14px 16px;
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mobile-toc-list a {
+    display: block;
+    text-decoration: none;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    padding: 4px 0;
+}
+
+.mobile-toc-list .toc-sub a {
+    padding-left: 14px;
+    font-size: 0.8rem;
+    color: var(--highlight-color);
+}
+
+/* --- 5. CORPS ÉDITORIAL & RYTHME TYPOGRAPHIQUE --- */
+.article-page .article-body {
+    max-width: none;
+    width: 100%;
+    font-size: 1.03rem;
+    line-height: 1.8;
+    color: #3a3a42;
+    counter-reset: chapter fig;
+}
+
+.article-page .article-body section {
+    scroll-margin-top: calc(var(--nav-height) + 28px);
+}
+
+.article-page .article-body p {
+    max-width: 66ch;
+    margin-bottom: 20px;
+}
+
+.article-page .article-body p:last-child {
+    margin-bottom: 0;
+}
+
+.article-page .article-body strong {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.article-page .article-body em {
+    color: var(--text-color);
+}
+
+/* Chapitres numérotés automatiquement (01, 02, 03...) */
+.article-page .section-heading {
+    counter-increment: chapter;
+    position: relative;
+    font-size: clamp(1.45rem, 2.3vw, 1.85rem);
+    font-weight: 500;
+    letter-spacing: -0.032em;
+    line-height: 1.18;
+    color: var(--text-color);
+    margin-top: 52px;
+    margin-bottom: 20px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(17, 17, 19, 0.14);
+}
+
+.article-page .article-body > section:first-of-type .section-heading:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+.article-page .section-heading::before {
+    content: counter(chapter, decimal-leading-zero);
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--blue-color);
+    margin-bottom: 8px;
+}
+
+/* Les anciens <hr> deviennent inutiles grâce à la bordure haute de chapitre */
+.article-page .article-divider {
+    display: none;
+}
+
+.article-page .subsection-heading {
+    font-size: clamp(1.14rem, 1.6vw, 1.32rem);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    color: var(--text-color);
+    margin-top: 38px;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    scroll-margin-top: calc(var(--nav-height) + 28px);
+}
+
+.article-page .minor-heading {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--highlight-color);
+    margin-top: 28px;
+    margin-bottom: 10px;
+}
+
+/* Listes éditoriales structurées (remplacent les puces basiques) */
+.article-page .article-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 20px 0 28px 0;
+    max-width: 66ch;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.article-page .article-list li {
+    position: relative;
+    padding: 14px 0 14px 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.96rem;
+    line-height: 1.68;
+}
+
+.article-page .article-list li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 24px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--blue-color);
+}
+
+/* Listes numérotées en cartes d'étapes (ex. pipeline 01 -> 02 -> 03) */
+.article-page .article-ordered-list {
+    list-style: none;
+    counter-reset: step;
+    padding-left: 0;
+    margin: 22px 0 30px 0;
+    max-width: 66ch;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.article-page .article-ordered-list li {
+    counter-increment: step;
+    position: relative;
+    padding: 16px 20px 16px 56px;
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.article-page .article-ordered-list li::before {
+    content: counter(step, decimal-leading-zero);
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: var(--blue-color);
+}
+
+/* Citations / Pull-quotes éditoriales */
+.article-page .sober-quote {
+    margin: 34px 0;
+    padding: 22px 26px;
+    max-width: 66ch;
+    border-left: 2px solid var(--blue-color);
+    background: linear-gradient(90deg, rgba(0, 82, 255, 0.04) 0%, rgba(246, 246, 248, 0.65) 100%);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-size: 1.12rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.55;
+    color: var(--text-color);
+}
+
+.article-page .sober-quote p {
+    margin: 0;
+    max-width: none;
+}
+
+/* Figures auto-numérotées (FIG. 01, FIG. 02...) */
+.article-page .article-figure {
+    counter-increment: fig;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.article-page .figure-wrapper {
+    width: 100%;
+    background: var(--surface-1);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    overflow: hidden;
+    transition: border-color 0.22s ease, transform 0.28s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.article-page .figure-wrapper:hover {
+    border-color: var(--border-strong);
+}
+
+.article-page .figure-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.article-page .figure-wrapper:hover img {
+    transform: scale(1.015);
+}
+
+.article-page .figure-caption {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--highlight-color);
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.article-page .figure-caption::before {
+    content: "FIG. " counter(fig, decimal-leading-zero);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--text-color);
+    flex-shrink: 0;
+}
+
+.article-page .figures-grid-2col {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin: 28px 0;
+}
+
+.article-page .figures-grid-2col .article-figure {
+    margin: 0;
+}
+
+/* --- 6. COMPARATEUR AVANT / APRÈS RAFFINÉ --- */
+.article-page .ba-slider-wrapper {
+    margin: 30px 0 36px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.article-page .ba-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.article-page .ba-slider {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 12px 32px -18px rgba(17, 17, 19, 0.16);
+}
+
+.article-page .ba-caption {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--highlight-color);
+    padding: 0;
+}
+
+/* --- 7. RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .article-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .article-toc-rail {
+        display: none;
+    }
+
+    .mobile-toc {
+        display: block;
+    }
+}
+
+@media (max-width: 720px) {
+    .article-eyebrow-sep {
+        display: none;
+    }
+
+    .article-reading-time {
+        flex-basis: 100%;
+        padding-left: 16px;
+    }
+
+    .article-meta-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px 20px;
+    }
+
+    .article-page .figures-grid-2col {
+        grid-template-columns: 1fr;
+    }
+
+    .article-page .article-ordered-list li {
+        padding: 14px 16px 14px 46px;
+    }
+
+    .article-page .article-ordered-list li::before {
+        left: 14px;
+        top: 16px;
+    }
+
+    .article-page .sober-quote {
+        padding: 18px 20px;
+        font-size: 1.03rem;
+    }
+}
